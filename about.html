@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>關於 Decoy | DECOY 高端場域身體管理科技</title>
+<meta name="description" content="Decoy 不是改造，是幫妳雕回原本最美的線條。台大專利技術、國家金屬中心研發，非侵入式身體護理，無針無痛無恢復期。">
+<meta name="keywords" content="Decoy,非侵入式,身體管理,台大專利,無痛,體態護理,高端場域">
+<link rel="canonical" href="https://decoy-beauty.com/about.html">
+<meta property="og:title" content="關於 Decoy | DECOY">
+<meta property="og:description" content="幫妳雕回原本最美的線條。科技不是讓妳成為別人的樣子，而是幫妳找回妳本來就有的狀態。">
+<meta property="og:url" content="https://decoy-beauty.com/about.html">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://decoy-beauty.com/hero-banner.png">
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-F54YFMZSD8"></script>
+<script>
+  window.dataLayer=window.dataLayer||[];
+  function gtag(){dataLayer.push(arguments);}
+  gtag("js",new Date());
+  gtag("config","G-F54YFMZSD8");
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400;1,600&family=Noto+Serif+TC:wght@300;400;500&family=IBM+Plex+Mono:wght@300;400&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --rose:      #A86878;
+  --rose-mid:  #C4959F;
+  --rose-lt:   #D4AAAF;
+  --rose-pale: #EDD8DC;
+  --rose-bg:   #FAF5F6;
+  --rose-wash: #F5ECEE;
+  --ink:       #2A2220;
+  --ink-mid:   #574F4A;
+  --ink-lt:    #9A8F8A;
+  --white:     #FFFFFF;
+  --cream:     #FDFAF8;
+  --warm:      #F9F5F2;
+  --line:      rgba(168,104,120,0.12);
+  --serif:     "Cormorant Garamond",serif;
+  --cjk:       "Noto Serif TC",serif;
+  --mono:      "IBM Plex Mono",monospace;
+}
+html{scroll-behavior:smooth}
+body{
+  background:var(--cream);color:var(--ink);
+  font-family:var(--cjk);font-weight:300;
+  line-height:1.8;-webkit-font-smoothing:antialiased;
+}
+
+/* ── LANG HIDDEN ── */
+[data-en]{display:none}
+body.en [data-zh]{display:none}
+body.en [data-en]{display:block}
+body.en span[data-en]{display:inline}
+body.en span[data-zh]{display:none}
+
+/* ── NAV ── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  display:flex;justify-content:space-between;align-items:center;
+  padding:22px 64px;
+  background:rgba(253,250,248,0.94);
+  backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--line);
+}
+.nav-logo img{height:30px;width:auto;display:block;opacity:0.9;transition:opacity 0.3s}
+.nav-logo:hover img{opacity:1}
+.nav-links{display:flex;gap:36px;list-style:none}
+.nav-links a{
+  font-family:var(--mono);font-size:10px;letter-spacing:0.2em;
+  text-transform:uppercase;color:var(--ink-lt);
+  text-decoration:none;transition:color 0.3s;
+}
+.nav-links a:hover,.nav-links a.active{color:var(--rose)}
+.nav-right{display:flex;align-items:center;gap:20px}
+.lang-toggle{
+  font-family:var(--mono);font-size:9px;letter-spacing:0.15em;
+  color:var(--ink-lt);background:none;border:1px solid var(--line);
+  padding:6px 12px;cursor:pointer;transition:all 0.3s;
+}
+.lang-toggle:hover{color:var(--rose);border-color:var(--rose-pale)}
+.nav-reserve{
+  font-family:var(--mono);font-size:10px;letter-spacing:0.18em;
+  text-transform:uppercase;color:var(--rose);
+  border:1px solid var(--rose-pale);
+  padding:9px 22px;text-decoration:none;transition:all 0.3s;
+}
+.nav-reserve:hover{background:var(--rose);color:#fff;border-color:var(--rose)}
+
+/* ── PAGE HERO ── */
+.page-hero{
+  min-height:100vh;display:flex;align-items:center;
+  padding:120px 0 80px;position:relative;overflow:hidden;
+}
+.page-hero::before{
+  content:"";position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 70% 80% at 5% 50%, rgba(237,216,220,0.4) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 60% at 95% 20%, rgba(196,168,130,0.08) 0%, transparent 50%);
+  pointer-events:none;
+}
+.hero-icon-deco{
+  position:absolute;right:-80px;top:50%;
+  transform:translateY(-50%);
+  width:360px;height:auto;opacity:0.05;
+  pointer-events:none;
+  filter:brightness(0) saturate(100%) invert(35%) sepia(20%) saturate(400%) hue-rotate(300deg);
+}
+.page-hero .container{
+  position:relative;z-index:2;
+  max-width:1120px;margin:0 auto;padding:0 64px;
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:72px;align-items:center;
+}
+.hero-eyebrow{
+  font-family:var(--mono);font-size:10px;letter-spacing:0.3em;
+  text-transform:uppercase;color:var(--rose);
+  margin-bottom:20px;display:flex;align-items:center;gap:14px;
+}
+.hero-eyebrow::before{content:"";width:24px;height:1px;background:var(--rose-mid);opacity:0.6}
+
+/* 標題：強制不斷行，字體用 clamp 自適應 */
+.hero-title{
+  font-family:var(--serif);
+  font-size:clamp(28px,3.8vw,52px);
+  font-weight:300;font-style:italic;
+  color:var(--ink);line-height:1.15;margin-bottom:28px;
+}
+.hero-title em{color:var(--rose);font-style:italic;white-space:nowrap}
+.hero-title .line1{display:block;white-space:nowrap}
+.hero-title .line2{display:block;white-space:nowrap}
+
+.hero-sub{font-size:14px;color:var(--ink-mid);line-height:1.95}
+.hero-sub p{margin-bottom:14px}
+.hero-sub p:last-child{margin-bottom:0}
+.origin-card{
+  background:var(--white);border-top:1.5px solid var(--rose-pale);
+  padding:28px 32px;margin-top:32px;
+}
+.origin-card p{font-size:13px;color:var(--ink-mid);line-height:2;margin-bottom:14px}
+.origin-card p:last-child{margin-bottom:0}
+.origin-card p em{color:var(--rose);font-style:normal;font-weight:400}
+.cards-col{display:flex;flex-direction:column;gap:18px}
+.audience-card{
+  padding:28px 32px;border-top:1.5px solid var(--rose-pale);background:var(--white);
+}
+.ac-tag{
+  font-family:var(--mono);font-size:9px;letter-spacing:0.25em;
+  text-transform:uppercase;color:var(--rose-mid);margin-bottom:12px;
+  display:flex;align-items:center;gap:10px;
+}
+.ac-tag::before{content:"";width:14px;height:1px;background:var(--rose-pale)}
+.ac-text{
+  font-family:var(--serif);font-size:16px;font-style:italic;
+  color:var(--rose);line-height:1.65;
+}
+.ac-note{margin-top:10px;font-size:11px;color:var(--ink-lt);font-family:var(--mono);letter-spacing:0.1em}
+
+/* ── SECTIONS ── */
+section{padding:96px 0}
+.container{max-width:1120px;margin:0 auto;padding:0 64px}
+.sec-label{
+  font-family:var(--mono);font-size:10px;letter-spacing:0.28em;
+  text-transform:uppercase;color:var(--rose);
+  margin-bottom:12px;display:flex;align-items:center;gap:14px;
+}
+.sec-label::after{content:"";width:28px;height:1px;background:var(--rose-pale)}
+.sec-title{
+  font-family:var(--serif);font-size:clamp(28px,3.5vw,44px);
+  font-weight:300;font-style:italic;
+  color:var(--ink);line-height:1.2;margin-bottom:52px;
+}
+
+/* ── DNA ── */
+.s-dna{background:var(--white)}
+.dna-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line)}
+.dna-card{background:var(--cream);padding:36px 24px;transition:background 0.3s}
+.dna-card:hover{background:var(--rose-bg)}
+.dna-glyph{
+  font-family:var(--serif);font-size:38px;font-style:italic;
+  color:var(--rose-pale);line-height:1;margin-bottom:16px;display:block;
+}
+.dna-title{font-size:14px;font-weight:500;color:var(--ink);margin-bottom:8px;letter-spacing:0.04em}
+.dna-desc{font-size:12.5px;color:var(--ink-lt);line-height:1.88}
+
+/* ── PHILOSOPHY ── */
+.s-philosophy{background:var(--warm);position:relative;overflow:hidden}
+.s-philosophy::before{
+  content:"";position:absolute;right:-60px;bottom:-60px;
+  width:400px;height:400px;
+  background:radial-gradient(circle, rgba(237,216,220,0.3) 0%, transparent 70%);
+  pointer-events:none;
+}
+.s-philosophy .container{position:relative;z-index:1}
+.phil-grid{display:grid;grid-template-columns:1fr 1fr;gap:88px;align-items:center}
+.phil-quote{
+  font-family:var(--serif);font-size:clamp(24px,3vw,38px);
+  font-weight:300;font-style:italic;
+  color:var(--rose);line-height:1.45;margin-bottom:28px;
+}
+.phil-source{
+  font-size:11px;color:var(--ink-lt);letter-spacing:0.1em;
+  font-family:var(--mono);margin-top:18px;display:block;
+}
+.phil-text p{font-size:14px;color:var(--ink-mid);line-height:1.95;margin-bottom:18px}
+.phil-text p em{color:var(--rose);font-style:normal;font-weight:400}
+.phil-belief{
+  margin-top:28px;padding:20px 24px;
+  border-left:1.5px solid var(--rose-pale);background:var(--white);
+}
+.phil-belief p{
+  font-family:var(--serif);font-size:16px;font-style:italic;
+  color:var(--rose);line-height:1.65;margin:0;
+}
+
+/* ── PILLARS ── */
+.s-pillars{background:var(--white)}
+.pillar-row{
+  display:grid;grid-template-columns:64px 190px 1fr;
+  gap:32px;align-items:start;
+  padding:32px 0;border-bottom:1px solid var(--line);
+}
+.pillar-row:first-child{padding-top:0}
+.pillar-row:last-child{border-bottom:none}
+.pr-num{
+  font-family:var(--serif);font-size:44px;font-weight:300;
+  font-style:italic;color:var(--rose-pale);line-height:1;
+}
+.pr-title{font-size:16px;font-weight:500;color:var(--ink);margin-bottom:5px;letter-spacing:0.03em;padding-top:4px}
+.pr-sub{font-family:var(--mono);font-size:8px;letter-spacing:0.18em;color:var(--rose-mid);text-transform:uppercase}
+.pr-desc{font-size:13.5px;color:var(--ink-mid);line-height:1.9;padding-top:4px}
+
+/* ── SERVICE RANGE ── */
+.s-range{background:var(--rose-bg)}
+.range-intro{max-width:580px;margin-bottom:48px}
+.range-intro p{font-size:14px;color:var(--ink-mid);line-height:1.9}
+.range-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--rose-pale)}
+.range-card{background:var(--white);padding:28px 26px;transition:background 0.3s}
+.range-card:hover{background:var(--rose-wash)}
+.rc-num{font-family:var(--mono);font-size:8px;letter-spacing:0.2em;color:var(--rose-mid);margin-bottom:12px;display:block}
+.rc-area{font-size:15px;font-weight:500;color:var(--ink);margin-bottom:7px;letter-spacing:0.04em}
+.rc-icon{
+  width:48px;height:48px;margin-bottom:14px;
+  color:var(--rose-lt);
+}
+.rc-icon svg{width:100%;height:100%}
+.range-card-wide{grid-column:span 1}
+.rc-desc{font-size:12.5px;color:var(--ink-lt);line-height:1.85}
+
+/* ── CTA ── */
+.s-cta{
+  padding:96px 0;background:var(--warm);
+  text-align:center;border-top:1px solid var(--rose-pale);
+}
+.cta-title{
+  font-family:var(--serif);font-size:clamp(28px,3.8vw,48px);
+  font-weight:300;font-style:italic;
+  color:var(--rose);margin-bottom:14px;line-height:1.2;
+}
+.cta-sub{font-size:14px;color:var(--ink-lt);margin-bottom:40px;letter-spacing:0.05em;line-height:1.85}
+.cta-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.btn-rose{
+  font-family:var(--mono);font-size:10px;letter-spacing:0.18em;
+  text-transform:uppercase;color:#fff;
+  background:var(--rose);
+  padding:14px 38px;text-decoration:none;display:inline-block;transition:all 0.3s;
+  border:1px solid transparent;
+}
+.btn-rose:hover{background:var(--rose-mid);transform:translateY(-2px)}
+.btn-outline{
+  font-family:var(--mono);font-size:10px;letter-spacing:0.18em;
+  text-transform:uppercase;color:var(--rose);
+  border:1px solid var(--rose-pale);padding:14px 38px;
+  text-decoration:none;display:inline-block;transition:all 0.3s;
+}
+.btn-outline:hover{border-color:var(--rose);background:var(--rose-wash)}
+
+/* ── FOOTER ── */
+footer{background:var(--warm);padding:36px 0 22px;border-top:1px solid var(--line)}
+.footer-inner{
+  max-width:1120px;margin:0 auto;padding:0 64px;
+  display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;
+}
+.footer-brand{font-family:var(--mono);font-size:10px;letter-spacing:0.2em;color:var(--rose)}
+.footer-note{font-size:11px;color:var(--ink-lt)}
+.footer-note a{color:var(--ink-lt);text-decoration:none}
+.footer-note a:hover{color:var(--rose)}
+
+/* ── REVEAL ── */
+.reveal{opacity:0;transform:translateY(16px);transition:opacity 0.7s ease,transform 0.7s ease}
+.reveal.in{opacity:1;transform:none}
+
+/* ── RWD ── */
+@media(max-width:960px){
+  nav{padding:16px 28px}
+  .nav-links{display:none}
+  .page-hero .container{grid-template-columns:1fr;gap:36px;padding:0 28px}
+  .container{padding:0 28px}
+  .dna-grid{grid-template-columns:1fr 1fr}
+  .phil-grid{grid-template-columns:1fr;gap:40px}
+  .pillar-row{grid-template-columns:52px 1fr;gap:18px}
+  .pr-desc{grid-column:2/3}
+  .range-grid{grid-template-columns:1fr 1fr}
+  .range-card-wide{grid-column:span 1}
+  .hero-icon-deco{width:220px;right:-20px;opacity:0.04}
+  .hero-title{font-size:clamp(26px,5vw,44px)}
+}
+@media(max-width:600px){
+  nav{padding:13px 18px}
+  .nav-reserve{font-size:9px;padding:7px 12px}
+  .nav-logo img{height:26px}
+  .page-hero{padding:88px 0 56px}
+  .page-hero .container,.container{padding:0 20px}
+  .dna-grid,.range-grid{grid-template-columns:1fr 1fr}
+  .pillar-row{grid-template-columns:1fr;gap:8px}
+  .pr-num{font-size:34px}
+  .pr-desc{grid-column:auto}
+  .hero-icon-deco{display:none}
+  .hero-title{font-size:clamp(22px,7vw,36px)}
+  .hero-title .line1,.hero-title .line2{white-space:normal}
+  section{padding:68px 0}
+  .footer-inner{padding:0 20px}
+}
+@media(prefers-reduced-motion:reduce){
+  .reveal{transition:none}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">
+    <img src="data:image/png;base64,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" alt="DECOY">
+  </a>
+  <ul class="nav-links">
+    <li><a href="about.html" class="active">
+      <span data-zh>關於品牌</span><span data-en style="display:none">About</span>
+    </a></li>
+    <li><a href="technology.html">
+      <span data-zh>技術原理</span><span data-en style="display:none">Technology</span>
+    </a></li>
+    <li><a href="partner.html">
+      <span data-zh>加盟合作</span><span data-en style="display:none">Partnership</span>
+    </a></li>
+    <li><a href="founder.html">
+      <span data-zh>創辦人</span><span data-en style="display:none">Founder</span>
+    </a></li>
+  </ul>
+  <div class="nav-right">
+    <button class="lang-toggle" id="langBtn">EN</button>
+    <a href="reserve.html" class="nav-reserve">
+      <span data-zh>預約體驗</span><span data-en style="display:none">Reserve</span>
+    </a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="page-hero">
+  <img class="hero-icon-deco" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAa0AAAFrCAYAAABi59aeAAABWGlDQ1BJQ0MgUHJvZmlsZQAAeJx9kLFLw1AQxr9WpaB1EB0cHDKJQ5SSCro4tBVEcQhVweqUvqapkMZHkiIFN/+Bgv+BCs5uFoc6OjgIopPo5uSk4KLleS+JpCJ6j+N+fO+74zggOW5wbvcDqDu+W1zKK5ulLSX1jAS9IAzm8Zyur0r+rj/j/T703k7LWb///43Biukxqp+UGcZdH0ioxPqezyXvE4+5tBRxS7IV8onkcsjngWe9WCC+JlZYzagQvxCr5R7d6uG63WDRDnL7tOlsrMk5lBNYxA48cNgw0IQCHdk//LOBv4BdcjfhUp+FGnzqyZEiJ5jEy3DAMAOVWEOGUpN3ju53F91PjbWDJ2ChI4S4iLWVDnA2Rydrx9rUPDAyBFy1ueEagdRHmaxWgddTYLgEjN5Qz7ZXzWrh9uk8MPAoxNskkDoEui0hPo6E6B5T8wNw6XwBA6diE8HYWhMAADmlSURBVHic7d172FTVfS/w70+i0dQcjalNzMVqY2NOe5L4JGlOk2hAEMSIIipCVBS8IUai8Ra8R7xGI9FoNCIGvKEIiqBEREARmrRJTczJ5aknybG1TY/W1sYntniw+D1/rD28wziXvWevtdfee76f5+EB3plZ6zd75t1r73X5LUBEREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREYiM5qoA6QDJ0NR3rFpGtWewARPJoPrGbWfPPhpnZ5h6vHW9my0iOAbAdgN0B7ApgEwACuDp56gYA+/qOvYMVAF4F8IaZTe32RJJjzGxVIVGJlIQaLamspHHaFq6Ber3lsZEA9gIwDMBmuMZoZwA7Angt+fvUAsPN43sAfgXgBQC/MbNlkeMRiUaNlkTT0v21rZm90fTY9m0aonEYuhMCgNEAtodrgHYEMDxowOVzHoB/hWuEXzGzNZHjEQlOjZZEQXI8XEOzPVwjtCuAXZK/34C7Q6rKnVAZrAPwPICf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l3gMrZOg41hpsWUTRZL7wSXn3Qlu648vFxzSPXD7b70A4EUzW9WIU3tZiS/6Jkk0JEeZ2Zqmk+/hAB6MGFJaFwC4uionYpIj4Bqx9wPYFW5X4F0BfKHLyzYAeB3AK3D7Yb0C4Nnk750AvGpm84MFLSJSFSTnxBlySWVm7OMjMsi2iR2ASBsrAFwZO4gOfhE7ABERKSn2lzU+lI4zF0WkGLrTktKiG8A/DUBZuuSeiR2AiIiUCMlxJA/t8NjZEe+yVrbEclAxR0RERCqB5OQ2PxtH8lKSTxTcaM2LcQxEZGtvix2ASBevtf7AzB4F8Cjd3dirKG4fqg0F1SMiXVRjoYlIG3QTIkYAeDJ0XWZm1CJZkeg0EUMqy8xgZk/BZdM4Hm6qfBAkp6jBEolP3YNSeY3tLEg+D+AlACcEqOYtXZUiUjw1WlILSdfdegDrk5l+HwRwvccq3uGxLBHpkxotqYXmrjszWwwAJH8L4BQAIz1UsZOHMkRERLojeQbJdTmnvC+O/T5ERGSAkLwhZ8NV5y3vRSpBswdlYJjZmQAuz1HEx0iO8RSOiPRBjZYMDLrJGpeYGwA7oI8i9gGwvd+oREREUiJ5YsYuwseS18UOXUREBhHJ00jen6HhmqVGS0REoiI5M0PDNYbkTmq8RESkcCS3dPmRvC1Fo/UQyU+RHBY5dBERGXQkD0/RcC0hOTZ2rCIiIgAAkgt6NFwre5ciIiISWFN34SU9Gq77I4cqIiKyNZJ3d2m4zosdn8gg0OJikZTMbAqAYwD8uM3D2wMAydGFBiUiItINyakkF5PcmNxlLY0dk8ig0FasIn0ieQaAPwLwN2a2nC5NVOywRERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERE4vn/XnVGHK+4QoIAAAAASUVORK5CYII=" alt="">
+  <div class="container">
+    <div class="hero-left reveal">
+      <div class="hero-eyebrow">
+        <span data-zh>About Decoy</span>
+        <span data-en style="display:none">Our Story</span>
+      </div>
+      <h1 class="hero-title">
+        <span class="line1" data-zh>幫妳雕回</span>
+        <span class="line1" data-en style="display:none">Rediscover</span>
+        <em class="line2" data-zh>原本最美的線條。</em>
+        <em class="line2" data-en style="display:none">Your most beautiful self.</em>
+      </h1>
+      <div class="hero-sub">
+        <p data-zh>每個人的身體都有它本來的樣子——那個線條，那個弧度，那個妳在某個早晨照鏡子時，突然認出的自己。</p>
+        <p data-en style="display:none">Every body has its own original form — those lines, those curves, that version of yourself you catch in the mirror one morning and suddenly recognise.</p>
+        <p data-zh style="margin-top:14px">科技不是讓妳成為別人的樣子，而是幫妳找回妳本來就有、卻還沒完全活出來的狀態。</p>
+        <p data-en style="display:none;margin-top:14px">Technology isn't here to make you someone else. It's here to help you return to who you already are.</p>
+      </div>
+      <div class="origin-card">
+        <p data-zh>我們知道有多少女孩，因為對身形的不滿意，而悄悄失去了一些自信。不是因為她們不夠美，而是沒有人告訴她們：妳本來就有屬於自己的獨特美麗。</p>
+        <p data-en style="display:none">We know how many women quietly lose confidence because of how they feel about their bodies — not because they aren't beautiful, but because no one told them: you already have a beauty that is entirely your own.</p>
+        <p data-zh>Decoy 創立的初衷，是想讓每一個人都能用<em>安全、溫柔、有效</em>的方式，重新認識自己的身體——不是靠破壞，不是靠痛苦，而是靠科技，靠尊重，靠相信妳本來就值得。</p>
+        <p data-en style="display:none">Decoy was founded with one purpose: to help everyone reconnect with their body through <em>safe, gentle, effective</em> means — not through harm, not through pain, but through technology, respect, and the belief that you deserve this.</p>
+      </div>
+    </div>
+    <div class="cards-col reveal">
+      <div class="audience-card">
+        <div class="ac-tag">
+          <span data-zh>給妳的</span><span data-en style="display:none">For You</span>
+        </div>
+        <div class="ac-text" data-zh>"不是為了成為別人眼中的樣子，而是讓妳的身體回到它本來知道的狀態。三項專利技術，一個關於身體主權的選擇。"</div>
+        <div class="ac-text" data-en style="display:none">"Not to become who others want you to be — but to return your body to the state it has always known. Three patents. One choice about body autonomy."</div>
+        <div class="ac-note" data-zh>溫柔 · 精準 · 尊重自主</div>
+        <div class="ac-note" data-en style="display:none">Gentle · Precise · Empowering</div>
+      </div>
+      <div class="audience-card">
+        <div class="ac-tag">
+          <span data-zh>給場域的</span><span data-en style="display:none">For Venues</span>
+        </div>
+        <div class="ac-text" data-zh>"為高端場域設計的身體管理科技，用專利級透皮傳導系統，讓身體管理回到它本來的精準與溫度。"</div>
+        <div class="ac-text" data-en style="display:none">"Body management technology designed for premium venues — delivering patent-grade transdermal precision with genuine warmth."</div>
+        <div class="ac-note" data-zh>高端 · 精準 · 科技底氣 · 差異化服務</div>
+        <div class="ac-note" data-en style="display:none">Premium · Precise · Science-Backed · Differentiated</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DNA -->
+<section class="s-dna">
+  <div class="container">
+    <div class="reveal">
+      <div class="sec-label">Brand DNA</div>
+      <div class="sec-title">
+        <span data-zh>高端 × 精準 × 科技 × 有力量</span>
+        <span data-en style="display:none">Premium · Precise · Scientific · Empowering</span>
+      </div>
+    </div>
+    <div class="dna-grid reveal">
+      <div class="dna-card">
+        <span class="dna-glyph" data-zh>高</span>
+        <span class="dna-glyph" data-en style="display:none">01</span>
+        <div class="dna-title"><span data-zh>高端場域</span><span data-en style="display:none">Premium Spaces</span></div>
+        <div class="dna-desc" data-zh>Decoy 存在於高端場域，因為妳值得在最好的環境裡被對待。保養的質感，決定了妳對自己的感受。</div>
+        <div class="dna-desc" data-en style="display:none">Decoy exists in premium spaces because you deserve to be cared for in the finest environment. The quality of your care shapes how you feel about yourself.</div>
+      </div>
+      <div class="dna-card">
+        <span class="dna-glyph" data-zh>精</span>
+        <span class="dna-glyph" data-en style="display:none">02</span>
+        <div class="dna-title"><span data-zh>精準科學</span><span data-en style="display:none">Precision Science</span></div>
+        <div class="dna-desc" data-zh>每一個機制都有學術根據。台大團隊共同研發精華配方，超過千位臨床個案。每堂課搭配脂肪超音波，不是憑感覺，是數據。</div>
+        <div class="dna-desc" data-en style="display:none">Every mechanism is evidence-based. Co-developed by NTU and the Metal Industries Research & Development Centre, with over 1,000 clinical cases. Each session is tracked with ultrasound — not intuition, but data.</div>
+      </div>
+      <div class="dna-card">
+        <span class="dna-glyph" data-zh>科</span>
+        <span class="dna-glyph" data-en style="display:none">03</span>
+        <div class="dna-title"><span data-zh>科技底氣</span><span data-en style="display:none">Scientific Backbone</span></div>
+        <div class="dna-desc" data-zh>不是一般儀器，是國家研發單位認證的科技傳導系統。三層穿透、CPP 細胞遞送、cAMP 代謝訊號——科技是底層語言，不是行銷話術。</div>
+        <div class="dna-desc" data-en style="display:none">Not a standard device — a technology delivery system certified by national research institutions. Three-layer penetration, CPP cellular delivery, cAMP metabolic signalling — science as foundation, not marketing.</div>
+      </div>
+      <div class="dna-card">
+        <span class="dna-glyph" data-zh>力</span>
+        <span class="dna-glyph" data-en style="display:none">04</span>
+        <div class="dna-title"><span data-zh>有力量感</span><span data-en style="display:none">Empowering</span></div>
+        <div class="dna-desc" data-zh>我們不販賣焦慮，不定義什麼叫「完美」。每個人都有屬於自己獨特的美麗——我們只是提供最精準的工具，讓妳更靠近那個妳。</div>
+        <div class="dna-desc" data-en style="display:none">We don't sell anxiety or define "perfection." Every person has a beauty entirely their own — we simply provide the most precise tools to help you move closer to yourself.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PHILOSOPHY -->
+<section class="s-philosophy">
+  <div class="container">
+    <div class="phil-grid reveal">
+      <div>
+        <div class="phil-quote">
+          <span data-zh>"美不只是數字改變，<br>而是重新喜歡<br>自己的感受。"</span>
+          <span data-en style="display:none">"Beauty is not just a number changing —<br>it is falling in love<br>with yourself again."</span>
+          <span class="phil-source" data-zh>— Decoy 品牌核心主張</span>
+          <span class="phil-source" data-en style="display:none">— Decoy Brand Philosophy</span>
+        </div>
+      </div>
+      <div>
+        <div class="phil-text">
+          <p data-zh>Decoy 不是醫美品牌，不是塑身工具。Decoy 是一個讓人<em>有意識地認識自己身體</em>的場域——科技是底層支撐，溫度是場域質感，兩者不衝突。</p>
+          <p data-en style="display:none">Decoy is not a medical aesthetics brand, not a body-shaping tool. Decoy is a space for <em>conscious reconnection with your body</em> — technology as the foundation, warmth as the texture, the two never in conflict.</p>
+          <p data-zh>我們的客戶不是在「追求完美」，她們是在找回一種清醒——那種知道自己身體在哪裡、想往哪裡去的清醒。知道如何讓自己更優雅，讓那道<em>從底層發出的光亮</em>，透過好看的線條，勾勒出心底的弧度。</p>
+          <p data-en style="display:none">Our clients aren't "chasing perfection" — they're reclaiming a kind of clarity. Knowing where their body is, and where they want it to go. Knowing how to move through the world more gracefully, letting that <em>light from within</em> trace the lines and curves they've always carried inside.</p>
+          <p data-zh>這就是為什麼我們說：<em>Decode Yourself.</em></p>
+          <p data-en style="display:none">This is why we say: <em>Decode Yourself.</em></p>
+        </div>
+        <div class="phil-belief">
+          <p data-zh>"妳的身體一直記得它最美的線條。Decoy 只是幫妳把那個記憶，重新喚醒。"</p>
+          <p data-en style="display:none">"Your body has always remembered its most beautiful form. Decoy simply helps you wake that memory back up."</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PILLARS -->
+<section class="s-pillars">
+  <div class="container">
+    <div class="reveal" style="margin-bottom:52px">
+      <div class="sec-label">What We Stand For</div>
+      <div class="sec-title">
+        <span data-zh>我們做的事，與我們不做的事。</span>
+        <span data-en style="display:none">What we do — and what we don't.</span>
+      </div>
+    </div>
+    <div class="reveal">
+      <div class="pillar-row">
+        <div class="pr-num">01</div>
+        <div>
+          <div class="pr-title"><span data-zh>非侵入式護理</span><span data-en style="display:none">Non-Invasive</span></div>
+          <div class="pr-sub">Non-Invasive Care</div>
+        </div>
+        <div class="pr-desc" data-zh>無針、無創、無恢復期。細胞完整存活，進入代謝模式而非被破壞——這是對身體最基本的尊重，也是我們選擇這條路的原因。</div>
+        <div class="pr-desc" data-en style="display:none">No needles. No wounds. No recovery time. Cells remain intact and enter a metabolic state rather than being destroyed — the most fundamental form of respect for your body.</div>
+      </div>
+      <div class="pillar-row">
+        <div class="pr-num">02</div>
+        <div>
+          <div class="pr-title"><span data-zh>台大團隊 × 國家金屬中心博士</span><span data-en style="display:none">NTU Team × MIRDC</span></div>
+          <div class="pr-sub">Research-Backed</div>
+        </div>
+        <div class="pr-desc" data-zh>台大團隊共同研發精華配方，國家金屬中心博士共同研發傳導器，三項專利成為最強後盾。不是一般儀器，是國家研發單位認證的科技傳導系統。</div>
+        <div class="pr-desc" data-en style="display:none">Co-developed with NTU's Preventive Medicine Research Team and the Metal Industries Research & Development Centre, backed by three patents. Not a standard device — a certified technology delivery system.</div>
+      </div>
+      <div class="pillar-row">
+        <div class="pr-num">03</div>
+        <div>
+          <div class="pr-title"><span data-zh>高端場域專屬</span><span data-en style="display:none">Premium Exclusive</span></div>
+          <div class="pr-sub">Premium Exclusive</div>
+        </div>
+        <div class="pr-desc" data-zh>Decoy 存在於高端場域，因為保養體驗的質感，本身就是妳給自己的禮物。我們希望每一次保養，都讓妳感受到自己值得被好好對待。</div>
+        <div class="pr-desc" data-en style="display:none">Decoy belongs in premium spaces because the quality of your care is itself a gift you give yourself. We want every session to remind you that you deserve to be treated well.</div>
+      </div>
+      <div class="pillar-row">
+        <div class="pr-num">04</div>
+        <div>
+          <div class="pr-title"><span data-zh>身體主權第一</span><span data-en style="display:none">Body Autonomy First</span></div>
+          <div class="pr-sub">Body Autonomy</div>
+        </div>
+        <div class="pr-desc" data-zh>我們不定義完美，不販賣焦慮，不告訴妳應該變成什麼樣子。每個人都有屬於自己獨特的美麗——我們只是提供最精準的工具，讓妳更靠近那個妳。</div>
+        <div class="pr-desc" data-en style="display:none">We don't define perfection, sell anxiety, or tell you what to become. Every person carries a beauty that is entirely their own — we simply provide the most precise tools to help you move closer to yourself.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICE RANGE -->
+<section class="s-range">
+  <div class="container">
+    <div class="reveal">
+      <div class="sec-label">Service Areas</div>
+      <div class="sec-title">
+        <span data-zh>我們可以陪妳關注的地方</span>
+        <span data-en style="display:none">Areas We Focus On</span>
+      </div>
+    </div>
+    <div class="range-intro reveal">
+      <p data-zh>Decoy 可針對以下部位進行專屬保養課程，每堂課搭配脂肪超音波數據記錄，讓每一次的變化都有依據可循。</p>
+      <p data-en style="display:none">Decoy offers targeted care programmes for the following areas. Each session is paired with ultrasound data tracking, so every change is measured and documented.</p>
+    </div>
+    <div class="range-grid reveal">
+
+      <div class="range-card">
+        <div class="rc-icon">
+          <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <ellipse cx="24" cy="26" rx="10" ry="13" stroke="currentColor" stroke-width="1"/>
+            <path d="M14 26 Q10 24 10 20" stroke="currentColor" stroke-width="0.8" stroke-dasharray="2,2"/>
+            <path d="M34 26 Q38 24 38 20" stroke="currentColor" stroke-width="0.8" stroke-dasharray="2,2"/>
+            <circle cx="24" cy="10" r="1.5" fill="currentColor" opacity="0.4"/>
+          </svg>
+        </div>
+        <span class="rc-num">01</span>
+        <div class="rc-area"><span data-zh>腹部</span><span data-en style="display:none">Abdomen</span></div>
+        <div class="rc-desc" data-zh>腰線與小腹，最常被忽視、也最能改變整體輪廓的部位。</div>
+        <div class="rc-desc" data-en style="display:none">The waist and lower abdomen — often overlooked, yet transformative for overall silhouette.</div>
+      </div>
+
+      <div class="range-card">
+        <div class="rc-icon">
+          <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M16 14 Q10 20 10 28 Q10 36 16 40" stroke="currentColor" stroke-width="1"/>
+            <path d="M32 14 Q38 20 38 28 Q38 36 32 40" stroke="currentColor" stroke-width="1"/>
+            <path d="M16 26 Q24 22 32 26" stroke="currentColor" stroke-width="0.8" stroke-dasharray="2,2"/>
+            <path d="M16 30 Q24 34 32 30" stroke="currentColor" stroke-width="0.8" stroke-dasharray="2,2"/>
+          </svg>
+        </div>
+        <span class="rc-num">02</span>
+        <div class="rc-area"><span data-zh>腰側</span><span data-en style="display:none">Flanks</span></div>
+        <div class="rc-desc" data-zh>腰側的線條，決定了側面看起來的比例與流暢感。</div>
+        <div class="rc-desc" data-en style="display:none">The side waist defines your profile's proportion and flow.</div>
+      </div>
+
+      <div class="range-card">
+        <div class="rc-icon">
+          <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M20 12 L16 28 L20 36" stroke="currentColor" stroke-width="1"/>
+            <path d="M28 12 L32 28 L28 36" stroke="currentColor" stroke-width="1"/>
+            <ellipse cx="24" cy="12" rx="4" ry="3" stroke="currentColor" stroke-width="0.8" opacity="0.5"/>
+            <path d="M16 20 Q12 22 11 26" stroke="currentColor" stroke-width="0.8" stroke-dasharray="2,2"/>
+            <path d="M32 20 Q36 22 37 26" stroke="currentColor" stroke-width="0.8" stroke-dasharray="2,2"/>
+          </svg>
+        </div>
+        <span class="rc-num">03</span>
+        <div class="rc-area"><span data-zh>手臂</span><span data-en style="display:none">Arms</span></div>
+        <div class="rc-desc" data-zh>上臂內側是許多人在意卻難以靠運動改善的區域。</div>
+        <div class="rc-desc" data-en style="display:none">The inner upper arm — an area many care about but struggle to address through exercise alone.</div>
+      </div>
+
+      <div class="range-card">
+        <div class="rc-icon">
+          <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M18 14 Q16 22 16 32 Q16 38 18 42" stroke="currentColor" stroke-width="1"/>
+            <path d="M30 14 Q32 22 32 32 Q32 38 30 42" stroke="currentColor" stroke-width="1"/>
+            <path d="M18 24 Q24 20 30 24" stroke="currentColor" stroke-width="0.8" stroke-dasharray="2,2"/>
+            <path d="M16 34 Q24 38 32 34" stroke="currentColor" stroke-width="0.8" stroke-dasharray="2,2"/>
+          </svg>
+        </div>
+        <span class="rc-num">04</span>
+        <div class="rc-area"><span data-zh>大腿</span><span data-en style="display:none">Thighs</span></div>
+        <div class="rc-desc" data-zh>內外側大腿的線條，影響整體下半身的視覺比例。</div>
+        <div class="rc-desc" data-en style="display:none">Inner and outer thigh contours shape the visual proportion of the lower body.</div>
+      </div>
+
+      <div class="range-card">
+        <div class="rc-icon">
+          <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M16 20 Q14 28 18 34 Q22 40 24 40 Q26 40 30 34 Q34 28 32 20" stroke="currentColor" stroke-width="1"/>
+            <path d="M18 22 Q24 18 30 22" stroke="currentColor" stroke-width="0.8" stroke-dasharray="2,2"/>
+            <circle cx="24" cy="16" r="1.5" fill="currentColor" opacity="0.3"/>
+          </svg>
+        </div>
+        <span class="rc-num">05</span>
+        <div class="rc-area"><span data-zh>臀部</span><span data-en style="display:none">Glutes</span></div>
+        <div class="rc-desc" data-zh>臀部的線條與緊緻度，是整體體態輪廓的關鍵支點。</div>
+        <div class="rc-desc" data-en style="display:none">Shape and firmness of the glutes — the key anchor of overall body posture.</div>
+      </div>
+
+      <div class="range-card">
+        <div class="rc-icon">
+          <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M18 10 Q14 18 14 28 Q14 36 18 42" stroke="currentColor" stroke-width="1"/>
+            <path d="M30 10 Q34 18 34 28 Q34 36 30 42" stroke="currentColor" stroke-width="1"/>
+            <path d="M18 18 Q24 14 30 18" stroke="currentColor" stroke-width="0.8" stroke-dasharray="2,2"/>
+            <path d="M18 28 Q24 32 30 28" stroke="currentColor" stroke-width="0.8" stroke-dasharray="2,2"/>
+          </svg>
+        </div>
+        <span class="rc-num">06</span>
+        <div class="rc-area"><span data-zh>背部</span><span data-en style="display:none">Back</span></div>
+        <div class="rc-desc" data-zh>背部線條往往被忽略，卻是穿著時最能展現氣質的地方。</div>
+        <div class="rc-desc" data-en style="display:none">The back is often forgotten, yet it's where elegance shows most clearly in how you carry yourself.</div>
+      </div>
+
+      <div class="range-card range-card-wide">
+        <div class="rc-icon">
+          <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="24" cy="20" r="10" stroke="currentColor" stroke-width="1"/>
+            <path d="M16 28 Q20 34 24 35 Q28 34 32 28" stroke="currentColor" stroke-width="0.8" stroke-dasharray="2,2"/>
+            <path d="M18 32 Q24 38 30 32" stroke="currentColor" stroke-width="0.8" stroke-dasharray="2,2"/>
+          </svg>
+        </div>
+        <span class="rc-num">07</span>
+        <div class="rc-area"><span data-zh>臉部輪廓 · 下顎線條</span><span data-en style="display:none">Facial Contour · Jawline</span></div>
+        <div class="rc-desc" data-zh>下顎線條與臉部輪廓的緊緻，讓整體氣質更清晰俐落。（諮詢後依個人狀況評估）</div>
+        <div class="rc-desc" data-en style="display:none">Firmness of the jawline and facial contour for a clearer, more refined appearance. (Subject to individual assessment at consultation.)</div>
+      </div>
+
+      <div class="range-card range-card-wide">
+        <div class="rc-icon">
+          <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="24" cy="16" r="8" stroke="currentColor" stroke-width="1"/>
+            <path d="M14 26 Q24 32 34 26" stroke="currentColor" stroke-width="1"/>
+            <path d="M16 30 Q24 36 32 30" stroke="currentColor" stroke-width="0.8" stroke-dasharray="2,2"/>
+            <path d="M18 34 Q24 38 30 34" stroke="currentColor" stroke-width="0.8" stroke-dasharray="2,2"/>
+          </svg>
+        </div>
+        <span class="rc-num">08</span>
+        <div class="rc-area"><span data-zh>局部澎潤 · 彈性提升</span><span data-en style="display:none">Firmness · Elasticity</span></div>
+        <div class="rc-desc" data-zh>透過活性成分深層導入，改善局部緊緻度與彈性，讓肌膚從底層煥發光澤。（諮詢後依個人狀況評估）</div>
+        <div class="rc-desc" data-en style="display:none">Deep delivery of active ingredients to improve local firmness and elasticity, bringing radiance from within. (Subject to individual assessment at consultation.)</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="s-cta">
+  <div class="container reveal">
+    <div class="cta-title">
+      <span data-zh>第一次見面，我們不急著做什麼。</span>
+      <span data-en style="display:none">Our first meeting — no rush, no pressure.</span>
+    </div>
+    <div class="cta-sub">
+      <span data-zh>先好好認識妳，聽妳說說妳的故事——<br>妳在意的地方，妳希望的感覺，妳想重新認識的那個自己。</span>
+      <span data-en style="display:none">We start by getting to know you — what you care about, how you want to feel,<br>and the version of yourself you're ready to reconnect with.</span>
+    </div>
+    <div class="cta-btns">
+      <a href="reserve.html" class="btn-rose">
+        <span data-zh>預約初次體驗</span><span data-en style="display:none">Book a Session</span>
+      </a>
+      <a href="technology.html" class="btn-outline">
+        <span data-zh>了解技術原理</span><span data-en style="display:none">Our Technology</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">DECOY · 岩寬生醫股份有限公司</div>
+    <div class="footer-note">
+      © 2026 岩寬生醫 ·
+      <a href="index.html">首頁</a> ·
+      <a href="https://instagram.com/decoy_beauty" target="_blank">Instagram</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Scroll reveal
+const els = document.querySelectorAll(".reveal");
+const io = new IntersectionObserver(entries => {
+  entries.forEach((e,i) => {
+    if(e.isIntersecting) setTimeout(() => e.target.classList.add("in"), i * 80);
+  });
+}, {threshold:0.07});
+els.forEach(el => io.observe(el));
+
+// Language toggle
+const btn = document.getElementById("langBtn");
+let isEn = false;
+btn.addEventListener("click", () => {
+  isEn = !isEn;
+  document.body.classList.toggle("en", isEn);
+  btn.textContent = isEn ? "中" : "EN";
+  // Update html lang attribute for SEO
+  document.documentElement.lang = isEn ? "en" : "zh-TW";
+});
+</script>
+</body>
+</html>
