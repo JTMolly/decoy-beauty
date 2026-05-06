@@ -164,7 +164,43 @@ section{padding:96px 0}
 .feel-title{font-size:16px;font-weight:500;color:var(--ink);margin-bottom:10px;letter-spacing:0.03em}
 .feel-desc{font-size:13px;color:var(--ink-lt);line-height:1.88}
 
-/* ── COMPARE TABLE ── */
+/* ── INGREDIENTS ── */
+.s-ingredients{background:var(--warm)}
+.ingr-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);margin-top:0}
+.ingr-card{
+  background:var(--white);padding:36px 28px;
+  border-top:2px solid var(--rose-pale);
+  transition:background 0.3s;
+}
+.ingr-card:hover{background:var(--rose-bg)}
+.ingr-card--gold{background:var(--cream);border-top-color:var(--gold)}
+.ingr-card--gold:hover{background:var(--rose-wash)}
+.ingr-layer{
+  font-family:var(--mono);font-size:9px;letter-spacing:0.25em;
+  text-transform:uppercase;color:var(--rose);margin-bottom:12px;
+}
+.ingr-layer--gold{color:var(--gold)}
+.ingr-name{
+  font-family:var(--serif);font-size:20px;font-style:italic;
+  color:var(--ink);margin-bottom:10px;line-height:1.2;
+}
+.ingr-badge{
+  font-family:var(--mono);font-size:9px;letter-spacing:0.1em;
+  color:var(--ink-lt);margin-bottom:16px;
+}
+.ingr-desc{font-size:13px;color:var(--ink-mid);line-height:1.95}
+.ingr-desc strong{color:var(--ink);font-weight:500}
+.ingr-note{
+  font-size:11px;color:var(--ink-lt);text-align:center;
+  margin-top:20px;letter-spacing:0.08em;line-height:1.8;
+}
+
+/* ── INGREDIENTS RWD ── */
+@media(max-width:960px){
+  .ingr-grid{grid-template-columns:1fr}
+}
+
+/* ── COMPARE ── */
 .s-compare{background:var(--white)}
 .compare-wrap{overflow-x:auto}
 table.ct{width:100%;border-collapse:collapse;min-width:600px}
@@ -451,6 +487,64 @@ footer{background:var(--warm);padding:36px 0 22px;border-top:1px solid var(--lin
         <div class="feel-desc"><span data-zh>每次保養前後搭配專業脂肪超音波測量，以影像數據記錄皮下組織狀態變化。超音波為非侵入式醫學影像工具，可客觀呈現施作前後差異。</span><span data-en style="display:none">Subcutaneous ultrasound imaging is conducted before and after each session to document changes in tissue state. Ultrasound is a non-invasive medical imaging tool that provides objective, measurable comparisons between sessions.</span></div>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- INGREDIENTS -->
+<section class="s-ingredients">
+  <div class="container">
+    <div class="reveal">
+      <div class="sec-label">Key Ingredients</div>
+      <div class="sec-title">
+        <span data-zh>精華液核心成分</span>
+        <span data-en style="display:none">Core Formulation Ingredients</span>
+      </div>
+      <div class="sec-sub">
+        <span data-zh>以下為精華液配方中的關鍵成分及其體外研究特性說明。成分功效描述來自原料學術文獻與供應商研究資料，非對個別使用者宣稱特定療效。</span>
+        <span data-en style="display:none">The following describes key ingredients in the Decoy formulation and their properties as documented in academic literature and supplier research. These descriptions refer to ingredient-level research, not claims of specific outcomes for individual users.</span>
+      </div>
+    </div>
+    <div class="ingr-grid reveal">
+
+      <div class="ingr-card">
+        <div class="ingr-layer" data-zh>Layer 02 · 遞送載體</div>
+        <div class="ingr-layer" data-en style="display:none">Layer 02 · Delivery Vector</div>
+        <div class="ingr-name">sh-Decapeptide-5 SP</div>
+        <div class="ingr-badge" data-zh>源自人類白血球蛋白序列 · 無細胞毒性</div>
+        <div class="ingr-badge" data-en style="display:none">Human leucocyte-derived · Non-cytotoxic</div>
+        <div class="ingr-desc">
+          <span data-zh>一種細胞穿透勝肽（CPP）。白話說：一般保養成分會停在皮膚表層等待滲透，而這個成分的研究特性是能主動穿越細胞膜，將配方中的活性成分帶往細胞層級。體外研究數據（原料商）顯示，搭載此成分的配方，相較未搭載者的遞送到達率提升 <strong>24 倍</strong>，15 分鐘可進入角質細胞，2 小時完成組織層滲透。通過 OECD 安全認證，INCI 國際化妝品原料收錄。</span>
+          <span data-en style="display:none">A cell-penetrating peptide (CPP). In plain terms: while conventional ingredients wait to permeate the skin surface, the research property of this ingredient is its capacity to actively cross cell membranes, carrying active formulation components to the cellular level. In vitro supplier data shows a 24× delivery improvement versus non-CPP controls, with entry into keratinocytes within 15 minutes and tissue penetration within 2 hours. OECD safety certified, INCI registered.</span>
+        </div>
+      </div>
+
+      <div class="ingr-card ingr-card--gold">
+        <div class="ingr-layer ingr-layer--gold" data-zh>Layer 03 · 配方核心</div>
+        <div class="ingr-layer ingr-layer--gold" data-en style="display:none">Layer 03 · Formulation Core</div>
+        <div class="ingr-name">Caffeine · EWG 1</div>
+        <div class="ingr-badge" data-zh>國際安全等級最高 · 化妝品級純化咖啡因</div>
+        <div class="ingr-badge" data-en style="display:none">Highest EWG safety rating · Cosmetic-grade purified caffeine</div>
+        <div class="ingr-desc">
+          <span data-zh>這不是你喝的那杯咖啡。化妝品級純化咖啡因在體外研究中顯示，能夠抑制磷酸二酯酶（PDE）的活性——PDE 是負責分解 cAMP 的酵素。cAMP 在細胞生化研究中被記錄為與脂肪代謝路徑相關的訊號分子。此為成分的體外研究特性描述，非對人體使用效果之宣稱。EWG 安全評等 1（最高等級）。</span>
+          <span data-en style="display:none">Not the coffee you drink. Cosmetic-grade purified caffeine has been shown in vitro to inhibit phosphodiesterase (PDE) activity — the enzyme responsible for breaking down cAMP. cAMP is documented in cellular biochemistry as a signalling molecule associated with lipid metabolism pathways. This describes the ingredient's in vitro research properties, not a claim of effect in human use. EWG safety rating: 1 (highest).</span>
+        </div>
+      </div>
+
+      <div class="ingr-card">
+        <div class="ingr-layer" data-zh>Layer 03 · 協同成分</div>
+        <div class="ingr-layer" data-en style="display:none">Layer 03 · Synergistic Ingredient</div>
+        <div class="ingr-name">Actiporine 8G</div>
+        <div class="ingr-badge" data-zh>法國珍稀紅藻萃取 · 2013 BSB 原料創新大獎</div>
+        <div class="ingr-badge" data-en style="display:none">Rare French red algae extract · 2013 BSB Innovation Award</div>
+        <div class="ingr-desc">
+          <span data-zh>源自法國珍稀紅藻（Jania Rubens）的專利萃取成分，2013 年榮獲 BSB 原料創新大獎。體外研究顯示，此成分與粒線體代謝活化及細胞代謝支援相關，被研究用於協助細胞代謝廢物的清除路徑。此為成分的研究方向描述，非對人體使用效果之宣稱。</span>
+          <span data-en style="display:none">A patented extract from rare French red algae (Jania Rubens), winner of the 2013 BSB Ingredient Innovation Award. In vitro research associates this ingredient with mitochondrial metabolic activation and cellular metabolic support, studied in relation to cellular waste clearance pathways. This describes the ingredient's research direction, not a claim of effect in human use.</span>
+        </div>
+      </div>
+
+    </div>
+    <p class="ingr-note" data-zh>全成分 EWG ≤ 4 · 化妝品級配方 · 無藥物活性成分 · 成分描述來自體外研究與原料文獻，非療效宣稱</p>
+    <p class="ingr-note" data-en style="display:none">All ingredients EWG ≤ 4 · Cosmetic-grade formulation · No pharmaceutical actives · Descriptions based on in vitro research and ingredient literature, not efficacy claims</p>
   </div>
 </section>
 
