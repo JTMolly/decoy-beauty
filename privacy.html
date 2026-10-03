@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Decode Card 個人資料蒐集告知｜Decoy</title>
+<meta name="description" content="領取 Decode Card 時，Decoy 蒐集哪些個人資料、如何使用，以及妳的權利。">
+<meta name="theme-color" content="#FBF7F4">
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;1,400&family=Noto+Serif+TC:wght@400;500&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+/* same tokens as quiz.html */
+:root{
+  --bg:#FBF7F4; --ink:#5B3B40; --ink-2:#7A565C; --muted:#9A8580;
+  --rose:#A86878; --rose-deep:#8B5060; --line:rgba(168,104,120,.2);
+  --serif:"Cormorant Garamond",serif; --cjk:"Noto Serif TC","Songti TC",serif; --mono:"IBM Plex Mono",monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{min-height:100vh;color:var(--ink);font-family:var(--cjk);background:var(--bg);
+  background-image:radial-gradient(ellipse 80% 50% at 15% 0%,#F3E2E5 0%,transparent 60%);background-attachment:fixed}
+a{color:var(--rose-deep)}
+.app{max-width:640px;margin:0 auto;padding:28px 20px calc(48px + env(safe-area-inset-bottom))}
+.top{display:flex;align-items:center;justify-content:space-between;height:28px;margin-bottom:40px}
+.brand{display:block;width:84px;height:13px;background:var(--rose-deep);-webkit-mask:url(quiz-assets/word.png) left center/contain no-repeat;mask:url(quiz-assets/word.png) left center/contain no-repeat}
+.kicker{font-family:var(--mono);font-size:11px;letter-spacing:.22em;color:var(--muted);text-transform:uppercase}
+.en{font-family:var(--serif);font-style:italic;font-size:19px;color:var(--rose);margin-bottom:10px}
+h1{font-weight:500;font-size:27px;line-height:1.5;letter-spacing:.08em;margin-bottom:18px}
+.lead{font-size:16px;line-height:1.95;color:var(--ink-2);margin-bottom:28px}
+ol{list-style:none;counter-reset:item;border-top:1px solid var(--line)}
+ol>li{counter-increment:item;padding:20px 0 20px 40px;border-bottom:1px solid var(--line);position:relative;font-size:15.5px;line-height:1.95;color:var(--ink-2)}
+ol>li::before{content:counter(item,decimal-leading-zero);position:absolute;left:0;top:22px;font-family:var(--mono);font-size:12px;color:var(--rose-deep);letter-spacing:.08em}
+ol>li b{display:block;font-weight:500;color:var(--ink);font-size:16.5px;letter-spacing:.06em;margin-bottom:4px}
+ul{list-style:none;margin-top:6px}
+ul li{padding-left:16px;position:relative}
+ul li::before{content:"";position:absolute;left:2px;top:.95em;width:5px;height:5px;border-radius:50%;background:var(--rose)}
+.how{margin-top:28px;padding:18px 20px;border:1px dashed var(--line);border-radius:14px;font-size:15px;line-height:1.9;color:var(--ink-2)}
+.how b{color:var(--ink);font-weight:500}
+.foot{margin-top:36px;text-align:center;font-size:12.5px;line-height:1.9;color:var(--muted)}
+.foot .slogan{font-family:var(--serif);font-size:15px;letter-spacing:.2em;color:var(--rose-deep)}
+.foot a{text-decoration:none;border-bottom:1px solid var(--line);color:inherit}
+</style>
+</head>
+<body>
+<main class="app">
+  <div class="top"><a class="brand" href="index.html" aria-label="Decoy 首頁"></a><span class="kicker">Privacy</span></div>
+
+  <div class="en">Decode Card · Privacy Notice</div>
+  <h1>Decode Card<br>個人資料蒐集告知</h1>
+  <p class="lead">岩寬生醫股份有限公司（以下稱「本公司」）經營 Decoy 品牌。依個人資料保護法第 8 條，在妳領取 Decode Card 時告知以下事項。</p>
+
+  <ol>
+    <li><b>蒐集者</b>岩寬生醫股份有限公司，聯絡信箱 <a href="mailto:service@acheloy.com">service@acheloy.com</a>。</li>
+    <li><b>蒐集目的</b>製作並傳送妳的 Decode Card、提供 Decoy 的服務與活動資訊、不具名的統計分析。</li>
+    <li><b>蒐集的資料</b>LINE 使用者識別碼、照顧節奏測驗結果、妳寫的「我的美的定義」、領卡時間。我們不蒐集健康、病史、體重等資料；照顧節奏測驗網頁本身也不儲存任何資料。</li>
+    <li><b>利用期間、地區、對象及方式</b>
+      <ul>
+        <li>期間：自領卡起，至妳要求刪除或本服務結束為止。</li>
+        <li>地區：台灣。資料存放於 LINE 及 Google 的雲端服務，伺服器可能位於台灣以外。</li>
+        <li>對象：本公司及 Decoy 門市人員。</li>
+        <li>方式：製作 Decode Card、在 LINE 傳送與妳相關的訊息、不具名統計。「我的美的定義」不會公開，也不會用於廣告；若想分享，會另外徵求妳的同意。</li>
+      </ul>
+    </li>
+    <li><b>妳的權利</b>妳可以隨時查詢、閱覽、要求複本、補充或更正、停止蒐集處理利用，或刪除妳的資料。</li>
+    <li><b>不提供的影響</b>「我的美的定義」可以不寫，卡片照樣會給妳；若不提供 LINE 帳號，就無法領取 Decode Card。</li>
+  </ol>
+
+  <div class="how"><b>想刪除資料？</b>在 Decoy 的 LINE 傳送「刪除我的資料」，或寫信到 <a href="mailto:service@acheloy.com">service@acheloy.com</a>。</div>
+
+  <div class="foot">
+    <div class="slogan">BEAUTY, ON YOUR TERMS.</div>
+    <div>更新日期：2026 年 10 月 3 日</div>
+    <div style="margin-top:8px"><a href="quiz.html">照顧節奏測驗</a>　·　<a href="index.html">Decoy 首頁</a></div>
+  </div>
+</main>
+</body>
+</html>
