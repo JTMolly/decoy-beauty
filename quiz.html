@@ -46,7 +46,7 @@ a{color:inherit}
 .intro h1{font-weight:400;font-size:34px;letter-spacing:.16em;text-indent:.16em;margin-bottom:18px}
 .intro p{font-size:16px;line-height:1.9;color:var(--ink-2)}
 .intro .orbs{display:flex;justify-content:center;gap:10px;margin:36px 0}
-.intro .orbs i{width:18px;height:18px;border-radius:50%;display:block}
+.intro .orbs i{width:34px;height:34px;border-radius:50%;display:block;background:url(quiz-assets/crystal-thumbs.jpg) 0 0/500% 100% no-repeat;box-shadow:0 4px 10px rgba(120,70,78,.15)}
 .intro .note{font-size:13px;color:var(--muted);margin-top:18px;line-height:1.8}
 
 /* buttons */
@@ -77,7 +77,7 @@ a{color:inherit}
 /* result */
 .result{text-align:center}
 .result .lead{font-size:14px;color:var(--muted);letter-spacing:.2em;margin-bottom:6px}
-.orb{width:150px;height:150px;border-radius:50%;margin:18px auto 22px;background:radial-gradient(circle at 42% 38%,#fff 0%,var(--accent) 46%,rgba(255,255,255,0) 72%)}
+.orb{width:260px;height:260px;max-width:72vw;max-height:72vw;border-radius:22px;margin:14px auto 22px;background:#F3E9E4 center/cover no-repeat;box-shadow:0 16px 40px rgba(120,70,78,.18)}
 .result h2{font-weight:500;font-size:38px;letter-spacing:.14em;text-indent:.14em;color:var(--accent-deep)}
 .result .en{font-family:var(--serif);font-style:italic;font-size:22px;color:var(--ink-2);margin:4px 0 18px}
 .result .line{font-size:18px;line-height:1.85;letter-spacing:.06em;padding:0 6px;text-wrap:balance}
@@ -223,7 +223,7 @@ function intro() {
     <div class="en">Find your rhythm of care</div>
     <h1>照顧節奏測驗</h1>
     <p>8 個問題，約 2 分鐘<br>認識妳照顧自己的方式</p>
-    <div class="orbs" aria-hidden="true">${ORDER.map(k => `<i style="background:${R[k].color}"></i>`).join('')}</div>
+    <div class="orbs" aria-hidden="true">${ORDER.map((k, i) => `<i style="background-position:${i * 25}% 0"></i>`).join('')}</div>
     <button class="btn btn-primary" id="start">開始</button>
     <p class="note">完成後，可以到 LINE 領一張屬於妳的 Decode Card<br>這個測驗不會留下妳的任何資料</p>
   </section>`;
@@ -280,7 +280,7 @@ function showResult(k, second) {
   view.innerHTML = `
   <section class="screen result">
     <div class="lead">妳的照顧節奏是</div>
-    <div class="orb" aria-hidden="true"></div>
+    <div class="orb" role="img" aria-label="${r.name}的水晶" style="background-image:url(quiz-assets/crystal-${k}.jpg)"></div>
     <h2>${r.name}</h2>
     <div class="en">${r.en}</div>
     <p class="line">${esc(r.line)}</p>
@@ -345,12 +345,13 @@ async function drawCard(k) {
   g.fillStyle = '#FBF7F4'; g.fillRect(0, 0, W, H);
   let gr = g.createLinearGradient(0, 0, 0, H); gr.addColorStop(0, r.color + 'CC'); gr.addColorStop(.55, r.color + '33'); gr.addColorStop(1, '#FBF7F400');
   g.fillStyle = gr; g.fillRect(0, 0, W, H);
-  gr = g.createRadialGradient(540, 640, 0, 540, 640, 300); gr.addColorStop(0, '#FFFFFF'); gr.addColorStop(.45, r.color); gr.addColorStop(1, r.color + '00');
-  g.fillStyle = gr; g.beginPath(); g.arc(540, 640, 300, 0, Math.PI * 2); g.fill();
+  const cry = await loadImg(`quiz-assets/crystal-${k}.jpg`), X0 = 250, Y0 = 380, WW = 580;
+  g.save(); g.shadowColor = 'rgba(120,70,78,.25)'; g.shadowBlur = 60; g.shadowOffsetY = 24; g.beginPath(); g.roundRect(X0, Y0, WW, WW, 36); g.fillStyle = '#F3E9E4'; g.fill(); g.restore();
+  g.save(); g.beginPath(); g.roundRect(X0, Y0, WW, WW, 36); g.clip(); g.drawImage(cry, X0, Y0, WW, WW); g.restore();
   g.textAlign = 'center'; g.textBaseline = 'alphabetic';
   g.fillStyle = r.deep; g.font = `italic 400 44px ${en}`; g.fillText('Decode Yourself', 540, 270);
   g.fillStyle = '#7A565C'; g.font = `400 34px ${cjk}`; g.fillText('照 顧 節 奏 測 驗', 540, 330);
-  g.fillStyle = '#5B3B40'; g.font = `400 46px ${cjk}`; g.fillText('我是', 540, 1010);
+  g.fillStyle = '#5B3B40'; g.font = `400 46px ${cjk}`; g.fillText('我是', 540, 1030);
   g.fillStyle = r.deep; g.font = `500 ${r.name.length > 3 ? 120 : 136}px ${cjk}`; g.fillText(r.name, 540, 1150);
   g.fillStyle = '#7A565C'; g.font = `italic 400 52px ${en}`; g.fillText(r.en, 540, 1225);
   g.fillStyle = '#5B3B40'; g.font = `400 54px ${cjk}`;
