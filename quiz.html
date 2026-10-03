@@ -48,6 +48,10 @@ a{color:inherit}
 .intro .orbs{display:flex;justify-content:center;gap:10px;margin:36px 0}
 .intro .orbs i{width:34px;height:34px;border-radius:50%;display:block;background:url(quiz-assets/crystal-thumbs.jpg) 0 0/500% 100% no-repeat;box-shadow:0 4px 10px rgba(120,70,78,.15)}
 .intro .note{font-size:13px;color:var(--muted);margin-top:18px;line-height:1.8}
+.steps{list-style:none;counter-reset:s;display:flex;justify-content:center;align-items:center;gap:8px;margin:-12px 0 26px;font-size:13px;letter-spacing:.06em;color:var(--ink-2)}
+.steps li{counter-increment:s;display:flex;align-items:center;gap:6px}
+.steps li::before{content:counter(s);display:grid;place-items:center;width:20px;height:20px;border-radius:50%;border:1px solid var(--rose);color:var(--rose-deep);font-family:var(--mono);font-size:11px}
+.steps li:not(:last-child)::after{content:'';width:14px;height:1px;background:var(--line);margin-left:2px}
 
 /* buttons */
 .btn{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;min-height:54px;padding:14px 20px;border-radius:999px;font-size:16px;letter-spacing:.12em;text-decoration:none;transition:background .2s,border-color .2s,transform .1s}
@@ -82,6 +86,8 @@ a{color:inherit}
 .result .en{font-family:var(--serif);font-style:italic;font-size:22px;color:var(--ink-2);margin:4px 0 18px}
 .result .line{font-size:18px;line-height:1.85;letter-spacing:.06em;padding:0 6px;text-wrap:balance}
 .q,.intro p{text-wrap:balance}
+.tolin{display:inline-block;margin-top:16px;padding:9px 16px;border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,.6);font-size:13.5px;letter-spacing:.05em;color:var(--accent-deep);line-height:1.5}
+.tolin:hover{border-color:var(--rose)}
 .result .desc{font-size:15px;line-height:1.95;color:var(--ink-2);margin:18px 0 6px;text-align:left}
 .card{text-align:left;border-top:1px solid var(--line);padding:18px 2px 4px;margin-top:18px}
 .card h3{font-family:var(--mono);font-weight:400;font-size:11px;letter-spacing:.2em;color:var(--rose-deep);margin-bottom:8px;text-transform:uppercase}
@@ -177,7 +183,7 @@ const QS = [
   { q: '面對一個新的保養方案，妳最在意？',
     o: { still: '能不能放進我的生活節奏', rebel: '我能不能隨時決定要不要繼續', aware: '會不會清楚告訴我原理和限制', companion: '是不是同一位美容師陪著我', explorer: '能不能先體驗一次再說' } },
   { q: '妳的手機相簿裡最多的是？',
-    o: { still: '天空、植物、安靜的角落', rebel: '自己喜歡的穿搭和風格', aware: '截圖下來的知識和筆記', companion: '跟朋友家人的合照', explorer: '去過的新地方、新店家' } },
+    o: { still: '天空、植物、安靜的角落', rebel: '自己喜歡的穿搭和風格', aware: '截圖下來的知識和筆記', companion: '跟朋友家人的合照', explorer: '旅行和第一次去的地方' } },
   { q: '一天結束前，最能讓妳放鬆的是？',
     o: { still: '洗完澡，慢慢做完保養', rebel: '關掉訊息，留一段只屬於自己的時間', aware: '回想今天哪裡累、哪裡舒服', companion: '跟重要的人聊聊天', explorer: '想想明天可以試什麼新事情' } },
   { q: '朋友說「妳最近好像不太一樣」，妳最希望對方指的是？',
@@ -224,8 +230,9 @@ function intro() {
     <h1>照顧節奏測驗</h1>
     <p>8 個問題，約 2 分鐘<br>認識妳照顧自己的方式</p>
     <div class="orbs" aria-hidden="true">${ORDER.map((k, i) => `<i style="background-position:${i * 25}% 0"></i>`).join('')}</div>
+    <ol class="steps"><li>做測驗</li><li>看結果</li><li>到 LINE 領卡</li></ol>
     <button class="btn btn-primary" id="start">開始</button>
-    <p class="note">完成後，可以到 LINE 領一張屬於妳的 Decode Card<br>這個測驗不會留下妳的任何資料</p>
+    <p class="note">最後會在 LINE 收到一張屬於妳的 Decode Card<br>這個測驗不會留下妳的任何資料</p>
   </section>`;
   document.getElementById('start').onclick = () => { answers = []; track('quiz_start'); question(0); };
 }
@@ -284,6 +291,7 @@ function showResult(k, second) {
     <h2>${r.name}</h2>
     <div class="en">${r.en}</div>
     <p class="line">${esc(r.line)}</p>
+    <button class="tolin" id="toLine">還有最後一步：到 LINE 領卡 ↓</button>
     <p class="desc">${esc(r.desc)}</p>
     <div class="card"><h3>Your Rhythm<span>妳的照顧節奏</span></h3><p>${esc(r.tip)}</p></div>
     <div class="card"><h3>At Decoy<span>在 Decoy，妳可能會喜歡</span></h3><p>${esc(r.like)}</p></div>
@@ -294,7 +302,7 @@ function showResult(k, second) {
         <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3C6.48 3 2 6.58 2 11c0 3.94 3.56 7.24 8.37 7.88.33.07.77.22.88.5.1.25.07.65.03.9l-.14.86c-.04.25-.2 1 .87.54 1.08-.45 5.8-3.42 7.91-5.85C21.38 14.25 22 12.7 22 11c0-4.42-4.48-8-10-8Zm-3.6 10.6H6.42a.52.52 0 0 1-.52-.52V9.13a.52.52 0 1 1 1.04 0v3.43H8.4a.52.52 0 1 1 0 1.04Zm2.05-.52a.52.52 0 1 1-1.04 0V9.13a.52.52 0 1 1 1.04 0v3.95Zm4.75 0a.52.52 0 0 1-.94.31l-2.03-2.76v2.45a.52.52 0 1 1-1.04 0V9.13a.52.52 0 0 1 .94-.31l2.03 2.76V9.13a.52.52 0 1 1 1.04 0v3.95Zm3.2-2.5a.52.52 0 1 1 0 1.04h-1.45v.94h1.45a.52.52 0 1 1 0 1.04h-1.97a.52.52 0 0 1-.52-.52V9.13c0-.29.23-.52.52-.52h1.97a.52.52 0 1 1 0 1.04h-1.45v.93h1.45Z"/></svg>
         到 LINE 領我的 Decode Card
       </a>
-      <p class="hint">會開啟 LINE 並帶入一句訊息，按下傳送就完成領取。</p>
+      <p class="hint">會開啟 LINE 並帶入一句訊息，按下傳送，卡片馬上送到。</p>
       <button class="btn btn-ghost" id="saveBtn">存下我的結果卡</button>
       <button class="btn-text" id="again">再測一次</button>
     </div>
@@ -308,6 +316,7 @@ function showResult(k, second) {
   const rv = document.getElementById('reveal');
   if (rv) rv.onclick = () => { const box = document.getElementById('revealBox'); box.hidden = !box.hidden; rv.setAttribute('aria-expanded', String(!box.hidden)); if (!box.hidden) track('quiz_reveal_second', { rhythm: k, second }); };
   document.getElementById('lineBtn').onclick = () => track('quiz_line_click', { rhythm: k });
+  document.getElementById('toLine').onclick = () => document.querySelector('.actions').scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'center' });
   document.getElementById('saveBtn').onclick = () => openCard(k);
   document.getElementById('again').onclick = () => { answers = []; question(0); };
   window.scrollTo(0, 0);
