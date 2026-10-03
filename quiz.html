@@ -311,6 +311,7 @@ function showResult(k, second) {
   document.getElementById('saveBtn').onclick = () => openCard(k);
   document.getElementById('again').onclick = () => { answers = []; question(0); };
   window.scrollTo(0, 0);
+  setTimeout(() => prepareCard(k).catch(() => {}), 400);
 }
 
 /* ---------- share card: 1080 x 1920, key content kept clear of the Stories UI at top and bottom ---------- */
@@ -365,19 +366,24 @@ async function drawCard(k) {
   g.putImageData(px, 0, 0);
   return c;
 }
-let cardBlob = null;
+// cards are made in the background as soon as a result shows, so the tap feels instant; JPEG keeps the grain small (~0.5 MB instead of ~3 MB PNG)
+const cardCache = {};
+function prepareCard(k) {
+  return cardCache[k] || (cardCache[k] = drawCard(k)
+    .then(c => new Promise((ok, no) => c.toBlob(b => (b ? ok(b) : no(new Error('toBlob'))), 'image/jpeg', 0.92)))
+    .catch(e => { delete cardCache[k]; throw e; }));
+}
 async function openCard(k) {
   track('quiz_card_open', { rhythm: k });
   const btn = document.getElementById('saveBtn'); btn.textContent = '製作中…'; btn.disabled = true;
   try {
-    const c = await drawCard(k);
-    cardBlob = await new Promise(ok => c.toBlob(ok, 'image/png'));
+    const cardBlob = await prepareCard(k);
     const url = URL.createObjectURL(cardBlob);
-    const name = `Decoy照顧節奏_${R[k].name}.png`;
+    const name = `Decoy照顧節奏_${R[k].name}.jpg`;
     document.getElementById('cardImg').src = url;
     document.getElementById('cardImg').alt = `我是${R[k].name}：${R[k].share}`;
     const dl = document.getElementById('dlBtn'); dl.href = url; dl.download = name;
-    const file = new File([cardBlob], name, { type: 'image/png' });
+    const file = new File([cardBlob], name, { type: 'image/jpeg' });
     const sb = document.getElementById('shareBtn');
     sb.hidden = !(navigator.canShare && navigator.canShare({ files: [file] }));
     sb.onclick = async () => { try { await navigator.share({ files: [file], text: `我是${R[k].name}。妳是哪一種？ ${SITE_URL}` }); track('quiz_card_share', { rhythm: k }); } catch (e) {} };
