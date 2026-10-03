@@ -1,0 +1,400 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>照顧節奏測驗｜Decoy</title>
+<meta name="description" content="8 個問題，約 2 分鐘，認識妳照顧自己的節奏。Decoy 非侵入式美容保養。">
+<meta property="og:title" content="照顧節奏測驗｜Decoy">
+<meta property="og:description" content="8 個問題，約 2 分鐘，認識妳照顧自己的節奏。">
+<meta property="og:image" content="https://decoy-beauty.com/quiz-assets/og.jpg">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#FBF7F4">
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;1,400&family=Noto+Serif+TC:wght@400;500&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+/* Decoy 照顧節奏測驗 v1 — colours follow the website (reserve.html) and the brand rule: no pure black text */
+:root{
+  --bg:#FBF7F4; --wash:#F5ECEE; --pale:#EDD8DC;
+  --ink:#5B3B40; --ink-2:#7A565C; --muted:#9A8580;
+  --rose:#A86878; --rose-deep:#8B5060; --line:rgba(168,104,120,.2);
+  --serif:"Cormorant Garamond",serif; --cjk:"Noto Serif TC","Songti TC",serif; --mono:"IBM Plex Mono",monospace;
+  --accent:#C99AA0; --accent-deep:#8B5060;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{min-height:100vh;min-height:100svh;color:var(--ink);font-family:var(--cjk);
+  background:var(--bg);
+  background-image:radial-gradient(ellipse 80% 50% at 15% 0%,#F3E2E5 0%,transparent 60%),radial-gradient(ellipse 70% 45% at 100% 100%,#F1E4DC 0%,transparent 60%);
+  background-attachment:fixed}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+a{color:inherit}
+.app{max-width:480px;margin:0 auto;min-height:100vh;min-height:100svh;padding:28px 20px calc(28px + env(safe-area-inset-bottom));display:flex;flex-direction:column}
+.top{display:flex;align-items:center;justify-content:space-between;height:28px;margin-bottom:20px}
+.brand{display:block;width:84px;height:13px;background:var(--rose-deep);-webkit-mask:url(quiz-assets/word.png) left center/contain no-repeat;mask:url(quiz-assets/word.png) left center/contain no-repeat}
+.kicker{font-family:var(--mono);font-size:11px;letter-spacing:.22em;color:var(--muted);text-transform:uppercase}
+#view{flex:1;display:flex;flex-direction:column}
+.screen{flex:1;display:flex;flex-direction:column;animation:rise .45s ease both}
+@keyframes rise{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.screen{animation:none}.opt,.btn{transition:none}}
+
+/* intro */
+.intro{justify-content:center;text-align:center;padding-bottom:40px}
+.intro .en{font-family:var(--serif);font-style:italic;font-size:20px;color:var(--rose);letter-spacing:.04em;margin-bottom:14px}
+.intro h1{font-weight:400;font-size:34px;letter-spacing:.16em;text-indent:.16em;margin-bottom:18px}
+.intro p{font-size:16px;line-height:1.9;color:var(--ink-2)}
+.intro .orbs{display:flex;justify-content:center;gap:10px;margin:36px 0}
+.intro .orbs i{width:18px;height:18px;border-radius:50%;display:block}
+.intro .note{font-size:13px;color:var(--muted);margin-top:18px;line-height:1.8}
+
+/* buttons */
+.btn{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;min-height:54px;padding:14px 20px;border-radius:999px;font-size:16px;letter-spacing:.12em;text-decoration:none;transition:background .2s,border-color .2s,transform .1s}
+.btn:active{transform:scale(.985)}
+.btn-primary{background:var(--rose-deep);color:#FFF8F4}
+.btn-primary:hover{background:#7A4553}
+.btn-line{background:#06C755;color:#fff;letter-spacing:.06em}
+.btn-line:hover{background:#05b34c}
+.btn-ghost{border:1px solid var(--line);color:var(--ink);background:rgba(255,255,255,.55)}
+.btn-ghost:hover{border-color:var(--rose)}
+.btn-text{font-size:14px;color:var(--muted);letter-spacing:.08em;padding:10px;min-height:44px}
+.btn svg{width:22px;height:22px;flex-shrink:0}
+:focus-visible{outline:2px solid var(--rose);outline-offset:3px}
+
+/* question */
+.progress{display:flex;align-items:center;gap:14px;margin-bottom:34px}
+.progress .num{font-family:var(--mono);font-size:12px;letter-spacing:.12em;color:var(--rose-deep);min-width:52px}
+.progress .bar{flex:1;height:2px;background:var(--pale);border-radius:2px;overflow:hidden}
+.progress .bar i{display:block;height:100%;background:var(--rose);transition:width .35s ease}
+.q{font-weight:400;font-size:23px;line-height:1.6;letter-spacing:.06em;margin-bottom:28px}
+.opts{display:flex;flex-direction:column;gap:12px}
+.opt{text-align:left;width:100%;min-height:56px;padding:15px 18px;border:1px solid var(--line);border-radius:14px;background:rgba(255,255,255,.62);font-size:16px;line-height:1.6;letter-spacing:.04em;transition:border-color .2s,background .2s}
+.opt:hover{border-color:var(--rose)}
+.opt.on{border-color:var(--rose-deep);background:#fff;box-shadow:0 0 0 1px var(--rose-deep) inset}
+.back{align-self:flex-start;margin-top:22px}
+
+/* result */
+.result{text-align:center}
+.result .lead{font-size:14px;color:var(--muted);letter-spacing:.2em;margin-bottom:6px}
+.orb{width:150px;height:150px;border-radius:50%;margin:18px auto 22px;background:radial-gradient(circle at 42% 38%,#fff 0%,var(--accent) 46%,rgba(255,255,255,0) 72%)}
+.result h2{font-weight:500;font-size:38px;letter-spacing:.14em;text-indent:.14em;color:var(--accent-deep)}
+.result .en{font-family:var(--serif);font-style:italic;font-size:22px;color:var(--ink-2);margin:4px 0 18px}
+.result .line{font-size:18px;line-height:1.85;letter-spacing:.06em;padding:0 6px;text-wrap:balance}
+.q,.intro p{text-wrap:balance}
+.result .desc{font-size:15px;line-height:1.95;color:var(--ink-2);margin:18px 0 6px;text-align:left}
+.card{text-align:left;border-top:1px solid var(--line);padding:18px 2px 4px;margin-top:18px}
+.card h3{font-family:var(--mono);font-weight:400;font-size:11px;letter-spacing:.2em;color:var(--rose-deep);margin-bottom:8px;text-transform:uppercase}
+.card h3 span{font-family:var(--cjk);font-size:14px;letter-spacing:.14em;margin-left:8px;color:var(--ink);text-transform:none}
+.card p{font-size:15px;line-height:1.9;color:var(--ink-2)}
+.second{margin-top:22px;border:1px dashed var(--line);border-radius:14px;padding:14px 16px;text-align:left}
+.second button{width:100%;text-align:left;font-size:15px;color:var(--rose-deep);letter-spacing:.06em;min-height:28px}
+.second .reveal{margin-top:10px;font-size:15px;line-height:1.85;color:var(--ink-2)}
+.second .reveal b{font-weight:500;color:var(--ink)}
+.actions{display:flex;flex-direction:column;gap:12px;margin-top:28px}
+.actions .hint{font-size:12.5px;color:var(--muted);line-height:1.7;margin-top:-4px}
+.founding{font-size:13px;color:var(--rose-deep);letter-spacing:.06em;margin-bottom:-2px}
+.foot{margin-top:34px;text-align:center;font-size:12px;line-height:1.8;color:var(--muted)}
+.foot .slogan{font-family:var(--serif);font-size:15px;letter-spacing:.2em;color:var(--rose-deep);margin-bottom:2px}
+.foot a{text-decoration:none;border-bottom:1px solid var(--line)}
+
+/* save-card sheet */
+.sheet{position:fixed;inset:0;background:rgba(61,24,36,.55);display:none;align-items:flex-end;justify-content:center;z-index:20}
+.sheet.open{display:flex}
+.sheet .panel{width:100%;max-width:480px;max-height:92vh;overflow:auto;background:var(--bg);border-radius:20px 20px 0 0;padding:18px 20px calc(20px + env(safe-area-inset-bottom));text-align:center}
+.sheet img{width:62%;max-width:260px;border-radius:12px;box-shadow:0 8px 30px rgba(91,59,64,.18);margin:6px auto 12px;display:block}
+.sheet p{font-size:14px;color:var(--ink-2);line-height:1.8;margin-bottom:12px}
+.sheet .row{display:flex;flex-direction:column;gap:10px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+</style>
+</head>
+<body>
+<main class="app">
+  <div class="top"><a class="brand" href="index.html" aria-label="Decoy 首頁"></a><span class="kicker" id="kicker">Decode Yourself</span></div>
+  <div id="view" aria-live="polite"></div>
+</main>
+
+<div class="sheet" id="sheet" role="dialog" aria-modal="true" aria-labelledby="sheetTitle">
+  <div class="panel">
+    <p id="sheetTitle" class="sr">妳的結果卡</p>
+    <img id="cardImg" alt="">
+    <p id="sheetHint">長按圖片即可存到相簿，或用下面的按鈕。</p>
+    <div class="row">
+      <button class="btn btn-primary" id="shareBtn" hidden>分享到限動</button>
+      <a class="btn btn-ghost" id="dlBtn" download>下載圖片</a>
+      <button class="btn btn-text" id="closeSheet">關閉</button>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ---------- settings ---------- */
+const LINE_ID = '@decoy';                    // Decoy LINE 官方帳號（2026-10-03 Molly 確認）
+const SITE_URL = 'decoy-beauty.com/quiz.html';
+const SHOW_FOUNDING = true;                  // 顯示「試營運前領取，享有創始編號」；發卡機器人還沒上線就改成 false
+
+/* ---------- content (規劃書 v1) ---------- */
+const ORDER = ['still', 'rebel', 'aware', 'companion', 'explorer'];
+const R = {
+  still:     { name: '靜行者',     en: 'The Still',        color: '#E2D6D0', deep: '#7D6A63',
+               line: '把時間留給自己，安靜地把生活過好',
+               desc: '妳喜歡有秩序的日子。照顧自己不需要很盛大，一段安靜、不被打擾的時間，就是妳最好的保養。',
+               tip: '每天留 10 分鐘不被打擾的保養時間，固定時段、固定順序。',
+               like: '安靜的空間、不被打擾的流程。',
+               share: '把時間留給自己' },
+  rebel:     { name: '溫柔叛逆者', en: 'The Gentle Rebel', color: '#C99AA0', deep: '#8B5060',
+               line: '美，是我自己的決定，不是誰說了算',
+               desc: '妳聽得進建議，但最後一定自己決定。妳不排斥變美，只是不接受被別人定義。',
+               tip: '先寫下自己想要的，再去聽別人的建議；可以說「這次先不要」。',
+               like: '沒有推銷、不需要囤課，每次由妳決定。',
+               share: '我的美，我決定' },
+  aware:     { name: '覺察者',     en: 'The Aware',        color: '#C9957A', deep: '#8A5640',
+               line: '保養是認識自己身體的方式，不是急著改變它',
+               desc: '妳想先弄懂，再決定要不要改變。對妳來說，了解自己的身體，本身就是一種照顧。',
+               tip: '每天用一句話記下身體的感受，每個月回頭看一次。',
+               like: '開始前的清楚說明、階段回顧。',
+               share: '先認識自己，再決定改變' },
+  companion: { name: '陪伴者',     en: 'The Companion',    color: '#E9B9A1', deep: '#97604A',
+               line: '被好好對待、被記得，跟服務本身一樣重要',
+               desc: '對妳來說，誰陪著妳、有沒有被記得，跟做了什麼一樣重要。好的關係，會讓妳安心地回來。',
+               tip: '找一個固定的地方、固定的人；把照顧自己排進和朋友的約會。',
+               like: '盡量安排同一位美容師、記得妳的習慣。',
+               share: '被好好對待，也好好對待別人' },
+  explorer:  { name: '探索者',     en: 'The Explorer',     color: '#DDB878', deep: '#85652B',
+               line: '願意試試看，被打動了就會一直說給別人聽',
+               desc: '妳對新事物有好奇心，願意先試試看。遇到真心喜歡的，妳會很自然地分享給身邊的人。',
+               tip: '每個季節試一件新事情，把喜歡的分享給一個人。',
+               like: '首次體驗、每季的新活動。',
+               share: '願意試試看，然後愛上' },
+};
+const QS = [
+  { q: '難得空下來的週六上午，妳最想？',
+    o: { still: '泡一壺茶，把房間整理好', rebel: '照自己的計畫走，誰約都先不答應', aware: '把這陣子的生活記一記，看看自己最近怎麼了', companion: '約好久不見的朋友吃早午餐', explorer: '去一家沒去過的店，試試新東西' } },
+  { q: '走進一個保養空間，最讓妳安心的是？',
+    o: { still: '空間安靜，流程有條不紊', rebel: '沒有人推銷，什麼都由我決定', aware: '每一步都有人清楚說明', companion: '對方記得我上次說過的話', explorer: '有新的體驗可以先試試看' } },
+  { q: '聽到「保養」兩個字，妳第一個想到？',
+    o: { still: '每天固定的小儀式', rebel: '為自己做的選擇', aware: '更了解自己的身體', companion: '被好好照顧的時間', explorer: '發現新東西的樂趣' } },
+  { q: '面對一個新的保養方案，妳最在意？',
+    o: { still: '能不能放進我的生活節奏', rebel: '我能不能隨時決定要不要繼續', aware: '會不會清楚告訴我原理和限制', companion: '是不是同一位美容師陪著我', explorer: '能不能先體驗一次再說' } },
+  { q: '妳的手機相簿裡最多的是？',
+    o: { still: '天空、植物、安靜的角落', rebel: '自己喜歡的穿搭和風格', aware: '截圖下來的知識和筆記', companion: '跟朋友家人的合照', explorer: '去過的新地方、新店家' } },
+  { q: '一天結束前，最能讓妳放鬆的是？',
+    o: { still: '洗完澡，慢慢做完保養', rebel: '關掉訊息，留一段只屬於自己的時間', aware: '回想今天哪裡累、哪裡舒服', companion: '跟重要的人聊聊天', explorer: '想想明天可以試什麼新事情' } },
+  { q: '朋友說「妳最近好像不太一樣」，妳最希望對方指的是？',
+    o: { still: '看起來更從容', rebel: '更敢做自己的決定', aware: '更懂得照顧自己', companion: '相處起來更自在', explorer: '多了好多新嘗試' } },
+  { q: '如果「美」是一句話，妳會選？',
+    o: { still: '安靜地，把生活過好', rebel: '我的美，我決定', aware: '先認識自己，再決定改變', companion: '被好好對待，也好好對待別人', explorer: '願意試試看，然後愛上' } },
+];
+
+/* ---------- state ---------- */
+const view = document.getElementById('view');
+const shuffled = QS.map(() => shuffle(ORDER.slice()));
+let answers = [];
+let result = null;
+
+function shuffle(a) { for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; }
+function esc(s) { return s.replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c])); }
+// analytics hook: sends only when the site has GA4 / GTM installed; the quiz itself stores nothing
+function track(name, params = {}) { try { if (window.gtag) window.gtag('event', name, params); if (window.dataLayer) window.dataLayer.push({ event: name, ...params }); } catch (e) {} }
+
+/* ---------- scoring: most points wins; ties go to question 8, then to the later answer ---------- */
+function pick(cands) {
+  if (cands.length === 1) return cands[0];
+  for (let i = answers.length - 1; i >= 0; i--) if (cands.includes(answers[i])) return answers[i];
+  return cands[0];
+}
+function score() {
+  const s = Object.fromEntries(ORDER.map(k => [k, 0]));
+  answers.forEach(k => s[k]++);
+  const top = Math.max(...ORDER.map(k => s[k]));
+  const main = pick(ORDER.filter(k => s[k] === top));
+  const rest = ORDER.filter(k => k !== main);
+  const top2 = Math.max(...rest.map(k => s[k]));
+  const second = top2 > 0 ? pick(rest.filter(k => s[k] === top2)) : null;
+  return { main, second, s };
+}
+
+/* ---------- screens ---------- */
+function intro() {
+  setAccent(null);
+  document.getElementById('kicker').textContent = 'Decode Yourself';
+  view.innerHTML = `
+  <section class="screen intro">
+    <div class="en">Find your rhythm of care</div>
+    <h1>照顧節奏測驗</h1>
+    <p>8 個問題，約 2 分鐘<br>認識妳照顧自己的方式</p>
+    <div class="orbs" aria-hidden="true">${ORDER.map(k => `<i style="background:${R[k].color}"></i>`).join('')}</div>
+    <button class="btn btn-primary" id="start">開始</button>
+    <p class="note">完成後，可以到 LINE 領一張屬於妳的 Decode Card<br>這個測驗不會留下妳的任何資料</p>
+  </section>`;
+  document.getElementById('start').onclick = () => { answers = []; track('quiz_start'); question(0); };
+}
+
+function question(i) {
+  const item = QS[i];
+  document.getElementById('kicker').textContent = 'Decode Yourself';
+  view.innerHTML = `
+  <section class="screen">
+    <div class="progress" aria-label="第 ${i + 1} 題，共 ${QS.length} 題"><span class="num">${String(i + 1).padStart(2, '0')} / ${String(QS.length).padStart(2, '0')}</span><span class="bar"><i style="width:${(i / QS.length) * 100}%"></i></span></div>
+    <h2 class="q">${esc(item.q)}</h2>
+    <div class="opts">${shuffled[i].map(k => `<button class="opt${answers[i] === k ? ' on' : ''}" data-k="${k}">${esc(item.o[k])}</button>`).join('')}</div>
+    ${i > 0 ? '<button class="btn-text back" id="back">← 上一題</button>' : '<button class="btn-text back" id="back">← 回到開頭</button>'}
+  </section>`;
+  requestAnimationFrame(() => { const b = view.querySelector('.bar i'); if (b) b.style.width = ((i + 1) / QS.length) * 100 + '%'; });
+  view.querySelectorAll('.opt').forEach(btn => btn.onclick = () => {
+    view.querySelectorAll('.opt').forEach(x => x.classList.remove('on'));
+    btn.classList.add('on');
+    answers[i] = btn.dataset.k;
+    answers.length = i + 1;
+    setTimeout(() => (i + 1 < QS.length ? question(i + 1) : finish()), 260);
+  });
+  document.getElementById('back').onclick = () => (i > 0 ? question(i - 1) : intro());
+  window.scrollTo(0, 0);
+}
+
+function finish() {
+  result = score();
+  track('quiz_complete', { rhythm: result.main, second: result.second || 'none' });
+  showResult(result.main, result.second);
+}
+
+function setAccent(k) {
+  const root = document.documentElement.style;
+  root.setProperty('--accent', k ? R[k].color : '#C99AA0');
+  root.setProperty('--accent-deep', k ? R[k].deep : '#8B5060');
+}
+
+function lineHref(k) {
+  return `https://line.me/R/oaMessage/${LINE_ID}/?${encodeURIComponent('領取 Decode Card｜' + R[k].name)}`;
+}
+
+function showResult(k, second) {
+  const r = R[k];
+  setAccent(k);
+  document.getElementById('kicker').textContent = 'Your Rhythm';
+  // second === undefined: opened from a ?r= link, so there is no second rhythm to show
+  const secondHtml = second === undefined ? ''
+    : second
+    ? `<div class="second"><button id="reveal" aria-expanded="false">看看妳的第二節奏 →</button><div class="reveal" id="revealBox" hidden><b>${R[second].name}</b>　${esc(R[second].line)}</div></div>`
+    : `<div class="second"><div class="reveal" style="margin:0">妳的節奏很純粹：8 題都選了同一種。</div></div>`;
+  view.innerHTML = `
+  <section class="screen result">
+    <div class="lead">妳的照顧節奏是</div>
+    <div class="orb" aria-hidden="true"></div>
+    <h2>${r.name}</h2>
+    <div class="en">${r.en}</div>
+    <p class="line">${esc(r.line)}</p>
+    <p class="desc">${esc(r.desc)}</p>
+    <div class="card"><h3>Your Rhythm<span>妳的照顧節奏</span></h3><p>${esc(r.tip)}</p></div>
+    <div class="card"><h3>At Decoy<span>在 Decoy，妳可能會喜歡</span></h3><p>${esc(r.like)}</p></div>
+    ${secondHtml}
+    <div class="actions">
+      ${SHOW_FOUNDING ? '<p class="founding">試營運前領取，享有創始編號</p>' : ''}
+      <a class="btn btn-line" id="lineBtn" href="${lineHref(k)}" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3C6.48 3 2 6.58 2 11c0 3.94 3.56 7.24 8.37 7.88.33.07.77.22.88.5.1.25.07.65.03.9l-.14.86c-.04.25-.2 1 .87.54 1.08-.45 5.8-3.42 7.91-5.85C21.38 14.25 22 12.7 22 11c0-4.42-4.48-8-10-8Zm-3.6 10.6H6.42a.52.52 0 0 1-.52-.52V9.13a.52.52 0 1 1 1.04 0v3.43H8.4a.52.52 0 1 1 0 1.04Zm2.05-.52a.52.52 0 1 1-1.04 0V9.13a.52.52 0 1 1 1.04 0v3.95Zm4.75 0a.52.52 0 0 1-.94.31l-2.03-2.76v2.45a.52.52 0 1 1-1.04 0V9.13a.52.52 0 0 1 .94-.31l2.03 2.76V9.13a.52.52 0 1 1 1.04 0v3.95Zm3.2-2.5a.52.52 0 1 1 0 1.04h-1.45v.94h1.45a.52.52 0 1 1 0 1.04h-1.97a.52.52 0 0 1-.52-.52V9.13c0-.29.23-.52.52-.52h1.97a.52.52 0 1 1 0 1.04h-1.45v.93h1.45Z"/></svg>
+        到 LINE 領我的 Decode Card
+      </a>
+      <p class="hint">會開啟 LINE 並帶入一句訊息，按下傳送就完成領取。</p>
+      <button class="btn btn-ghost" id="saveBtn">存下我的結果卡</button>
+      <button class="btn-text" id="again">再測一次</button>
+    </div>
+    <div class="foot">
+      <div class="slogan">BEAUTY, ON YOUR TERMS.</div>
+      <div>美，由你作主</div>
+      <div style="margin-top:10px">這是生活與保養偏好的趣味分類，不是心理或醫療評估。<br>人會變，節奏也會變。</div>
+      <div style="margin-top:10px"><a href="index.html">認識 Decoy 非侵入式美容保養</a></div>
+    </div>
+  </section>`;
+  const rv = document.getElementById('reveal');
+  if (rv) rv.onclick = () => { const box = document.getElementById('revealBox'); box.hidden = !box.hidden; rv.setAttribute('aria-expanded', String(!box.hidden)); if (!box.hidden) track('quiz_reveal_second', { rhythm: k, second }); };
+  document.getElementById('lineBtn').onclick = () => track('quiz_line_click', { rhythm: k });
+  document.getElementById('saveBtn').onclick = () => openCard(k);
+  document.getElementById('again').onclick = () => { answers = []; question(0); };
+  window.scrollTo(0, 0);
+}
+
+/* ---------- share card: 1080 x 1920, key content kept clear of the Stories UI at top and bottom ---------- */
+const imgs = {};
+function loadImg(src) { return imgs[src] || (imgs[src] = new Promise((ok, no) => { const im = new Image(); im.onload = () => ok(im); im.onerror = no; im.src = src; })); }
+function tinted(im, color, w, h) {
+  const c = document.createElement('canvas'); c.width = w; c.height = h; const g = c.getContext('2d');
+  g.fillStyle = color; g.fillRect(0, 0, w, h); g.globalCompositeOperation = 'destination-in'; g.drawImage(im, 0, 0, w, h); return c;
+}
+function wrap(g, text, max) {
+  const lines = []; let cur = '';
+  for (const ch of text) {
+    if (g.measureText(cur + ch).width > max && cur) {
+      if ('，、。！？」'.includes(ch)) { lines.push(cur + ch); cur = ''; continue; }
+      lines.push(cur); cur = ch;
+    } else cur += ch;
+  }
+  if (cur) lines.push(cur); return lines;
+}
+async function drawCard(k) {
+  const r = R[k], W = 1080, H = 1920;
+  const c = document.createElement('canvas'); c.width = W; c.height = H; const g = c.getContext('2d');
+  const cjk = '"Noto Serif TC","Songti TC",serif', en = '"Cormorant Garamond",serif', mono = '"IBM Plex Mono",monospace';
+  const words = '我是妳是哪一種？照顧節奏測驗' + r.name + r.share;
+  await Promise.all([
+    document.fonts.load(`400 64px ${cjk}`, words), document.fonts.load(`500 128px ${cjk}`, r.name),
+    document.fonts.load(`italic 400 48px ${en}`, r.en + 'Decode Yourself'), document.fonts.load(`400 30px ${mono}`, SITE_URL),
+  ].map(p => p.catch(() => null)));
+  const [mark, word] = await Promise.all([loadImg('quiz-assets/mark.png'), loadImg('quiz-assets/word.png')]);
+  // background: warm white with the rhythm colour breathing in from the top
+  g.fillStyle = '#FBF7F4'; g.fillRect(0, 0, W, H);
+  let gr = g.createLinearGradient(0, 0, 0, H); gr.addColorStop(0, r.color + 'CC'); gr.addColorStop(.55, r.color + '33'); gr.addColorStop(1, '#FBF7F400');
+  g.fillStyle = gr; g.fillRect(0, 0, W, H);
+  gr = g.createRadialGradient(540, 640, 0, 540, 640, 300); gr.addColorStop(0, '#FFFFFF'); gr.addColorStop(.45, r.color); gr.addColorStop(1, r.color + '00');
+  g.fillStyle = gr; g.beginPath(); g.arc(540, 640, 300, 0, Math.PI * 2); g.fill();
+  g.textAlign = 'center'; g.textBaseline = 'alphabetic';
+  g.fillStyle = r.deep; g.font = `italic 400 44px ${en}`; g.fillText('Decode Yourself', 540, 270);
+  g.fillStyle = '#7A565C'; g.font = `400 34px ${cjk}`; g.fillText('照 顧 節 奏 測 驗', 540, 330);
+  g.fillStyle = '#5B3B40'; g.font = `400 46px ${cjk}`; g.fillText('我是', 540, 1010);
+  g.fillStyle = r.deep; g.font = `500 ${r.name.length > 3 ? 120 : 136}px ${cjk}`; g.fillText(r.name, 540, 1150);
+  g.fillStyle = '#7A565C'; g.font = `italic 400 52px ${en}`; g.fillText(r.en, 540, 1225);
+  g.fillStyle = '#5B3B40'; g.font = `400 54px ${cjk}`;
+  wrap(g, r.share, 860).forEach((ln, i) => g.fillText(ln, 540, 1345 + i * 76));
+  g.strokeStyle = r.deep + '55'; g.lineWidth = 2; g.beginPath(); g.moveTo(480, 1418); g.lineTo(600, 1418); g.stroke();
+  g.fillStyle = '#7A565C'; g.font = `400 38px ${cjk}`; g.fillText('妳是哪一種？', 540, 1478);
+  g.font = `400 28px ${mono}`; g.fillText(SITE_URL, 540, 1528);
+  const mh = 92, mw = mh * mark.width / mark.height; g.drawImage(tinted(mark, r.deep, Math.round(mw), mh), 540 - mw / 2, 1562);
+  const wh = 26, ww = wh * word.width / word.height; g.drawImage(tinted(word, r.deep, Math.round(ww), wh), 540 - ww / 2, 1672);
+  // a whisper of grain so the soft gradients don't band on phone screens
+  const px = g.getImageData(0, 0, W, H), d = px.data;
+  for (let i = 0; i < d.length; i += 4) { const n = (Math.random() - .5) * 5; d[i] += n; d[i + 1] += n; d[i + 2] += n; }
+  g.putImageData(px, 0, 0);
+  return c;
+}
+let cardBlob = null;
+async function openCard(k) {
+  track('quiz_card_open', { rhythm: k });
+  const btn = document.getElementById('saveBtn'); btn.textContent = '製作中…'; btn.disabled = true;
+  try {
+    const c = await drawCard(k);
+    cardBlob = await new Promise(ok => c.toBlob(ok, 'image/png'));
+    const url = URL.createObjectURL(cardBlob);
+    const name = `Decoy照顧節奏_${R[k].name}.png`;
+    document.getElementById('cardImg').src = url;
+    document.getElementById('cardImg').alt = `我是${R[k].name}：${R[k].share}`;
+    const dl = document.getElementById('dlBtn'); dl.href = url; dl.download = name;
+    const file = new File([cardBlob], name, { type: 'image/png' });
+    const sb = document.getElementById('shareBtn');
+    sb.hidden = !(navigator.canShare && navigator.canShare({ files: [file] }));
+    sb.onclick = async () => { try { await navigator.share({ files: [file], text: `我是${R[k].name}。妳是哪一種？ ${SITE_URL}` }); track('quiz_card_share', { rhythm: k }); } catch (e) {} };
+    dl.onclick = () => track('quiz_card_download', { rhythm: k });
+    document.getElementById('sheet').classList.add('open');
+    document.getElementById('closeSheet').focus();
+  } catch (e) {
+    alert('結果卡暫時做不出來，請稍後再試一次。');
+  } finally { btn.textContent = '存下我的結果卡'; btn.disabled = false; }
+}
+document.getElementById('closeSheet').onclick = () => document.getElementById('sheet').classList.remove('open');
+document.getElementById('sheet').onclick = e => { if (e.target.id === 'sheet') document.getElementById('sheet').classList.remove('open'); };
+document.addEventListener('keydown', e => { if (e.key === 'Escape') document.getElementById('sheet').classList.remove('open'); });
+
+/* ---------- start: ?r=rebel opens a result directly (for checking each result page) ---------- */
+const pre = new URLSearchParams(location.search).get('r');
+if (pre && R[pre]) showResult(pre, undefined); else intro();
+</script>
+</body>
+</html>
