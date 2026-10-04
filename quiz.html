@@ -102,6 +102,17 @@ a{color:inherit}
 .actions{display:flex;flex-direction:column;gap:12px;margin-top:28px}
 .actions .hint{font-size:12.5px;color:var(--muted);line-height:1.7;margin-top:-4px}
 .founding{font-size:13px;color:var(--rose-deep);letter-spacing:.06em;margin-bottom:-2px}
+/* 領卡三步驟（v1.1：回饋說「不知道怎麼領」，帶入文字後要自己按傳送） */
+.claim-steps{list-style:none;display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:2px 0 4px}
+.claim-steps li{display:flex;flex-direction:column;align-items:center;gap:6px;padding:12px 6px 11px;border:1px solid var(--line);border-radius:14px;background:rgba(255,255,255,.55);font-size:12.5px;line-height:1.5;letter-spacing:.03em;color:var(--ink-2);text-align:center}
+.claim-steps b{display:grid;place-items:center;width:22px;height:22px;border-radius:50%;border:1px solid var(--rose);color:var(--rose-deep);font-family:var(--mono);font-weight:400;font-size:11px}
+.claim-steps em{font-style:normal;color:var(--rose-deep)}
+/* 品牌影片（頁內播放，不自動播放） */
+.film{margin-top:30px;text-align:left;border-top:1px solid var(--line);padding-top:18px}
+.film h3{font-family:var(--mono);font-weight:400;font-size:11px;letter-spacing:.2em;color:var(--rose-deep);margin-bottom:10px;text-transform:uppercase}
+.film h3 span{font-family:var(--cjk);font-size:14px;letter-spacing:.14em;margin-left:8px;color:var(--ink);text-transform:none}
+.film video{display:block;width:100%;aspect-ratio:16/9;border-radius:14px;background:#EFE3E1;box-shadow:0 10px 26px rgba(139,80,96,.12)}
+.film p{font-size:13px;line-height:1.8;color:var(--muted);margin-top:8px}
 .foot{margin-top:34px;text-align:center;font-size:12px;line-height:1.8;color:var(--muted)}
 .foot .slogan{font-family:var(--serif);font-size:15px;letter-spacing:.2em;color:var(--rose-deep);margin-bottom:2px}
 .foot a{text-decoration:none;border-bottom:1px solid var(--line)}
@@ -301,13 +312,23 @@ function showResult(k, second) {
     ${secondHtml}
     <div class="actions">
       ${SHOW_FOUNDING ? '<p class="founding">試營運前領取，享有創始編號</p>' : ''}
+      <ol class="claim-steps" aria-label="領卡三步驟">
+        <li><b>1</b>按下面的<br>綠色按鈕</li>
+        <li><b>2</b>LINE 打開後<br><em>記得按傳送</em></li>
+        <li><b>3</b>有編號的卡<br>馬上送到</li>
+      </ol>
       <a class="btn btn-line" id="lineBtn" href="${lineHref(k)}" target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3C6.48 3 2 6.58 2 11c0 3.94 3.56 7.24 8.37 7.88.33.07.77.22.88.5.1.25.07.65.03.9l-.14.86c-.04.25-.2 1 .87.54 1.08-.45 5.8-3.42 7.91-5.85C21.38 14.25 22 12.7 22 11c0-4.42-4.48-8-10-8Zm-3.6 10.6H6.42a.52.52 0 0 1-.52-.52V9.13a.52.52 0 1 1 1.04 0v3.43H8.4a.52.52 0 1 1 0 1.04Zm2.05-.52a.52.52 0 1 1-1.04 0V9.13a.52.52 0 1 1 1.04 0v3.95Zm4.75 0a.52.52 0 0 1-.94.31l-2.03-2.76v2.45a.52.52 0 1 1-1.04 0V9.13a.52.52 0 0 1 .94-.31l2.03 2.76V9.13a.52.52 0 1 1 1.04 0v3.95Zm3.2-2.5a.52.52 0 1 1 0 1.04h-1.45v.94h1.45a.52.52 0 1 1 0 1.04h-1.97a.52.52 0 0 1-.52-.52V9.13c0-.29.23-.52.52-.52h1.97a.52.52 0 1 1 0 1.04h-1.45v.93h1.45Z"/></svg>
         到 LINE 領我的 Decode Card
       </a>
-      <p class="hint">會開啟 LINE 並帶入一句訊息，按下傳送，卡片馬上送到。</p>
+      <p class="hint">LINE 會自動帶入一句話，按下傳送就好<br>還不是 Decoy 好友的話，加好友後再傳一次</p>
       <button class="btn btn-ghost" id="saveBtn">存下我的結果卡</button>
       <button class="btn-text" id="again">再測一次</button>
+    </div>
+    <div class="film">
+      <h3>Our Story<span>2 分鐘，認識 Decoy</span></h3>
+      <video id="film" controls playsinline preload="none" poster="media/decoy-film-poster.jpg" src="media/decoy-film-720.mp4" aria-label="Decoy 品牌影片"></video>
+      <p>建議開聲音觀看</p>
     </div>
     <div class="foot">
       <div class="slogan">BEAUTY, ON YOUR TERMS.</div>
@@ -319,6 +340,7 @@ function showResult(k, second) {
   const rv = document.getElementById('reveal');
   if (rv) rv.onclick = () => { const box = document.getElementById('revealBox'); box.hidden = !box.hidden; rv.setAttribute('aria-expanded', String(!box.hidden)); if (!box.hidden) track('quiz_reveal_second', { rhythm: k, second }); };
   document.getElementById('lineBtn').onclick = () => track('quiz_line_click', { rhythm: k });
+  document.getElementById('film').addEventListener('play', () => track('quiz_film_play', { rhythm: k }), { once: true });
   document.getElementById('toLine').onclick = () => document.querySelector('.actions').scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'center' });
   document.getElementById('saveBtn').onclick = () => openCard(k);
   document.getElementById('again').onclick = () => { answers = []; question(0); };
