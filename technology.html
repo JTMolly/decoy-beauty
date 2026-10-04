@@ -181,6 +181,11 @@ section{padding:96px 0}
 .lv-unit{font-family:var(--mono);font-size:9px;color:var(--rose-mid);letter-spacing:0.1em}
 .lv-desc-s{font-size:12px;color:var(--ink-lt);line-height:1.6;margin-top:6px}
 
+
+/* ── 三層小動畫（捲到才播；不畫皮膚剖面、不畫穿透深度）── */
+.lv-anim{display:block;width:100%;height:150px;margin:-6px 0 14px;border-radius:6px;background:linear-gradient(180deg,#FFFDFC,#FBF3F1)}
+@media(prefers-reduced-motion:reduce){.lv-anim{display:none}}
+
 /* ── HOW IT FEELS — 消費者語言 ── */
 .s-feels{background:var(--warm)}
 .feels-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line)}
@@ -619,6 +624,61 @@ const io = new IntersectionObserver(entries => {
   });
 }, {threshold:0.07});
 els.forEach(el => io.observe(el));
+
+
+/* 三層精準導入技術：小動畫 */
+(() => {
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const boxes = [...document.querySelectorAll('.layer-visual')]; if (boxes.length < 3) return;
+  const RG = '183,110,121', DR = '201,164,154', DEEP = '142,66,88';
+  const make = (box, kind) => {
+    const cv = document.createElement('canvas'); cv.className = 'lv-anim'; cv.setAttribute('aria-hidden', 'true');
+    box.insertBefore(cv, box.querySelector('.lv-label').nextSibling);
+    const cx = cv.getContext('2d'); let W, H, run = false, t = 0, parts = [], ptr = null;
+    const size = () => { const r = devicePixelRatio > 1 ? 2 : 1; W = cv.clientWidth; H = cv.clientHeight; cv.width = W * r; cv.height = H * r; cx.setTransform(r, 0, 0, r, 0, 0); };
+    size(); addEventListener('resize', size);
+    cv.addEventListener('pointermove', e => { const b = cv.getBoundingClientRect(); ptr = { x: e.clientX - b.left, y: e.clientY - b.top }; });
+    cv.addEventListener('pointerleave', () => ptr = null);
+    const dot = (x, y, r, c, a) => { cx.globalAlpha = a; cx.fillStyle = `rgb(${c})`; cx.beginPath(); cx.arc(x, y, r, 0, 7); cx.fill(); };
+    const scenes = {
+      mist() { // 噴嘴在右，細霧往左散開
+        const nx = W - 34, ny = H * .5;
+        if (parts.length < 260) for (let i = 0; i < 6; i++) { const a = Math.PI + (Math.random() - .5) * .45, sp = 2.2 + Math.random() * 2.4;
+          parts.push({ x: nx, y: ny, vx: Math.cos(a) * sp, vy: Math.sin(a) * sp, l: 0, m: 60 + Math.random() * 60, r: .6 + Math.random() * 1.6 }); }
+        cx.globalAlpha = 1; cx.fillStyle = `rgba(${DR},.9)`; cx.fillRect(nx, ny - 5, 28, 10); cx.fillStyle = `rgba(${RG},.9)`; cx.fillRect(nx - 4, ny - 3, 6, 6);
+        parts = parts.filter(p => { p.vy += (Math.random() - .5) * .08; if (ptr) { const dx = p.x - ptr.x, dy = p.y - ptr.y, d = Math.hypot(dx, dy) + 1; if (d < 50) { p.vx += dx / d * .6; p.vy += dy / d * .6; } }
+          p.vx *= .985; p.vy *= .985; p.x += p.vx; p.y += p.vy; p.l++; const u = p.l / p.m; dot(p.x, p.y, p.r * (1 + u * 1.5), u < .5 ? RG : DR, (1 - u) * .8); return p.l < p.m; });
+      },
+      carrier() { // 載體圈帶著活性成分，落到肌膚表面後慢慢淡去（只在表面）
+        const surf = H - 30;
+        cx.globalAlpha = .5; cx.strokeStyle = `rgb(${DR})`; cx.lineWidth = 1; cx.beginPath(); cx.moveTo(14, surf); cx.lineTo(W - 14, surf); cx.stroke();
+        cx.globalAlpha = .7; cx.fillStyle = `rgb(${DR})`; cx.font = '9px "IBM Plex Mono", monospace'; cx.fillText('SKIN SURFACE', 16, surf + 16);
+        if (t % 42 === 0) parts.push({ x: 30 + Math.random() * (W - 60), y: -10, l: 0, k: Math.random() * 6.28 });
+        cx.globalAlpha = .8; cx.fillStyle = `rgb(${RG})`; cx.font = '9px "IBM Plex Mono", monospace'; cx.textAlign = 'right'; cx.fillText('MIRROR FORMULA', W - 14, 18); cx.textAlign = 'left';
+        parts = parts.filter(p => { p.l++; const settle = Math.min(1, Math.max(0, (p.y - (surf - 12)) / 12)); if (p.y < surf - 12) p.y += .55; p.x += Math.sin(t * .02 + p.k) * .2;
+          const fade = p.l > 260 ? Math.max(0, 1 - (p.l - 260) / 80) : 1;
+          cx.globalAlpha = .9 * fade; cx.strokeStyle = `rgb(${DEEP})`; cx.lineWidth = 1.2; cx.beginPath(); cx.arc(p.x, p.y, 9, 0, 7); cx.stroke();
+          for (let i = 0; i < 4; i++) { const a = p.k + t * .03 + i * 1.57, rr = 4.5 * (1 - settle * .4); dot(p.x + Math.cos(a) * rr, p.y + Math.sin(a) * rr, 1.8, RG, fade * (1 - settle * .5)); }
+          if (settle > 0) dot(p.x, surf, 2 + settle * 5, RG, .12 * fade);
+          return p.l < 340; });
+      },
+      formula() { // LIGHT（透明）與 MIRROR 兩支安瓶，氣泡往上冒
+        const bottle = (x, label, fill) => { const w = 34, h = 86, y = H * .5 - h / 2 - 6;
+          cx.globalAlpha = 1; cx.strokeStyle = `rgb(${RG})`; cx.lineWidth = 1.2; cx.beginPath(); cx.roundRect ? cx.roundRect(x - w / 2, y, w, h, 8) : cx.rect(x - w / 2, y, w, h); cx.stroke();
+          cx.fillStyle = `rgba(${RG},.85)`; cx.fillRect(x - 7, y - 12, 14, 12);
+          const lv = y + h * (.38 + Math.sin(t * .02 + x) * .015); cx.globalAlpha = 1; cx.fillStyle = fill; cx.fillRect(x - w / 2 + 2, lv, w - 4, y + h - lv - 2);
+          cx.fillStyle = `rgb(${DEEP})`; cx.font = '600 10px "Cormorant Garamond", serif'; cx.textAlign = 'center'; cx.fillText(label, x, y + h + 18); cx.textAlign = 'left';
+          return { x, y, w, h, lv }; };
+        const a = bottle(W * .33, 'LIGHT', 'rgba(232,207,201,.35)'), b = bottle(W * .67, 'MIRROR', 'rgba(201,164,154,.6)');
+        if (t % 9 === 0) for (const bt of [a, b]) parts.push({ x: bt.x + (Math.random() - .5) * (bt.w - 10), y: bt.y + bt.h - 6, top: bt.lv, r: .8 + Math.random() * 1.6 });
+        parts = parts.filter(p => { p.y -= .45; p.x += Math.sin(p.y * .2) * .15; dot(p.x, p.y, p.r, '255,255,255', .9); return p.y > p.top; });
+      },
+    };
+    const frame = () => { if (!run) return; t++; cx.clearRect(0, 0, W, H); scenes[kind](); requestAnimationFrame(frame); };
+    new IntersectionObserver(es => es.forEach(e => { const was = run; run = e.isIntersecting; if (run && !was) frame(); }), { threshold: .15 }).observe(cv);
+  };
+  make(boxes[0], 'mist'); make(boxes[1], 'carrier'); make(boxes[2], 'formula');
+})();
 
 const btn = document.getElementById("langBtn");
 let isEn = false;

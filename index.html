@@ -282,6 +282,23 @@ nav{
   text-transform:uppercase;color:rgba(255,255,255,0.25);
 }
 
+
+/* ══ AIRMIST 霧化光霧（滑鼠／手指經過時會被撥開）══ */
+#mist{position:fixed;inset:0;width:100%;height:100%;z-index:6;pointer-events:none}
+.c-cat{margin-top:16px;font-family:var(--cjk);font-size:12px;font-weight:300;letter-spacing:0.42em;color:rgba(255,255,255,0.45);padding-left:0.42em}
+.c-cta{display:inline-block;margin-top:30px;padding:12px 26px;border:1px solid rgba(255,255,255,0.42);border-radius:999px;font-family:var(--cjk);font-size:13px;letter-spacing:0.2em;color:#fff;text-decoration:none;background:rgba(255,255,255,0.06);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);transition:all .3s}
+.c-cta:hover{background:rgba(255,255,255,0.16);border-color:rgba(255,255,255,0.8)}
+.sound{position:fixed;top:96px;right:64px;z-index:100;display:flex;align-items:center;gap:9px;background:rgba(28,8,14,0.18);border:1px solid rgba(255,255,255,0.22);border-radius:999px;padding:7px 14px;font-family:var(--mono);font-size:9px;letter-spacing:0.22em;color:rgba(255,255,255,0.7);cursor:pointer;transition:all .3s}
+.sound:hover{border-color:rgba(255,255,255,0.6);color:#fff}
+.sound i{display:inline-flex;gap:2px;align-items:flex-end;height:10px}
+.sound i b{width:2px;height:3px;background:rgba(255,255,255,0.8)}
+.sound.on i b{animation:eq 1s ease-in-out infinite}
+.sound.on i b:nth-child(2){animation-delay:.2s}.sound.on i b:nth-child(3){animation-delay:.4s}
+@keyframes eq{0%,100%{height:3px}50%{height:10px}}
+@media(max-width:960px){.sound{top:70px;right:28px}}
+@media(max-width:600px){.sound{top:60px;right:18px}.c-cta{margin-top:22px;padding:10px 20px;font-size:12px}}
+@media (prefers-reduced-motion: reduce){#mist{display:none}}
+
 /* ══ RWD ══ */
 /* ── 平板 960px ── */
 @media(max-width:960px){
@@ -433,7 +450,11 @@ nav{
   <div class="c-en">Beauty,<br><span style="white-space:nowrap">On Your Terms.</span></div>
   <div class="c-divider"></div>
   <div class="c-zh">美，由你作主。</div>
+  <div class="c-cat">非侵入式美學科技</div>
+  <a class="c-cta" href="quiz.html">找到妳的照顧節奏 →</a>
 </div>
+<canvas id="mist" aria-hidden="true"></canvas>
+<button class="sound" id="sound" aria-pressed="false" aria-label="背景音樂"><i><b></b><b></b><b></b></i><span>SOUND OFF</span></button>
 
 <div class="bottom-nav">
   <a href="about.html" class="bn">
@@ -468,5 +489,72 @@ nav{
   </a>
 </div>
 
+<script>
+/* AirMist 霧化光霧：右側一陣一陣噴出細緻光霧；滑鼠或手指經過時，霧會被撥開、跟著流動 */
+(() => {
+  const cv = document.getElementById('mist'); if (!cv || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const cx = cv.getContext('2d');
+  let W, H, DPR, cloud = [], drops = [], t = 0, ox, oy, ptr = { x: -1e4, y: -1e4, vx: 0, vy: 0, on: false };
+  const sprite = (r, g, b, hard) => { const s = document.createElement('canvas'); s.width = s.height = 128; const c = s.getContext('2d');
+    const gr = c.createRadialGradient(64, 64, 0, 64, 64, 64);
+    if (hard) { gr.addColorStop(0, `rgba(${r},${g},${b},1)`); gr.addColorStop(.3, `rgba(${r},${g},${b},.45)`); gr.addColorStop(1, `rgba(${r},${g},${b},0)`); }
+    else { gr.addColorStop(0, `rgba(${r},${g},${b},.5)`); gr.addColorStop(.5, `rgba(${r},${g},${b},.16)`); gr.addColorStop(1, `rgba(${r},${g},${b},0)`); }
+    c.fillStyle = gr; c.fillRect(0, 0, 128, 128); return s; };
+  const SOFT = [sprite(255, 236, 238), sprite(244, 210, 214), sprite(255, 248, 246)];
+  const DOT = [sprite(255, 255, 255, true), sprite(255, 228, 232, true), sprite(246, 206, 196, true)];
+  const U = () => Math.max(W, H) / 1000;
+  function resize() { DPR = Math.min(2, devicePixelRatio || 1); W = innerWidth; H = innerHeight; cv.width = W * DPR; cv.height = H * DPR; cx.setTransform(DPR, 0, 0, DPR, 0, 0);
+    ox = W * 1.01; oy = W < 700 ? H * .16 : H * .24; }
+  function emit(p, kind, prewarm) {
+    const a = (W < 700 ? -3.0 : -3.02) + (Math.random() - .5) * (kind ? .3 : .42);
+    const sp = (kind ? 9 + Math.random() * 9 : 4.5 + Math.random() * 4) * U();
+    p.x = ox + (Math.random() - .5) * 6; p.y = oy + (Math.random() - .5) * 6; p.vx = Math.cos(a) * sp; p.vy = Math.sin(a) * sp;
+    const ph = (t / 2600) % 1; p.life = prewarm ? 0 : -(ph < .55 ? 0 : (1 - ph) * 160 * Math.random()); // 一陣一陣噴，像迅So槍的節奏
+    p.max = kind ? 110 + Math.random() * 130 : 200 + Math.random() * 220;
+    p.size = kind ? (.8 + Math.random() * 2) * U() : (16 + Math.random() * 28) * U(); p.k = Math.floor(Math.random() * 3);
+    p.a = kind ? .3 + Math.random() * .45 : .025 + Math.random() * .035;
+    if (prewarm) { const n = Math.random() * p.max; for (let i = 0; i < n; i++) step(p, kind); }
+  }
+  function step(p, kind) {
+    if (p.life < 0) { p.life++; return; }
+    const s = .0028, fx = Math.sin(p.y * s + t * .0009) * .5 + Math.cos((p.x + p.y) * s * .7 - t * .0006) * .3, fy = Math.cos(p.x * s - t * .0008) * .4;
+    p.vx += fx * (kind ? .02 : .035) * U(); p.vy += (fy * (kind ? .02 : .035) - .006) * U();
+    if (ptr.on) { const dx = p.x - ptr.x, dy = p.y - ptr.y, d2 = dx * dx + dy * dy, R = (160 * U()) ** 2;
+      if (d2 < R) { const f = 1 - d2 / R, d = Math.sqrt(d2) + 1; p.vx += (dx / d * 1.2 + ptr.vx * .08 - dy / d * .8) * f * U(); p.vy += (dy / d * 1.2 + ptr.vy * .08 + dx / d * .8) * f * U(); } }
+    const damp = kind ? .965 : .975; p.vx *= damp; p.vy *= damp; p.x += p.vx; p.y += p.vy; p.size *= kind ? 1 : 1.012; p.life++;
+  }
+  function init() { resize(); const k = Math.min(1, W * H / (1440 * 900));
+    cloud = Array.from({ length: Math.round(110 * k + 40) }, () => { const p = {}; emit(p, 0, true); return p; });
+    drops = Array.from({ length: Math.round(700 * k + 200) }, () => { const p = {}; emit(p, 1, true); return p; }); }
+  function draw() {
+    cx.clearRect(0, 0, W, H); cx.globalCompositeOperation = 'lighter';
+    for (const p of cloud) { if (p.life < 0) continue; const u = p.life / p.max, f = Math.min(1, u * 5) * (1 - u); cx.globalAlpha = p.a * f; cx.drawImage(SOFT[p.k], p.x - p.size, p.y - p.size, p.size * 2, p.size * 2); }
+    for (const p of drops) { if (p.life < 0) continue; const u = p.life / p.max, f = Math.min(1, u * 8) * (1 - u) ** 1.5; cx.globalAlpha = p.a * f; const r = p.size * 3; cx.drawImage(DOT[p.k], p.x - r, p.y - r, r * 2, r * 2); }
+    cx.globalAlpha = 1; cx.globalCompositeOperation = 'source-over';
+  }
+  let run = true; document.addEventListener('visibilitychange', () => { run = !document.hidden; if (run) loop(); });
+  function loop() { if (!run) return; t += 16;
+    for (const p of cloud) { step(p, 0); if (p.life > p.max) emit(p, 0); }
+    for (const p of drops) { step(p, 1); if (p.life > p.max) emit(p, 1); }
+    ptr.vx *= .9; ptr.vy *= .9; draw(); requestAnimationFrame(loop); }
+  const move = (x, y) => { if (ptr.on) { ptr.vx = x - ptr.x; ptr.vy = y - ptr.y; } ptr.x = x; ptr.y = y; ptr.on = true; };
+  addEventListener('pointermove', e => move(e.clientX, e.clientY), { passive: true });
+  addEventListener('touchmove', e => move(e.touches[0].clientX, e.touches[0].clientY), { passive: true });
+  document.addEventListener('pointerleave', () => ptr.on = false);
+  addEventListener('resize', init); init(); loop();
+})();
+/* 背景音樂：預設關閉，按了才淡入（形象影片配樂的鋼琴前段，無縫循環） */
+(() => {
+  const btn = document.getElementById('sound'); if (!btn) return; let au = null;
+  btn.onclick = () => {
+    if (!au) { au = new Audio('media/theme.mp3'); au.loop = true; au.volume = 0; }
+    const on = btn.classList.toggle('on'); btn.setAttribute('aria-pressed', on); btn.querySelector('span').textContent = on ? 'SOUND ON' : 'SOUND OFF';
+    if (on) au.play().catch(() => {});
+    const target = on ? .35 : 0, start = au.volume, t0 = performance.now();
+    const fade = now => { const k = Math.min(1, (now - t0) / 1200); au.volume = start + (target - start) * k; if (k < 1) requestAnimationFrame(fade); else if (!on) au.pause(); };
+    requestAnimationFrame(fade);
+  };
+})();
+</script>
 </body>
 </html>

@@ -228,6 +228,39 @@ footer{background:var(--warm);padding:36px 0 22px;border-top:1px solid var(--lin
 .t-src li{font-size:12.5px;color:var(--ink-lt);line-height:1.85;word-break:break-word}
 .t-src a{color:var(--rose)}
 @media(max-width:960px){.tri{grid-template-columns:1fr}}
+
+/* ── 互動：成分卡片（點一下翻面）與成分表解碼器 ── */
+.flt{display:flex;gap:8px;flex-wrap:wrap;margin-top:34px}
+.flt button{font-family:var(--mono);font-size:10px;letter-spacing:.18em;padding:8px 16px;border:1px solid var(--rose-pale);background:var(--white);color:var(--ink-mid);cursor:pointer;transition:all .25s}
+.flt button.on,.flt button:hover{border-color:var(--rose);color:var(--rose)}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(178px,1fr));gap:10px;margin-top:16px;perspective:900px}
+.card{position:relative;height:118px;cursor:pointer;transition:opacity .3s}
+.card.dim{opacity:.18;pointer-events:none}
+.card .in{position:absolute;inset:0;transition:transform .6s cubic-bezier(.2,.8,.2,1);transform-style:preserve-3d}
+.card.flip .in{transform:rotateY(180deg)}
+.card .f,.card .b{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border:1px solid var(--rose-pale);background:var(--white);padding:14px 16px;display:flex;flex-direction:column}
+.card .b{transform:rotateY(180deg);background:var(--rose-bg)}
+.card .n{font-family:var(--serif);font-style:italic;font-size:22px;color:var(--rose-lt);line-height:1}
+.card .t{margin-top:8px;font-size:14px;color:var(--ink);letter-spacing:.04em;line-height:1.5}
+.card .tag{margin-top:auto;font-family:var(--mono);font-size:9px;letter-spacing:.16em;color:var(--rose)}
+.card .o{font-size:12.5px;color:var(--ink-mid);line-height:1.75}
+.card .go{margin-top:auto;font-family:var(--mono);font-size:9px;letter-spacing:.16em;color:var(--rose);text-decoration:none}
+.s-dec{background:var(--white);padding:80px 0}
+.dec{max-width:860px;margin:0 auto}
+.dec textarea{width:100%;min-height:120px;padding:16px;border:1px solid var(--rose-pale);background:var(--cream);font-family:var(--cjk);font-size:14px;line-height:1.8;color:var(--ink);resize:vertical}
+.dec .act{display:flex;gap:10px;margin-top:12px;flex-wrap:wrap}
+.dec .act button{font-family:var(--mono);font-size:10px;letter-spacing:.18em;padding:10px 20px;border:1px solid var(--rose);background:var(--rose);color:#fff;cursor:pointer}
+.dec .act button.s{background:none;color:var(--rose)}
+.dec ol{list-style:none;margin-top:22px;border-top:1px solid var(--line)}
+.dec li{display:grid;grid-template-columns:42px 1fr auto;gap:14px;align-items:baseline;padding:11px 4px;border-bottom:1px solid var(--line);font-size:14px;color:var(--ink-mid)}
+.dec li b{font-family:var(--serif);font-style:italic;font-weight:400;font-size:18px;color:var(--rose-lt)}
+.dec li .nm{color:var(--ink)}.dec li .nm small{display:block;font-size:11.5px;color:var(--ink-lt);letter-spacing:.02em}
+.dec li .r{font-size:12.5px;color:var(--rose);text-align:right}
+.dec li.unk .r{color:var(--ink-lt)}
+.dec li.top{background:var(--rose-bg)}
+.dec .note{margin-top:14px;font-size:12px;color:var(--ink-lt);line-height:1.8}
+@media(max-width:600px){.cards{grid-template-columns:repeat(2,1fr)}.card{height:132px}.dec li{grid-template-columns:30px 1fr;}.dec li .r{grid-column:2;text-align:left}}
+@media(prefers-reduced-motion:reduce){.card .in{transition:none}}
 @media(max-width:600px){.lab-hero{padding:110px 0 50px;min-height:0}.topic{grid-template-columns:1fr;gap:6px;padding:34px 0}.t-num{font-size:36px}.s-topics{padding:56px 0}}
 </style>
 </head>
@@ -439,6 +472,18 @@ footer{background:var(--warm);padding:36px 0 22px;border-top:1px solid var(--lin
   <p>本頁成分說明引自原料資料與公開文獻，屬成分在保養上的用途說明，不代表對個別使用者的效果承諾。Decoy 為非侵入式美容保養服務，不是醫療行為。個人感受因膚況、體質與生活作息而不同。</p>
 </div>
 
+<section class="s-dec" id="decoder">
+  <div class="container"><div class="dec reveal">
+    <div class="sec-label">Decode Yourself · 成分表解碼器</div>
+    <h2 class="sec-title">把妳手上那瓶的成分表貼進來</h2>
+    <p class="sec-sub">英文或中文都可以，用逗號或換行分開。我們會依排序列出每個成分，並說明它在配方裡負責什麼；排在越前面的，用得越多。這是成分在配方裡的用途類別，不代表功效。</p>
+    <textarea id="decIn" placeholder="例如：Aqua, Glycerin, Niacinamide, Sodium Hyaluronate, Phenoxyethanol, Fragrance"></textarea>
+    <div class="act"><button id="decGo">解碼</button><button class="s" id="decLight">試試 LIGHT 活性安瓶</button></div>
+    <ol id="decOut"></ol>
+    <p class="note" id="decNote" hidden></p>
+  </div></div>
+</section>
+
 <section class="s-cta">
   <div class="container reveal">
     <div class="cta-title">想看兩瓶活性安瓶的全成分？</div>
@@ -462,6 +507,45 @@ footer{background:var(--warm);padding:36px 0 22px;border-top:1px solid var(--lin
 </footer>
 
 <script>
+/* 成分卡片：從下方文章自動產生，點一下翻面；可依 LIGHT／MIRROR 篩選 */
+(() => {
+  const jump = document.querySelector('.jump'); const arts = [...document.querySelectorAll('article.topic')]; if (!jump || !arts.length) return;
+  const which = a => { const w = (a.querySelector('.t-where') || {}).textContent || ''; const L = /LIGHT/.test(w), M = /MIRROR/.test(w); return L && M ? 'both' : L ? 'light' : M ? 'mirror' : 'both'; };
+  const tagTxt = { light: 'LIGHT', mirror: 'MIRROR', both: 'LIGHT · MIRROR' };
+  const flt = document.createElement('div'); flt.className = 'flt';
+  flt.innerHTML = '<button class="on" data-f="all">全部</button><button data-f="light">LIGHT 臉部</button><button data-f="mirror">MIRROR 身體</button>';
+  const grid = document.createElement('div'); grid.className = 'cards';
+  arts.forEach(a => { const n = a.querySelector('.t-num').textContent.trim(), t = a.querySelector('.t-title').textContent.split('：')[0], o = (a.querySelector('.t-one') || {}).textContent || '', b = which(a);
+    const c = document.createElement('div'); c.className = 'card'; c.dataset.b = b; c.tabIndex = 0;
+    c.innerHTML = `<div class="in"><div class="f"><span class="n">${n}</span><span class="t">${t}</span><span class="tag">${tagTxt[b]}</span></div><div class="b"><span class="o">${o}</span><a class="go" href="#${a.id}">看完整說明 ↓</a></div></div>`;
+    c.addEventListener('click', e => { if (e.target.closest('.go')) return; c.classList.toggle('flip'); });
+    c.addEventListener('keydown', e => { if (e.key === 'Enter') c.classList.toggle('flip'); });
+    grid.appendChild(c); });
+  flt.addEventListener('click', e => { const f = e.target.dataset.f; if (!f) return; flt.querySelectorAll('button').forEach(x => x.classList.toggle('on', x === e.target));
+    grid.querySelectorAll('.card').forEach(c => c.classList.toggle('dim', !(f === 'all' || c.dataset.b === f || c.dataset.b === 'both'))); });
+  jump.replaceWith(flt, grid);
+})();
+/* 成分表解碼器 */
+(() => {
+  const D = {"Aqua": {"zh": "水", "role": "溶劑"}, "Glycerin": {"zh": "甘油", "role": "保濕"}, "Caffeine": {"zh": "咖啡因", "role": "肌膚調理"}, "PEG/PPG/Polybutylene Glycol-8/5/3 Glycerin": {"zh": "PEG/PPG/聚丁二醇-8/5/3 甘油", "role": "保濕"}, "Butylene Glycol": {"zh": "丁二醇", "role": "保濕"}, "Propanediol": {"zh": "1,3-丙二醇", "role": "保濕"}, "Camellia Sinensis Leaf/Stalk Extract": {"zh": "茶葉／莖萃取", "role": "抗氧化 · 肌膚調理"}, "Sodium Chloride": {"zh": "氯化鈉", "role": "調整質地"}, "Phenoxyethanol": {"zh": "苯氧乙醇", "role": "防腐（安全保存）"}, "Maltodextrin": {"zh": "麥芽糊精", "role": "穩定"}, "Caprylyl Glycol": {"zh": "辛甘醇", "role": "潤膚 · 保存"}, "Malachite Extract": {"zh": "孔雀石萃取", "role": "抗氧化 · 肌膚調理"}, "Mannitol": {"zh": "甘露糖醇", "role": "保濕"}, "Epigallocatechol Gallate": {"zh": "茶多酚（EGCG）", "role": "抗氧化 · 肌膚調理"}, "Jania Rubens Extract": {"zh": "叉珊藻萃取", "role": "肌膚調理"}, "Bacillus/Soybean Ferment Extract": {"zh": "芽孢桿菌／大豆發酵產物萃取", "role": "保濕 · 肌膚調理"}, "sh-Decapeptide-5 SP": {"zh": "十肽", "role": "肌膚調理"}, "Niacinamide": {"zh": "菸鹼醯胺（維生素 B3）", "role": "肌膚調理"}, "Inositol": {"zh": "肌醇", "role": "保濕 · 肌膚調理"}, "Swertia Chirata Extract": {"zh": "印度獐牙菜萃取", "role": "肌膚調理"}, "Panthenol": {"zh": "泛醇（維生素原 B5）", "role": "保濕 · 修護"}, "1,2-Hexanediol": {"zh": "1,2-己二醇", "role": "溶劑 · 保存"}, "Allantoin": {"zh": "尿囊素", "role": "舒緩 · 肌膚調理"}, "Hydrolyzed Sodium Hyaluronate": {"zh": "水解玻尿酸鈉", "role": "保濕"}, "Hydrolyzed Hyaluronic Acid": {"zh": "水解玻尿酸", "role": "保濕"}, "Caprylhydroxamic Acid": {"zh": "辛醯羥肟酸", "role": "螯合 · 保存"}, "Cyanocobalamin": {"zh": "氰鈷胺（維生素 B12）", "role": "肌膚調理"}, "Dipropylene Glycol": {"zh": "雙丙甘醇", "role": "保濕"}, "Diglycerin": {"zh": "雙甘油", "role": "保濕"}, "Acetyl Hexapeptide-8": {"zh": "乙醯基六胜肽-8", "role": "肌膚調理"}, "Ethylhexylglycerin": {"zh": "乙基己基甘油", "role": "潤膚 · 保存"}, "Hydrolyzed Collagen": {"zh": "水解膠原蛋白（台灣石斑魚膠原）", "role": "保濕 · 緊緻"}, "Water": {"zh": "水", "role": "溶劑"}, "Alcohol": {"zh": "酒精", "role": "溶劑"}, "Alcohol Denat.": {"zh": "變性酒精", "role": "溶劑"}, "Fragrance": {"zh": "香料", "role": "香氣"}, "Parfum": {"zh": "香料", "role": "香氣"}, "Dimethicone": {"zh": "聚二甲基矽氧烷", "role": "潤膚 · 質地"}, "Cyclopentasiloxane": {"zh": "環五聚二甲基矽氧烷", "role": "質地"}, "Sodium Hyaluronate": {"zh": "玻尿酸鈉", "role": "保濕"}, "Hyaluronic Acid": {"zh": "玻尿酸", "role": "保濕"}, "Tocopherol": {"zh": "維生素 E", "role": "抗氧化（成分特性）"}, "Ascorbic Acid": {"zh": "維生素 C", "role": "抗氧化（成分特性）"}, "Retinol": {"zh": "視黃醇", "role": "肌膚調理"}, "Citric Acid": {"zh": "檸檬酸", "role": "調整酸鹼"}, "Sodium Hydroxide": {"zh": "氫氧化鈉", "role": "調整酸鹼"}, "Carbomer": {"zh": "卡波姆", "role": "增稠"}, "Xanthan Gum": {"zh": "玉米糖膠", "role": "增稠"}, "Disodium EDTA": {"zh": "EDTA 二鈉", "role": "螯合"}, "Methylparaben": {"zh": "對羥基苯甲酸甲酯", "role": "防腐（安全保存）"}, "Squalane": {"zh": "角鯊烷", "role": "潤膚"}, "Ceramide NP": {"zh": "神經醯胺 NP", "role": "肌膚調理"}, "Butyrospermum Parkii Butter": {"zh": "乳油木果脂", "role": "潤膚"}, "Titanium Dioxide": {"zh": "二氧化鈦", "role": "防曬 · 色料"}, "Zinc Oxide": {"zh": "氧化鋅", "role": "防曬"}, "Glyceryl Stearate": {"zh": "硬脂酸甘油酯", "role": "乳化"}, "Cetearyl Alcohol": {"zh": "鯨蠟硬脂醇", "role": "乳化 · 質地"}, "Propylene Glycol": {"zh": "丙二醇", "role": "保濕 · 溶劑"}, "Urea": {"zh": "尿素", "role": "保濕"}, "Salicylic Acid": {"zh": "水楊酸", "role": "角質調理"}, "Lactic Acid": {"zh": "乳酸", "role": "調整酸鹼 · 角質調理"}, "Collagen": {"zh": "膠原蛋白", "role": "保濕"}, "Pentylene Glycol": {"zh": "戊二醇", "role": "保濕 · 保存"}, "Sodium Benzoate": {"zh": "苯甲酸鈉", "role": "防腐（安全保存）"}, "Potassium Sorbate": {"zh": "山梨酸鉀", "role": "防腐（安全保存）"}, "Mica": {"zh": "雲母", "role": "色料 · 光澤"}};
+  const LIGHT = ["Aqua", "Propanediol", "Niacinamide", "Maltodextrin", "Inositol", "Sodium Chloride", "Swertia Chirata Extract", "Panthenol", "1,2-Hexanediol", "Allantoin", "Hydrolyzed Sodium Hyaluronate", "Hydrolyzed Hyaluronic Acid", "Caprylhydroxamic Acid", "Cyanocobalamin", "Dipropylene Glycol", "Diglycerin", "Caprylyl Glycol", "Acetyl Hexapeptide-8", "Ethylhexylglycerin", "Hydrolyzed Collagen"];
+  const MINE = new Set(Object.keys(D).slice(0, 32).map(k => k.toLowerCase()));
+  const idx = {}; for (const [k, v] of Object.entries(D)) { idx[k.toLowerCase()] = { k, ...v }; idx[v.zh.replace(/（.*?）/g, '').toLowerCase()] = { k, ...v }; }
+  const inp = document.getElementById('decIn'), out = document.getElementById('decOut'), note = document.getElementById('decNote'); if (!inp) return;
+  const find = raw => { const q = raw.replace(/[＊*]/g, '').trim().toLowerCase(); if (idx[q]) return idx[q];
+    for (const key in idx) if (key.length > 3 && (q.includes(key) || key.includes(q))) return idx[key]; return null; };
+  const run = () => { const items = inp.value.split(/[,，、;；\n]+/).map(x => x.trim()).filter(Boolean).slice(0, 80); out.innerHTML = ''; let known = 0;
+    items.forEach((raw, i) => { const m = find(raw); if (m) known++;
+      const li = document.createElement('li'); li.className = (m ? '' : 'unk') + (i < 5 ? ' top' : '');
+      const esc = s => s.replace(/[&<>]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' }[c]));
+      li.innerHTML = `<b>${String(i + 1).padStart(2, '0')}</b><span class="nm">${esc(raw)}${m ? `<small>${esc(m.k.toLowerCase() === raw.toLowerCase() ? m.zh : (m.zh.startsWith(raw) ? m.k : m.k + '｜' + m.zh))}${MINE.has(m.k.toLowerCase()) ? '｜Decoy 也有用' : ''}</small>` : ''}</span><span class="r">${m ? esc(m.role) : '還沒收錄'}</span>`;
+      out.appendChild(li); });
+    note.hidden = !items.length; note.textContent = items.length ? `共 ${items.length} 個成分，認得 ${known} 個。前 5 個用量最多（淡粉色）。用途類別參考歐盟 CosIng 與我們的全成分表；每個人的感受，會因膚況、體質和作息而不同。` : '';
+    if (typeof gtag === 'function') gtag('event', 'decoder_run', { count: items.length }); };
+  document.getElementById('decGo').onclick = run;
+  document.getElementById('decLight').onclick = () => { inp.value = LIGHT.join(', '); run(); };
+})();
+
 const els = document.querySelectorAll(".reveal");
 const io = new IntersectionObserver(entries => {
   entries.forEach((e,i) => {
