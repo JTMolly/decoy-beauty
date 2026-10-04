@@ -72,6 +72,8 @@ a{color:inherit}
 .progress .bar{flex:1;height:2px;background:var(--pale);border-radius:2px;overflow:hidden}
 .progress .bar i{display:block;height:100%;background:var(--rose);transition:width .35s ease}
 .q{font-weight:400;font-size:23px;line-height:1.6;letter-spacing:.06em;margin-bottom:28px}
+.q.has-hint{margin-bottom:8px}
+.q-hint{font-size:13px;color:var(--muted);letter-spacing:.04em;margin-bottom:24px}
 .opts{display:flex;flex-direction:column;gap:12px}
 .opt{text-align:left;width:100%;min-height:56px;padding:15px 18px;border:1px solid var(--line);border-radius:14px;background:rgba(255,255,255,.62);font-size:16px;line-height:1.6;letter-spacing:.04em;transition:border-color .2s,background .2s}
 .opt:hover{border-color:var(--rose)}
@@ -174,7 +176,7 @@ const R = {
                share: '願意試試看，然後愛上' },
 };
 const QS = [
-  { q: '難得空下來的週六上午，妳最想？',
+  { q: '最近一個難得空下來的週六上午，妳最想？', hint: '沒有對錯，選最先想到的那個就好 ☁️',
     o: { still: '泡一壺茶，把房間整理好', rebel: '照自己的計畫走，誰約都先不答應', aware: '把這陣子的生活記一記，看看自己最近怎麼了', companion: '約好久不見的朋友吃早午餐', explorer: '去一家沒去過的店，試試新東西' } },
   { q: '走進一個保養空間，最讓妳安心的是？',
     o: { still: '空間安靜，流程有條不紊', rebel: '沒有人推銷，什麼都由我決定', aware: '每一步都有人清楚說明', companion: '對方記得我上次說過的話', explorer: '有新的體驗可以先試試看' } },
@@ -186,7 +188,7 @@ const QS = [
     o: { still: '天空、植物、安靜的角落', rebel: '自己喜歡的穿搭和風格', aware: '截圖下來的知識和筆記', companion: '跟朋友家人的合照', explorer: '旅行和第一次去的地方' } },
   { q: '一天結束前，最能讓妳放鬆的是？',
     o: { still: '洗完澡，慢慢做完保養', rebel: '關掉訊息，留一段只屬於自己的時間', aware: '回想今天哪裡累、哪裡舒服', companion: '跟重要的人聊聊天', explorer: '想想明天可以試什麼新事情' } },
-  { q: '朋友說「妳最近好像不太一樣」，妳最希望對方指的是？',
+  { q: '如果有人跟妳說「妳最近好像不太一樣」，妳最希望對方指的是？',
     o: { still: '看起來更從容', rebel: '更敢做自己的決定', aware: '更懂得照顧自己', companion: '相處起來更自在', explorer: '多了好多新嘗試' } },
   { q: '如果「美」是一句話，妳會選？',
     o: { still: '安靜地，把生活過好', rebel: '我的美，我決定', aware: '先認識自己，再決定改變', companion: '被好好對待，也好好對待別人', explorer: '願意試試看，然後愛上' } },
@@ -243,7 +245,8 @@ function question(i) {
   view.innerHTML = `
   <section class="screen">
     <div class="progress" aria-label="第 ${i + 1} 題，共 ${QS.length} 題"><span class="num">${String(i + 1).padStart(2, '0')} / ${String(QS.length).padStart(2, '0')}</span><span class="bar"><i style="width:${(i / QS.length) * 100}%"></i></span></div>
-    <h2 class="q">${esc(item.q)}</h2>
+    <h2 class="q${item.hint ? ' has-hint' : ''}">${esc(item.q)}</h2>
+    ${item.hint ? `<p class="q-hint">${esc(item.hint)}</p>` : ''}
     <div class="opts">${shuffled[i].map(k => `<button class="opt${answers[i] === k ? ' on' : ''}" data-k="${k}">${esc(item.o[k])}</button>`).join('')}</div>
     ${i > 0 ? '<button class="btn-text back" id="back">← 上一題</button>' : '<button class="btn-text back" id="back">← 回到開頭</button>'}
   </section>`;
