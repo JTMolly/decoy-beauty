@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>照顧節奏測驗｜Decoy</title>
-<meta name="description" content="8 個問題，約 2 分鐘，認識你照顧自己的節奏。Decoy 非侵入式美學科技。">
+<meta name="description" content="8 個問題，約 2 分鐘，認識妳照顧自己的節奏。Decoy 非侵入式美學科技。">
 <meta property="og:title" content="照顧節奏測驗｜Decoy">
-<meta property="og:description" content="8 個問題，約 2 分鐘，認識你照顧自己的節奏。">
+<meta property="og:description" content="8 個問題，約 2 分鐘，認識妳照顧自己的節奏。">
 <meta property="og:image" content="https://decoy-beauty.com/quiz-assets/og.jpg">
 <meta property="og:type" content="website">
 <meta name="theme-color" content="#FBF7F4">
@@ -124,7 +124,7 @@ a{color:inherit}
 
 <div class="sheet" id="sheet" role="dialog" aria-modal="true" aria-labelledby="sheetTitle">
   <div class="panel">
-    <p id="sheetTitle" class="sr">你的結果卡</p>
+    <p id="sheetTitle" class="sr">妳的結果卡</p>
     <img id="cardImg" alt="">
     <p id="sheetHint">長按圖片即可存到相簿，或用下面的按鈕。</p>
     <div class="row">
@@ -146,51 +146,51 @@ const ORDER = ['still', 'rebel', 'aware', 'companion', 'explorer'];
 const R = {
   still:     { name: '靜行者',     en: 'The Still',        color: '#E2D6D0', deep: '#7D6A63',
                line: '把時間留給自己，安靜地把生活過好',
-               desc: '你喜歡有秩序的日子。照顧自己不需要很盛大，一段安靜、不被打擾的時間，就是你最好的保養。',
+               desc: '妳喜歡有秩序的日子。照顧自己不需要很盛大，一段安靜、不被打擾的時間，就是妳最好的保養。',
                tip: '每天留 10 分鐘不被打擾的保養時間，固定時段、固定順序。',
                like: '安靜的空間、不被打擾的流程。',
                share: '把時間留給自己' },
   rebel:     { name: '溫柔叛逆者', en: 'The Gentle Rebel', color: '#C99AA0', deep: '#8B5060',
                line: '美，是我自己的決定，不是誰說了算',
-               desc: '你聽得進建議，但最後一定自己決定。你不排斥變美，只是不接受被別人定義。',
+               desc: '妳聽得進建議，但最後一定自己決定。妳不排斥變美，只是不接受被別人定義。',
                tip: '先寫下自己想要的，再去聽別人的建議；可以說「這次先不要」。',
-               like: '沒有推銷壓力，要不要開始、怎麼安排，都由你決定。',
+               like: '沒有推銷壓力，要不要開始、怎麼安排，都由妳決定。',
                share: '我的美，我決定' },
   aware:     { name: '覺察者',     en: 'The Aware',        color: '#C9957A', deep: '#8A5640',
                line: '保養是認識自己身體的方式，不是急著改變它',
-               desc: '你想先弄懂，再決定要不要改變。對你來說，了解自己的身體，本身就是一種照顧。',
+               desc: '妳想先弄懂，再決定要不要改變。對妳來說，了解自己的身體，本身就是一種照顧。',
                tip: '每天用一句話記下身體的感受，每個月回頭看一次。',
                like: '開始前的清楚說明、階段回顧。',
                share: '先認識自己，再決定改變' },
   companion: { name: '陪伴者',     en: 'The Companion',    color: '#E9B9A1', deep: '#97604A',
                line: '被好好對待、被記得，跟服務本身一樣重要',
-               desc: '對你來說，誰陪著你、有沒有被記得，跟做了什麼一樣重要。好的關係，會讓你安心地回來。',
+               desc: '對妳來說，誰陪著妳、有沒有被記得，跟做了什麼一樣重要。好的關係，會讓妳安心地回來。',
                tip: '找一個固定的地方、固定的人；把照顧自己排進和朋友的約會。',
-               like: '盡量安排同一位美容師、記得你的習慣。',
+               like: '盡量安排同一位美容師、記得妳的習慣。',
                share: '被好好對待，也好好對待別人' },
   explorer:  { name: '探索者',     en: 'The Explorer',     color: '#DDB878', deep: '#85652B',
                line: '願意試試看，被打動了就會一直說給別人聽',
-               desc: '你對新事物有好奇心，願意先試試看。遇到真心喜歡的，你會很自然地分享給身邊的人。',
+               desc: '妳對新事物有好奇心，願意先試試看。遇到真心喜歡的，妳會很自然地分享給身邊的人。',
                tip: '每個季節試一件新事情，把喜歡的分享給一個人。',
                like: '首次體驗、每季的新活動。',
                share: '願意試試看，然後愛上' },
 };
 const QS = [
-  { q: '最近一個難得空下來的週六上午，你最想？', hint: '沒有對錯，選最先想到的那個就好 ☁️',
+  { q: '最近一個難得空下來的週六上午，妳最想？', hint: '沒有對錯，選最先想到的那個就好 ☁️',
     o: { still: '泡一壺茶，把房間整理好', rebel: '照自己的計畫走，誰約都先不答應', aware: '把這陣子的生活記一記，看看自己最近怎麼了', companion: '約好久不見的朋友吃早午餐', explorer: '去一家沒去過的店，試試新東西' } },
-  { q: '走進一個保養空間，最讓你安心的是？',
+  { q: '走進一個保養空間，最讓妳安心的是？',
     o: { still: '空間安靜，流程有條不紊', rebel: '沒有人推銷，什麼都由我決定', aware: '每一步都有人清楚說明', companion: '對方記得我上次說過的話', explorer: '有新的體驗可以先試試看' } },
-  { q: '聽到「保養」兩個字，你第一個想到？',
+  { q: '聽到「保養」兩個字，妳第一個想到？',
     o: { still: '每天固定的小儀式', rebel: '為自己做的選擇', aware: '更了解自己的身體', companion: '被好好照顧的時間', explorer: '發現新東西的樂趣' } },
-  { q: '面對一個新的保養方案，你最在意？',
+  { q: '面對一個新的保養方案，妳最在意？',
     o: { still: '能不能放進我的生活節奏', rebel: '我能不能隨時決定要不要繼續', aware: '會不會清楚告訴我原理和限制', companion: '是不是同一位美容師陪著我', explorer: '能不能先體驗一次再說' } },
-  { q: '你的手機相簿裡最多的是？',
+  { q: '妳的手機相簿裡最多的是？',
     o: { still: '天空、植物、安靜的角落', rebel: '自己喜歡的穿搭和風格', aware: '截圖下來的知識和筆記', companion: '跟朋友家人的合照', explorer: '旅行和第一次去的地方' } },
-  { q: '一天結束前，最能讓你放鬆的是？',
+  { q: '一天結束前，最能讓妳放鬆的是？',
     o: { still: '洗完澡，慢慢做完保養', rebel: '關掉訊息，留一段只屬於自己的時間', aware: '回想今天哪裡累、哪裡舒服', companion: '跟重要的人聊聊天', explorer: '想想明天可以試什麼新事情' } },
-  { q: '如果有人跟你說「你最近好像不太一樣」，你最希望對方指的是？',
+  { q: '如果有人跟妳說「妳最近好像不太一樣」，妳最希望對方指的是？',
     o: { still: '看起來更從容', rebel: '更敢做自己的決定', aware: '更懂得照顧自己', companion: '相處起來更自在', explorer: '多了好多新嘗試' } },
-  { q: '如果「美」是一句話，你會選？',
+  { q: '如果「美」是一句話，妳會選？',
     o: { still: '安靜地，把生活過好', rebel: '我的美，我決定', aware: '先認識自己，再決定改變', companion: '被好好對待，也好好對待別人', explorer: '願意試試看，然後愛上' } },
 ];
 
@@ -230,11 +230,11 @@ function intro() {
   <section class="screen intro">
     <div class="en">Find your rhythm of care</div>
     <h1>照顧節奏測驗</h1>
-    <p>8 個問題，約 2 分鐘<br>認識你照顧自己的方式</p>
+    <p>8 個問題，約 2 分鐘<br>認識妳照顧自己的方式</p>
     <div class="orbs" aria-hidden="true">${ORDER.map((k, i) => `<i style="background-position:${i * 25}% 0"></i>`).join('')}</div>
     <ol class="steps"><li>做測驗</li><li>看結果</li><li>到 LINE 領卡</li></ol>
     <button class="btn btn-primary" id="start">開始</button>
-    <p class="note">最後會在 LINE 收到一張屬於你的 Decode Card<br>這個測驗不會留下你的任何資料</p>
+    <p class="note">最後會在 LINE 收到一張屬於妳的 Decode Card<br>這個測驗不會留下妳的任何資料</p>
   </section>`;
   document.getElementById('start').onclick = () => { answers = []; track('quiz_start'); question(0); };
 }
@@ -285,19 +285,19 @@ function showResult(k, second) {
   // second === undefined: opened from a ?r= link, so there is no second rhythm to show
   const secondHtml = second === undefined ? ''
     : second
-    ? `<div class="second"><button id="reveal" aria-expanded="false">看看你的第二節奏 →</button><div class="reveal" id="revealBox" hidden><b>${R[second].name}</b>　${esc(R[second].line)}</div></div>`
-    : `<div class="second"><div class="reveal" style="margin:0">你的節奏很純粹：8 題都選了同一種。</div></div>`;
+    ? `<div class="second"><button id="reveal" aria-expanded="false">看看妳的第二節奏 →</button><div class="reveal" id="revealBox" hidden><b>${R[second].name}</b>　${esc(R[second].line)}</div></div>`
+    : `<div class="second"><div class="reveal" style="margin:0">妳的節奏很純粹：8 題都選了同一種。</div></div>`;
   view.innerHTML = `
   <section class="screen result">
-    <div class="lead">你的照顧節奏是</div>
+    <div class="lead">妳的照顧節奏是</div>
     <div class="orb" role="img" aria-label="${r.name}的水晶" style="background-image:url(quiz-assets/crystal-${k}.jpg)"></div>
     <h2>${r.name}</h2>
     <div class="en">${r.en}</div>
     <p class="line">${esc(r.line)}</p>
     <button class="tolin" id="toLine">還有最後一步：到 LINE 領卡 ↓</button>
     <p class="desc">${esc(r.desc)}</p>
-    <div class="card"><h3>Your Rhythm<span>你的照顧節奏</span></h3><p>${esc(r.tip)}</p></div>
-    <div class="card"><h3>At Decoy<span>在 Decoy，你可能會喜歡</span></h3><p>${esc(r.like)}</p></div>
+    <div class="card"><h3>Your Rhythm<span>妳的照顧節奏</span></h3><p>${esc(r.tip)}</p></div>
+    <div class="card"><h3>At Decoy<span>在 Decoy，妳可能會喜歡</span></h3><p>${esc(r.like)}</p></div>
     ${secondHtml}
     <div class="actions">
       ${SHOW_FOUNDING ? '<p class="founding">試營運前領取，享有創始編號</p>' : ''}
@@ -347,7 +347,7 @@ async function drawCard(k) {
   const r = R[k], W = 1080, H = 1920;
   const c = document.createElement('canvas'); c.width = W; c.height = H; const g = c.getContext('2d');
   const cjk = '"Noto Serif TC","Songti TC",serif', en = '"Cormorant Garamond",serif', mono = '"IBM Plex Mono",monospace';
-  const words = '我是你是哪一種？照顧節奏測驗' + r.name + r.share;
+  const words = '我是妳是哪一種？照顧節奏測驗' + r.name + r.share;
   await Promise.all([
     document.fonts.load(`400 64px ${cjk}`, words), document.fonts.load(`500 128px ${cjk}`, r.name),
     document.fonts.load(`italic 400 48px ${en}`, r.en + 'Decode Yourself'), document.fonts.load(`400 30px ${mono}`, SITE_URL),
@@ -369,7 +369,7 @@ async function drawCard(k) {
   g.fillStyle = '#5B3B40'; g.font = `400 54px ${cjk}`;
   wrap(g, r.share, 860).forEach((ln, i) => g.fillText(ln, 540, 1345 + i * 76));
   g.strokeStyle = r.deep + '55'; g.lineWidth = 2; g.beginPath(); g.moveTo(480, 1418); g.lineTo(600, 1418); g.stroke();
-  g.fillStyle = '#7A565C'; g.font = `400 38px ${cjk}`; g.fillText('你是哪一種？', 540, 1478);
+  g.fillStyle = '#7A565C'; g.font = `400 38px ${cjk}`; g.fillText('妳是哪一種？', 540, 1478);
   g.font = `400 28px ${mono}`; g.fillText(SITE_URL, 540, 1528);
   const mh = 92, mw = mh * mark.width / mark.height; g.drawImage(tinted(mark, r.deep, Math.round(mw), mh), 540 - mw / 2, 1562);
   const wh = 26, ww = wh * word.width / word.height; g.drawImage(tinted(word, r.deep, Math.round(ww), wh), 540 - ww / 2, 1672);
@@ -399,7 +399,7 @@ async function openCard(k) {
     const file = new File([cardBlob], name, { type: 'image/jpeg' });
     const sb = document.getElementById('shareBtn');
     sb.hidden = !(navigator.canShare && navigator.canShare({ files: [file] }));
-    sb.onclick = async () => { try { await navigator.share({ files: [file], text: `我是${R[k].name}。你是哪一種？ ${SITE_URL}` }); track('quiz_card_share', { rhythm: k }); } catch (e) {} };
+    sb.onclick = async () => { try { await navigator.share({ files: [file], text: `我是${R[k].name}。妳是哪一種？ ${SITE_URL}` }); track('quiz_card_share', { rhythm: k }); } catch (e) {} };
     dl.onclick = () => track('quiz_card_download', { rhythm: k });
     document.getElementById('sheet').classList.add('open');
     document.getElementById('closeSheet').focus();
