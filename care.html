@@ -3,11 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>課程與成分 | DECOY 非侵入式美容保養</title>
+<title>課程與成分 | DECOY 非侵入式美學科技</title>
 <link rel="icon" type="image/png" href="/favicon.png">
-<meta name="description" content="Decoy 的兩堂課程：LIGHT 臉部保養與 MIRROR 身體保養。一次課程會經歷什麼、精華液裡的每一個成分在做什麼，全成分公開。">
+<meta name="description" content="Decoy 的兩堂精準導入：LIGHT 臉部與 MIRROR 身體。三層精準導入技術、一次課程會經歷什麼、精華液裡的每一個成分在做什麼，全成分公開。">
 <meta property="og:title" content="課程與成分 | DECOY">
-<meta property="og:description" content="LIGHT 臉部保養、MIRROR 身體保養，全成分公開說明。先說清楚，再由妳決定。">
+<meta property="og:description" content="LIGHT 臉部精準導入、MIRROR 身體精準導入，全成分公開說明。先說清楚，再由妳決定。">
 <meta property="og:image" content="https://decoy-beauty.com/hero-banner.png">
 <meta property="og:url" content="https://decoy-beauty.com/care.html">
 <meta property="og:type" content="website">
@@ -23,7 +23,15 @@
    "name": "LIGHT 和 MIRROR，我該怎麼選？",
    "acceptedAnswer": {
     "@type": "Answer",
-    "text": "臉部想要水潤、光澤、細紋的照顧，選 LIGHT；身體肌膚想更緊實、線條更柔順，選 MIRROR。不確定也沒關係，第一次見面我們會先了解妳的狀態，再一起討論。"
+    "text": "臉部想要水潤、光澤、細紋的照顧，選 LIGHT 臉部精準導入；身體肌膚想更緊實、線條更柔順，選 MIRROR 身體精準導入。不確定也沒關係，第一次見面我們會先了解妳的狀態，再一起討論。"
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "什麼是三層精準導入技術？",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "是迅So槍和精華液一起運作的方式：第一層 AirMist™ 用 2.5 倍音速的氣流把精華化成細緻的霧；第二層 PeptiCarrier™ 活性胜肽載體，協助配方中的活性成分被肌膚吸收；第三層 Precision Formula，依臉部或身體使用 LIGHT 或 MIRROR 精華。全程無針、無傷口。"
    }
   },
   {
@@ -95,7 +103,7 @@
    "name": "會拍照嗎？照片會被拿去用嗎？",
    "acceptedAnswer": {
     "@type": "Answer",
-    "text": "每一次都會做紀錄，照片只作為妳的服務紀錄。拍攝和任何其他用途都會先取得妳的同意；不同意公開使用，也不影響妳的服務。"
+    "text": "每一次都會以照片和非侵入式超音波儀做紀錄，紀錄屬於妳本人，妳可以查看自己的紀錄。拍攝和任何其他用途都會先取得妳的同意；不同意公開使用，也不影響妳的服務。"
    }
   },
   {
@@ -195,9 +203,11 @@ body.en .hero-title{font-family:var(--serif);font-style:italic;letter-spacing:0}
 .device{display:grid;grid-template-columns:1.1fr 1fr;gap:64px;align-items:center}
 .device p{font-size:14.5px;color:var(--ink-mid);line-height:2}
 .device p+p{margin-top:14px}
+@media(max-width:600px){.device-pts li{flex-direction:column;gap:4px}}
 .device-pts{list-style:none;border-top:1px solid var(--line)}
 .device-pts li{display:flex;gap:18px;align-items:baseline;padding:16px 0;border-bottom:1px solid var(--line);font-size:14px;color:var(--ink)}
-.device-pts li b{font-family:var(--mono);font-weight:400;font-size:10px;letter-spacing:0.2em;color:var(--rose);min-width:118px}
+.device-pts li b{font-family:var(--mono);font-weight:400;font-size:10px;letter-spacing:0.16em;color:var(--rose);min-width:150px;flex-shrink:0}
+.device-pts li span{line-height:1.85}
 .more{display:inline-block;margin-top:26px;font-family:var(--mono);font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--rose);text-decoration:none;border-bottom:1px solid var(--rose-pale);padding-bottom:3px}
 
 /* 成分 */
@@ -298,6 +308,7 @@ footer{background:var(--warm);padding:36px 0 22px;border-top:1px solid var(--lin
     <li><a href="about.html"><span data-zh>關於品牌</span><span data-en style="display:none">About</span></a></li>
     <li><a href="care.html" class="active"><span data-zh>課程與成分</span><span data-en style="display:none">Care</span></a></li>
     <li><a href="technology.html"><span data-zh>技術原理</span><span data-en style="display:none">Technology</span></a></li>
+    <li><a href="lab.html"><span data-zh>成分小教室</span><span data-en style="display:none">Ingredients</span></a></li>
     <li><a href="partner.html"><span data-zh>加盟合作</span><span data-en style="display:none">Partnership</span></a></li>
     <li><a href="founder.html"><span data-zh>創辦人</span><span data-en style="display:none">Founder</span></a></li>
   </ul>
@@ -330,12 +341,12 @@ footer{background:var(--warm);padding:36px 0 22px;border-top:1px solid var(--lin
     <div class="reveal">
       <div class="sec-label">Two Programmes</div>
       <h2 class="sec-title"><span data-zh>我們能陪妳照顧的事</span><span data-en style="display:none">What we can care for with you</span></h2>
-      <p class="sec-sub"><span data-zh>Decoy 是非侵入式美容保養品牌。兩堂課程都用迅So槍，搭配各自的精華液。</span><span data-en style="display:none">Decoy is a non-invasive beauty care brand. Both programmes use the Decoy device, each with its own serum.</span></p>
+      <p class="sec-sub"><span data-zh>Decoy 是非侵入式美學科技品牌。兩堂課程都用迅So槍的三層精準導入技術，搭配各自的精華液。</span><span data-en style="display:none">Decoy is a non-invasive beauty technology brand. Both programmes use the Decoy device’s Tri-Layer Delivery™, each with its own serum.</span></p>
     </div>
     <div class="courses">
       <div class="course reveal">
         <div class="course-key">LIGHT</div>
-        <div class="course-tag"><span data-zh>臉部保養課程</span><span data-en style="display:none">Facial Care</span></div>
+        <div class="course-tag"><span data-zh>臉部精準導入</span><span data-en style="display:none">Precision Facial Delivery</span></div>
         <p class="course-mean"><span data-zh>光。讓肌膚帶著自己的光。</span><span data-en style="display:none">Light — skin that carries its own glow.</span></p>
         <div class="course-h"><span data-zh>適合妳，如果</span><span data-en style="display:none">For you if</span></div>
         <ul class="course-for"><li><span data-zh>肌膚常常覺得乾，上妝不太服貼</span><span data-en style="display:none">Skin often feels dry and makeup doesn’t sit well</span></li><li><span data-zh>氣色暗暗的，看起來比實際更累</span><span data-en style="display:none">A dull complexion that looks more tired than you feel</span></li><li><span data-zh>細紋開始出現，想讓肌膚水潤、有彈性</span><span data-en style="display:none">Fine lines appearing — you want skin that feels hydrated and supple</span></li></ul>
@@ -347,7 +358,7 @@ footer{background:var(--warm);padding:36px 0 22px;border-top:1px solid var(--lin
       </div>
       <div class="course reveal">
         <div class="course-key">MIRROR</div>
-        <div class="course-tag"><span data-zh>身體保養課程</span><span data-en style="display:none">Body Care</span></div>
+        <div class="course-tag"><span data-zh>身體精準導入</span><span data-en style="display:none">Precision Body Delivery</span></div>
         <p class="course-mean"><span data-zh>鏡子。照鏡子時，看見一個自己喜歡的樣子。</span><span data-en style="display:none">Mirror — seeing a version of yourself you like.</span></p>
         <div class="course-h"><span data-zh>適合妳，如果</span><span data-en style="display:none">For you if</span></div>
         <ul class="course-for"><li><span data-zh>身體肌膚感覺不夠緊實</span><span data-en style="display:none">Skin on the body feels less firm than you’d like</span></li><li><span data-zh>想讓手臂、腰腹或腿部的線條，看起來更俐落、柔順</span><span data-en style="display:none">You want the lines of your arms, waist or legs to look smoother and more defined</span></li><li><span data-zh>運動和作息都顧了，還想多給身體一點照顧</span><span data-en style="display:none">You already move and rest well, and want to give your body a little more care</span></li></ul>
@@ -384,14 +395,14 @@ footer{background:var(--warm);padding:36px 0 22px;border-top:1px solid var(--lin
         <div class="step">
           <div class="step-n">03</div>
           <div class="step-k">CARE</div>
-          <div class="step-t"><span data-zh>照顧</span><span data-en style="display:none">Care</span></div>
-          <p class="step-d"><span data-zh>迅So槍用氣流把精華液霧化，均勻覆蓋在肌膚上，全程無針、無傷口。妳會聽到氣流聲，感覺像橡皮筋輕輕彈在皮膚上；感受因人而異，隨時可以喊停。</span><span data-en style="display:none">The Decoy device uses airflow to turn the serum into a fine mist that settles evenly over the skin — no needles, no wounds. You’ll hear the airflow and feel something like a light elastic flick; sensations vary, and you can pause at any time.</span></p>
+          <div class="step-t"><span data-zh>導入</span><span data-en style="display:none">Care</span></div>
+          <p class="step-d"><span data-zh>迅So槍以三層精準導入技術，用氣流把精華液霧化，均勻覆蓋在肌膚上，全程無針、無傷口。妳會聽到氣流聲，感覺像橡皮筋輕輕彈在皮膚上；感受因人而異，隨時可以喊停。</span><span data-en style="display:none">Using Tri-Layer Delivery™, the Decoy device turns the serum into a fine mist that settles evenly over the skin — no needles, no wounds. You’ll hear the airflow and feel something like a light elastic flick; sensations vary, and you can pause at any time.</span></p>
         </div>
         <div class="step">
           <div class="step-n">04</div>
           <div class="step-k">REVIEW</div>
-          <div class="step-t"><span data-zh>回顧</span><span data-en style="display:none">Review</span></div>
-          <p class="step-d"><span data-zh>每一次都有紀錄。階段結束時一起回顧，再決定下一步要不要繼續、怎麼繼續。</span><span data-en style="display:none">Every session is recorded. At the end of each stage we review together, then decide whether and how to continue.</span></p>
+          <div class="step-t"><span data-zh>紀錄</span><span data-en style="display:none">Review</span></div>
+          <p class="step-d"><span data-zh>每一次都以非侵入式超音波儀協助數據化紀錄，紀錄屬於妳本人。階段結束時一起回顧，再決定下一步要不要繼續、怎麼繼續。</span><span data-en style="display:none">Every session is recorded with the help of a non-invasive ultrasound device, and the record belongs to you. At the end of each stage we review together, then decide whether and how to continue.</span></p>
         </div>
     </div>
     <div class="after reveal">
@@ -407,20 +418,20 @@ footer{background:var(--warm);padding:36px 0 22px;border-top:1px solid var(--lin
   </div>
 </section>
 
-<section class="s-device">
+<section class="s-device" id="tech">
   <div class="container device">
     <div class="reveal">
-      <div class="sec-label">The Device</div>
-      <h2 class="sec-title"><span data-zh>迅So槍：用氣流，不用針</span><span data-en style="display:none">The Decoy device: airflow, not needles</span></h2>
-      <p><span data-zh>迅So槍是岩寬生醫研發的氣流霧化設備。它把精華液變成細緻的霧，均勻覆蓋在肌膚上，協助肌膚吸收。</span><span data-en style="display:none">The Decoy device is an airflow misting device developed by Acheloy Biomed. It turns the serum into a fine mist that settles evenly over the skin to help it absorb.</span></p>
+      <div class="sec-label">Tri-Layer Delivery™</div>
+      <h2 class="sec-title"><span data-zh>三層精準導入技術</span><span data-en style="display:none">Tri-Layer Delivery™</span></h2>
+      <p><span data-zh>用氣流，不用針。迅So槍由金屬工業研究發展中心出身的博士團隊研發，獨家授權岩寬生醫；精華配方由台大背景的研發團隊開發。</span><span data-en style="display:none">Airflow, not needles. The Decoy device was developed by a PhD-led team from the Metal Industries Research &amp; Development Centre and is exclusively licensed to Acheloy Biomed; the serums were developed by an R&amp;D team with a National Taiwan University background.</span></p>
+      <p><span data-zh>岩寬生醫 3 項專利，專利設備另獲 3 項發明專利授權；累積服務破萬人次。</span><span data-en style="display:none">Acheloy Biomed holds 3 patents, and the device is licensed under a further 3 invention patents. Over ten thousand sessions served.</span></p>
       <p><span data-zh>我們相信，科技不是用來對抗身體，而是協助我們更精準地照顧它。</span><span data-en style="display:none">We believe technology shouldn’t fight the body — it should help us care for it more precisely.</span></p>
-      <a class="more" href="technology.html"><span data-zh>了解迅So槍 →</span><span data-en style="display:none">About the device →</span></a>
+      <a class="more" href="technology.html"><span data-zh>了解三層精準導入技術 →</span><span data-en style="display:none">More about Tri-Layer Delivery™ →</span></a>
     </div>
     <ul class="device-pts reveal">
-      <li><b>NON-INVASIVE</b><span data-zh>全程無針、無傷口</span><span data-en style="display:none">No needles, no wounds</span></li>
-      <li><b>NO DOWNTIME</b><span data-zh>做完就能回到生活</span><span data-en style="display:none">Back to your day right after</span></li>
-      <li><b>R&amp;D BACKED</b><span data-zh>岩寬生醫研發 · 3 項專利</span><span data-en style="display:none">Developed by Acheloy Biomed · 3 patents</span></li>
-      <li><b>FULL DISCLOSURE</b><span data-zh>精華液全成分公開</span><span data-en style="display:none">Full ingredient lists, published</span></li>
+      <li><b>01 AIRMIST™</b><span><span data-zh>氣流霧化：2.5 倍音速氣流，把精華化成細緻的霧，全程無針、無傷口</span><span data-en style="display:none">Airflow misting: airflow at 2.5× the speed of sound turns the serum into a fine mist — no needles, no wounds</span></span></li>
+      <li><b>02 PEPTICARRIER™</b><span><span data-zh>活性胜肽載體：協助配方中的活性成分被肌膚吸收</span><span data-en style="display:none">Active peptide carrier: helps the formula’s actives absorb into skin</span></span></li>
+      <li><b>03 PRECISION FORMULA</b><span><span data-zh>精準配方：LIGHT 臉部、MIRROR 身體，依部位設計，全成分公開</span><span data-en style="display:none">Precision formula: LIGHT for the face, MIRROR for the body, with full ingredient lists</span></span></li>
     </ul>
   </div>
 </section>
@@ -430,7 +441,7 @@ footer{background:var(--warm);padding:36px 0 22px;border-top:1px solid var(--lin
     <div class="reveal">
       <div class="sec-label">Mirror Serum</div>
       <h2 class="sec-title"><span data-zh>MIRROR 精華液裡有什麼</span><span data-en style="display:none">What’s in the MIRROR serum</span></h2>
-      <p class="sec-sub"><span data-zh>身體保養課程使用。以咖啡因、金萱茶萃取與海藻萃取為主，照顧肌膚的緊實與防護。</span><span data-en style="display:none">Used in Body Care. Built around caffeine, Jin Xuan tea extract and red algae extract, for firmness and protection.</span></p>
+      <p class="sec-sub"><span data-zh>身體精準導入使用。以咖啡因、卡蜜拉 Camellia™ 阿里山金萱複方與紅藻萃取為主，照顧肌膚的緊實與防護。</span><span data-en style="display:none">Used in Precision Body Delivery. Built around caffeine, Camellia™ Alishan Jin Xuan complex and red algae extract, for firmness and protection.</span></p>
     </div>
     <div class="ingr-grid reveal">
         <div class="ingr">
@@ -441,9 +452,9 @@ footer{background:var(--warm);padding:36px 0 22px;border-top:1px solid var(--lin
         </div>
         <div class="ingr">
           <div class="ingr-use"><span data-zh>抗氧化 · 防護</span><span data-en style="display:none">Antioxidant · Protection</span></div>
-          <div class="ingr-zh">金萱茶萃取 · 茶多酚</div>
+          <div class="ingr-zh">卡蜜拉 Camellia™ 阿里山金萱複方</div>
           <div class="ingr-inci">Camellia Sinensis Leaf/Stalk Extract · Epigallocatechol Gallate</div>
-          <p class="ingr-desc"><span data-zh>來自阿里山的台茶 12 號金萱，用低溫萃取，把茶裡的兒茶素留下來。兒茶素是很常被研究的抗氧化成分，幫肌膚抵禦日曬和空汙帶來的壓力，維持穩定、舒適。原料完成皮膚刺激性測試與 50 人人體貼膚測試。</span><span data-en style="display:none">From Alishan Jin Xuan (TTES No. 12) tea, extracted at low temperature to keep its catechins. Catechins are well-studied antioxidants that help skin stand up to sun and pollution and stay calm and comfortable. The raw material has completed skin-irritation testing and a 50-person human patch test.</span></p>
+          <p class="ingr-desc"><span data-zh>阿里山台茶 12 號金萱與茶多酚組成的複方。用低溫萃取，把茶裡的兒茶素留下來；兒茶素是很常被研究的抗氧化成分，幫肌膚抵禦日曬和空汙帶來的壓力，維持穩定、舒適。原料完成皮膚刺激性測試與 50 人人體貼膚測試。</span><span data-en style="display:none">Camellia™ pairs Alishan Jin Xuan (TTES No. 12) tea extract with EGCG. Low-temperature extraction keeps the catechins — well-studied antioxidants that help skin stand up to sun and pollution and stay calm and comfortable. The raw material has completed skin-irritation testing and a 50-person human patch test.</span></p>
         </div>
         <div class="ingr">
           <div class="ingr-use"><span data-zh>防護 · 保護</span><span data-en style="display:none">Protection</span></div>
@@ -464,10 +475,10 @@ footer{background:var(--warm);padding:36px 0 22px;border-top:1px solid var(--lin
           <p class="ingr-desc"><span data-zh>大豆經過納豆菌發酵後的萃取，含有小分子的胜肽和胺基酸，幫肌膚保濕、滋潤。</span><span data-en style="display:none">Soybeans fermented by natto bacteria, rich in small peptides and amino acids that help hydrate and nourish skin.</span></p>
         </div>
         <div class="ingr">
-          <div class="ingr-use"><span data-zh>肌膚調理</span><span data-en style="display:none">Skin conditioning</span></div>
-          <div class="ingr-zh">十肽</div>
-          <div class="ingr-inci">sh-Decapeptide-5 SP</div>
-          <p class="ingr-desc"><span data-zh>一種與人體序列相同、以合成方式製成的胜肽。在配方裡像一位帶路的人，幫助精華被肌膚好好吸收；它本身也是肌膚調理成分。</span><span data-en style="display:none">A synthetic peptide with a sequence identical to one found in the human body. In the formula it acts like a guide, helping the serum absorb well into skin, and it conditions skin in its own right.</span></p>
+          <div class="ingr-use"><span data-zh>吸收 · 肌膚調理</span><span data-en style="display:none">Absorption · Conditioning</span></div>
+          <div class="ingr-zh">PeptiCarrier™ 活性胜肽載體</div>
+          <div class="ingr-inci">sh-Decapeptide-5 SP（十肽）</div>
+          <p class="ingr-desc"><span data-zh>一種與人體序列相同、以合成方式製成的胜肽。在配方裡像一位帶路的人，協助配方中的活性成分被肌膚好好吸收；它本身也是肌膚調理成分。</span><span data-en style="display:none">A synthetic peptide with a sequence identical to one found in the human body. In the formula it acts like a guide, helping the active ingredients absorb well into skin, and it conditions skin in its own right.</span></p>
         </div>
     </div>
     <details class="full reveal">
@@ -483,9 +494,15 @@ footer{background:var(--warm);padding:36px 0 22px;border-top:1px solid var(--lin
     <div class="reveal">
       <div class="sec-label">Light Serum</div>
       <h2 class="sec-title"><span data-zh>LIGHT 精華液裡有什麼</span><span data-en style="display:none">What’s in the LIGHT serum</span></h2>
-      <p class="sec-sub"><span data-zh>臉部保養課程使用。以維生素 B 群、小分子玻尿酸與胜肽為主，照顧保濕、光澤與細紋。</span><span data-en style="display:none">Used in Facial Care. Built around B vitamins, low-molecular hyaluronic acid and peptides, for hydration, glow and fine lines.</span></p>
+      <p class="sec-sub"><span data-zh>臉部精準導入使用。以維生素 B 群、小分子玻尿酸、膠原蛋白與胜肽為主，照顧保濕、光澤與細紋。</span><span data-en style="display:none">Used in Precision Facial Delivery. Built around B vitamins, low-molecular hyaluronic acid, collagen and peptides, for hydration, glow and fine lines.</span></p>
     </div>
     <div class="ingr-grid reveal">
+        <div class="ingr">
+          <div class="ingr-use"><span data-zh>保濕 · 緊緻</span><span data-en style="display:none">Hydration · Firmness</span></div>
+          <div class="ingr-zh">台灣石斑魚膠原（升級配方）</div>
+          <div class="ingr-inci">Hydrolyzed Collagen</div>
+          <p class="ingr-desc"><span data-zh>新一批 LIGHT 升級配方加入。來自台灣在地漁業的石斑魚皮，原本是剩下來的副產品，被好好利用；水解成分子量小於 2000 的小分子膠原蛋白，幫肌膚保濕、緊緻、維持彈性。</span><span data-en style="display:none">New in the upgraded LIGHT formula. Sourced from grouper skin from Taiwan’s local fisheries — a by-product put to good use — and hydrolysed into small collagen peptides (under 2,000 Da) that hydrate, firm and help maintain elasticity.</span></p>
+        </div>
         <div class="ingr">
           <div class="ingr-use"><span data-zh>均勻透亮 · 防護</span><span data-en style="display:none">Even tone · Protection</span></div>
           <div class="ingr-zh">菸鹼醯胺（維生素 B3）</div>
@@ -542,8 +559,9 @@ footer{background:var(--warm);padding:36px 0 22px;border-top:1px solid var(--lin
         </div>
     </div>
     <details class="full reveal">
-      <summary><span data-zh>LIGHT 全成分（19 項，依含量排序）</span><span data-en style="display:none">LIGHT full ingredient list (19, by concentration)</span></summary>
+      <summary><span data-zh>LIGHT 全成分（現行批次 19 項，依含量排序）</span><span data-en style="display:none">LIGHT full ingredient list (current batch, 19, by concentration)</span></summary>
       <div class="inci-wrap"><table class="inci"><thead><tr><th>#</th><th>INCI</th><th><span data-zh>中文名</span><span data-en style="display:none">Chinese</span></th><th><span data-zh>用途</span><span data-en style="display:none">Role</span></th></tr></thead><tbody><tr><td class="n">01</td><td>Aqua</td><td>水</td><td><span data-zh>溶劑</span><span data-en style="display:none">Solvent</span></td></tr><tr><td class="n">02</td><td>Propanediol</td><td>1,3-丙二醇</td><td><span data-zh>保濕</span><span data-en style="display:none">Humectant</span></td></tr><tr><td class="n">03</td><td>Niacinamide</td><td>菸鹼醯胺（維生素 B3）</td><td><span data-zh>肌膚調理</span><span data-en style="display:none">Skin conditioning</span></td></tr><tr><td class="n">04</td><td>Maltodextrin</td><td>麥芽糊精</td><td><span data-zh>穩定</span><span data-en style="display:none">Stabiliser</span></td></tr><tr><td class="n">05</td><td>Inositol</td><td>肌醇</td><td><span data-zh>保濕 · 肌膚調理</span><span data-en style="display:none">Hydration · Conditioning</span></td></tr><tr><td class="n">06</td><td>Sodium Chloride</td><td>氯化鈉</td><td><span data-zh>調整質地</span><span data-en style="display:none">Texture</span></td></tr><tr><td class="n">07</td><td>Swertia Chirata Extract</td><td>印度獐牙菜萃取</td><td><span data-zh>肌膚調理</span><span data-en style="display:none">Skin conditioning</span></td></tr><tr><td class="n">08</td><td>Panthenol</td><td>泛醇（維生素原 B5）</td><td><span data-zh>保濕 · 修護</span><span data-en style="display:none">Hydration · Care</span></td></tr><tr><td class="n">09</td><td>1,2-Hexanediol</td><td>1,2-己二醇</td><td><span data-zh>溶劑 · 保存</span><span data-en style="display:none">Solvent · Preservation</span></td></tr><tr><td class="n">10</td><td>Allantoin</td><td>尿囊素</td><td><span data-zh>舒緩 · 肌膚調理</span><span data-en style="display:none">Soothing · Conditioning</span></td></tr><tr><td class="n">11</td><td>Hydrolyzed Sodium Hyaluronate</td><td>水解玻尿酸鈉</td><td><span data-zh>保濕</span><span data-en style="display:none">Humectant</span></td></tr><tr><td class="n">12</td><td>Hydrolyzed Hyaluronic Acid</td><td>水解玻尿酸</td><td><span data-zh>保濕</span><span data-en style="display:none">Humectant</span></td></tr><tr><td class="n">13</td><td>Caprylhydroxamic Acid</td><td>辛醯羥肟酸</td><td><span data-zh>螯合 · 保存</span><span data-en style="display:none">Chelating · Preservation</span></td></tr><tr><td class="n">14</td><td>Cyanocobalamin</td><td>氰鈷胺（維生素 B12）</td><td><span data-zh>肌膚調理</span><span data-en style="display:none">Skin conditioning</span></td></tr><tr><td class="n">15</td><td>Dipropylene Glycol</td><td>雙丙甘醇</td><td><span data-zh>保濕</span><span data-en style="display:none">Humectant</span></td></tr><tr><td class="n">16</td><td>Diglycerin</td><td>雙甘油</td><td><span data-zh>保濕</span><span data-en style="display:none">Humectant</span></td></tr><tr><td class="n">17</td><td>Caprylyl Glycol</td><td>辛甘醇</td><td><span data-zh>潤膚 · 保存</span><span data-en style="display:none">Emollient · Preservation</span></td></tr><tr><td class="n">18</td><td>Acetyl Hexapeptide-8</td><td>乙醯基六胜肽-8</td><td><span data-zh>肌膚調理</span><span data-en style="display:none">Skin conditioning</span></td></tr><tr><td class="n">19</td><td>Ethylhexylglycerin</td><td>乙基己基甘油</td><td><span data-zh>潤膚 · 保存</span><span data-en style="display:none">Emollient · Preservation</span></td></tr></tbody></table></div>
+      <p class="inci-note"><span data-zh>＊新一批升級配方加入水解膠原蛋白（Hydrolyzed Collagen），完整成分表以新批次標示為準。</span><span data-en style="display:none">* The upgraded batch adds Hydrolyzed Collagen; the full list will follow the new batch label.</span></p>
     </details>
   </div>
 </section>
@@ -568,7 +586,11 @@ footer{background:var(--warm);padding:36px 0 22px;border-top:1px solid var(--lin
     <div class="faq-list reveal">
       <div class="faq-item">
         <div class="faq-q"><span data-zh>LIGHT 和 MIRROR，我該怎麼選？</span><span data-en style="display:none">How do I choose between LIGHT and MIRROR?</span><span class="faq-arrow">+</span></div>
-        <div class="faq-a"><span data-zh>臉部想要水潤、光澤、細紋的照顧，選 LIGHT；身體肌膚想更緊實、線條更柔順，選 MIRROR。不確定也沒關係，第一次見面我們會先了解妳的狀態，再一起討論。</span><span data-en style="display:none">For hydration, glow and fine lines on the face, choose LIGHT. For firmer skin and smoother-looking contours on the body, choose MIRROR. Not sure? At your first visit we’ll understand where you are, then decide together.</span></div>
+        <div class="faq-a"><span data-zh>臉部想要水潤、光澤、細紋的照顧，選 LIGHT 臉部精準導入；身體肌膚想更緊實、線條更柔順，選 MIRROR 身體精準導入。不確定也沒關係，第一次見面我們會先了解妳的狀態，再一起討論。</span><span data-en style="display:none">For hydration, glow and fine lines on the face, choose LIGHT. For firmer skin and smoother-looking contours on the body, choose MIRROR. Not sure? At your first visit we’ll understand where you are, then decide together.</span></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q"><span data-zh>什麼是三層精準導入技術？</span><span data-en style="display:none">What is Tri-Layer Delivery™?</span><span class="faq-arrow">+</span></div>
+        <div class="faq-a"><span data-zh>是迅So槍和精華液一起運作的方式：第一層 AirMist™ 用 2.5 倍音速的氣流把精華化成細緻的霧；第二層 PeptiCarrier™ 活性胜肽載體，協助配方中的活性成分被肌膚吸收；第三層 Precision Formula，依臉部或身體使用 LIGHT 或 MIRROR 精華。全程無針、無傷口。</span><span data-en style="display:none">It is how the device and serums work together: AirMist™ uses airflow at 2.5× the speed of sound to turn the serum into a fine mist; PeptiCarrier™, an active peptide carrier, helps the actives absorb into skin; and Precision Formula means LIGHT for the face or MIRROR for the body. No needles, no wounds.</span></div>
       </div>
       <div class="faq-item">
         <div class="faq-q"><span data-zh>過程會痛嗎？</span><span data-en style="display:none">Will it hurt?</span><span class="faq-arrow">+</span></div>
@@ -604,7 +626,7 @@ footer{background:var(--warm);padding:36px 0 22px;border-top:1px solid var(--lin
       </div>
       <div class="faq-item">
         <div class="faq-q"><span data-zh>會拍照嗎？照片會被拿去用嗎？</span><span data-en style="display:none">Will you take photos? How are they used?</span><span class="faq-arrow">+</span></div>
-        <div class="faq-a"><span data-zh>每一次都會做紀錄，照片只作為妳的服務紀錄。拍攝和任何其他用途都會先取得妳的同意；不同意公開使用，也不影響妳的服務。</span><span data-en style="display:none">Each session is recorded, and photos are kept only as your service record. We ask your consent before taking photos and before any other use; declining public use never affects your care.</span></div>
+        <div class="faq-a"><span data-zh>每一次都會以照片和非侵入式超音波儀做紀錄，紀錄屬於妳本人，妳可以查看自己的紀錄。拍攝和任何其他用途都會先取得妳的同意；不同意公開使用，也不影響妳的服務。</span><span data-en style="display:none">Each session is recorded with photos and a non-invasive ultrasound device. The record belongs to you, and you can view it. We ask your consent before taking photos and before any other use; declining public use never affects your care.</span></div>
       </div>
       <div class="faq-item">
         <div class="faq-q"><span data-zh>Decoy 和醫美有什麼不同？</span><span data-en style="display:none">How is Decoy different from medical aesthetics?</span><span class="faq-arrow">+</span></div>
