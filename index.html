@@ -283,8 +283,6 @@ nav{
 }
 
 
-/* ══ AIRMIST 霧化光霧（滑鼠／手指經過時會被撥開）══ */
-#mist{position:fixed;inset:0;width:100%;height:100%;z-index:6;pointer-events:none}
 .c-cat{margin-top:16px;font-family:var(--cjk);font-size:12px;font-weight:300;letter-spacing:0.42em;color:rgba(255,255,255,0.45);padding-left:0.42em}
 .c-cta{display:inline-block;margin-top:30px;padding:12px 26px;border:1px solid rgba(255,255,255,0.42);border-radius:999px;font-family:var(--cjk);font-size:13px;letter-spacing:0.2em;color:#fff;text-decoration:none;background:rgba(255,255,255,0.06);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);transition:all .3s}
 .c-cta:hover{background:rgba(255,255,255,0.16);border-color:rgba(255,255,255,0.8)}
@@ -295,9 +293,19 @@ nav{
 .sound.on i b{animation:eq 1s ease-in-out infinite}
 .sound.on i b:nth-child(2){animation-delay:.2s}.sound.on i b:nth-child(3){animation-delay:.4s}
 @keyframes eq{0%,100%{height:3px}50%{height:10px}}
+/* 品牌影片：首頁按鈕開啟頁內播放器（不自動播放；網址加 #film 會直接打開，給 LINE 連結用） */
+.c-film{display:inline-flex;align-items:center;gap:9px;margin-top:16px;padding:6px 4px;background:none;border:0;font-family:var(--cjk);font-size:12px;letter-spacing:0.22em;color:rgba(255,255,255,0.72);cursor:pointer;transition:color .3s}
+.c-film:hover{color:#fff}
+.c-film i{display:grid;place-items:center;width:24px;height:24px;border:1px solid rgba(255,255,255,0.45);border-radius:50%;font-style:normal;font-size:8px;padding-left:2px}
+.film-modal{position:fixed;inset:0;z-index:300;display:flex;align-items:center;justify-content:center;padding:24px;background:rgba(28,8,14,0.74);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+.film-modal[hidden]{display:none}
+.fm-box{position:relative;width:min(960px,100%)}
+.fm-box video{display:block;width:100%;aspect-ratio:16/9;border-radius:14px;background:#2a1a1e;box-shadow:0 24px 60px rgba(0,0,0,0.35)}
+.fm-close{position:absolute;top:-46px;right:0;width:38px;height:38px;border-radius:50%;border:1px solid rgba(255,255,255,0.4);background:rgba(255,255,255,0.06);color:#fff;font-size:20px;line-height:1;cursor:pointer}
+.fm-close:focus{outline:none}.fm-close:focus-visible{outline:1px solid rgba(255,255,255,0.8);outline-offset:3px}
+.fm-cap{margin-top:14px;text-align:center;font-family:var(--cjk);font-size:12px;letter-spacing:0.2em;color:rgba(255,255,255,0.6)}
 @media(max-width:960px){.sound{top:70px;right:28px}}
 @media(max-width:600px){.sound{top:60px;right:18px}.c-cta{margin-top:22px;padding:10px 20px;font-size:12px}}
-@media (prefers-reduced-motion: reduce){#mist{display:none}}
 
 /* ══ RWD ══ */
 /* ── 平板 960px ── */
@@ -452,8 +460,15 @@ nav{
   <div class="c-zh">美，由你作主。</div>
   <div class="c-cat">非侵入式美學科技</div>
   <a class="c-cta" href="quiz.html">找到妳的照顧節奏 →</a>
+  <div><button class="c-film" id="filmOpen" type="button"><i aria-hidden="true">▶</i>看品牌影片｜2 分鐘</button></div>
 </div>
-<canvas id="mist" aria-hidden="true"></canvas>
+<div class="film-modal" id="filmModal" role="dialog" aria-modal="true" aria-label="Decoy 品牌影片" hidden>
+  <div class="fm-box">
+    <button class="fm-close" id="filmClose" type="button" aria-label="關閉影片">×</button>
+    <video id="filmVideo" controls playsinline preload="none" poster="media/decoy-film-poster.jpg" src="media/decoy-film-720.mp4"></video>
+    <div class="fm-cap">Decoy 品牌影片｜建議開聲音觀看</div>
+  </div>
+</div>
 <button class="sound" id="sound" aria-pressed="false" aria-label="背景音樂"><i><b></b><b></b><b></b></i><span>SOUND OFF</span></button>
 
 <div class="bottom-nav">
@@ -490,58 +505,23 @@ nav{
 </div>
 
 <script>
-/* AirMist 霧化光霧：右側一陣一陣噴出細緻光霧；滑鼠或手指經過時，霧會被撥開、跟著流動 */
+/* 品牌影片：按按鈕才開始播；用 #film 打開時只開播放器，不自動播 */
 (() => {
-  const cv = document.getElementById('mist'); if (!cv || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  const cx = cv.getContext('2d');
-  let W, H, DPR, cloud = [], drops = [], t = 0, ox, oy, ptr = { x: -1e4, y: -1e4, vx: 0, vy: 0, on: false };
-  const sprite = (r, g, b, hard) => { const s = document.createElement('canvas'); s.width = s.height = 128; const c = s.getContext('2d');
-    const gr = c.createRadialGradient(64, 64, 0, 64, 64, 64);
-    if (hard) { gr.addColorStop(0, `rgba(${r},${g},${b},1)`); gr.addColorStop(.3, `rgba(${r},${g},${b},.45)`); gr.addColorStop(1, `rgba(${r},${g},${b},0)`); }
-    else { gr.addColorStop(0, `rgba(${r},${g},${b},.5)`); gr.addColorStop(.5, `rgba(${r},${g},${b},.16)`); gr.addColorStop(1, `rgba(${r},${g},${b},0)`); }
-    c.fillStyle = gr; c.fillRect(0, 0, 128, 128); return s; };
-  const SOFT = [sprite(255, 236, 238), sprite(244, 210, 214), sprite(255, 248, 246)];
-  const DOT = [sprite(255, 255, 255, true), sprite(255, 228, 232, true), sprite(246, 206, 196, true)];
-  const U = () => Math.max(W, H) / 1000;
-  function resize() { DPR = Math.min(2, devicePixelRatio || 1); W = innerWidth; H = innerHeight; cv.width = W * DPR; cv.height = H * DPR; cx.setTransform(DPR, 0, 0, DPR, 0, 0);
-    ox = W * 1.01; oy = W < 700 ? H * .16 : H * .24; }
-  function emit(p, kind, prewarm) {
-    const a = (W < 700 ? -3.0 : -3.02) + (Math.random() - .5) * (kind ? .3 : .42);
-    const sp = (kind ? 9 + Math.random() * 9 : 4.5 + Math.random() * 4) * U();
-    p.x = ox + (Math.random() - .5) * 6; p.y = oy + (Math.random() - .5) * 6; p.vx = Math.cos(a) * sp; p.vy = Math.sin(a) * sp;
-    const ph = (t / 2600) % 1; p.life = prewarm ? 0 : -(ph < .55 ? 0 : (1 - ph) * 160 * Math.random()); // 一陣一陣噴，像迅So槍的節奏
-    p.max = kind ? 110 + Math.random() * 130 : 200 + Math.random() * 220;
-    p.size = kind ? (.8 + Math.random() * 2) * U() : (16 + Math.random() * 28) * U(); p.k = Math.floor(Math.random() * 3);
-    p.a = kind ? .3 + Math.random() * .45 : .025 + Math.random() * .035;
-    if (prewarm) { const n = Math.random() * p.max; for (let i = 0; i < n; i++) step(p, kind); }
-  }
-  function step(p, kind) {
-    if (p.life < 0) { p.life++; return; }
-    const s = .0028, fx = Math.sin(p.y * s + t * .0009) * .5 + Math.cos((p.x + p.y) * s * .7 - t * .0006) * .3, fy = Math.cos(p.x * s - t * .0008) * .4;
-    p.vx += fx * (kind ? .02 : .035) * U(); p.vy += (fy * (kind ? .02 : .035) - .006) * U();
-    if (ptr.on) { const dx = p.x - ptr.x, dy = p.y - ptr.y, d2 = dx * dx + dy * dy, R = (160 * U()) ** 2;
-      if (d2 < R) { const f = 1 - d2 / R, d = Math.sqrt(d2) + 1; p.vx += (dx / d * 1.2 + ptr.vx * .08 - dy / d * .8) * f * U(); p.vy += (dy / d * 1.2 + ptr.vy * .08 + dx / d * .8) * f * U(); } }
-    const damp = kind ? .965 : .975; p.vx *= damp; p.vy *= damp; p.x += p.vx; p.y += p.vy; p.size *= kind ? 1 : 1.012; p.life++;
-  }
-  function init() { resize(); const k = Math.min(1, W * H / (1440 * 900));
-    cloud = Array.from({ length: Math.round(110 * k + 40) }, () => { const p = {}; emit(p, 0, true); return p; });
-    drops = Array.from({ length: Math.round(700 * k + 200) }, () => { const p = {}; emit(p, 1, true); return p; }); }
-  function draw() {
-    cx.clearRect(0, 0, W, H); cx.globalCompositeOperation = 'lighter';
-    for (const p of cloud) { if (p.life < 0) continue; const u = p.life / p.max, f = Math.min(1, u * 5) * (1 - u); cx.globalAlpha = p.a * f; cx.drawImage(SOFT[p.k], p.x - p.size, p.y - p.size, p.size * 2, p.size * 2); }
-    for (const p of drops) { if (p.life < 0) continue; const u = p.life / p.max, f = Math.min(1, u * 8) * (1 - u) ** 1.5; cx.globalAlpha = p.a * f; const r = p.size * 3; cx.drawImage(DOT[p.k], p.x - r, p.y - r, r * 2, r * 2); }
-    cx.globalAlpha = 1; cx.globalCompositeOperation = 'source-over';
-  }
-  let run = true; document.addEventListener('visibilitychange', () => { run = !document.hidden; if (run) loop(); });
-  function loop() { if (!run) return; t += 16;
-    for (const p of cloud) { step(p, 0); if (p.life > p.max) emit(p, 0); }
-    for (const p of drops) { step(p, 1); if (p.life > p.max) emit(p, 1); }
-    ptr.vx *= .9; ptr.vy *= .9; draw(); requestAnimationFrame(loop); }
-  const move = (x, y) => { if (ptr.on) { ptr.vx = x - ptr.x; ptr.vy = y - ptr.y; } ptr.x = x; ptr.y = y; ptr.on = true; };
-  addEventListener('pointermove', e => move(e.clientX, e.clientY), { passive: true });
-  addEventListener('touchmove', e => move(e.touches[0].clientX, e.touches[0].clientY), { passive: true });
-  document.addEventListener('pointerleave', () => ptr.on = false);
-  addEventListener('resize', init); init(); loop();
+  const m = document.getElementById('filmModal'), v = document.getElementById('filmVideo'), btn = document.getElementById('filmOpen');
+  if (!m || !v || !btn) return;
+  const track = (name) => { try { if (window.gtag) gtag('event', name); } catch (e) {} };
+  const open = (play) => {
+    const s = document.getElementById('sound'); if (s && s.classList.contains('on')) s.click();   // 背景音樂先關掉
+    m.hidden = false; document.getElementById('filmClose').focus();
+    if (play) v.play().catch(() => {});
+  };
+  const close = () => { v.pause(); m.hidden = true; if (location.hash === '#film') history.replaceState(null, '', location.pathname + location.search); btn.focus(); };
+  btn.onclick = () => { track('home_film_open'); open(true); };
+  document.getElementById('filmClose').onclick = close;
+  m.addEventListener('click', e => { if (e.target === m) close(); });
+  addEventListener('keydown', e => { if (e.key === 'Escape' && !m.hidden) close(); });
+  v.addEventListener('play', () => track('home_film_play'), { once: true });
+  if (location.hash === '#film') open(false);
 })();
 /* 背景音樂：預設關閉，按了才淡入（形象影片配樂的鋼琴前段，無縫循環） */
 (() => {
