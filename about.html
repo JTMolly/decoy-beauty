@@ -240,6 +240,7 @@ section{padding:96px 0}
 .range-intro p{font-size:14px;color:var(--ink-mid);line-height:1.9}
 .range-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--rose-pale)}
 .range-card{background:var(--white);padding:28px 26px;transition:background 0.3s}
+.range-card.range-card-full{grid-column:span 2}  /* 10/6 拿掉臉部輪廓那張後剩 7 張，最後一張橫跨兩格補滿 */
 .range-card:hover{background:var(--rose-wash)}
 .rc-num{font-family:var(--mono);font-size:8px;letter-spacing:0.2em;color:var(--rose-mid);margin-bottom:12px;display:block}
 .rc-area{font-size:15px;font-weight:500;color:var(--ink);margin-bottom:7px;letter-spacing:0.04em}
@@ -388,8 +389,8 @@ footer{background:var(--warm);padding:36px 0 22px;border-top:1px solid var(--lin
         <div class="ac-tag">
           <span data-zh>給妳的</span><span data-en style="display:none">For You</span>
         </div>
-        <div class="ac-text" data-zh>"不是為了成為別人眼中的樣子，而是讓妳的身體回到它本來知道的狀態。三項專利技術，一個關於身體主權的選擇。"</div>
-        <div class="ac-text" data-en style="display:none">"Not to become who others want you to be — but to return your body to the state it has always known. Three patents. One choice about body autonomy."</div>
+        <div class="ac-text" data-zh>"不是為了成為別人眼中的樣子，而是讓妳的身體回到它本來知道的狀態。三層精準導入技術，一個關於身體主權的選擇。"</div>
+        <div class="ac-text" data-en style="display:none">"Not to become who others want you to be — but to return your body to the state it has always known. Tri-Layer Delivery™. One choice about body autonomy."</div>
         <div class="ac-note" data-zh>溫柔 · 精準 · 尊重自主</div>
         <div class="ac-note" data-en style="display:none">Gentle · Precise · Empowering</div>
       </div>
@@ -428,8 +429,8 @@ footer{background:var(--warm);padding:36px 0 22px;border-top:1px solid var(--lin
         <span class="dna-glyph" data-zh>精</span>
         <span class="dna-glyph" data-en style="display:none">02</span>
         <div class="dna-title"><span data-zh>精準科學</span><span data-en style="display:none">Precision Science</span></div>
-        <div class="dna-desc" data-zh>說出口的每一句話都要有根據。三層精準導入技術、3 項專利；兩瓶活性安瓶全成分公開；每堂課以非侵入式超音波儀協助數據化紀錄，累積服務破萬人次。不是憑感覺，是說得清楚。</div>
-        <div class="dna-desc" data-en style="display:none">Everything we say should have a basis. Tri-Layer Delivery™ and 3 patents; full ingredient lists for both Active Ampoules; every session recorded with the help of a non-invasive ultrasound device — over ten thousand sessions served. Not guesswork — clear explanation.</div>
+        <div class="dna-desc" data-zh>說出口的每一句話都要有根據。三層精準導入技術；兩瓶活性安瓶全成分公開；每堂課以非侵入式超音波儀協助數據化紀錄，累積服務破萬人次。不是憑感覺，是說得清楚。</div>
+        <div class="dna-desc" data-en style="display:none">Everything we say should have a basis. Tri-Layer Delivery™; full ingredient lists for both Active Ampoules; every session recorded with the help of a non-invasive ultrasound device — over ten thousand sessions served. Not guesswork — clear explanation.</div>
       </div>
       <div class="dna-card">
         <span class="dna-glyph" data-zh>科</span>
@@ -502,11 +503,11 @@ footer{background:var(--warm);padding:36px 0 22px;border-top:1px solid var(--lin
       <div class="pillar-row">
         <div class="pr-num">02</div>
         <div>
-          <div class="pr-title"><span data-zh>台大背景研發團隊 × 金屬中心出身博士團隊</span><span data-en style="display:none">NTU-background R&amp;D × MIRDC-trained PhD team</span></div>
+          <div class="pr-title"><span data-zh>台大背景研發團隊 × 岩寬生醫</span><span data-en style="display:none">NTU-background R&amp;D × Acheloy Biomed</span></div>
           <div class="pr-sub">Research-Backed</div>
         </div>
-        <div class="pr-desc" data-zh>活性安瓶配方由台大背景的研發團隊開發，迅So槍由金屬工業研究發展中心出身的博士團隊研發並獨家授權岩寬生醫；岩寬生醫 3 項專利，專利設備另獲 3 項發明專利授權。兩瓶活性安瓶全成分公開，每一個成分在做什麼，都說得清楚。</div>
-        <div class="pr-desc" data-en style="display:none">The Active Ampoule formulas were developed by an R&amp;D team with an NTU background; the device by a PhD-led team from the Metal Industries Research &amp; Development Centre, exclusively licensed to Acheloy Biomed. Acheloy Biomed holds 3 patents, with 3 more invention patents licensed for the device. Both Active Ampoules’ full ingredient lists are published, with what each ingredient does.</div>
+        <div class="pr-desc" data-zh>活性安瓶配方由台大背景的研發團隊開發，研發、品質與法規由岩寬生醫把關。兩瓶活性安瓶全成分公開，每一個成分在做什麼，都說得清楚。</div>
+        <div class="pr-desc" data-en style="display:none">The Active Ampoule formulas were developed by an R&amp;D team with an NTU background, with R&amp;D, quality and compliance overseen by Acheloy Biomed. Both Active Ampoules’ full ingredient lists are published, with what each ingredient does.</div>
       </div>
       <div class="pillar-row">
         <div class="pr-num">03</div>
@@ -639,21 +640,7 @@ footer{background:var(--warm);padding:36px 0 22px;border-top:1px solid var(--lin
         <div class="rc-desc" data-en style="display:none">The back is often forgotten, yet it's where elegance shows most clearly in how you carry yourself.</div>
       </div>
 
-      <div class="range-card range-card-wide">
-        <div class="rc-icon">
-          <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="24" cy="20" r="10" stroke="currentColor" stroke-width="1"/>
-            <path d="M16 28 Q20 34 24 35 Q28 34 32 28" stroke="currentColor" stroke-width="0.8" stroke-dasharray="2,2"/>
-            <path d="M18 32 Q24 38 30 32" stroke="currentColor" stroke-width="0.8" stroke-dasharray="2,2"/>
-          </svg>
-        </div>
-        <span class="rc-num">07</span>
-        <div class="rc-area"><span data-zh>臉部輪廓 · 下顎線條</span><span data-en style="display:none">Facial Contour · Jawline</span></div>
-        <div class="rc-desc" data-zh>下顎線條與臉部輪廓的緊緻，讓整體氣質更清晰俐落。（諮詢後依個人狀況評估）</div>
-        <div class="rc-desc" data-en style="display:none">Firmness of the jawline and facial contour for a clearer, more refined appearance. (Subject to individual assessment at consultation.)</div>
-      </div>
-
-      <div class="range-card range-card-wide">
+      <div class="range-card range-card-wide range-card-full">
         <div class="rc-icon">
           <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
             <circle cx="24" cy="16" r="8" stroke="currentColor" stroke-width="1"/>
@@ -662,7 +649,7 @@ footer{background:var(--warm);padding:36px 0 22px;border-top:1px solid var(--lin
             <path d="M18 34 Q24 38 30 34" stroke="currentColor" stroke-width="0.8" stroke-dasharray="2,2"/>
           </svg>
         </div>
-        <span class="rc-num">08</span>
+        <span class="rc-num">07</span>
         <div class="rc-area"><span data-zh>臉部保濕 · 光澤</span><span data-en style="display:none">Facial Hydration · Glow</span></div>
         <div class="rc-desc" data-zh>LIGHT 臉部精準導入：保濕補水、維持彈性，讓肌膚水潤、透亮有光澤。（諮詢後依個人狀況評估）</div>
         <div class="rc-desc" data-en style="display:none">LIGHT precision facial delivery: hydration and elasticity for dewy, luminous skin. (Subject to individual assessment at consultation.)</div>
