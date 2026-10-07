@@ -151,8 +151,8 @@ a{color:inherit}
 const LINE_ID = '@decoy';                    // Decoy LINE 官方帳號（2026-10-03 Molly 確認）
 // 來源追蹤（2026-10-06 Molly 同意，Meta 廣告用）：網址帶 ?src=ad 時，在 LINE 帶入的「領取 Decode Card｜節奏名」後面加一組看不見的字元，
 // 客人看到的文字完全一樣；LINE 機器人把它解回來源，記在名冊「來源」欄。這張表要和機器人的 SRC_BY_CODE 一致。
-// ad2（10/6 廣告 A/B 的 B 組）用 3 個字元；10/6 部署的機器人會把它記成 other，下次部署後記 ad2。
-const SRC_CODES = { ad: '\u200B\u200C', ad2: '\u200B\u200C\u200B', ig: '\u200C\u200B', fb: '\u200C\u200C', line: '\u200B\u200B' };
+// ad2（B 組，3 個字元）、ad3（C 組，10/7 加，4 個字元）：10/6 部署的機器人會把它們都記成 other，下次部署後才分開記；這兩天用 GA 的 src 分。
+const SRC_CODES = { ad: '\u200B\u200C', ad2: '\u200B\u200C\u200B', ad3: '\u200B\u200C\u200B\u200C', ig: '\u200C\u200B', fb: '\u200C\u200C', line: '\u200B\u200B' };
 const SRC = (() => {
   const KEY = 'decoy_quiz_src', DAYS = 14;
   const q = (new URLSearchParams(location.search).get('src') || '').toLowerCase();
