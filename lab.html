@@ -261,6 +261,26 @@ footer{background:var(--warm);padding:36px 0 22px;border-top:1px solid var(--lin
 .dec .note{margin-top:14px;font-size:12px;color:var(--ink-lt);line-height:1.8}
 @media(max-width:600px){.cards{grid-template-columns:repeat(2,1fr)}.card{height:132px}.dec li{grid-template-columns:30px 1fr;}.dec li .r{grid-column:2;text-align:left}}
 @media(prefers-reduced-motion:reduce){.card .in{transition:none}}
+/* ── 成分插畫（10/8）── */
+.t-art{float:right;width:184px;height:184px;margin:-6px 0 18px 32px;border-radius:50%;overflow:hidden;shape-outside:circle(50%);
+  box-shadow:0 18px 40px -18px rgba(150,90,100,.35),0 0 0 8px rgba(255,255,255,.7)}
+.t-art img{display:block;width:100%;height:100%;object-fit:cover;transition:transform 1.2s cubic-bezier(.2,.8,.2,1)}
+.topic:hover .t-art img{transform:scale(1.06)}
+.t-art.trio{width:230px;height:184px;border-radius:0;overflow:visible;box-shadow:none;shape-outside:none;position:relative}
+.t-art.trio img{position:absolute;width:118px;height:118px;border-radius:50%;box-shadow:0 14px 32px -16px rgba(150,90,100,.4),0 0 0 6px rgba(255,255,255,.75)}
+.t-art.trio img:nth-child(1){left:0;top:10px}.t-art.trio img:nth-child(2){left:96px;top:0;width:134px;height:134px}.t-art.trio img:nth-child(3){left:58px;top:92px;width:92px;height:92px}
+.lab-orbs{position:absolute;inset:0;pointer-events:none;z-index:1}
+.lab-orbs img{position:absolute;width:var(--s);height:var(--s);border-radius:50%;object-fit:cover;box-shadow:0 24px 50px -22px rgba(150,90,100,.45),0 0 0 10px rgba(255,255,255,.6);animation:orb 9s ease-in-out infinite}
+@keyframes orb{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+.card .f{overflow:hidden}
+.card .t{position:relative;z-index:1;max-width:calc(100% - 58px)}
+.card .ci{position:absolute;right:-16px;bottom:-16px;width:88px;height:88px;border-radius:50%;object-fit:cover;opacity:.92;transition:transform .5s}
+.card:hover .ci{transform:scale(1.08)}
+@media(max-width:1100px){.lab-orbs{display:none}}
+@media(max-width:600px){.card .ci{width:62px;height:62px;right:-12px;bottom:-12px}.card .t{max-width:calc(100% - 34px)}.card .tag{position:relative;z-index:1;max-width:calc(100% - 44px)}
+  .t-art{width:118px;height:118px;margin:0 0 12px 18px;box-shadow:0 10px 24px -12px rgba(150,90,100,.35),0 0 0 5px rgba(255,255,255,.7)}
+  .t-art.trio{width:150px;height:120px}.t-art.trio img{width:76px;height:76px}.t-art.trio img:nth-child(2){left:62px;width:88px;height:88px}.t-art.trio img:nth-child(3){left:38px;top:60px;width:60px;height:60px}}
+@media(prefers-reduced-motion:reduce){.lab-orbs img{animation:none}}
 @media(max-width:600px){.lab-hero{padding:110px 0 50px;min-height:0}.topic{grid-template-columns:1fr;gap:6px;padding:34px 0}.t-num{font-size:36px}.s-topics{padding:56px 0}}
 </style>
 </head>
@@ -287,6 +307,7 @@ footer{background:var(--warm);padding:36px 0 22px;border-top:1px solid var(--lin
 </nav>
 
 <section class="lab-hero">
+  <div class="lab-orbs" aria-hidden="true"><img src="img/ing/m2.webp" alt="" style="--s:230px;left:calc(50% + 420px);top:150px"><img src="img/ing/m3.webp" alt="" style="--s:128px;left:calc(50% + 640px);top:96px;animation-delay:-4s"><img src="img/ing/l6.webp" alt="" style="--s:150px;left:calc(50% + 560px);top:440px;animation-delay:-2s"><img src="img/ing/m4.webp" alt="" style="--s:200px;right:calc(50% + 420px);top:270px;animation-delay:-6s"><img src="img/ing/l3.webp" alt="" style="--s:124px;right:calc(50% + 600px);top:130px;animation-delay:-3s"><img src="img/ing/m1.webp" alt="" style="--s:112px;right:calc(50% + 470px);top:560px;animation-delay:-5s"></div>
   <div class="container">
     <div class="reveal">
       <div class="hero-eyebrow">Decoy Lab · 成分小教室</div>
@@ -315,6 +336,7 @@ footer{background:var(--warm);padding:36px 0 22px;border-top:1px solid var(--lin
     <article class="topic reveal" id="t00">
       <div class="t-num">00</div>
       <div class="t-body">
+        <figure class="t-art"><img src="img/ampoules.webp" alt="LIGHT 與 MIRROR 活性安瓶 示意插畫" loading="lazy" width="520" height="520"></figure>
         <h2 class="t-title">怎麼讀一張成分表</h2>
         <p class="t-one">排在越前面的，用得越多。</p>
         <div class="t-text"><p>台灣的化粧品，依法要把全部成分寫在包裝上。成分表照含量由多到少排列；含量在 1% 以下的成分，可以排在後面、不照順序。所以第一個常常是水，接著是保濕成分；真正讓人好奇的活性成分，有時排在中間或後面，不代表它不重要。</p><p>裡面那些看起來很化學的名字，例如苯氧乙醇、辛甘醇、1,2-己二醇，多半是讓產品能安全保存、不容易變質的配方系統，用量依法規限制。</p></div>
@@ -326,6 +348,7 @@ footer{background:var(--warm);padding:36px 0 22px;border-top:1px solid var(--lin
     <article class="topic reveal" id="t01">
       <div class="t-num">01</div>
       <div class="t-body">
+        <figure class="t-art"><img src="img/ing/m1.webp" alt="咖啡因 示意插畫" loading="lazy" width="520" height="520"></figure>
         <h2 class="t-title">咖啡因：不是妳早上喝的那杯</h2>
         <p class="t-one">常用在眼周和身體保養，讓肌膚看起來緊實、有精神。</p>
         <div class="t-text"><p>咖啡因除了在咖啡裡，也是保養品的常客。擦在肌膚上的咖啡因是純化過的化粧品原料，不是把咖啡倒在身上。它常被放在眼霜和身體保養品裡，讓肌膚看起來更緊實、有精神；它也是一種抗氧化成分，幫肌膚面對日常的環境壓力。</p></div>
@@ -337,6 +360,7 @@ footer{background:var(--warm);padding:36px 0 22px;border-top:1px solid var(--lin
     <article class="topic reveal" id="t02">
       <div class="t-num">02</div>
       <div class="t-body">
+        <figure class="t-art"><img src="img/ing/m2.webp" alt="卡蜜拉 Camellia™ 阿里山金萱 示意插畫" loading="lazy" width="520" height="520"></figure>
         <h2 class="t-title">卡蜜拉 Camellia™：為什麼是阿里山金萱茶？</h2>
         <p class="t-one">台茶 12 號金萱低溫萃取，留下兒茶素。</p>
         <div class="t-text"><p>卡蜜拉 Camellia™ 是 MIRROR 裡的阿里山金萱複方，由台茶 12 號金萱茶萃取和茶多酚（EGCG）組成。茶葉裡最被研究的是兒茶素，一種抗氧化成分，能幫肌膚抵禦日曬、空汙帶來的環境壓力。這款原料用低溫萃取，把兒茶素留下來、把咖啡因拿掉。</p><p>像一杯好茶，喝的是回甘；擦在身上，是安穩。</p><p>原料端完成了 OECD TG439 體外皮膚刺激性測試，以及 50 人人體皮膚貼布測試，原料並取得 COSMOS Natural 認證。</p></div>
@@ -348,6 +372,7 @@ footer{background:var(--warm);padding:36px 0 22px;border-top:1px solid var(--lin
     <article class="topic reveal" id="t03">
       <div class="t-num">03</div>
       <div class="t-body">
+        <figure class="t-art"><img src="img/ing/m3.webp" alt="孔雀石 示意插畫" loading="lazy" width="520" height="520"></figure>
         <h2 class="t-title">孔雀石萃取：一顆礦石，怎麼變成保養成分？</h2>
         <p class="t-one">含銅的礦石萃取，幫肌膚抵禦環境壓力。</p>
         <div class="t-text"><p>孔雀石是一種帶著深綠色紋路的含銅礦石。保養品用的是它的萃取物，提供銅等微量元素。銅是肌膚維持自身防護需要的元素之一，所以孔雀石萃取常被放進強調「防護」的配方裡。</p></div>
@@ -359,6 +384,7 @@ footer{background:var(--warm);padding:36px 0 22px;border-top:1px solid var(--lin
     <article class="topic reveal" id="t04">
       <div class="t-num">04</div>
       <div class="t-body">
+        <figure class="t-art"><img src="img/ing/m4.webp" alt="叉珊藻 示意插畫" loading="lazy" width="520" height="520"></figure>
         <h2 class="t-title">叉珊藻萃取：在實驗室長大的紅藻</h2>
         <p class="t-one">不必採集野生海藻，讓肌膚更緊實、飽滿。</p>
         <div class="t-text"><p>叉珊藻是一種會長出鈣質骨架的紅藻。這款原料由法國原料商在生物反應器裡培養，不需要到海裡採集野生藻類，對海洋比較友善。2013 年，它獲得德國 BSB 創新獎「最具創新天然原料」。在保養上，它用來讓肌膚更緊實、飽滿。</p></div>
@@ -370,6 +396,7 @@ footer{background:var(--warm);padding:36px 0 22px;border-top:1px solid var(--lin
     <article class="topic reveal" id="t05">
       <div class="t-num">05</div>
       <div class="t-body">
+        <figure class="t-art"><img src="img/ing/m5.webp" alt="納豆發酵 示意插畫" loading="lazy" width="520" height="520"></figure>
         <h2 class="t-title">納豆發酵萃取：發酵，讓大分子變小</h2>
         <p class="t-one">大豆經納豆菌發酵，含小分子胜肽和胺基酸，保濕、滋潤。</p>
         <div class="t-text"><p>發酵就像先把食物「切小」：大豆裡的蛋白質和醣類，經過枯草桿菌（也就是做納豆的菌）分解，變成比較小的胜肽和胺基酸。這類發酵萃取常出現在保濕、滋潤型的保養品裡。</p></div>
@@ -381,6 +408,7 @@ footer{background:var(--warm);padding:36px 0 22px;border-top:1px solid var(--lin
     <article class="topic reveal" id="t06">
       <div class="t-num">06</div>
       <div class="t-body">
+        <figure class="t-art"><img src="img/ing/m6.webp" alt="PeptiCarrier™ 活性胜肽載體 示意插畫" loading="lazy" width="520" height="520"></figure>
         <h2 class="t-title">PeptiCarrier™ 活性胜肽載體：配方裡的帶路人</h2>
         <p class="t-one">協助配方中的活性成分被肌膚吸收。</p>
         <div class="t-text"><p>胜肽是由胺基酸串成的小片段。Decoy MIRROR 活性安瓶裡的 PeptiCarrier™ 活性胜肽載體，是一種以合成方式製成、序列與人體相同的十胜肽（sh-Decapeptide-5 SP）。它在配方裡像一位帶路的人，協助其他活性成分被肌膚好好吸收；它本身也是肌膚調理成分。</p><p>它也是三層精準導入技術的第二層：第一層 AirMist™ 把精華化成細霧，第二層 PeptiCarrier™ 協助吸收，第三層是依部位設計的精準配方。</p></div>
@@ -392,6 +420,7 @@ footer{background:var(--warm);padding:36px 0 22px;border-top:1px solid var(--lin
     <article class="topic reveal" id="t07">
       <div class="t-num">07</div>
       <div class="t-body">
+        <figure class="t-art"><img src="img/ing/l1.webp" alt="菸鹼醯胺 示意插畫" loading="lazy" width="520" height="520"></figure>
         <h2 class="t-title">菸鹼醯胺：被研究最多的保養成分之一</h2>
         <p class="t-one">維生素 B3 的一種，幫肌膚把保護層顧好。</p>
         <div class="t-text"><p>菸鹼醯胺是維生素 B3 的一種形式，也是皮膚科學研究最多的保養成分之一。它幫肌膚把最外層的「保護層」顧好，所以肌膚比較不容易乾，膚色看起來也更均勻、透亮。開架和專櫃保養品裡都很常見。</p></div>
@@ -403,6 +432,7 @@ footer{background:var(--warm);padding:36px 0 22px;border-top:1px solid var(--lin
     <article class="topic reveal" id="t08">
       <div class="t-num">08</div>
       <div class="t-body">
+        <figure class="t-art trio"><img src="img/ing/l2.webp" alt="肌醇 示意插畫" loading="lazy" width="520" height="520"><img src="img/ing/l4.webp" alt="泛醇 示意插畫" loading="lazy" width="520" height="520"><img src="img/ing/l7.webp" alt="維生素 B12 示意插畫" loading="lazy" width="520" height="520"></figure>
         <h2 class="t-title">肌醇和泛醇：B 群家族的保水小幫手</h2>
         <p class="t-one">一個幫忙保水，一個幫忙舒緩乾燥。</p>
         <div class="t-text"><p>肌醇是 B 群家族的一員，過去被稱為維生素 B8，在保養品裡負責保濕、讓肌膚柔軟。泛醇（維生素原 B5）擦在肌膚上會轉成維生素 B5，能保濕，也能舒緩乾燥帶來的緊繃、不適，幫肌膚修護。</p><p>LIGHT 裡的維生素 B 家族一共四位：B3（菸鹼醯胺）、肌醇、B5（泛醇）和 B12。</p></div>
@@ -414,6 +444,7 @@ footer{background:var(--warm);padding:36px 0 22px;border-top:1px solid var(--lin
     <article class="topic reveal" id="t09">
       <div class="t-num">09</div>
       <div class="t-body">
+        <figure class="t-art"><img src="img/ing/l6.webp" alt="小分子玻尿酸 示意插畫" loading="lazy" width="520" height="520"></figure>
         <h2 class="t-title">小分子玻尿酸：大分子、小分子，有什麼不同？</h2>
         <p class="t-one">保濕界的老朋友，切小之後更輕盈。</p>
         <div class="t-text"><p>玻尿酸能抓住大量水分，是最常見的保濕成分之一。分子比較大的玻尿酸，會在肌膚表面形成一層保水的膜；水解後的小分子玻尿酸質地更輕盈，常用來補水、讓肌膚看起來水潤飽滿。研究也比較過不同分子量的玻尿酸在保濕和紋路上的表現。</p><p>要分清楚的是：保養品裡的玻尿酸是保濕成分，和診所注射用的玻尿酸是兩回事。</p></div>
@@ -425,6 +456,7 @@ footer{background:var(--warm);padding:36px 0 22px;border-top:1px solid var(--lin
     <article class="topic reveal" id="t10">
       <div class="t-num">10</div>
       <div class="t-body">
+        <figure class="t-art"><img src="img/ing/l3.webp" alt="印度獐牙菜 示意插畫" loading="lazy" width="520" height="520"></figure>
         <h2 class="t-title">印度獐牙菜萃取：喜馬拉雅山的苦味草本</h2>
         <p class="t-one">維持肌膚彈性、延緩肌膚老化。</p>
         <div class="t-text"><p>印度獐牙菜生長在喜馬拉雅山區，屬於龍膽科，傳統上是一種以「苦」聞名的草本。保養研究注意到它的萃取，可用來維持肌膚彈性、保濕，並延緩肌膚老化。</p></div>
@@ -436,6 +468,7 @@ footer{background:var(--warm);padding:36px 0 22px;border-top:1px solid var(--lin
     <article class="topic reveal" id="t11">
       <div class="t-num">11</div>
       <div class="t-body">
+        <figure class="t-art"><img src="img/ing/l5.webp" alt="尿囊素 示意插畫" loading="lazy" width="520" height="520"></figure>
         <h2 class="t-title">尿囊素：溫和的經典</h2>
         <p class="t-one">安撫肌膚、讓肌膚柔嫩。</p>
         <div class="t-text"><p>尿囊素是保養品裡用了幾十年的經典成分，很多溫和型、給乾燥肌膚用的產品都看得到它。它的工作很單純：安撫肌膚，讓肌膚摸起來柔嫩。</p></div>
@@ -447,6 +480,7 @@ footer{background:var(--warm);padding:36px 0 22px;border-top:1px solid var(--lin
     <article class="topic reveal" id="t12">
       <div class="t-num">12</div>
       <div class="t-body">
+        <figure class="t-art"><img src="img/ing/l8.webp" alt="六胜肽 示意插畫" loading="lazy" width="520" height="520"></figure>
         <h2 class="t-title">六胜肽：表情紋的保養</h2>
         <p class="t-one">淡化細紋，讓紋路看起來柔和。</p>
         <div class="t-text"><p>六胜肽（乙醯基六胜肽-8）是由六個胺基酸組成的胜肽，常用在眼周、額頭這些常做表情的地方。在保養上，它用來淡化細紋、讓紋路看起來柔和。</p><p>說清楚也很重要：它是保養品，不是注射，也不能取代醫療。研究顯示它對紋路有一定幫助，但每個人的感受不同。</p></div>
@@ -458,6 +492,7 @@ footer{background:var(--warm);padding:36px 0 22px;border-top:1px solid var(--lin
     <article class="topic reveal" id="t13">
       <div class="t-num">13</div>
       <div class="t-body">
+        <figure class="t-art"><img src="img/ing/l9.webp" alt="台灣石斑魚膠原 示意插畫" loading="lazy" width="520" height="520"></figure>
         <h2 class="t-title">台灣石斑魚膠原：從在地漁業到保養（LIGHT 升級配方）</h2>
         <p class="t-one">在地漁業的魚皮被好好利用，水解成小分子膠原蛋白。</p>
         <div class="t-text"><p>新一批 LIGHT 升級配方，加入了水解膠原蛋白。原料來自台灣在地漁業的石斑魚皮：原本是加工後剩下的副產品，現在被好好利用，產地可追溯。魚皮裡的膠原蛋白經過水解，切成分子量小於 2,000 的小分子，在保養上用來保濕、讓肌膚緊緻、維持彈性。</p></div>
@@ -517,7 +552,8 @@ footer{background:var(--warm);padding:36px 0 22px;border-top:1px solid var(--lin
   const grid = document.createElement('div'); grid.className = 'cards';
   arts.forEach(a => { const n = a.querySelector('.t-num').textContent.trim(), t = a.querySelector('.t-title').textContent.split('：')[0], o = (a.querySelector('.t-one') || {}).textContent || '', b = which(a);
     const c = document.createElement('div'); c.className = 'card'; c.dataset.b = b; c.tabIndex = 0;
-    c.innerHTML = `<div class="in"><div class="f"><span class="n">${n}</span><span class="t">${t}</span><span class="tag">${tagTxt[b]}</span></div><div class="b"><span class="o">${o}</span><a class="go" href="#${a.id}">看完整說明 ↓</a></div></div>`;
+    const im = a.querySelector('.t-art img');
+    c.innerHTML = `<div class="in"><div class="f">${im ? `<img class="ci" src="${im.getAttribute('src')}" alt="">` : ''}<span class="n">${n}</span><span class="t">${t}</span><span class="tag">${tagTxt[b]}</span></div><div class="b"><span class="o">${o}</span><a class="go" href="#${a.id}">看完整說明 ↓</a></div></div>`;
     c.addEventListener('click', e => { if (e.target.closest('.go')) return; c.classList.toggle('flip'); });
     c.addEventListener('keydown', e => { if (e.key === 'Enter') c.classList.toggle('flip'); });
     grid.appendChild(c); });

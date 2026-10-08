@@ -168,6 +168,14 @@ nav{
 .tl-desc{font-size:13px;color:var(--ink-lt);line-height:1.85}
 
 /* ── BELIEF ── */
+.s-gallery{padding:0 0 100px;background:var(--white)}
+.s-gallery .container{max-width:1120px;margin:0 auto;padding:0 64px;display:grid;grid-template-columns:1.35fr .65fr;gap:56px;align-items:end}
+.g-item{margin:0}
+.g-item img{display:block;width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;border-radius:2px;box-shadow:0 30px 60px -32px rgba(120,70,78,.45)}
+.g-item.g-small{margin-bottom:64px}
+.g-item.g-small img{aspect-ratio:3/4}
+.g-item figcaption{margin-top:16px;font-size:13.5px;color:var(--ink-mid);line-height:1.9;letter-spacing:.04em}
+@media(max-width:900px){.s-gallery .container{grid-template-columns:1fr;gap:36px;padding:0 32px}.g-item.g-small{margin-bottom:0;max-width:340px}}
 .s-belief{
   padding:100px 0;background:var(--rose-bg);
   position:relative;overflow:hidden;
@@ -409,6 +417,14 @@ footer{background:var(--warm);padding:36px 0 22px;border-top:1px solid var(--lin
         </div>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- GALLERY（10/8）-->
+<section class="s-gallery">
+  <div class="container">
+    <figure class="g-item reveal"><img src="img/founder-studio.webp" alt="陳槿唐在 Decoy 工作室" loading="lazy" width="900" height="1173"><figcaption><span data-zh>在 Decoy 工作室。同一個問題，換成每一位客人的答案。</span><span data-en style="display:none">In the Decoy studio. The same question, answered for each guest.</span></figcaption></figure>
+    <figure class="g-item g-small reveal"><img src="img/founder-lab.webp" alt="陳槿唐在實驗室" loading="lazy" width="760" height="1180"><figcaption><span data-zh>一切從實驗室開始：先問「為什麼」，再決定怎麼做。</span><span data-en style="display:none">It all started in the lab: ask “why” first, then decide how.</span></figcaption></figure>
   </div>
 </section>
 

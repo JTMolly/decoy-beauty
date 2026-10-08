@@ -214,7 +214,17 @@ body.en .hero-title{font-family:var(--serif);font-style:italic;letter-spacing:0}
 .s-ingr{background:var(--warm)}
 .s-ingr.alt{background:var(--rose-bg)}
 .ingr-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
-.ingr{background:var(--cream);padding:34px 30px 30px}
+.ingr{background:var(--cream);padding:34px 30px 30px;transition:background .4s}
+.ingr:hover{background:var(--white)}
+.ingr-art{display:block;width:92px;height:92px;border-radius:50%;object-fit:cover;margin-bottom:20px;box-shadow:0 14px 30px -14px rgba(150,90,100,.4),0 0 0 6px rgba(255,255,255,.8);transition:transform .6s cubic-bezier(.2,.8,.2,1)}
+.ingr:hover .ingr-art{transform:scale(1.06) rotate(-3deg)}
+.page-hero .container{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:64px;align-items:center}
+.hero-art{position:relative;margin:0}
+.hero-art img{display:block;width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;border-radius:2px;box-shadow:0 30px 60px -30px rgba(120,70,78,.45)}
+.hero-art::before{content:"";position:absolute;inset:18px -18px -18px 18px;border:1px solid var(--rose-pale);z-index:-1}
+.hero-art figcaption{margin-top:14px;font-family:var(--mono);font-size:9.5px;letter-spacing:.2em;color:var(--ink-lt);text-transform:uppercase}
+.device-art{grid-column:1/-1;margin:0 0 8px;display:flex;justify-content:center;background:radial-gradient(ellipse 55% 60% at 50% 55%,rgba(237,216,220,.55),transparent 70%)}
+.device-art img{width:min(460px,80%);height:auto;filter:drop-shadow(0 30px 40px rgba(120,70,78,.22))}
 .ingr-use{font-family:var(--mono);font-size:10px;letter-spacing:0.16em;color:var(--rose)}
 .ingr-zh{margin-top:12px;font-size:18px;color:var(--ink);letter-spacing:0.08em;line-height:1.5}
 .ingr-inci{margin-top:4px;font-family:var(--serif);font-style:italic;font-size:15px;color:var(--ink-lt);line-height:1.4}
@@ -286,6 +296,10 @@ footer{background:var(--warm);padding:36px 0 22px;border-top:1px solid var(--lin
   .nav-reserve{font-size:9px;padding:7px 12px}
   .nav-logo img{height:26px}
   .page-hero{padding:110px 0 56px;min-height:0}
+  .page-hero .container{grid-template-columns:1fr;gap:36px}
+  .hero-art img{aspect-ratio:4/3;object-position:50% 78%}
+  .hero-art::before{inset:12px -12px -12px 12px}
+  .ingr-art{width:76px;height:76px}
   .container,.footer-inner{padding:0 16px}
   section{padding:68px 0}
   .course{padding:38px 24px 34px}
@@ -333,6 +347,7 @@ footer{background:var(--warm);padding:36px 0 22px;border-top:1px solid var(--lin
         <a href="#faq"><span data-zh>常見問題</span><span data-en style="display:none">FAQ</span></a>
       </div>
     </div>
+    <figure class="hero-art reveal"><img src="img/ampoules.webp" alt="Decoy LIGHT 與 MIRROR 活性安瓶" width="880" height="1100"><figcaption>LIGHT · MIRROR Active Ampoules</figcaption></figure>
   </div>
 </section>
 
@@ -420,6 +435,7 @@ footer{background:var(--warm);padding:36px 0 22px;border-top:1px solid var(--lin
 
 <section class="s-device" id="tech">
   <div class="container device">
+    <figure class="device-art reveal"><img src="img/device.webp" alt="迅So槍" loading="lazy" width="1000" height="777"></figure>
     <div class="reveal">
       <div class="sec-label">Tri-Layer Delivery™</div>
       <h2 class="sec-title"><span data-zh>三層精準導入技術</span><span data-en style="display:none">Tri-Layer Delivery™</span></h2>
@@ -444,37 +460,37 @@ footer{background:var(--warm);padding:36px 0 22px;border-top:1px solid var(--lin
       <p class="sec-sub"><span data-zh>身體精準導入使用，含 PeptiCarrier™ 活性胜肽載體。以咖啡因、卡蜜拉 Camellia™ 阿里山金萱複方與紅藻萃取為主，照顧肌膚的緊實與防護。</span><span data-en style="display:none">Used in Precision Body Delivery, with PeptiCarrier™ active peptide carrier. Built around caffeine, Camellia™ Alishan Jin Xuan complex and red algae extract, for firmness and protection.</span></p>
     </div>
     <div class="ingr-grid reveal">
-        <div class="ingr">
+        <div class="ingr"><img class="ingr-art" src="img/ing/m1.webp" alt="咖啡因 示意插畫" loading="lazy" width="520" height="520">
           <div class="ingr-use"><span data-zh>緊實 · 有精神</span><span data-en style="display:none">Firm · Refreshed</span></div>
           <div class="ingr-zh">咖啡因</div>
           <div class="ingr-inci">Caffeine</div>
           <p class="ingr-desc"><span data-zh>不是妳早上喝的那杯。保養品裡的咖啡因，常用在眼周和身體保養，讓肌膚看起來緊實、有精神；它也是抗氧化成分，幫肌膚面對日常的環境壓力。</span><span data-en style="display:none">Not the one in your morning cup. In skincare, caffeine is often used around the eyes and on the body to help skin look firmer and more awake. It is also an antioxidant that helps skin cope with everyday environmental stress.</span></p>
         </div>
-        <div class="ingr">
+        <div class="ingr"><img class="ingr-art" src="img/ing/m2.webp" alt="卡蜜拉 Camellia™ 阿里山金萱複方 示意插畫" loading="lazy" width="520" height="520">
           <div class="ingr-use"><span data-zh>抗氧化 · 防護</span><span data-en style="display:none">Antioxidant · Protection</span></div>
           <div class="ingr-zh">卡蜜拉 Camellia™ 阿里山金萱複方</div>
           <div class="ingr-inci">Camellia Sinensis Leaf/Stalk Extract · Epigallocatechol Gallate</div>
           <p class="ingr-desc"><span data-zh>阿里山台茶 12 號金萱與茶多酚組成的複方。用低溫萃取，把茶裡的兒茶素留下來；兒茶素是很常被研究的抗氧化成分，幫肌膚抵禦日曬和空汙帶來的壓力，維持穩定、舒適。原料完成皮膚刺激性測試與 50 人人體貼膚測試。</span><span data-en style="display:none">Camellia™ pairs Alishan Jin Xuan (TTES No. 12) tea extract with EGCG. Low-temperature extraction keeps the catechins — well-studied antioxidants that help skin stand up to sun and pollution and stay calm and comfortable. The raw material has completed skin-irritation testing and a 50-person human patch test.</span></p>
         </div>
-        <div class="ingr">
+        <div class="ingr"><img class="ingr-art" src="img/ing/m3.webp" alt="孔雀石萃取 示意插畫" loading="lazy" width="520" height="520">
           <div class="ingr-use"><span data-zh>防護 · 保護</span><span data-en style="display:none">Protection</span></div>
           <div class="ingr-zh">孔雀石萃取</div>
           <div class="ingr-inci">Malachite Extract</div>
           <p class="ingr-desc"><span data-zh>一種含銅的礦石萃取。銅是肌膚維持自身防護所需要的微量元素；在保養品裡，用來幫肌膚抵禦環境壓力。</span><span data-en style="display:none">A copper-rich mineral extract. Copper is a trace element skin relies on for its own defences; in skincare it helps skin resist environmental stress.</span></p>
         </div>
-        <div class="ingr">
+        <div class="ingr"><img class="ingr-art" src="img/ing/m4.webp" alt="叉珊藻萃取 示意插畫" loading="lazy" width="520" height="520">
           <div class="ingr-use"><span data-zh>緊實 · 飽滿</span><span data-en style="display:none">Firm · Plump</span></div>
           <div class="ingr-zh">叉珊藻萃取</div>
           <div class="ingr-inci">Jania Rubens Extract</div>
           <p class="ingr-desc"><span data-zh>一種紅藻，由法國原料商在實驗室裡培養，不必採集野生海藻。在保養上用來讓肌膚更緊實、飽滿；曾獲德國 BSB 創新獎「最具創新天然原料」。</span><span data-en style="display:none">A red alga grown in a lab by a French supplier, so no wild seaweed is harvested. In skincare it helps skin feel firmer and plumper. It received a BSB Innovation Award for most innovative natural active.</span></p>
         </div>
-        <div class="ingr">
+        <div class="ingr"><img class="ingr-art" src="img/ing/m5.webp" alt="納豆發酵萃取 示意插畫" loading="lazy" width="520" height="520">
           <div class="ingr-use"><span data-zh>保濕 · 滋潤</span><span data-en style="display:none">Hydration · Nourishment</span></div>
           <div class="ingr-zh">納豆發酵萃取</div>
           <div class="ingr-inci">Bacillus/Soybean Ferment Extract</div>
           <p class="ingr-desc"><span data-zh>大豆經過納豆菌發酵後的萃取，含有小分子的胜肽和胺基酸，幫肌膚保濕、滋潤。</span><span data-en style="display:none">Soybeans fermented by natto bacteria, rich in small peptides and amino acids that help hydrate and nourish skin.</span></p>
         </div>
-        <div class="ingr">
+        <div class="ingr"><img class="ingr-art" src="img/ing/m6.webp" alt="PeptiCarrier™ 活性胜肽載體 示意插畫" loading="lazy" width="520" height="520">
           <div class="ingr-use"><span data-zh>吸收 · 肌膚調理</span><span data-en style="display:none">Absorption · Conditioning</span></div>
           <div class="ingr-zh">PeptiCarrier™ 活性胜肽載體</div>
           <div class="ingr-inci">sh-Decapeptide-5 SP（十肽）</div>
@@ -497,55 +513,55 @@ footer{background:var(--warm);padding:36px 0 22px;border-top:1px solid var(--lin
       <p class="sec-sub"><span data-zh>臉部精準導入使用。以維生素 B 群、小分子玻尿酸、膠原蛋白與胜肽為主，照顧保濕、光澤與細紋。</span><span data-en style="display:none">Used in Precision Facial Delivery. Built around B vitamins, low-molecular hyaluronic acid, collagen and peptides, for hydration, glow and fine lines.</span></p>
     </div>
     <div class="ingr-grid reveal">
-        <div class="ingr">
+        <div class="ingr"><img class="ingr-art" src="img/ing/l9.webp" alt="台灣石斑魚膠原（升級配方） 示意插畫" loading="lazy" width="520" height="520">
           <div class="ingr-use"><span data-zh>保濕 · 緊緻</span><span data-en style="display:none">Hydration · Firmness</span></div>
           <div class="ingr-zh">台灣石斑魚膠原（升級配方）</div>
           <div class="ingr-inci">Hydrolyzed Collagen</div>
           <p class="ingr-desc"><span data-zh>新一批 LIGHT 升級配方加入。來自台灣在地漁業的石斑魚皮，原本是剩下來的副產品，被好好利用；水解成分子量小於 2000 的小分子膠原蛋白，幫肌膚保濕、緊緻、維持彈性。</span><span data-en style="display:none">New in the upgraded LIGHT formula. Sourced from grouper skin from Taiwan’s local fisheries — a by-product put to good use — and hydrolysed into small collagen peptides (under 2,000 Da) that hydrate, firm and help maintain elasticity.</span></p>
         </div>
-        <div class="ingr">
+        <div class="ingr"><img class="ingr-art" src="img/ing/l1.webp" alt="菸鹼醯胺（維生素 B3） 示意插畫" loading="lazy" width="520" height="520">
           <div class="ingr-use"><span data-zh>均勻透亮 · 防護</span><span data-en style="display:none">Even tone · Protection</span></div>
           <div class="ingr-zh">菸鹼醯胺（維生素 B3）</div>
           <div class="ingr-inci">Niacinamide</div>
           <p class="ingr-desc"><span data-zh>被研究最多的保養成分之一。它幫肌膚把「保護層」顧好，所以比較不容易乾，膚色看起來更均勻透亮。</span><span data-en style="display:none">One of the most researched skincare ingredients. It helps skin look after its protective layer, so it dries out less easily and looks more even and luminous.</span></p>
         </div>
-        <div class="ingr">
+        <div class="ingr"><img class="ingr-art" src="img/ing/l2.webp" alt="肌醇 示意插畫" loading="lazy" width="520" height="520">
           <div class="ingr-use"><span data-zh>保濕 · 柔軟</span><span data-en style="display:none">Hydration · Softness</span></div>
           <div class="ingr-zh">肌醇</div>
           <div class="ingr-inci">Inositol</div>
           <p class="ingr-desc"><span data-zh>B 群家族的一員，像肌膚的保水小幫手，讓肌膚水潤、柔軟。</span><span data-en style="display:none">A member of the B-vitamin family that helps skin hold on to water, leaving it hydrated and soft.</span></p>
         </div>
-        <div class="ingr">
+        <div class="ingr"><img class="ingr-art" src="img/ing/l3.webp" alt="印度獐牙菜萃取 示意插畫" loading="lazy" width="520" height="520">
           <div class="ingr-use"><span data-zh>彈性 · 延緩老化</span><span data-en style="display:none">Elasticity · Healthy ageing</span></div>
           <div class="ingr-zh">印度獐牙菜萃取</div>
           <div class="ingr-inci">Swertia Chirata Extract</div>
           <p class="ingr-desc"><span data-zh>來自喜馬拉雅山區的植物，傳統上是一種苦味草本。在保養上用來維持肌膚彈性、延緩肌膚老化。</span><span data-en style="display:none">A Himalayan plant traditionally used as a bitter herb. In skincare it helps maintain elasticity and slow visible signs of ageing.</span></p>
         </div>
-        <div class="ingr">
+        <div class="ingr"><img class="ingr-art" src="img/ing/l4.webp" alt="泛醇（維生素原 B5） 示意插畫" loading="lazy" width="520" height="520">
           <div class="ingr-use"><span data-zh>保濕 · 修護</span><span data-en style="display:none">Hydration · Care</span></div>
           <div class="ingr-zh">泛醇（維生素原 B5）</div>
           <div class="ingr-inci">Panthenol</div>
           <p class="ingr-desc"><span data-zh>擦在肌膚上會轉成維生素 B5。保濕、舒緩乾燥帶來的不適，幫肌膚修護。</span><span data-en style="display:none">Converts to vitamin B5 on the skin. It hydrates, soothes dryness-related discomfort and helps care for the skin.</span></p>
         </div>
-        <div class="ingr">
+        <div class="ingr"><img class="ingr-art" src="img/ing/l5.webp" alt="尿囊素 示意插畫" loading="lazy" width="520" height="520">
           <div class="ingr-use"><span data-zh>安撫 · 柔嫩</span><span data-en style="display:none">Soothing · Smooth</span></div>
           <div class="ingr-zh">尿囊素</div>
           <div class="ingr-inci">Allantoin</div>
           <p class="ingr-desc"><span data-zh>很溫和的經典成分，安撫肌膚、讓肌膚柔嫩。</span><span data-en style="display:none">A gentle classic that calms skin and leaves it smooth.</span></p>
         </div>
-        <div class="ingr">
+        <div class="ingr"><img class="ingr-art" src="img/ing/l6.webp" alt="小分子玻尿酸 示意插畫" loading="lazy" width="520" height="520">
           <div class="ingr-use"><span data-zh>補水 · 飽滿</span><span data-en style="display:none">Hydration · Plumpness</span></div>
           <div class="ingr-zh">小分子玻尿酸</div>
           <div class="ingr-inci">Hydrolyzed Sodium Hyaluronate · Hydrolyzed Hyaluronic Acid</div>
           <p class="ingr-desc"><span data-zh>切成小分子的玻尿酸，是保濕界的老朋友。幫肌膚補水、鎖水，讓肌膚看起來水潤、飽滿。這是保養品裡的保濕成分，和注射用的玻尿酸不同。</span><span data-en style="display:none">Hyaluronic acid in smaller fragments — an old friend of hydration. It helps skin take in and hold water so it looks dewy and plump. This is a skincare humectant, not the injectable kind.</span></p>
         </div>
-        <div class="ingr">
+        <div class="ingr"><img class="ingr-art" src="img/ing/l8.webp" alt="六胜肽 示意插畫" loading="lazy" width="520" height="520">
           <div class="ingr-use"><span data-zh>淡化細紋</span><span data-en style="display:none">Softer-looking lines</span></div>
           <div class="ingr-zh">六胜肽</div>
           <div class="ingr-inci">Acetyl Hexapeptide-8</div>
           <p class="ingr-desc"><span data-zh>常被稱為「六胜肽」，用在表情紋的保養，淡化細紋，讓紋路看起來柔和。</span><span data-en style="display:none">Often called “hexapeptide”, used to care for expression lines — helping fine lines look softer.</span></p>
         </div>
-        <div class="ingr">
+        <div class="ingr"><img class="ingr-art" src="img/ing/l7.webp" alt="維生素 B12 示意插畫" loading="lazy" width="520" height="520">
           <div class="ingr-use"><span data-zh>肌膚調理</span><span data-en style="display:none">Skin conditioning</span></div>
           <div class="ingr-zh"><span data-zh>維生素 B12</span><span data-en style="display:none">Vitamin B12</span></div>
           <div class="ingr-inci">Cyanocobalamin</div>
