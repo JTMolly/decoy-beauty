@@ -48,26 +48,32 @@ a{color:inherit}
 .intro .orbs{display:flex;justify-content:center;gap:10px;margin:36px 0}
 .intro .orbs i{width:34px;height:34px;border-radius:50%;display:block;background:url(quiz-assets/crystal-thumbs.jpg) 0 0/500% 100% no-repeat;box-shadow:0 4px 10px rgba(120,70,78,.15)}
 .intro .note{font-size:13px;color:var(--muted);margin-top:18px;line-height:1.8}
-/* 10/9 廣告到達頁：第一屏先講「做完得到什麼」，開始按鈕放大、一定在第一屏 */
-.intro .kick{font-family:var(--mono);font-size:11px;letter-spacing:.22em;color:var(--rose);margin-bottom:14px}
-.intro h1.pay{font-size:27px;line-height:1.5;letter-spacing:.1em;text-indent:0;margin-bottom:10px}
-.intro h1.pay em{font-style:normal;color:var(--rose-deep)}
-.intro .pay-sub{font-size:15px;line-height:1.8}
-.intro .pay-sub b{font-weight:500;color:var(--rose-deep)}
-.dstack{position:relative;width:228px;height:172px;margin:20px auto 22px}
-.dcard{position:absolute;inset:0;background:#FFFDFB;border-radius:16px;box-shadow:0 14px 30px rgba(120,70,78,.18);overflow:hidden;transform:rotate(-3deg)}
-.dcard.back{transform:rotate(5deg) translate(12px,2px);opacity:.7}
-.dcard img{display:block;width:100%;height:108px;object-fit:cover}
-.dcard .dc-t{display:flex;justify-content:space-between;padding:9px 14px 0;font-family:var(--mono);font-size:9.5px;letter-spacing:.14em;color:var(--rose)}
-.dcard .dc-n{padding:2px 14px 0;text-align:left;font-size:17px;letter-spacing:.12em;color:var(--ink)}
-.dcard .dc-n small{margin-left:8px;font-size:10.5px;letter-spacing:.12em;color:var(--muted)}
-.btn-start{min-height:58px;font-size:17px;letter-spacing:.16em;box-shadow:0 10px 24px rgba(120,70,78,.25)}
-.intro .steps{margin:16px 0 0}
-.intro .note{margin-top:8px}
-.steps{list-style:none;counter-reset:s;display:flex;justify-content:center;align-items:center;gap:8px;margin:-12px 0 26px;font-size:13px;letter-spacing:.06em;color:var(--ink-2)}
-.steps li{counter-increment:s;display:flex;align-items:center;gap:6px}
-.steps li::before{content:counter(s);display:grid;place-items:center;width:20px;height:20px;border-radius:50%;border:1px solid var(--rose);color:var(--rose-deep);font-family:var(--mono);font-size:11px}
-.steps li:not(:last-child)::after{content:'';width:14px;height:1px;background:var(--line);margin-left:2px}
+/* 10/10 概念 1（Molly 10/10「好棒 試試看吧」）：第一題就是第一屏。上面先講「做完得到什麼」，下面五顆水晶點一顆就開始，不用再按「開始測驗」。
+   只用 CSS（卡片光澤、點選回饋），不加圖檔；系統設定「減少動態」就不播。 */
+.gate{padding-bottom:16px}
+.gate-lead{text-align:center;font-size:15px;letter-spacing:.08em;color:var(--ink-2);margin-bottom:10px}
+.gate-lead b{color:var(--rose-deep);font-weight:500}
+.gcard{position:relative;width:236px;height:112px;margin:0 auto;border-radius:14px;overflow:hidden;background:#FFFDFB;box-shadow:0 10px 26px rgba(120,70,78,.18);transform:perspective(600px) rotateX(6deg) rotateY(-10deg)}
+.gcard img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:75% 50%}
+.gcard .fade{position:absolute;inset:0;background:linear-gradient(90deg,rgba(255,250,247,.92) 0%,rgba(255,250,247,.75) 42%,rgba(255,250,247,0) 70%)}
+.gcard .gloss{position:absolute;inset:0;background:linear-gradient(115deg,transparent 35%,rgba(255,255,255,.6) 50%,transparent 65%);transform:translateX(-120%);animation:gloss 4.5s ease-in-out 1s infinite}
+@keyframes gloss{0%{transform:translateX(-120%)}35%,100%{transform:translateX(120%)}}
+.gcard .dc-t{position:absolute;left:0;right:0;top:0;display:flex;justify-content:space-between;padding:9px 14px 0;font-family:var(--mono);font-size:9.5px;letter-spacing:.14em;color:var(--rose)}
+.gcard .dc-n{position:absolute;left:14px;bottom:10px;text-align:left;font-size:15px;letter-spacing:.14em;color:var(--ink)}
+.gcard .dc-n small{display:block;font-family:var(--mono);font-size:8.5px;letter-spacing:.16em;color:var(--rose);margin-top:2px}
+.chips{list-style:none;display:flex;justify-content:center;gap:6px;margin:14px 0 4px;flex-wrap:wrap}
+.chips li{font-size:12px;letter-spacing:.04em;color:var(--rose-deep);border:1px solid var(--line);background:rgba(255,255,255,.6);border-radius:999px;padding:4px 10px}
+.gate-q{margin-top:16px;border-top:1px solid var(--line);padding-top:14px}
+.gate-q .progress{margin-bottom:12px}
+.gate-q h1{font-weight:500;font-size:22px;letter-spacing:.1em;text-align:center;margin-bottom:14px}
+.crystals{display:grid;grid-template-columns:repeat(5,1fr);gap:4px}
+.crys{display:flex;flex-direction:column;align-items:center;gap:6px;font-size:12px;letter-spacing:.06em;color:var(--ink-2);min-height:44px;padding:2px 0}
+.crys i{width:56px;height:56px;border-radius:50%;display:block;background:url(quiz-assets/crystal-thumbs.jpg) 0 0/500% 100% no-repeat;box-shadow:0 6px 14px rgba(120,70,78,.18),0 0 0 2px #fff;transition:transform .18s ease,box-shadow .18s ease}
+.crys:active i{transform:scale(.94)}
+.crys.on i{transform:scale(1.06);box-shadow:0 8px 18px rgba(120,70,78,.28),0 0 0 2px #fff,0 0 0 4px var(--rose)}
+.gate .note{text-align:center;font-size:12.5px;color:var(--muted);margin-top:14px;line-height:1.7}
+.gate .note b{color:var(--rose-deep);font-weight:500}
+@media (prefers-reduced-motion:reduce){.gcard .gloss{animation:none;opacity:0}.crys i{transition:none}}
 
 /* buttons */
 .btn{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;min-height:54px;padding:14px 20px;border-radius:999px;font-size:16px;letter-spacing:.12em;text-decoration:none;transition:background .2s,border-color .2s,transform .1s}
@@ -241,11 +247,18 @@ const QS = [
     o: { still: '安靜地，把生活過好', rebel: '我的美，我決定', aware: '先認識自己，再決定改變', companion: '被好好對待，也好好對待別人', explorer: '願意試試看，然後愛上' } },
 ];
 
+/* 第一屏的水晶題（概念 1）。五顆水晶和結果頁的水晶同一組圖，順序同 ORDER。
+   CRYSTAL_MODE：'entry' = 開場題，不計分，8 題照舊（建議）；'q1' = 取代第 1 題並計分（選哪顆就算那種節奏一票）。週一 Molly 決定。 */
+const CRYSTAL_MODE = 'entry';
+const CRYSTAL_LABEL = { still: '月與水', rebel: '玫瑰', aware: '一片葉', companion: '兩片葉', explorer: '羅盤' };
+const FIRST_Q = CRYSTAL_MODE === 'q1' ? 1 : 0;
+
 /* ---------- state ---------- */
 const view = document.getElementById('view');
 const shuffled = QS.map(() => shuffle(ORDER.slice()));
 let answers = [];
 let result = null;
+let firstPick = null;   // 第一屏選的水晶
 
 function shuffle(a) { for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; }
 function esc(s) { return s.replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c])); }
@@ -273,20 +286,28 @@ function score() {
 function intro() {
   setAccent(null);
   document.getElementById('kicker').textContent = 'Decode Yourself';
+  const n = CRYSTAL_MODE === 'q1' ? 1 : 0;   // 計分模式顯示 01 / 08；開場模式顯示 00 / 08（水晶題不算在 8 題裡）
   view.innerHTML = `
-  <section class="screen intro">
-    <div class="kick">照顧節奏測驗 · DECODE YOURSELF</div>
-    <h1 class="pay">8 題，大約 1 分鐘<br><em>看懂妳的照顧節奏</em></h1>
-    <p class="pay-sub">做完到 LINE，領一張<b>有專屬編號</b>的 Decode Card</p>
-    <div class="dstack" aria-hidden="true">
-      <div class="dcard back"><img src="quiz-assets/intro-rebel.jpg" width="228" height="108" alt=""></div>
-      <div class="dcard"><img src="quiz-assets/intro-still.jpg" width="228" height="108" alt=""><div class="dc-t"><span>DECODE CARD</span><span>No. 專屬編號</span></div><div class="dc-n">靜行者<small>寒露 · FOUNDING</small></div></div>
+  <section class="screen gate">
+    <p class="gate-lead">8 題・約 1 分鐘，做完到 LINE 領<b>妳的卡</b></p>
+    <div class="gcard" aria-hidden="true"><img src="quiz-assets/intro-still.jpg" width="228" height="108" alt=""><i class="fade"></i><i class="gloss"></i><div class="dc-t"><span>DECODE CARD</span><span>No. 00XX</span></div><div class="dc-n">妳的照顧節奏<small>FOUNDING · 創始編號</small></div></div>
+    <ul class="chips" aria-label="做完會得到"><li>妳的照顧節奏</li><li>專屬編號卡</li>${SHOW_FOUNDING ? '<li>試營運前享創始編號</li>' : ''}</ul>
+    <div class="gate-q">
+      <div class="progress" aria-label="${n ? '第 1 題，共 8 題' : '開場題'}"><span class="num">${String(n).padStart(2, '0')} / ${String(QS.length).padStart(2, '0')}</span><span class="bar"><i style="width:${(n / QS.length) * 100}%"></i></span></div>
+      <h1>此刻，哪一顆最像妳？</h1>
+      <div class="crystals">${ORDER.map((k, i) => `<button class="crys" data-k="${k}"><i style="background-position:${i * 25}% 0" aria-hidden="true"></i>${CRYSTAL_LABEL[k]}</button>`).join('')}</div>
+      <p class="note"><b>點一顆就開始</b>・免費、不用註冊<br>測驗不會留下妳的姓名或聯絡方式</p>
     </div>
-    <button class="btn btn-primary btn-start" id="start">開始測驗 →</button>
-    <ol class="steps"><li>做測驗</li><li>看結果</li><li>到 LINE 領卡</li></ol>
-    <p class="note">免費、不用註冊；測驗不會留下妳的姓名或聯絡方式</p>
   </section>`;
-  document.getElementById('start').onclick = () => { answers = []; track('quiz_start', { src: SRC || 'organic' }); question(0); };
+  view.querySelectorAll('.crys').forEach(btn => btn.onclick = () => {
+    btn.classList.add('on');
+    firstPick = btn.dataset.k;
+    answers = [];
+    if (CRYSTAL_MODE === 'q1') answers[0] = firstPick;
+    track('quiz_start', { src: SRC || 'organic', crystal: firstPick, mode: CRYSTAL_MODE });
+    setTimeout(() => question(FIRST_Q), 260);
+  });
+  window.scrollTo(0, 0);
 }
 
 function question(i) {
@@ -298,7 +319,7 @@ function question(i) {
     <h2 class="q${item.hint ? ' has-hint' : ''}">${esc(item.q)}</h2>
     ${item.hint ? `<p class="q-hint">${esc(item.hint)}</p>` : ''}
     <div class="opts">${shuffled[i].map(k => `<button class="opt${answers[i] === k ? ' on' : ''}" data-k="${k}">${esc(item.o[k])}</button>`).join('')}</div>
-    ${i > 0 ? '<button class="btn-text back" id="back">← 上一題</button>' : '<button class="btn-text back" id="back">← 回到開頭</button>'}
+    ${i > FIRST_Q ? '<button class="btn-text back" id="back">← 上一題</button>' : '<button class="btn-text back" id="back">← 回到開頭</button>'}
   </section>`;
   requestAnimationFrame(() => { const b = view.querySelector('.bar i'); if (b) b.style.width = ((i + 1) / QS.length) * 100 + '%'; });
   view.querySelectorAll('.opt').forEach(btn => btn.onclick = () => {
@@ -308,13 +329,13 @@ function question(i) {
     answers.length = i + 1;
     setTimeout(() => (i + 1 < QS.length ? question(i + 1) : finish()), 260);
   });
-  document.getElementById('back').onclick = () => (i > 0 ? question(i - 1) : intro());
+  document.getElementById('back').onclick = () => (i > FIRST_Q ? question(i - 1) : intro());
   window.scrollTo(0, 0);
 }
 
 function finish() {
   result = score();
-  track('quiz_complete', { rhythm: result.main, second: result.second || 'none', src: SRC || 'organic' });
+  track('quiz_complete', { rhythm: result.main, second: result.second || 'none', src: SRC || 'organic', crystal: firstPick || 'none', mode: CRYSTAL_MODE });
   rememberResult(result.main);
   showResult(result.main, result.second);
 }
@@ -397,7 +418,7 @@ function showResult(k, second) {
   };
   document.getElementById('film').addEventListener('play', () => track('quiz_film_play', { rhythm: k }), { once: true });
   document.getElementById('saveBtn').onclick = () => openCard(k);
-  document.getElementById('again').onclick = () => { answers = []; rememberResult(null); question(0); };
+  document.getElementById('again').onclick = () => { answers = []; firstPick = null; rememberResult(null); intro(); };
   window.scrollTo(0, 0);
   setTimeout(() => prepareCard(k).catch(() => {}), 400);
 }
