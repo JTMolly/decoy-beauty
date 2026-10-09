@@ -109,6 +109,11 @@ a{color:inherit}
 .claim-steps em{font-style:normal;color:var(--rose-deep)}
 /* 品牌影片（頁內播放，不自動播放） */
 .film{margin-top:30px;text-align:left;border-top:1px solid var(--line);padding-top:18px}
+/* 10/9 FB／IG／Threads 內建瀏覽器常打不開 LINE App：多一段提示和「複製領卡暗號」 */
+.inapp{margin-top:2px;padding:14px 16px;border-radius:14px;background:rgba(255,255,255,.6);border:1px solid var(--line);text-align:left;font-size:13.5px;line-height:1.8;color:var(--ink-2)}
+.inapp b{color:var(--rose-deep);font-weight:500}
+.inapp ol{margin:6px 0 0 18px}
+.inapp button{margin:6px 0 2px;padding:7px 14px;border:1px solid var(--rose);border-radius:999px;background:#fff;color:var(--rose-deep);font-size:13.5px}
 .film h3{font-family:var(--mono);font-weight:400;font-size:11px;letter-spacing:.2em;color:var(--rose-deep);margin-bottom:10px;text-transform:uppercase}
 .film h3 span{font-family:var(--cjk);font-size:14px;letter-spacing:.14em;margin-left:8px;color:var(--ink);text-transform:none}
 .film video{display:block;width:100%;aspect-ratio:16/9;border-radius:14px;background:#EFE3E1;box-shadow:0 10px 26px rgba(139,80,96,.12)}
@@ -302,6 +307,9 @@ function setAccent(k) {
   root.setProperty('--accent-deep', k ? R[k].deep : '#8B5060');
 }
 
+// FB／IG／Threads／Messenger 的內建瀏覽器（廣告點進來多半在這裡）
+const INAPP = /FBAN|FBAV|FB_IAB|FBIOS|Instagram|Barcelona|Threads|Messenger/i.test(navigator.userAgent);
+const claimText = k => '領取 Decode Card｜' + R[k].name + (SRC_CODES[SRC] || '');
 function lineHref(k) {
   return `https://line.me/R/oaMessage/${LINE_ID}/?${encodeURIComponent('領取 Decode Card｜' + R[k].name + (SRC_CODES[SRC] || ''))}`;
 }
@@ -339,6 +347,9 @@ function showResult(k, second) {
         到 LINE 領我的 Decode Card
       </a>
       <p class="hint">LINE 會自動帶入一句話，按下傳送就好<br>還不是 Decoy 好友的話，加好友後再傳一次</p>
+      ${INAPP ? `<div class="inapp"><b>在 Facebook／Instagram 裡打不開 LINE 嗎？</b><ol>
+        <li>點右上角「⋯」，選「用瀏覽器開啟」，再按一次綠色按鈕</li>
+        <li>或者先 <button type="button" id="copyClaim">複製領卡暗號</button><br>打開 LINE 搜尋 <b>@decoy</b> 加好友，在聊天室貼上、傳送</li></ol></div>` : ''}
       <button class="btn btn-ghost" id="saveBtn">存下我的結果卡</button>
       <button class="btn-text" id="again">再測一次</button>
     </div>
@@ -356,7 +367,13 @@ function showResult(k, second) {
   </section>`;
   const rv = document.getElementById('reveal');
   if (rv) rv.onclick = () => { const box = document.getElementById('revealBox'); box.hidden = !box.hidden; rv.setAttribute('aria-expanded', String(!box.hidden)); if (!box.hidden) track('quiz_reveal_second', { rhythm: k, second }); };
-  document.getElementById('lineBtn').onclick = () => track('quiz_line_click', { rhythm: k, src: SRC || 'organic' });
+  document.getElementById('lineBtn').onclick = () => track('quiz_line_click', { rhythm: k, src: SRC || 'organic', inapp: INAPP });
+  const cp = document.getElementById('copyClaim');
+  if (cp) cp.onclick = async () => {
+    const t = claimText(k);
+    try { await navigator.clipboard.writeText(t); } catch (e) { const ta = document.createElement('textarea'); ta.value = t; document.body.appendChild(ta); ta.select(); document.execCommand('copy'); ta.remove(); }
+    cp.textContent = '已複製 ✓'; track('quiz_copy_claim', { rhythm: k, src: SRC || 'organic' });
+  };
   document.getElementById('film').addEventListener('play', () => track('quiz_film_play', { rhythm: k }), { once: true });
   document.getElementById('toLine').onclick = () => document.querySelector('.actions').scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'center' });
   document.getElementById('saveBtn').onclick = () => openCard(k);
