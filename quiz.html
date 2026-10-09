@@ -149,6 +149,14 @@ a{color:inherit}
 .sheet img{width:62%;max-width:260px;border-radius:12px;box-shadow:0 8px 30px rgba(91,59,64,.18);margin:6px auto 12px;display:block}
 .sheet p{font-size:14px;color:var(--ink-2);line-height:1.8;margin-bottom:12px}
 .sheet .row{display:flex;flex-direction:column;gap:10px}
+/* 10/10 結果頁固定領卡條（Molly 10/10 核准；參考 puma.taipei 一直看得到的 LINE 按鈕）：
+   領卡按鈕滑到畫面上方之外時，底部出現一條同樣的綠色按鈕；滑回來就收起。 */
+.claimbar{position:fixed;left:0;right:0;bottom:0;z-index:15;display:flex;align-items:center;justify-content:center;gap:10px;padding:10px 16px calc(10px + env(safe-area-inset-bottom));background:rgba(251,247,244,.94);border-top:1px solid var(--line);box-shadow:0 -6px 18px rgba(120,70,78,.08);transform:translateY(110%);visibility:hidden;transition:transform .25s ease,visibility 0s linear .25s}
+.claimbar.show{transform:none;visibility:visible;transition:transform .25s ease}
+.claimbar .btn{max-width:420px;min-height:46px;padding:10px 16px;font-size:15px;white-space:nowrap}
+.claimbar .cb-help{flex-shrink:0;min-height:44px;padding:0 2px;font-size:12.5px;color:var(--rose-deep);text-decoration:underline;text-underline-offset:3px}
+.result{padding-bottom:64px}
+@media (prefers-reduced-motion:reduce){.claimbar,.claimbar.show{transition:none}}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 </style>
 <!-- GA4（10/8 補上：首頁、測驗、個資頁原本沒有載入，測驗和首頁的事件都沒送出） -->
@@ -160,6 +168,7 @@ a{color:inherit}
   <div class="top"><a class="brand" href="index.html" aria-label="Decoy 首頁"></a><span class="kicker" id="kicker">Decode Yourself</span></div>
   <div id="view" aria-live="polite"></div>
 </main>
+<div class="claimbar" id="claimBar" aria-hidden="true"></div>
 
 <div class="sheet" id="sheet" role="dialog" aria-modal="true" aria-labelledby="sheetTitle">
   <div class="panel">
@@ -284,6 +293,7 @@ function score() {
 
 /* ---------- screens ---------- */
 function intro() {
+  claimBarOff();
   setAccent(null);
   document.getElementById('kicker').textContent = 'Decode Yourself';
   const n = CRYSTAL_MODE === 'q1' ? 1 : 0;   // 計分模式顯示 01 / 08；開場模式顯示 00 / 08（水晶題不算在 8 題裡）
@@ -311,6 +321,7 @@ function intro() {
 }
 
 function question(i) {
+  claimBarOff();
   const item = QS[i];
   document.getElementById('kicker').textContent = 'Decode Yourself';
   view.innerHTML = `
@@ -358,6 +369,30 @@ const INAPP = /FBAN|FBAV|FB_IAB|FBIOS|Instagram|Barcelona|Threads|Messenger/i.te
 const claimText = k => '領取 Decode Card｜' + R[k].name + (SRC_CODES[SRC] || '');
 function lineHref(k) {
   return `https://line.me/R/oaMessage/${LINE_ID}/?${encodeURIComponent('領取 Decode Card｜' + R[k].name + (SRC_CODES[SRC] || ''))}`;
+}
+
+// 結果頁固定領卡條：主按鈕滑到畫面上方之外才出現（IntersectionObserver，不監聽 scroll）
+let claimObs = null;
+function claimBarOff() {
+  if (claimObs) { claimObs.disconnect(); claimObs = null; }
+  const bar = document.getElementById('claimBar');
+  bar.classList.remove('show'); bar.innerHTML = ''; bar.setAttribute('aria-hidden', 'true');
+}
+function claimBarOn(k, second) {
+  claimBarOff();
+  const bar = document.getElementById('claimBar'), main = document.getElementById('lineBtn');
+  if (!main || !('IntersectionObserver' in window)) return;
+  bar.innerHTML = `<a class="btn btn-line" href="${lineHref(k)}" target="_blank" rel="noopener">${main.querySelector('svg').outerHTML}到 LINE 領我的卡</a>${INAPP ? '<button type="button" class="cb-help">打不開？</button>' : ''}`;
+  bar.querySelector('a').onclick = () => track('quiz_line_click', { rhythm: k, src: SRC || 'organic', inapp: INAPP, reopen: second === undefined, sticky: true });
+  const help = bar.querySelector('.cb-help');
+  if (help) help.onclick = () => document.querySelector('.inapp').scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'center' });
+  let seen = false;
+  claimObs = new IntersectionObserver(([e]) => {
+    const show = !e.isIntersecting && e.boundingClientRect.top < 0;
+    bar.classList.toggle('show', show); bar.setAttribute('aria-hidden', String(!show));
+    if (show && !seen) { seen = true; track('claim_bar_view', { rhythm: k, src: SRC || 'organic' }); }
+  });
+  claimObs.observe(main);
 }
 
 function showResult(k, second) {
@@ -420,6 +455,7 @@ function showResult(k, second) {
   document.getElementById('saveBtn').onclick = () => openCard(k);
   document.getElementById('again').onclick = () => { answers = []; firstPick = null; rememberResult(null); intro(); };
   window.scrollTo(0, 0);
+  claimBarOn(k, second);
   setTimeout(() => prepareCard(k).catch(() => {}), 400);
 }
 
