@@ -99,13 +99,13 @@ a{color:inherit}
 /* result */
 .result{text-align:center}
 .result .lead{font-size:14px;color:var(--muted);letter-spacing:.2em;margin-bottom:6px}
-.orb{width:260px;height:260px;max-width:72vw;max-height:72vw;border-radius:22px;margin:14px auto 22px;background:#F3E9E4 center/cover no-repeat;box-shadow:0 16px 40px rgba(120,70,78,.18)}
+.orb{width:260px;height:260px;max-width:72vw;max-height:72vw;border-radius:22px;margin:8px auto 14px;background:#F3E9E4 center/cover no-repeat;box-shadow:0 16px 40px rgba(120,70,78,.18)}
+/* 10/10 廣告漏斗：矮螢幕（IG 內建瀏覽器只剩約 560px 高）把水晶縮小，領卡按鈕才會在第一屏 */
+.orb{max-width:min(72vw,29svh);max-height:min(72vw,29svh)}
 .result h2{font-weight:500;font-size:38px;letter-spacing:.14em;text-indent:.14em;color:var(--accent-deep)}
-.result .en{font-family:var(--serif);font-style:italic;font-size:22px;color:var(--ink-2);margin:4px 0 18px}
+.result .en{font-family:var(--serif);font-style:italic;font-size:22px;color:var(--ink-2);margin:4px 0 10px}
 .result .line{font-size:18px;line-height:1.85;letter-spacing:.06em;padding:0 6px;text-wrap:balance}
 .q,.intro p{text-wrap:balance}
-.tolin{display:inline-block;margin-top:16px;padding:9px 16px;border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,.6);font-size:13.5px;letter-spacing:.05em;color:var(--accent-deep);line-height:1.5}
-.tolin:hover{border-color:var(--rose)}
 .result .desc{font-size:15px;line-height:1.95;color:var(--ink-2);margin:18px 0 6px;text-align:left}
 .card{text-align:left;border-top:1px solid var(--line);padding:18px 2px 4px;margin-top:18px}
 .card h3{font-family:var(--mono);font-weight:400;font-size:11px;letter-spacing:.2em;color:var(--rose-deep);margin-bottom:8px;text-transform:uppercase}
@@ -118,11 +118,9 @@ a{color:inherit}
 .actions{display:flex;flex-direction:column;gap:12px;margin-top:28px}
 .actions .hint{font-size:12.5px;color:var(--muted);line-height:1.7;margin-top:-4px}
 .founding{font-size:13px;color:var(--rose-deep);letter-spacing:.06em;margin-bottom:-2px}
-/* 領卡三步驟（v1.1：回饋說「不知道怎麼領」，帶入文字後要自己按傳送） */
-.claim-steps{list-style:none;display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:2px 0 4px}
-.claim-steps li{display:flex;flex-direction:column;align-items:center;gap:6px;padding:12px 6px 11px;border:1px solid var(--line);border-radius:14px;background:rgba(255,255,255,.55);font-size:12.5px;line-height:1.5;letter-spacing:.03em;color:var(--ink-2);text-align:center}
-.claim-steps b{display:grid;place-items:center;width:22px;height:22px;border-radius:50%;border:1px solid var(--rose);color:var(--rose-deep);font-family:var(--mono);font-weight:400;font-size:11px}
-.claim-steps em{font-style:normal;color:var(--rose-deep)}
+/* 10/10 廣告漏斗：領卡按鈕緊接在節奏名稱下面。原本的三步驟框（v1.1「不知道怎麼領」）濃縮成按鈕下的一行「記得按傳送」 */
+.actions.claim{margin-top:14px;gap:10px}
+.claim .send-tip{color:var(--rose-deep)}
 /* 品牌影片（頁內播放，不自動播放） */
 .film{margin-top:30px;text-align:left;border-top:1px solid var(--line);padding-top:18px}
 /* 10/9 FB／IG／Threads 內建瀏覽器常打不開 LINE App：多一段提示和「複製領卡暗號」 */
@@ -317,7 +315,15 @@ function question(i) {
 function finish() {
   result = score();
   track('quiz_complete', { rhythm: result.main, second: result.second || 'none', src: SRC || 'organic' });
+  rememberResult(result.main);
   showResult(result.main, result.second);
+}
+
+// 10/10 廣告漏斗：把結果寫進網址（?r=節奏，src 照留）。在 FB／IG 裡選「用瀏覽器開啟」時，
+// 外部瀏覽器會直接打開同一張結果和綠色按鈕，不用重做 8 題。再測一次時拿掉。
+// 註：GA4 若開著「依瀏覽器歷史記錄計算網頁變更」，這一步會多記一次 page_view（人數不變，網址帶 r=）。
+function rememberResult(k) {
+  try { const u = new URL(location.href); if (k) u.searchParams.set('r', k); else u.searchParams.delete('r'); history.replaceState(null, '', u); } catch (e) {}
 }
 
 function setAccent(k) {
@@ -349,26 +355,22 @@ function showResult(k, second) {
     <h2>${r.name}</h2>
     <div class="en">${r.en}</div>
     <p class="line">${esc(r.line)}</p>
-    <button class="tolin" id="toLine">還有最後一步：到 LINE 領卡 ↓</button>
+    <div class="actions claim">
+      ${SHOW_FOUNDING ? '<p class="founding">試營運前領取，享有創始編號</p>' : ''}
+      <a class="btn btn-line" id="lineBtn" href="${lineHref(k)}" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3C6.48 3 2 6.58 2 11c0 3.94 3.56 7.24 8.37 7.88.33.07.77.22.88.5.1.25.07.65.03.9l-.14.86c-.04.25-.2 1 .87.54 1.08-.45 5.8-3.42 7.91-5.85C21.38 14.25 22 12.7 22 11c0-4.42-4.48-8-10-8Zm-3.6 10.6H6.42a.52.52 0 0 1-.52-.52V9.13a.52.52 0 1 1 1.04 0v3.43H8.4a.52.52 0 1 1 0 1.04Zm2.05-.52a.52.52 0 1 1-1.04 0V9.13a.52.52 0 1 1 1.04 0v3.95Zm4.75 0a.52.52 0 0 1-.94.31l-2.03-2.76v2.45a.52.52 0 1 1-1.04 0V9.13a.52.52 0 0 1 .94-.31l2.03 2.76V9.13a.52.52 0 1 1 1.04 0v3.95Zm3.2-2.5a.52.52 0 1 1 0 1.04h-1.45v.94h1.45a.52.52 0 1 1 0 1.04h-1.97a.52.52 0 0 1-.52-.52V9.13c0-.29.23-.52.52-.52h1.97a.52.52 0 1 1 0 1.04h-1.45v.93h1.45Z"/></svg>
+        到 LINE 領我的 Decode Card
+      </a>
+      <p class="hint"><span class="send-tip">LINE 打開後記得按「傳送」，有編號的卡馬上送到</span><br>還不是 Decoy 好友也可以領</p>
+      ${INAPP ? `<div class="inapp"><b>在 Facebook／Instagram 裡打不開 LINE 嗎？</b><ol>
+        <li>點右上角「⋯」，選「用瀏覽器開啟」，結果會保留，再按一次綠色按鈕</li>
+        <li>或者先 <button type="button" id="copyClaim">複製領卡暗號</button><br>打開 LINE 搜尋 <b>@decoy</b>，進聊天室貼上、傳送</li></ol></div>` : ''}
+    </div>
     <p class="desc">${esc(r.desc)}</p>
     <div class="card"><h3>Your Rhythm<span>妳的照顧節奏</span></h3><p>${esc(r.tip)}</p></div>
     <div class="card"><h3>At Decoy<span>在 Decoy，妳可能會喜歡</span></h3><p>${esc(r.like)}</p></div>
     ${secondHtml}
     <div class="actions">
-      ${SHOW_FOUNDING ? '<p class="founding">試營運前領取，享有創始編號</p>' : ''}
-      <ol class="claim-steps" aria-label="領卡三步驟">
-        <li><b>1</b>按下面的<br>綠色按鈕</li>
-        <li><b>2</b>LINE 打開後<br><em>記得按傳送</em></li>
-        <li><b>3</b>有編號的卡<br>馬上送到</li>
-      </ol>
-      <a class="btn btn-line" id="lineBtn" href="${lineHref(k)}" target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3C6.48 3 2 6.58 2 11c0 3.94 3.56 7.24 8.37 7.88.33.07.77.22.88.5.1.25.07.65.03.9l-.14.86c-.04.25-.2 1 .87.54 1.08-.45 5.8-3.42 7.91-5.85C21.38 14.25 22 12.7 22 11c0-4.42-4.48-8-10-8Zm-3.6 10.6H6.42a.52.52 0 0 1-.52-.52V9.13a.52.52 0 1 1 1.04 0v3.43H8.4a.52.52 0 1 1 0 1.04Zm2.05-.52a.52.52 0 1 1-1.04 0V9.13a.52.52 0 1 1 1.04 0v3.95Zm4.75 0a.52.52 0 0 1-.94.31l-2.03-2.76v2.45a.52.52 0 1 1-1.04 0V9.13a.52.52 0 0 1 .94-.31l2.03 2.76V9.13a.52.52 0 1 1 1.04 0v3.95Zm3.2-2.5a.52.52 0 1 1 0 1.04h-1.45v.94h1.45a.52.52 0 1 1 0 1.04h-1.97a.52.52 0 0 1-.52-.52V9.13c0-.29.23-.52.52-.52h1.97a.52.52 0 1 1 0 1.04h-1.45v.93h1.45Z"/></svg>
-        到 LINE 領我的 Decode Card
-      </a>
-      <p class="hint">LINE 會自動帶入一句話，按下傳送就好<br>還不是 Decoy 好友的話，加好友後再傳一次</p>
-      ${INAPP ? `<div class="inapp"><b>在 Facebook／Instagram 裡打不開 LINE 嗎？</b><ol>
-        <li>點右上角「⋯」，選「用瀏覽器開啟」，再按一次綠色按鈕</li>
-        <li>或者先 <button type="button" id="copyClaim">複製領卡暗號</button><br>打開 LINE 搜尋 <b>@decoy</b> 加好友，在聊天室貼上、傳送</li></ol></div>` : ''}
       <button class="btn btn-ghost" id="saveBtn">存下我的結果卡</button>
       <button class="btn-text" id="again">再測一次</button>
     </div>
@@ -386,7 +388,7 @@ function showResult(k, second) {
   </section>`;
   const rv = document.getElementById('reveal');
   if (rv) rv.onclick = () => { const box = document.getElementById('revealBox'); box.hidden = !box.hidden; rv.setAttribute('aria-expanded', String(!box.hidden)); if (!box.hidden) track('quiz_reveal_second', { rhythm: k, second }); };
-  document.getElementById('lineBtn').onclick = () => track('quiz_line_click', { rhythm: k, src: SRC || 'organic', inapp: INAPP });
+  document.getElementById('lineBtn').onclick = () => track('quiz_line_click', { rhythm: k, src: SRC || 'organic', inapp: INAPP, reopen: second === undefined });
   const cp = document.getElementById('copyClaim');
   if (cp) cp.onclick = async () => {
     const t = claimText(k);
@@ -394,9 +396,8 @@ function showResult(k, second) {
     cp.textContent = '已複製 ✓'; track('quiz_copy_claim', { rhythm: k, src: SRC || 'organic' });
   };
   document.getElementById('film').addEventListener('play', () => track('quiz_film_play', { rhythm: k }), { once: true });
-  document.getElementById('toLine').onclick = () => document.querySelector('.actions').scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'center' });
   document.getElementById('saveBtn').onclick = () => openCard(k);
-  document.getElementById('again').onclick = () => { answers = []; question(0); };
+  document.getElementById('again').onclick = () => { answers = []; rememberResult(null); question(0); };
   window.scrollTo(0, 0);
   setTimeout(() => prepareCard(k).catch(() => {}), 400);
 }
