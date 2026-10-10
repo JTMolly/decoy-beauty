@@ -84,8 +84,14 @@ def leftover_cjk(soup):
             if el.get(attr) and CJK.search(el[attr]): found.append(f'[{attr}] {el[attr][:80]}')
     return found
 
+HOLD = CFG.get('hold', [])   # 例如 ["patent"]：中文說法還沒定案的句子，英文版和簡體版先不放（繁中照舊）
+def drop_held(soup):
+    for el in soup.select('[data-hold]'):
+        if el.attrs is not None and el.get('data-hold') in HOLD: el.decompose()   # 外層先拿掉的，裡面的就跳過
+
 def make_en(page, src):
     soup = BeautifulSoup(src, 'html.parser')
+    drop_held(soup)
     for el in soup.select('[data-zh]'): el.decompose()
     for el in soup.find_all(True):   # data-en-aria-label="…" 之類：英文版換成該屬性
         for k in [k for k in el.attrs if k.startswith('data-en-')]:
@@ -125,6 +131,7 @@ def build(page, check=False):
             write(os.path.join(ROOT, 'en', page), html)
     if has(page, 'zh-Hans') and not check:
         soup = BeautifulSoup(src, 'html.parser')
+        drop_held(soup)
         for el in soup.select('[data-en]'): el.decompose()
         rewrite_links(soup, page, 'zh-cn/')
         html = cc.convert(html_of(soup))

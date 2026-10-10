@@ -88,5 +88,9 @@
       "title": "Decode Card Privacy Notice | Decoy",
       "description": "What personal data Decoy collects when you claim a Decode Card, how it is used, and your rights."
     }
-  }
+  },
+  "hold": [
+    "patent"
+  ],
+  "_hold_note": "patent：專利那句的對外寫法 Molly 10/12 會議決定（公司只擁有 3 項中的 1 項）。定案後改繁中原頁、從 hold 拿掉 patent，再重跑。"
 }
