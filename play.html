@@ -210,6 +210,30 @@ a{color:inherit}
 .g-pair p{margin-top:10px;font-size:15px;line-height:1.9;color:var(--ink-2);text-align:left}
 .g-pair .fine{margin-top:8px;font-size:11px;color:var(--muted)}
 .g-pair-hint{color:var(--rose-deep);text-decoration:none}
+
+/* 10/10 分享更明顯（Molly：「分享給朋友的那邊很不明顯 我一開始沒看到」）：第一屏邀請小卡、固定條分享鈕、頁底再一次；不彈窗、不催、不給獎勵 */
+.g-invite-card{display:flex;align-items:center;gap:12px;width:100%;min-height:58px;padding:8px 10px 8px 16px;border:1px solid var(--rose);border-radius:16px;background:linear-gradient(135deg,#F8E6E9,#F1D5DA);text-align:left;color:var(--rose-deep);box-shadow:0 6px 16px rgba(168,104,120,.16)}
+.g-invite-card:active{transform:scale(.985)}
+.g-invite-card .gi-txt{flex:1;display:flex;flex-direction:column;gap:2px;min-width:0}
+.g-invite-card b{font-weight:500;font-size:15px;letter-spacing:.05em;color:var(--ink)}
+.g-invite-card b i{font-style:normal;color:var(--rose)}
+.g-invite-card small{font-size:12px;color:var(--rose-deep);letter-spacing:.03em}
+.g-invite-card .gi-ic{width:40px;height:40px;border-radius:50%;background:var(--rose);display:grid;place-items:center;flex-shrink:0}
+.g-invite-card .gi-ic svg,.g-share-solid svg,.claimbar .cb-share svg{width:18px;height:18px;stroke:#fff}
+.g-share-solid{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;min-height:50px;border-radius:999px;background:var(--rose);color:#fff;font-size:15px;letter-spacing:.08em}
+.g-bottom-share{margin-top:30px;padding:20px 18px;border:1px solid var(--line);border-radius:16px;background:rgba(255,255,255,.7);text-align:center}
+.g-bottom-share p{font-size:14px;color:var(--ink-2);margin-bottom:12px;line-height:1.7}
+.claimbar .cb-share{flex-shrink:0;width:46px;height:46px;border-radius:50%;background:var(--rose);display:grid;place-items:center}
+.g-toast{position:fixed;left:50%;bottom:92px;transform:translateX(-50%);background:var(--rose-deep);color:#fff;font-size:13px;padding:9px 16px;border-radius:999px;z-index:40;pointer-events:none;white-space:nowrap;box-shadow:0 6px 16px rgba(120,70,78,.25)}
+.result .orb{max-width:min(72vw,20svh);max-height:min(72vw,20svh)}
+@media (max-height:620px){
+  .result .orb{max-width:min(72vw,15svh);max-height:min(72vw,15svh);margin:6px auto 10px}
+  .result h2{font-size:33px}
+  .result .en{margin:2px 0 6px}
+  .actions.claim{gap:8px;margin-top:10px}
+  .g-card{padding:7px 10px}.g-card .th{width:42px;height:42px}
+  .g-invite-card{min-height:54px;padding:6px 8px 6px 14px}
+}
 </style>
 <!-- GA4（10/8 補上：首頁、測驗、個資頁原本沒有載入，測驗和首頁的事件都沒送出） -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-F54YFMZSD8"></script>
@@ -359,7 +383,24 @@ const pairKey = (a, b) => [a, b].sort((x, y) => ORDER.indexOf(x) - ORDER.indexOf
 const WITH = (() => { const w = new URLSearchParams(location.search).get('with'); return w && R[w] ? w : ''; })();   // 邀請她來玩的朋友的節奏
 if (WITH) track('share_open', { with: WITH, src: SRC });
 const PLAY_URL = 'https://decoy-beauty.com/play.html';
-const GIFT_TEXT = '到店小禮：微光噴霧一瓶（條件待定）';   // Molly 10/10 選微光噴霧；條件、期限待定，不寫價格、不寫限量
+const GIFT_TEXT = '到店小禮：微光噴霧一瓶（價值 1,680 元，條件待定）';   // Molly 10/10 選微光噴霧；條件、期限待定，不寫價格、不寫限量
+const SHARE_SVG = '<svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 15V4M8 8l4-4 4 4"/><path d="M5 12v6a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6"/></svg>';
+// 分享：沒有 WITH＝邀朋友來玩（帶自己的節奏）；有 WITH＝傳回給邀請的朋友（她打開就看到自己的結果＋同一句）
+function toast(msg) { const t = document.createElement('div'); t.className = 'g-toast'; t.textContent = msg; document.body.appendChild(t); setTimeout(() => t.remove(), 2200); }
+async function doShare(k, where) {
+  const url = WITH ? `${PLAY_URL}?r=${WITH}&with=${k}` : `${PLAY_URL}?with=${k}`;
+  const text = WITH ? `我玩完了！我是${R[k].name}，妳是${R[WITH].name}，打開看看我們的組合` : `我是${R[k].name}。妳是哪一種？60 秒玩一下，看看我們合不合`;
+  let method = 'copy';
+  try {
+    if (navigator.share) { await navigator.share({ title: '光的配方｜Decoy', text, url }); method = 'share'; }
+    else { await navigator.clipboard.writeText(text + ' ' + url); toast('已複製連結，貼給朋友就好'); }
+  } catch (e) {
+    if (e && e.name === 'AbortError') return;   // 她自己取消分享
+    const ta = document.createElement('textarea'); ta.value = text + ' ' + url; document.body.appendChild(ta); ta.select(); try { document.execCommand('copy'); } catch (e2) {} ta.remove();
+    toast('已複製連結，貼給朋友就好');
+  }
+  track('share_click', { rhythm: k, with: WITH || 'none', method, where, src: SRC });
+}
 let t0 = 0;
 const FACETS = ['M75 18 L118 52 L75 75 Z', 'M118 52 L102 120 L75 75 Z', 'M102 120 L48 120 L75 75 Z', 'M48 120 L32 52 L75 75 Z'];
 function crystalSvg(n) {
@@ -462,7 +503,8 @@ function claimBarOn(k, second) {
   claimBarOff();
   const bar = document.getElementById('claimBar'), main = document.getElementById('lineBtn');
   if (!main || !('IntersectionObserver' in window)) return;
-  bar.innerHTML = `<a class="btn btn-line" href="${lineHref(k)}" target="_blank" rel="noopener">${main.querySelector('svg').outerHTML}到 LINE 領我的卡</a>${INAPP ? '<button type="button" class="cb-help">打不開？</button>' : ''}`;
+  bar.innerHTML = `<a class="btn btn-line" href="${lineHref(k)}" target="_blank" rel="noopener">${main.querySelector('svg').outerHTML}到 LINE 領我的卡</a><button type="button" class="cb-share" aria-label="傳給朋友：看看妳們合不合">${SHARE_SVG}</button>${INAPP ? '<button type="button" class="cb-help">打不開？</button>' : ''}`;
+  bar.querySelector('.cb-share').onclick = () => doShare(k, 'bar');
   bar.querySelector('a').onclick = () => track('quiz_line_click', { rhythm: k, src: SRC || 'organic', inapp: INAPP, reopen: second === undefined, sticky: true });
   const help = bar.querySelector('.cb-help');
   if (help) help.onclick = () => document.querySelector('.inapp').scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'center' });
@@ -492,14 +534,14 @@ function showResult(k, second) {
     <div class="en">${r.en}</div>
     <p class="line">${esc(r.line)}</p>
     <div class="actions claim">
-      <div class="g-card"><div class="th" style="background-image:url(quiz-assets/crystal-${k}.jpg)"></div><div><div class="t1">DECODE CARD${SHOW_FOUNDING ? ' · FOUNDING' : ''}</div><div class="t2">No. <span class="blur">0000</span> 待領取</div><div class="t3">${SHOW_FOUNDING ? '試營運前領取享創始編號・' : ''}編號在 LINE 開出</div></div></div>
+      <div class="g-card"><div class="th" style="background-image:url(quiz-assets/crystal-${k}.jpg)"></div><div><div class="t1">DECODE CARD${SHOW_FOUNDING ? ' · FOUNDING' : ''}</div><div class="t2">No. <span class="blur">0000</span> 待領取</div><div class="t3">LINE 打開後按「傳送」，編號馬上開出</div></div></div>
       <a class="btn btn-line" id="lineBtn" href="${lineHref(k)}" target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3C6.48 3 2 6.58 2 11c0 3.94 3.56 7.24 8.37 7.88.33.07.77.22.88.5.1.25.07.65.03.9l-.14.86c-.04.25-.2 1 .87.54 1.08-.45 5.8-3.42 7.91-5.85C21.38 14.25 22 12.7 22 11c0-4.42-4.48-8-10-8Zm-3.6 10.6H6.42a.52.52 0 0 1-.52-.52V9.13a.52.52 0 1 1 1.04 0v3.43H8.4a.52.52 0 1 1 0 1.04Zm2.05-.52a.52.52 0 1 1-1.04 0V9.13a.52.52 0 1 1 1.04 0v3.95Zm4.75 0a.52.52 0 0 1-.94.31l-2.03-2.76v2.45a.52.52 0 1 1-1.04 0V9.13a.52.52 0 0 1 .94-.31l2.03 2.76V9.13a.52.52 0 1 1 1.04 0v3.95Zm3.2-2.5a.52.52 0 1 1 0 1.04h-1.45v.94h1.45a.52.52 0 1 1 0 1.04h-1.97a.52.52 0 0 1-.52-.52V9.13c0-.29.23-.52.52-.52h1.97a.52.52 0 1 1 0 1.04h-1.45v.93h1.45Z"/></svg>
         到 LINE 領我的 Decode Card
       </a>
-      <p class="hint"><span class="send-tip">LINE 打開後記得按「傳送」，有編號的卡馬上送到</span><br>還不是 Decoy 好友也可以領</p>
+      <button type="button" class="g-invite-card js-share" data-where="top"><span class="gi-txt"><b>妳 ${R[k].name} × 朋友 <i>${WITH ? R[WITH].name : '？？？'}</i></b><small>${WITH ? '傳回給朋友，讓她也看到妳們的組合' : '傳給一個朋友，解開妳們的組合'}</small></span><span class="gi-ic">${SHARE_SVG}</span></button>
+      <p class="hint"><span class="send-tip">還不是 Decoy 好友也可以領</span></p>
       <p class="g-gift">${GIFT_TEXT}</p>
-      <button type="button" class="g-share" id="shareFriend">${WITH ? '傳回給朋友：讓她也看到妳們的組合' : '傳給一個朋友：看看妳們合不合'}</button>
       ${INAPP ? `<div class="inapp"><b>在 Facebook／Instagram 裡打不開 LINE 嗎？</b><ol>
         <li>點右上角「⋯」，選「用瀏覽器開啟」，結果會保留，再按一次綠色按鈕</li>
         <li>或者先 <button type="button" id="copyClaim">複製領卡暗號</button><br>打開 LINE 搜尋 <b>@decoy</b>，進聊天室貼上、傳送</li></ol></div>` : ''}
@@ -518,6 +560,7 @@ function showResult(k, second) {
       <video id="film" controls playsinline preload="none" poster="media/decoy-film-poster.jpg" src="media/decoy-film-720.mp4" aria-label="Decoy 品牌影片"></video>
       <p>建議開聲音觀看</p>
     </div>
+    <div class="g-bottom-share"><p>${WITH ? '把妳們的組合傳回給朋友，讓她也看到這一句' : '好玩嗎？傳給一個朋友，<br>看看妳們的節奏合不合'}</p><button type="button" class="g-share-solid js-share" data-where="bottom">${SHARE_SVG}${WITH ? '傳回給朋友' : '傳給朋友'}</button></div>
     <div class="foot">
       <div class="slogan">BEAUTY, ON YOUR TERMS.</div>
       <div>美，由你作主</div>
@@ -537,21 +580,7 @@ function showResult(k, second) {
   document.getElementById('film').addEventListener('play', () => track('quiz_film_play', { rhythm: k }), { once: true });
   document.getElementById('saveBtn').onclick = () => openCard(k);
   if (WITH) track('pair_view', { me: k, with: WITH, src: SRC });
-  document.getElementById('shareFriend').onclick = async () => {
-    // 沒有 WITH：邀朋友來玩（帶自己的節奏）；有 WITH：把結果傳回給邀請的朋友（她打開就看到自己的結果＋同一句）
-    const url = WITH ? `${PLAY_URL}?r=${WITH}&with=${k}` : `${PLAY_URL}?with=${k}`;
-    const text = WITH ? `我玩完了！我是${R[k].name}，妳是${R[WITH].name}，打開看看我們的組合` : `我是${R[k].name}。妳是哪一種？60 秒玩一下，看看我們合不合`;
-    const btn = document.getElementById('shareFriend'); let method = 'copy';
-    try {
-      if (navigator.share) { await navigator.share({ title: '光的配方｜Decoy', text, url }); method = 'share'; }
-      else { await navigator.clipboard.writeText(text + ' ' + url); btn.textContent = '已複製連結，貼給朋友就好'; btn.classList.add('done'); }
-    } catch (e) {
-      if (e && e.name === 'AbortError') return;   // 她自己取消分享
-      const ta = document.createElement('textarea'); ta.value = text + ' ' + url; document.body.appendChild(ta); ta.select(); try { document.execCommand('copy'); } catch (e2) {} ta.remove();
-      btn.textContent = '已複製連結，貼給朋友就好'; btn.classList.add('done');
-    }
-    track('share_click', { rhythm: k, with: WITH || 'none', method, src: SRC });
-  };
+  view.querySelectorAll('.js-share').forEach(el => el.onclick = () => doShare(k, el.dataset.where));
   document.getElementById('again').onclick = () => { answers = []; rememberResult(null); gameScreen(0); };
   window.scrollTo(0, 0);
   claimBarOn(k, second);
