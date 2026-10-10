@@ -201,6 +201,7 @@ a{color:inherit}
 .g-invite{display:inline-block;margin:0 auto 8px;font-size:12px;color:var(--rose-deep);background:#fff;border:1px solid var(--line);border-radius:999px;padding:3px 12px;letter-spacing:.04em}
 .g-first .g-invite-wrap{text-align:center}
 .g-gift{font-size:12.5px;color:var(--rose-deep);letter-spacing:.04em;margin-top:-2px}
+.g-gift span{display:inline-block}
 .g-share{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;min-height:46px;border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,.7);font-size:14px;color:var(--ink);letter-spacing:.06em}
 .g-share.done{border-color:var(--rose);color:var(--rose-deep)}
 .g-pair{margin-top:18px;border:1px solid var(--line);border-radius:16px;background:#fff;padding:18px 18px 14px;text-align:center;box-shadow:0 10px 24px rgba(120,70,78,.1)}
@@ -385,7 +386,7 @@ const pairKey = (a, b) => [a, b].sort((x, y) => ORDER.indexOf(x) - ORDER.indexOf
 const WITH = (() => { const w = new URLSearchParams(location.search).get('with'); return w && R[w] ? w : ''; })();   // 邀請她來玩的朋友的節奏
 if (WITH) track('share_open', { with: WITH, src: SRC });
 const PLAY_URL = 'https://decoy-beauty.com/play.html';
-const GIFT_TEXT = '到店小禮：微光噴霧一瓶（價值 1,680 元，條件待定）';   // Molly 10/10 選微光噴霧；條件、期限待定，不寫價格、不寫限量
+const GIFT_TEXT = '<span>到店小禮：持 Decode Card 第一次到店，</span><span>送微光噴霧一瓶（價值 1,680 元，顏色隨機），</span><span>送到 2027/1/31。</span>';   // 分段只在逗號換行   // Molly 10/10 定稿（經 Cook）：「粉色銀色隨機出貨 不要給他們買 然後不用買課程這段刪掉」；不寫限量／送完為止
 const SHARE_SVG = '<svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 15V4M8 8l4-4 4 4"/><path d="M5 12v6a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6"/></svg>';
 // 分享：沒有 WITH＝邀朋友來玩（帶自己的節奏）；有 WITH＝傳回給邀請的朋友（她打開就看到自己的結果＋同一句）
 function toast(msg, ms = 2200) { document.querySelectorAll('.g-toast').forEach(x => x.remove()); const t = document.createElement('div'); t.className = 'g-toast'; t.innerHTML = msg; document.body.appendChild(t); setTimeout(() => t.remove(), ms); }
