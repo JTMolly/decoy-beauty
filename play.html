@@ -224,7 +224,9 @@ a{color:inherit}
 .g-bottom-share{margin-top:30px;padding:20px 18px;border:1px solid var(--line);border-radius:16px;background:rgba(255,255,255,.7);text-align:center}
 .g-bottom-share p{font-size:14px;color:var(--ink-2);margin-bottom:12px;line-height:1.7}
 .claimbar .cb-share{flex-shrink:0;width:46px;height:46px;border-radius:50%;background:var(--rose);display:grid;place-items:center}
-.g-toast{position:fixed;left:50%;bottom:92px;transform:translateX(-50%);background:var(--rose-deep);color:#fff;font-size:13px;padding:9px 16px;border-radius:999px;z-index:40;pointer-events:none;white-space:nowrap;box-shadow:0 6px 16px rgba(120,70,78,.25)}
+.g-toast{position:fixed;left:50%;top:max(14px,env(safe-area-inset-top));transform:translateX(-50%);width:max-content;max-width:min(88vw,340px);background:var(--rose-deep);color:#fff;font-size:13px;line-height:1.65;text-align:center;padding:10px 18px;border-radius:16px;z-index:40;pointer-events:none;box-shadow:0 6px 16px rgba(120,70,78,.25)}
+.g-share-note{font-size:12.5px;line-height:1.7;color:var(--rose-deep);text-align:center;margin-top:-2px}
+.g-bottom-share .g-share-note{margin-top:10px}
 .result .orb{max-width:min(72vw,20svh);max-height:min(72vw,20svh)}
 @media (max-height:620px){
   .result .orb{max-width:min(72vw,15svh);max-height:min(72vw,15svh);margin:6px auto 10px}
@@ -386,19 +388,23 @@ const PLAY_URL = 'https://decoy-beauty.com/play.html';
 const GIFT_TEXT = '到店小禮：微光噴霧一瓶（價值 1,680 元，條件待定）';   // Molly 10/10 選微光噴霧；條件、期限待定，不寫價格、不寫限量
 const SHARE_SVG = '<svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 15V4M8 8l4-4 4 4"/><path d="M5 12v6a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6"/></svg>';
 // 分享：沒有 WITH＝邀朋友來玩（帶自己的節奏）；有 WITH＝傳回給邀請的朋友（她打開就看到自己的結果＋同一句）
-function toast(msg) { const t = document.createElement('div'); t.className = 'g-toast'; t.textContent = msg; document.body.appendChild(t); setTimeout(() => t.remove(), 2200); }
+function toast(msg, ms = 2200) { document.querySelectorAll('.g-toast').forEach(x => x.remove()); const t = document.createElement('div'); t.className = 'g-toast'; t.innerHTML = msg; document.body.appendChild(t); setTimeout(() => t.remove(), ms); }
+// 10/10 Molly：「傳給朋友 還是看不到跟朋友之前合不合啊」→ 分享後說清楚接下來會發生什麼
+const AFTER_SHARE = () => (WITH ? '她打開就會看到妳們的組合 💌' : '朋友玩完就會看到妳們的組合；<br>她按「傳回」，妳也看得到 💌');
+function showShareNotes() { document.querySelectorAll('.g-share-note').forEach(n => { n.innerHTML = AFTER_SHARE(); n.hidden = false; }); }
 async function doShare(k, where) {
   const url = WITH ? `${PLAY_URL}?r=${WITH}&with=${k}` : `${PLAY_URL}?with=${k}`;
   const text = WITH ? `我玩完了！我是${R[k].name}，妳是${R[WITH].name}，打開看看我們的組合` : `我是${R[k].name}。妳是哪一種？60 秒玩一下，看看我們合不合`;
   let method = 'copy';
   try {
-    if (navigator.share) { await navigator.share({ title: '光的配方｜Decoy', text, url }); method = 'share'; }
-    else { await navigator.clipboard.writeText(text + ' ' + url); toast('已複製連結，貼給朋友就好'); }
+    if (navigator.share) { await navigator.share({ title: '光的配方｜Decoy', text, url }); method = 'share'; toast((WITH ? '傳回去了！' : '傳出去了！') + '<br>' + AFTER_SHARE(), 4000); }
+    else { await navigator.clipboard.writeText(text + ' ' + url); toast('已複製連結，貼給朋友就好<br>' + AFTER_SHARE(), 4000); }
   } catch (e) {
     if (e && e.name === 'AbortError') return;   // 她自己取消分享
     const ta = document.createElement('textarea'); ta.value = text + ' ' + url; document.body.appendChild(ta); ta.select(); try { document.execCommand('copy'); } catch (e2) {} ta.remove();
-    toast('已複製連結，貼給朋友就好');
+    toast('已複製連結，貼給朋友就好<br>' + AFTER_SHARE(), 4000);
   }
+  showShareNotes();
   track('share_click', { rhythm: k, with: WITH || 'none', method, where, src: SRC });
 }
 let t0 = 0;
@@ -540,6 +546,7 @@ function showResult(k, second) {
         到 LINE 領我的 Decode Card
       </a>
       <button type="button" class="g-invite-card js-share" data-where="top"><span class="gi-txt"><b>妳 ${R[k].name} × 朋友 <i>${WITH ? R[WITH].name : '？？？'}</i></b><small>${WITH ? '傳回給朋友，讓她也看到妳們的組合' : '傳給一個朋友，解開妳們的組合'}</small></span><span class="gi-ic">${SHARE_SVG}</span></button>
+      <p class="g-share-note" hidden></p>
       <p class="hint"><span class="send-tip">還不是 Decoy 好友也可以領</span></p>
       <p class="g-gift">${GIFT_TEXT}</p>
       ${INAPP ? `<div class="inapp"><b>在 Facebook／Instagram 裡打不開 LINE 嗎？</b><ol>
@@ -560,7 +567,7 @@ function showResult(k, second) {
       <video id="film" controls playsinline preload="none" poster="media/decoy-film-poster.jpg" src="media/decoy-film-720.mp4" aria-label="Decoy 品牌影片"></video>
       <p>建議開聲音觀看</p>
     </div>
-    <div class="g-bottom-share"><p>${WITH ? '把妳們的組合傳回給朋友，讓她也看到這一句' : '好玩嗎？傳給一個朋友，<br>看看妳們的節奏合不合'}</p><button type="button" class="g-share-solid js-share" data-where="bottom">${SHARE_SVG}${WITH ? '傳回給朋友' : '傳給朋友'}</button></div>
+    <div class="g-bottom-share"><p>${WITH ? '把妳們的組合傳回給朋友，讓她也看到這一句' : '好玩嗎？傳給一個朋友，<br>看看妳們的節奏合不合'}</p><button type="button" class="g-share-solid js-share" data-where="bottom">${SHARE_SVG}${WITH ? '傳回給朋友' : '傳給朋友'}</button><p class="g-share-note" hidden></p></div>
     <div class="foot">
       <div class="slogan">BEAUTY, ON YOUR TERMS.</div>
       <div>美，由你作主</div>
