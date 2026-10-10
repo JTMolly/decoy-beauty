@@ -229,6 +229,7 @@ const LINE_ID = '@decoy';                    // Decoy LINE 官方帳號（2026-1
 // ad2（B 組，3 個字元）、ad3（C 組，10/7 加，4 個字元）：10/6 部署的機器人會把它們都記成 other，下次部署後才分開記；這兩天用 GA 的 src 分。
 const SRC_CODES = { ad: '\u200B\u200C', ad2: '\u200B\u200C\u200B', ad3: '\u200B\u200C\u200B\u200C', ig: '\u200C\u200B', fb: '\u200C\u200C', line: '\u200B\u200B' };
 const SRC = 'playtest';   // 內部試玩版：固定 playtest，不讀也不寫 localStorage，名冊不會被記成廣告
+SRC_CODES.playtest = '\u200C\u200B\u200C';   // 機器人不認得這組 → 名冊記成 other，試玩領的卡不會混進 organic／廣告
 const SITE_URL = 'decoy-beauty.com/quiz.html';
 const SHOW_FOUNDING = true;                  // 顯示「試營運前領取，享有創始編號」；發卡機器人還沒上線就改成 false
 
