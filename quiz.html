@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>照顧節奏測驗｜Decoy</title>
-<meta name="description" content="8 個問題，約 2 分鐘，認識妳照顧自己的節奏。Decoy 非侵入式美學科技。">
+<meta name="description" content="60 秒、4 個選擇，調出妳的照顧水晶，認識妳照顧自己的節奏。Decoy 非侵入式美學科技。">
 <meta property="og:title" content="照顧節奏測驗｜Decoy">
-<meta property="og:description" content="8 個問題，約 2 分鐘，認識妳照顧自己的節奏。">
+<meta property="og:description" content="60 秒、4 個選擇，調出妳的照顧水晶，認識妳照顧自己的節奏。">
 <meta property="og:image" content="https://decoy-beauty.com/quiz-assets/og.jpg">
 <meta property="og:type" content="website">
 <meta name="theme-color" content="#FBF7F4">
@@ -158,6 +158,83 @@ a{color:inherit}
 .result{padding-bottom:64px}
 @media (prefers-reduced-motion:reduce){.claimbar,.claimbar.show{transition:none}}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* ===== 光的配方（小遊戲方向 A）10/10 改成正式測驗：Molly「可以耶 把遊戲改成這個吧」。內部試玩版仍在 play.html ===== */
+.game{padding-bottom:12px}
+.g-h1{font-size:22px;font-weight:500;letter-spacing:.08em;line-height:1.45;text-align:center}
+.g-h1 em{font-style:normal;color:var(--rose-deep)}
+.g-sub{font-size:13px;color:var(--ink-2);text-align:center;margin-top:4px;letter-spacing:.04em}
+.g-chips{list-style:none;display:flex;justify-content:center;gap:6px;flex-wrap:wrap;margin-top:8px}
+.g-chips li{font-size:11.5px;color:var(--rose-deep);border:1px solid var(--line);background:rgba(255,255,255,.65);border-radius:999px;padding:2px 9px}
+.g-facets{display:flex;justify-content:center;gap:9px;margin:12px 0 6px}
+.g-facets i{width:12px;height:12px;transform:rotate(45deg);border:1px solid var(--rose);display:block;transition:background .3s}
+.g-facets i.on{background:var(--rose)}
+.g-crystal{width:min(150px,24svh);height:min(150px,24svh);margin:2px auto 0;position:relative}
+.g-first .g-crystal{width:min(92px,15svh);height:min(92px,15svh)}
+.g-crystal svg{width:100%;height:100%;display:block;overflow:visible}
+.g-crystal .fc{transition:fill .45s ease}
+.g-q{font-size:17px;font-weight:500;text-align:center;letter-spacing:.06em;margin:10px 0 10px;line-height:1.5}
+.g-opts{display:flex;flex-direction:column;gap:7px}
+.g-opt{display:flex;align-items:center;gap:12px;min-height:44px;width:100%;padding:8px 14px;border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,.78);font-size:14px;color:var(--ink);letter-spacing:.03em;text-align:left;line-height:1.45;transition:border-color .2s,background .2s,transform .1s}
+.g-opt:active{transform:scale(.985)}
+.g-opt i{width:16px;height:16px;border-radius:50%;flex-shrink:0;box-shadow:0 0 0 3px rgba(255,255,255,.9),0 2px 8px rgba(120,70,78,.18)}
+.g-opt.on{border-color:var(--rose);background:#fff;box-shadow:0 4px 14px rgba(168,104,120,.15)}
+.g-note{font-size:11.5px;color:var(--muted);text-align:center;margin-top:9px;line-height:1.6}
+.g-note b{color:var(--rose-deep);font-weight:500}
+.g-drop{position:fixed;width:16px;height:16px;border-radius:50%;pointer-events:none;z-index:30;box-shadow:0 0 12px rgba(255,255,255,.9)}
+.g-reveal{justify-content:center;align-items:center;text-align:center;min-height:70svh}
+.g-reveal .g-crystal{width:min(210px,34svh);height:min(210px,34svh);animation:gPulse 1.4s ease-in-out both}
+.g-reveal .k{font-family:var(--mono);font-size:11px;letter-spacing:.24em;color:var(--rose);margin-top:22px}
+@keyframes gPulse{0%{transform:scale(.92) rotate(-6deg);filter:brightness(1)}60%{transform:scale(1.04) rotate(2deg);filter:brightness(1.12)}100%{transform:scale(1) rotate(0);filter:brightness(1.05)}}
+.g-card{display:flex;gap:12px;align-items:center;text-align:left;border:1px solid var(--line);border-radius:14px;background:#fff;padding:10px 12px;box-shadow:0 8px 20px rgba(120,70,78,.1)}
+.g-card .th{width:52px;height:52px;border-radius:10px;background:center/cover no-repeat;flex-shrink:0}
+.g-card .t1{font-family:var(--mono);font-size:9.5px;letter-spacing:.14em;color:var(--rose)}
+.g-card .t2{font-size:14.5px;margin-top:2px;letter-spacing:.06em;color:var(--ink)}
+.g-card .t3{font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;color:var(--muted);margin-top:2px}
+.g-card .blur{filter:blur(3.5px);display:inline-block}
+.result .orb{max-width:min(72vw,24svh);max-height:min(72vw,24svh)}
+@media (max-height:620px){.app{padding-top:16px}.top{margin-bottom:10px}.g-sub{display:none}.g-first .g-facets{display:none}.g-first .g-crystal{width:13svh;height:13svh;margin-top:8px}.g-facets{margin:6px 0 4px}.g-q{margin:8px 0}.g-opts{gap:6px}}
+@media (prefers-reduced-motion:reduce){.g-reveal .g-crystal{animation:none}.g-crystal .fc{transition:none}}
+
+/* 合不合（Molly 10/10「合不合可以喔！好好玩喔」；15 組短句為 Cook 草稿 v1，公開前待 Molly 審）＋到店小禮（條件待定） */
+.g-invite{display:inline-block;margin:0 auto 8px;font-size:12px;color:var(--rose-deep);background:#fff;border:1px solid var(--line);border-radius:999px;padding:3px 12px;letter-spacing:.04em}
+.g-first .g-invite-wrap{text-align:center}
+.g-gift{font-size:12.5px;color:var(--rose-deep);letter-spacing:.04em;margin-top:-2px}
+.g-share{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;min-height:46px;border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,.7);font-size:14px;color:var(--ink);letter-spacing:.06em}
+.g-share.done{border-color:var(--rose);color:var(--rose-deep)}
+.g-pair{margin-top:18px;border:1px solid var(--line);border-radius:16px;background:#fff;padding:18px 18px 14px;text-align:center;box-shadow:0 10px 24px rgba(120,70,78,.1)}
+.g-pair .k{font-family:var(--mono);font-size:10px;letter-spacing:.2em;color:var(--rose)}
+.g-pair .pn{margin-top:8px;font-size:17px;letter-spacing:.08em;color:var(--ink)}
+.g-pair .pn small{font-size:11px;color:var(--muted);margin:0 4px}
+.g-pair p{margin-top:10px;font-size:15px;line-height:1.9;color:var(--ink-2);text-align:left}
+.g-pair .fine{margin-top:8px;font-size:11px;color:var(--muted)}
+.g-pair-hint{color:var(--rose-deep);text-decoration:none}
+
+/* 10/10 分享更明顯（Molly：「分享給朋友的那邊很不明顯 我一開始沒看到」）：第一屏邀請小卡、固定條分享鈕、頁底再一次；不彈窗、不催、不給獎勵 */
+.g-invite-card{display:flex;align-items:center;gap:12px;width:100%;min-height:58px;padding:8px 10px 8px 16px;border:1px solid var(--rose);border-radius:16px;background:linear-gradient(135deg,#F8E6E9,#F1D5DA);text-align:left;color:var(--rose-deep);box-shadow:0 6px 16px rgba(168,104,120,.16)}
+.g-invite-card:active{transform:scale(.985)}
+.g-invite-card .gi-txt{flex:1;display:flex;flex-direction:column;gap:2px;min-width:0}
+.g-invite-card b{font-weight:500;font-size:15px;letter-spacing:.05em;color:var(--ink)}
+.g-invite-card b i{font-style:normal;color:var(--rose)}
+.g-invite-card small{font-size:12px;color:var(--rose-deep);letter-spacing:.03em}
+.g-invite-card .gi-ic{width:40px;height:40px;border-radius:50%;background:var(--rose);display:grid;place-items:center;flex-shrink:0}
+.g-invite-card .gi-ic svg,.g-share-solid svg,.claimbar .cb-share svg{width:18px;height:18px;stroke:#fff}
+.g-share-solid{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;min-height:50px;border-radius:999px;background:var(--rose);color:#fff;font-size:15px;letter-spacing:.08em}
+.g-bottom-share{margin-top:30px;padding:20px 18px;border:1px solid var(--line);border-radius:16px;background:rgba(255,255,255,.7);text-align:center}
+.g-bottom-share p{font-size:14px;color:var(--ink-2);margin-bottom:12px;line-height:1.7}
+.claimbar .cb-share{flex-shrink:0;width:46px;height:46px;border-radius:50%;background:var(--rose);display:grid;place-items:center}
+.g-toast{position:fixed;left:50%;top:max(14px,env(safe-area-inset-top));transform:translateX(-50%);width:max-content;max-width:min(88vw,340px);background:var(--rose-deep);color:#fff;font-size:13px;line-height:1.65;text-align:center;padding:10px 18px;border-radius:16px;z-index:40;pointer-events:none;box-shadow:0 6px 16px rgba(120,70,78,.25)}
+.g-share-note{font-size:12.5px;line-height:1.7;color:var(--rose-deep);text-align:center;margin-top:-2px}
+.g-bottom-share .g-share-note{margin-top:10px}
+.result .orb{max-width:min(72vw,20svh);max-height:min(72vw,20svh)}
+@media (max-height:620px){
+  .result .orb{max-width:min(72vw,15svh);max-height:min(72vw,15svh);margin:6px auto 10px}
+  .result h2{font-size:33px}
+  .result .en{margin:2px 0 6px}
+  .actions.claim{gap:8px;margin-top:10px}
+  .g-card{padding:7px 10px}.g-card .th{width:42px;height:42px}
+  .g-invite-card{min-height:54px;padding:6px 8px 6px 14px}
+}
 </style>
 <!-- GA4（10/8 補上：首頁、測驗、個資頁原本沒有載入，測驗和首頁的事件都沒送出） -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-F54YFMZSD8"></script>
@@ -255,24 +332,16 @@ const QS = [
   { q: '如果「美」是一句話，妳會選？',
     o: { still: '安靜地，把生活過好', rebel: '我的美，我決定', aware: '先認識自己，再決定改變', companion: '被好好對待，也好好對待別人', explorer: '願意試試看，然後愛上' } },
 ];
-
-/* 第一屏的水晶題（概念 1）。五顆水晶和結果頁的水晶同一組圖，順序同 ORDER。
-   CRYSTAL_MODE：'entry' = 開場題，不計分，8 題照舊（建議）；'q1' = 取代第 1 題並計分（選哪顆就算那種節奏一票）。週一 Molly 決定。 */
-const CRYSTAL_MODE = 'entry';
-const CRYSTAL_LABEL = { still: '月與水', rebel: '玫瑰', aware: '一片葉', companion: '兩片葉', explorer: '羅盤' };
-const FIRST_Q = CRYSTAL_MODE === 'q1' ? 1 : 0;
-
 /* ---------- state ---------- */
 const view = document.getElementById('view');
 const shuffled = QS.map(() => shuffle(ORDER.slice()));
 let answers = [];
 let result = null;
-let firstPick = null;   // 第一屏選的水晶
 
 function shuffle(a) { for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; }
 function esc(s) { return s.replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c])); }
 // analytics hook: sends only when the site has GA4 / GTM installed; the quiz itself stores nothing
-function track(name, params = {}) { try { if (window.gtag) window.gtag('event', name, params); if (window.dataLayer) window.dataLayer.push({ event: name, ...params }); } catch (e) {} }
+function track(name, params = {}) { params = { ...params, variant: 'game' /* GA：game＝光的配方正式版，沒有 variant＝舊版 8 題 */ }; try { if (window.gtag) window.gtag('event', name, params); if (window.dataLayer) window.dataLayer.push({ event: name, ...params }); } catch (e) {} }
 
 /* ---------- scoring: most points wins; ties go to question 8, then to the later answer ---------- */
 function pick(cands) {
@@ -292,61 +361,126 @@ function score() {
 }
 
 /* ---------- screens ---------- */
-function intro() {
+/* ---------- 光的配方：4 輪（已核准題目第 1、2、6、8 題），計分照舊 ---------- */
+const ROUNDS = [0, 1, 5, 7];
+const GQ = ['週六上午，妳最想？', '走進保養空間，最讓妳安心的是？', '一天結束前，最能讓妳放鬆的是？', '如果「美」是一句話，妳會選？'];
+const GO = [   // 選項縮短版（Molly 10/10 試玩後採用）
+  { still: '泡一壺茶，把房間整理好', rebel: '照自己的計畫走', aware: '記一記最近的自己', companion: '約好久不見的朋友吃早午餐', explorer: '去一家沒去過的店' },
+  { still: '安靜、流程有條不紊', rebel: '沒人推銷，由我決定', aware: '每一步都說清楚', companion: '記得我說過的話', explorer: '有新體驗可以先試' },
+  { still: '洗完澡，慢慢做完保養', rebel: '關掉訊息，留給自己', aware: '回想今天哪裡累、哪裡舒服', companion: '跟重要的人聊聊天', explorer: '想想明天可以試什麼' },
+  { still: '安靜地，把生活過好', rebel: '我的美，我決定', aware: '先認識自己，再決定改變', companion: '被好好對待，也好好對待別人', explorer: '願意試試看，然後愛上' },
+];
+// 合不合：15 組相處短句（Cook 草稿 v1，10/10；公開前待 Molly 審）。key 依 ORDER 排序後用 | 連起來
+const PAIR = {
+  'still|still': '兩個人一起安靜也不尷尬。最好的約會，是各自看書的一個下午 🍵',
+  'rebel|rebel': '兩個人都有主見，所以特別懂尊重。先各自說想要什麼，再一起決定。',
+  'aware|aware': '妳們一聊就很深。偶爾也一起放空吧，不用每件事都弄懂。',
+  'companion|companion': '妳們都記得對方的小事，彼此就是對方「固定的那個人」 🤍',
+  'explorer|explorer': '湊在一起，行程只會越排越多。新開的店，妳們一定是第一批去的 ✨',
+  'still|rebel': '一個守住自己的節奏，一個守住自己的決定。妳們都不需要被說服，所以相處很輕鬆。',
+  'still|aware': '一起慢慢來的兩個人：一個把生活整理好，一個把感受記下來。',
+  'still|companion': '一個給安靜，一個給溫度。陪伴者負責約，靜行者負責挑一個安靜的地方，剛剛好。',
+  'still|explorer': '探索者帶來新東西，靜行者讓它變成習慣。週末輪流決定怎麼過吧 ☁️',
+  'rebel|aware': '一個先決定，一個先弄懂。妳們都給對方想清楚的時間，所以很少有壓力。',
+  'rebel|companion': '陪伴者給的支持，溫柔叛逆者收得到，因為那是陪伴，不是幫她決定。',
+  'rebel|explorer': '一起試新東西的最佳搭檔：一個敢試，一個敢說「這個不適合我」。',
+  'aware|companion': '一個很會聽自己，一個很會聽別人。聊到忘記時間是常有的事。',
+  'aware|explorer': '探索者先去試，覺察者幫忙想清楚為什麼喜歡。一起試，會越試越懂自己。',
+  'companion|explorer': '一個找新地方，一個找人一起去。妳們是朋友圈裡最會揪團的組合 🎈',
+};
+const pairKey = (a, b) => [a, b].sort((x, y) => ORDER.indexOf(x) - ORDER.indexOf(y)).join('|');
+const WITH = (() => { const w = new URLSearchParams(location.search).get('with'); return w && R[w] ? w : ''; })();   // 邀請她來玩的朋友的節奏
+if (WITH) track('share_open', { with: WITH, src: SRC });
+const PLAY_URL = 'https://decoy-beauty.com/quiz.html';
+const GIFT_TEXT = '';   // 到店小禮（微光噴霧一瓶，價值 1,680 元）條件、期限定了再填，空白就不顯示
+const SHARE_SVG = '<svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 15V4M8 8l4-4 4 4"/><path d="M5 12v6a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6"/></svg>';
+// 分享：沒有 WITH＝邀朋友來玩（帶自己的節奏）；有 WITH＝傳回給邀請的朋友（她打開就看到自己的結果＋同一句）
+function toast(msg, ms = 2200) { document.querySelectorAll('.g-toast').forEach(x => x.remove()); const t = document.createElement('div'); t.className = 'g-toast'; t.innerHTML = msg; document.body.appendChild(t); setTimeout(() => t.remove(), ms); }
+// 10/10 Molly：「傳給朋友 還是看不到跟朋友之前合不合啊」→ 分享後說清楚接下來會發生什麼
+const AFTER_SHARE = () => (WITH ? '她打開就會看到妳們的組合 💌' : '朋友玩完就會看到妳們的組合；<br>她按「傳回」，妳也看得到 💌');
+function showShareNotes() { document.querySelectorAll('.g-share-note').forEach(n => { n.innerHTML = AFTER_SHARE(); n.hidden = false; }); }
+async function doShare(k, where) {
+  const url = WITH ? `${PLAY_URL}?r=${WITH}&with=${k}` : `${PLAY_URL}?with=${k}`;
+  const text = WITH ? `我玩完了！我是${R[k].name}，妳是${R[WITH].name}，打開看看我們的組合` : `我是${R[k].name}。妳是哪一種？60 秒玩一下，看看我們合不合`;
+  let method = 'copy';
+  try {
+    if (navigator.share) { await navigator.share({ title: '光的配方｜Decoy', text, url }); method = 'share'; toast((WITH ? '傳回去了！' : '傳出去了！') + '<br>' + AFTER_SHARE(), 4000); }
+    else { await navigator.clipboard.writeText(text + ' ' + url); toast('已複製連結，貼給朋友就好<br>' + AFTER_SHARE(), 4000); }
+  } catch (e) {
+    if (e && e.name === 'AbortError') return;   // 她自己取消分享
+    const ta = document.createElement('textarea'); ta.value = text + ' ' + url; document.body.appendChild(ta); ta.select(); try { document.execCommand('copy'); } catch (e2) {} ta.remove();
+    toast('已複製連結，貼給朋友就好<br>' + AFTER_SHARE(), 4000);
+  }
+  showShareNotes();
+  track('share_click', { rhythm: k, with: WITH || 'none', method, where, src: SRC });
+}
+let t0 = 0;
+const FACETS = ['M75 18 L118 52 L75 75 Z', 'M118 52 L102 120 L75 75 Z', 'M102 120 L48 120 L75 75 Z', 'M48 120 L32 52 L75 75 Z'];
+function crystalSvg(n) {
+  const fill = j => (answers[j] ? R[answers[j]].color : 'rgba(255,255,255,.45)');
+  return `<svg viewBox="0 0 150 150" aria-hidden="true"><defs><radialGradient id="gcg" cx=".38" cy=".32" r=".8"><stop offset="0" stop-color="#fff"/><stop offset="1" stop-color="#F3E7E5"/></radialGradient></defs>
+    <circle cx="75" cy="75" r="62" fill="url(#gcg)" stroke="#D4AAAF"/>
+    <path d="M75 18 L118 52 L102 120 L48 120 L32 52 Z" fill="none" stroke="#E2C9CD"/>
+    ${FACETS.map((d, j) => `<path class="fc" id="fc${j}" d="${d}" fill="${fill(j)}" fill-opacity=".9" stroke="#fff" stroke-width=".9"/>`).join('')}
+    <path d="M75 18 L75 75 M118 52 L75 75 M102 120 L75 75 M48 120 L75 75 M32 52 L75 75" stroke="rgba(255,255,255,.8)" stroke-width=".8"/>
+    <circle cx="58" cy="50" r="9" fill="#fff" opacity=".55"/>
+    ${n === 0 && !answers.length ? '<text x="75" y="142" text-anchor="middle" font-size="9" fill="#9A8580" font-family="Noto Serif TC">等妳加入第一道光</text>' : ''}</svg>`;
+}
+function gameScreen(i) {
   claimBarOff();
   setAccent(null);
-  document.getElementById('kicker').textContent = 'Decode Yourself';
-  const n = CRYSTAL_MODE === 'q1' ? 1 : 0;   // 計分模式顯示 01 / 08；開場模式顯示 00 / 08（水晶題不算在 8 題裡）
+  document.getElementById('kicker').textContent = i === 0 ? 'Light Recipe' : `Round ${i + 1} / 4`;
+  const qi = ROUNDS[i];
   view.innerHTML = `
-  <section class="screen gate">
-    <p class="gate-lead">8 題・約 1 分鐘，做完到 LINE 領<b>妳的卡</b></p>
-    <div class="gcard" aria-hidden="true"><img src="quiz-assets/intro-still.jpg" width="228" height="108" alt=""><i class="fade"></i><i class="gloss"></i><div class="dc-t"><span>DECODE CARD</span><span>No. 00XX</span></div><div class="dc-n">妳的照顧節奏<small>FOUNDING · 創始編號</small></div></div>
-    <ul class="chips" aria-label="做完會得到"><li>妳的照顧節奏</li><li>專屬編號卡</li>${SHOW_FOUNDING ? '<li>試營運前享創始編號</li>' : ''}</ul>
-    <div class="gate-q">
-      <div class="progress" aria-label="${n ? '第 1 題，共 8 題' : '開場題'}"><span class="num">${String(n).padStart(2, '0')} / ${String(QS.length).padStart(2, '0')}</span><span class="bar"><i style="width:${(n / QS.length) * 100}%"></i></span></div>
-      <h1>此刻，哪一顆最像妳？</h1>
-      <div class="crystals">${ORDER.map((k, i) => `<button class="crys" data-k="${k}"><i style="background-position:${i * 25}% 0" aria-hidden="true"></i>${CRYSTAL_LABEL[k]}</button>`).join('')}</div>
-      <p class="note"><b>點一顆就開始</b>・免費、不用註冊<br>測驗不會留下妳的姓名或聯絡方式</p>
-    </div>
+  <section class="screen game${i === 0 ? ' g-first' : ''}">
+    ${i === 0 && WITH ? `<div class="g-invite-wrap"><span class="g-invite">朋友是${R[WITH].name}，邀妳來看看妳們合不合</span></div>` : ''}
+    ${i === 0 ? `<h1 class="g-h1">60 秒，<em>解碼妳的照顧節奏</em></h1>
+    <p class="g-sub">4 個選擇，調出一顆只屬於妳的水晶</p>
+    <ul class="g-chips" aria-label="做完會得到"><li>妳的照顧節奏</li><li>有編號的卡</li>${SHOW_FOUNDING ? '<li>創始編號（試營運前）</li>' : ''}</ul>` : ''}
+    <div class="g-facets" aria-label="第 ${i + 1} 輪，共 4 輪">${[0, 1, 2, 3].map(j => `<i class="${j < i ? 'on' : ''}"></i>`).join('')}</div>
+    <div class="g-crystal" id="gc">${crystalSvg(i)}</div>
+    <h2 class="g-q">${esc(GQ[i])}</h2>
+    <div class="g-opts">${shuffled[qi].map(k => `<button class="g-opt${answers[i] === k ? ' on' : ''}" data-k="${k}"><i style="background:${R[k].color}"></i><span>${esc(GO[i][k])}</span></button>`).join('')}</div>
+    ${i === 0 ? '<p class="g-note"><b>點一個就開始</b>・免費、不用註冊・不留姓名或聯絡方式</p>' : '<button class="btn-text back" id="back">← 上一輪</button>'}
   </section>`;
-  view.querySelectorAll('.crys').forEach(btn => btn.onclick = () => {
+  let locked = false;
+  view.querySelectorAll('.g-opt').forEach(btn => btn.onclick = () => {
+    if (locked) return; locked = true;
+    const k = btn.dataset.k;
+    view.querySelectorAll('.g-opt').forEach(x => x.classList.remove('on'));
     btn.classList.add('on');
-    firstPick = btn.dataset.k;
-    answers = [];
-    if (CRYSTAL_MODE === 'q1') answers[0] = firstPick;
-    track('quiz_start', { src: SRC || 'organic', crystal: firstPick, mode: CRYSTAL_MODE });
-    setTimeout(() => question(FIRST_Q), 260);
+    if (i === 0 && !answers.length) { t0 = Date.now(); track('quiz_start', { src: SRC }); }
+    answers[i] = k; answers.length = i + 1;
+    track('game_round', { n: i + 1, rhythm: k, src: SRC });
+    flyDrop(btn.querySelector('i'), R[k].color, () => { const f = document.getElementById('fc' + i); if (f) f.setAttribute('fill', R[k].color); });
+    if (navigator.vibrate) { try { navigator.vibrate(12); } catch (e) {} }
+    setTimeout(() => (i + 1 < ROUNDS.length ? gameScreen(i + 1) : reveal()), 700);
   });
+  const back = document.getElementById('back');
+  if (back) back.onclick = () => { answers.length = i - 1; gameScreen(i - 1); };
   window.scrollTo(0, 0);
 }
-
-function question(i) {
+// 選的那道光飛進水晶（Web Animations；減少動態時直接上色）
+function flyDrop(fromEl, color, done) {
+  const to = document.getElementById('gc');
+  if (!fromEl || !to || matchMedia('(prefers-reduced-motion: reduce)').matches || !document.body.animate) { done(); return; }
+  const a = fromEl.getBoundingClientRect(), b = to.getBoundingClientRect();
+  const d = document.createElement('i'); d.className = 'g-drop'; d.style.background = color; d.style.left = a.left + 'px'; d.style.top = a.top + 'px';
+  document.body.appendChild(d);
+  const dx = b.left + b.width / 2 - a.left - 8, dy = b.top + b.height / 2 - a.top - 8;
+  const anim = d.animate([{ transform: 'translate(0,0) scale(1)', opacity: 1 }, { transform: `translate(${dx * .6}px,${dy * .6 - 30}px) scale(1.2)`, opacity: 1 }, { transform: `translate(${dx}px,${dy}px) scale(.4)`, opacity: .2 }], { duration: 520, easing: 'cubic-bezier(.3,.7,.4,1)' });
+  anim.onfinish = () => { d.remove(); done(); };
+}
+function reveal() {
   claimBarOff();
-  const item = QS[i];
-  document.getElementById('kicker').textContent = 'Decode Yourself';
-  view.innerHTML = `
-  <section class="screen">
-    <div class="progress" aria-label="第 ${i + 1} 題，共 ${QS.length} 題"><span class="num">${String(i + 1).padStart(2, '0')} / ${String(QS.length).padStart(2, '0')}</span><span class="bar"><i style="width:${(i / QS.length) * 100}%"></i></span></div>
-    <h2 class="q${item.hint ? ' has-hint' : ''}">${esc(item.q)}</h2>
-    ${item.hint ? `<p class="q-hint">${esc(item.hint)}</p>` : ''}
-    <div class="opts">${shuffled[i].map(k => `<button class="opt${answers[i] === k ? ' on' : ''}" data-k="${k}">${esc(item.o[k])}</button>`).join('')}</div>
-    ${i > FIRST_Q ? '<button class="btn-text back" id="back">← 上一題</button>' : '<button class="btn-text back" id="back">← 回到開頭</button>'}
-  </section>`;
-  requestAnimationFrame(() => { const b = view.querySelector('.bar i'); if (b) b.style.width = ((i + 1) / QS.length) * 100 + '%'; });
-  view.querySelectorAll('.opt').forEach(btn => btn.onclick = () => {
-    view.querySelectorAll('.opt').forEach(x => x.classList.remove('on'));
-    btn.classList.add('on');
-    answers[i] = btn.dataset.k;
-    answers.length = i + 1;
-    setTimeout(() => (i + 1 < QS.length ? question(i + 1) : finish()), 260);
-  });
-  document.getElementById('back').onclick = () => (i > FIRST_Q ? question(i - 1) : intro());
-  window.scrollTo(0, 0);
+  document.getElementById('kicker').textContent = 'Decoding';
+  view.innerHTML = `<section class="screen game g-reveal"><div class="g-crystal" id="gc">${crystalSvg(4)}</div><div class="k">DECODING…</div></section>`;
+  setTimeout(finish, matchMedia('(prefers-reduced-motion: reduce)').matches ? 300 : 1400);
 }
 
 function finish() {
   result = score();
-  track('quiz_complete', { rhythm: result.main, second: result.second || 'none', src: SRC || 'organic', crystal: firstPick || 'none', mode: CRYSTAL_MODE });
+  track('quiz_complete', { rhythm: result.main, second: result.second || 'none', src: SRC, ms: t0 ? Date.now() - t0 : 0 });
   rememberResult(result.main);
   showResult(result.main, result.second);
 }
@@ -382,7 +516,8 @@ function claimBarOn(k, second) {
   claimBarOff();
   const bar = document.getElementById('claimBar'), main = document.getElementById('lineBtn');
   if (!main || !('IntersectionObserver' in window)) return;
-  bar.innerHTML = `<a class="btn btn-line" href="${lineHref(k)}" target="_blank" rel="noopener">${main.querySelector('svg').outerHTML}到 LINE 領我的卡</a>${INAPP ? '<button type="button" class="cb-help">打不開？</button>' : ''}`;
+  bar.innerHTML = `<a class="btn btn-line" href="${lineHref(k)}" target="_blank" rel="noopener">${main.querySelector('svg').outerHTML}到 LINE 領我的卡</a><button type="button" class="cb-share" aria-label="傳給朋友：看看妳們合不合">${SHARE_SVG}</button>${INAPP ? '<button type="button" class="cb-help">打不開？</button>' : ''}`;
+  bar.querySelector('.cb-share').onclick = () => doShare(k, 'bar');
   bar.querySelector('a').onclick = () => track('quiz_line_click', { rhythm: k, src: SRC || 'organic', inapp: INAPP, reopen: second === undefined, sticky: true });
   const help = bar.querySelector('.cb-help');
   if (help) help.onclick = () => document.querySelector('.inapp').scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'center' });
@@ -403,25 +538,29 @@ function showResult(k, second) {
   const secondHtml = second === undefined ? ''
     : second
     ? `<div class="second"><button id="reveal" aria-expanded="false">看看妳的第二節奏 →</button><div class="reveal" id="revealBox" hidden><b>${R[second].name}</b>　${esc(R[second].line)}</div></div>`
-    : `<div class="second"><div class="reveal" style="margin:0">妳的節奏很純粹：8 題都選了同一種。</div></div>`;
+    : `<div class="second"><div class="reveal" style="margin:0">妳的節奏很純粹：4 次都選了同一種。</div></div>`;
   view.innerHTML = `
   <section class="screen result">
-    <div class="lead">妳的照顧節奏是</div>
+    <div class="lead">${WITH ? '解碼完成・<a class="g-pair-hint" href="#pairBox">妳們的組合在下面 ↓</a>' : '解碼完成・妳的照顧節奏是'}</div>
     <div class="orb" role="img" aria-label="${r.name}的水晶" style="background-image:url(quiz-assets/crystal-${k}.jpg)"></div>
     <h2>${r.name}</h2>
     <div class="en">${r.en}</div>
     <p class="line">${esc(r.line)}</p>
     <div class="actions claim">
-      ${SHOW_FOUNDING ? '<p class="founding">試營運前領取，享有創始編號</p>' : ''}
+      <div class="g-card"><div class="th" style="background-image:url(quiz-assets/crystal-${k}.jpg)"></div><div><div class="t1">DECODE CARD${SHOW_FOUNDING ? ' · FOUNDING' : ''}</div><div class="t2">No. <span class="blur">0000</span> 待領取</div><div class="t3">LINE 打開後按「傳送」，編號馬上開出</div></div></div>
       <a class="btn btn-line" id="lineBtn" href="${lineHref(k)}" target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3C6.48 3 2 6.58 2 11c0 3.94 3.56 7.24 8.37 7.88.33.07.77.22.88.5.1.25.07.65.03.9l-.14.86c-.04.25-.2 1 .87.54 1.08-.45 5.8-3.42 7.91-5.85C21.38 14.25 22 12.7 22 11c0-4.42-4.48-8-10-8Zm-3.6 10.6H6.42a.52.52 0 0 1-.52-.52V9.13a.52.52 0 1 1 1.04 0v3.43H8.4a.52.52 0 1 1 0 1.04Zm2.05-.52a.52.52 0 1 1-1.04 0V9.13a.52.52 0 1 1 1.04 0v3.95Zm4.75 0a.52.52 0 0 1-.94.31l-2.03-2.76v2.45a.52.52 0 1 1-1.04 0V9.13a.52.52 0 0 1 .94-.31l2.03 2.76V9.13a.52.52 0 1 1 1.04 0v3.95Zm3.2-2.5a.52.52 0 1 1 0 1.04h-1.45v.94h1.45a.52.52 0 1 1 0 1.04h-1.97a.52.52 0 0 1-.52-.52V9.13c0-.29.23-.52.52-.52h1.97a.52.52 0 1 1 0 1.04h-1.45v.93h1.45Z"/></svg>
         到 LINE 領我的 Decode Card
       </a>
-      <p class="hint"><span class="send-tip">LINE 打開後記得按「傳送」，有編號的卡馬上送到</span><br>還不是 Decoy 好友也可以領</p>
+      <button type="button" class="g-invite-card js-share" data-where="top"><span class="gi-txt"><b>妳 ${R[k].name} × 朋友 <i>${WITH ? R[WITH].name : '？？？'}</i></b><small>${WITH ? '傳回給朋友，讓她也看到妳們的組合' : '傳給一個朋友，解開妳們的組合'}</small></span><span class="gi-ic">${SHARE_SVG}</span></button>
+      <p class="g-share-note" hidden></p>
+      <p class="hint"><span class="send-tip">還不是 Decoy 好友也可以領</span></p>
+      ${GIFT_TEXT ? `<p class="g-gift">${GIFT_TEXT}</p>` : ''}
       ${INAPP ? `<div class="inapp"><b>在 Facebook／Instagram 裡打不開 LINE 嗎？</b><ol>
         <li>點右上角「⋯」，選「用瀏覽器開啟」，結果會保留，再按一次綠色按鈕</li>
         <li>或者先 <button type="button" id="copyClaim">複製領卡暗號</button><br>打開 LINE 搜尋 <b>@decoy</b>，進聊天室貼上、傳送</li></ol></div>` : ''}
     </div>
+    ${WITH ? `<div class="g-pair" id="pairBox"><div class="k">妳們的組合</div><div class="pn"><small>妳</small>${R[k].name} × <small>朋友</small>${R[WITH].name}</div><p>${esc(PAIR[pairKey(k, WITH)])}</p><div class="fine">純趣味，不是心理或醫療評估</div></div>` : ''}
     <p class="desc">${esc(r.desc)}</p>
     <div class="card"><h3>Your Rhythm<span>妳的照顧節奏</span></h3><p>${esc(r.tip)}</p></div>
     <div class="card"><h3>At Decoy<span>在 Decoy，妳可能會喜歡</span></h3><p>${esc(r.like)}</p></div>
@@ -435,6 +574,7 @@ function showResult(k, second) {
       <video id="film" controls playsinline preload="none" poster="media/decoy-film-poster.jpg" src="media/decoy-film-720.mp4" aria-label="Decoy 品牌影片"></video>
       <p>建議開聲音觀看</p>
     </div>
+    <div class="g-bottom-share"><p>${WITH ? '把妳們的組合傳回給朋友，讓她也看到這一句' : '好玩嗎？傳給一個朋友，<br>看看妳們的節奏合不合'}</p><button type="button" class="g-share-solid js-share" data-where="bottom">${SHARE_SVG}${WITH ? '傳回給朋友' : '傳給朋友'}</button><p class="g-share-note" hidden></p></div>
     <div class="foot">
       <div class="slogan">BEAUTY, ON YOUR TERMS.</div>
       <div>美，由你作主</div>
@@ -453,7 +593,9 @@ function showResult(k, second) {
   };
   document.getElementById('film').addEventListener('play', () => track('quiz_film_play', { rhythm: k }), { once: true });
   document.getElementById('saveBtn').onclick = () => openCard(k);
-  document.getElementById('again').onclick = () => { answers = []; firstPick = null; rememberResult(null); intro(); };
+  if (WITH) track('pair_view', { me: k, with: WITH, src: SRC });
+  view.querySelectorAll('.js-share').forEach(el => el.onclick = () => doShare(k, el.dataset.where));
+  document.getElementById('again').onclick = () => { answers = []; rememberResult(null); gameScreen(0); };
   window.scrollTo(0, 0);
   claimBarOn(k, second);
   setTimeout(() => prepareCard(k).catch(() => {}), 400);
@@ -546,7 +688,7 @@ document.addEventListener('keydown', e => { if (e.key === 'Escape') document.get
 
 /* ---------- start: ?r=rebel opens a result directly (for checking each result page) ---------- */
 const pre = new URLSearchParams(location.search).get('r');
-if (pre && R[pre]) showResult(pre, undefined); else intro();
+if (pre && R[pre]) showResult(pre, undefined); else gameScreen(0);
 </script>
 </body>
 </html>
