@@ -196,6 +196,20 @@ a{color:inherit}
 .result .orb{max-width:min(72vw,24svh);max-height:min(72vw,24svh)}
 @media (max-height:620px){.app{padding-top:16px}.top{margin-bottom:10px}.g-sub{display:none}.g-first .g-facets{display:none}.g-first .g-crystal{width:13svh;height:13svh;margin-top:8px}.g-facets{margin:6px 0 4px}.g-q{margin:8px 0}.g-opts{gap:6px}}
 @media (prefers-reduced-motion:reduce){.g-reveal .g-crystal{animation:none}.g-crystal .fc{transition:none}}
+
+/* 合不合（Molly 10/10「合不合可以喔！好好玩喔」；15 組短句為 Cook 草稿 v1，公開前待 Molly 審）＋到店小禮（條件待定） */
+.g-invite{display:inline-block;margin:0 auto 8px;font-size:12px;color:var(--rose-deep);background:#fff;border:1px solid var(--line);border-radius:999px;padding:3px 12px;letter-spacing:.04em}
+.g-first .g-invite-wrap{text-align:center}
+.g-gift{font-size:12.5px;color:var(--rose-deep);letter-spacing:.04em;margin-top:-2px}
+.g-share{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;min-height:46px;border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,.7);font-size:14px;color:var(--ink);letter-spacing:.06em}
+.g-share.done{border-color:var(--rose);color:var(--rose-deep)}
+.g-pair{margin-top:18px;border:1px solid var(--line);border-radius:16px;background:#fff;padding:18px 18px 14px;text-align:center;box-shadow:0 10px 24px rgba(120,70,78,.1)}
+.g-pair .k{font-family:var(--mono);font-size:10px;letter-spacing:.2em;color:var(--rose)}
+.g-pair .pn{margin-top:8px;font-size:17px;letter-spacing:.08em;color:var(--ink)}
+.g-pair .pn small{font-size:11px;color:var(--muted);margin:0 4px}
+.g-pair p{margin-top:10px;font-size:15px;line-height:1.9;color:var(--ink-2);text-align:left}
+.g-pair .fine{margin-top:8px;font-size:11px;color:var(--muted)}
+.g-pair-hint{color:var(--rose-deep);text-decoration:none}
 </style>
 <!-- GA4（10/8 補上：首頁、測驗、個資頁原本沒有載入，測驗和首頁的事件都沒送出） -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-F54YFMZSD8"></script>
@@ -323,6 +337,29 @@ const GO = [   // 選項縮短版（試玩用，正式版待 Molly 定稿）
   { still: '洗完澡，慢慢做完保養', rebel: '關掉訊息，留給自己', aware: '回想今天哪裡累、哪裡舒服', companion: '跟重要的人聊聊天', explorer: '想想明天可以試什麼' },
   { still: '安靜地，把生活過好', rebel: '我的美，我決定', aware: '先認識自己，再決定改變', companion: '被好好對待，也好好對待別人', explorer: '願意試試看，然後愛上' },
 ];
+// 合不合：15 組相處短句（Cook 草稿 v1，10/10；公開前待 Molly 審）。key 依 ORDER 排序後用 | 連起來
+const PAIR = {
+  'still|still': '兩個人一起安靜也不尷尬。最好的約會，是各自看書的一個下午 🍵',
+  'rebel|rebel': '兩個人都有主見，所以特別懂尊重。先各自說想要什麼，再一起決定。',
+  'aware|aware': '妳們一聊就很深。偶爾也一起放空吧，不用每件事都弄懂。',
+  'companion|companion': '妳們都記得對方的小事，彼此就是對方「固定的那個人」 🤍',
+  'explorer|explorer': '湊在一起，行程只會越排越多。新開的店，妳們一定是第一批去的 ✨',
+  'still|rebel': '一個守住自己的節奏，一個守住自己的決定。妳們都不需要被說服，所以相處很輕鬆。',
+  'still|aware': '一起慢慢來的兩個人：一個把生活整理好，一個把感受記下來。',
+  'still|companion': '一個給安靜，一個給溫度。陪伴者負責約，靜行者負責挑一個安靜的地方，剛剛好。',
+  'still|explorer': '探索者帶來新東西，靜行者讓它變成習慣。週末輪流決定怎麼過吧 ☁️',
+  'rebel|aware': '一個先決定，一個先弄懂。妳們都給對方想清楚的時間，所以很少有壓力。',
+  'rebel|companion': '陪伴者給的支持，溫柔叛逆者收得到，因為那是陪伴，不是幫她決定。',
+  'rebel|explorer': '一起試新東西的最佳搭檔：一個敢試，一個敢說「這個不適合我」。',
+  'aware|companion': '一個很會聽自己，一個很會聽別人。聊到忘記時間是常有的事。',
+  'aware|explorer': '探索者先去試，覺察者幫忙想清楚為什麼喜歡。一起試，會越試越懂自己。',
+  'companion|explorer': '一個找新地方，一個找人一起去。妳們是朋友圈裡最會揪團的組合 🎈',
+};
+const pairKey = (a, b) => [a, b].sort((x, y) => ORDER.indexOf(x) - ORDER.indexOf(y)).join('|');
+const WITH = (() => { const w = new URLSearchParams(location.search).get('with'); return w && R[w] ? w : ''; })();   // 邀請她來玩的朋友的節奏
+if (WITH) track('share_open', { with: WITH, src: SRC });
+const PLAY_URL = 'https://decoy-beauty.com/play.html';
+const GIFT_TEXT = '到店小禮：微光噴霧一瓶（條件待定）';   // Molly 10/10 選微光噴霧；條件、期限待定，不寫價格、不寫限量
 let t0 = 0;
 const FACETS = ['M75 18 L118 52 L75 75 Z', 'M118 52 L102 120 L75 75 Z', 'M102 120 L48 120 L75 75 Z', 'M48 120 L32 52 L75 75 Z'];
 function crystalSvg(n) {
@@ -342,6 +379,7 @@ function gameScreen(i) {
   const qi = ROUNDS[i];
   view.innerHTML = `
   <section class="screen game${i === 0 ? ' g-first' : ''}">
+    ${i === 0 && WITH ? `<div class="g-invite-wrap"><span class="g-invite">朋友是${R[WITH].name}，邀妳來看看妳們合不合</span></div>` : ''}
     ${i === 0 ? `<h1 class="g-h1">60 秒，<em>解碼妳的照顧節奏</em></h1>
     <p class="g-sub">4 個選擇，調出一顆只屬於妳的水晶</p>
     <ul class="g-chips" aria-label="做完會得到"><li>妳的照顧節奏</li><li>有編號的卡</li>${SHOW_FOUNDING ? '<li>創始編號（試營運前）</li>' : ''}</ul>` : ''}
@@ -448,7 +486,7 @@ function showResult(k, second) {
     : `<div class="second"><div class="reveal" style="margin:0">妳的節奏很純粹：4 次都選了同一種。</div></div>`;
   view.innerHTML = `
   <section class="screen result">
-    <div class="lead">解碼完成・妳的照顧節奏是</div>
+    <div class="lead">${WITH ? '解碼完成・<a class="g-pair-hint" href="#pairBox">妳們的組合在下面 ↓</a>' : '解碼完成・妳的照顧節奏是'}</div>
     <div class="orb" role="img" aria-label="${r.name}的水晶" style="background-image:url(quiz-assets/crystal-${k}.jpg)"></div>
     <h2>${r.name}</h2>
     <div class="en">${r.en}</div>
@@ -460,10 +498,13 @@ function showResult(k, second) {
         到 LINE 領我的 Decode Card
       </a>
       <p class="hint"><span class="send-tip">LINE 打開後記得按「傳送」，有編號的卡馬上送到</span><br>還不是 Decoy 好友也可以領</p>
+      <p class="g-gift">${GIFT_TEXT}</p>
+      <button type="button" class="g-share" id="shareFriend">${WITH ? '傳回給朋友：讓她也看到妳們的組合' : '傳給一個朋友：看看妳們合不合'}</button>
       ${INAPP ? `<div class="inapp"><b>在 Facebook／Instagram 裡打不開 LINE 嗎？</b><ol>
         <li>點右上角「⋯」，選「用瀏覽器開啟」，結果會保留，再按一次綠色按鈕</li>
         <li>或者先 <button type="button" id="copyClaim">複製領卡暗號</button><br>打開 LINE 搜尋 <b>@decoy</b>，進聊天室貼上、傳送</li></ol></div>` : ''}
     </div>
+    ${WITH ? `<div class="g-pair" id="pairBox"><div class="k">妳們的組合</div><div class="pn"><small>妳</small>${R[k].name} × <small>朋友</small>${R[WITH].name}</div><p>${esc(PAIR[pairKey(k, WITH)])}</p><div class="fine">純趣味，不是心理或醫療評估</div></div>` : ''}
     <p class="desc">${esc(r.desc)}</p>
     <div class="card"><h3>Your Rhythm<span>妳的照顧節奏</span></h3><p>${esc(r.tip)}</p></div>
     <div class="card"><h3>At Decoy<span>在 Decoy，妳可能會喜歡</span></h3><p>${esc(r.like)}</p></div>
@@ -495,6 +536,22 @@ function showResult(k, second) {
   };
   document.getElementById('film').addEventListener('play', () => track('quiz_film_play', { rhythm: k }), { once: true });
   document.getElementById('saveBtn').onclick = () => openCard(k);
+  if (WITH) track('pair_view', { me: k, with: WITH, src: SRC });
+  document.getElementById('shareFriend').onclick = async () => {
+    // 沒有 WITH：邀朋友來玩（帶自己的節奏）；有 WITH：把結果傳回給邀請的朋友（她打開就看到自己的結果＋同一句）
+    const url = WITH ? `${PLAY_URL}?r=${WITH}&with=${k}` : `${PLAY_URL}?with=${k}`;
+    const text = WITH ? `我玩完了！我是${R[k].name}，妳是${R[WITH].name}，打開看看我們的組合` : `我是${R[k].name}。妳是哪一種？60 秒玩一下，看看我們合不合`;
+    const btn = document.getElementById('shareFriend'); let method = 'copy';
+    try {
+      if (navigator.share) { await navigator.share({ title: '光的配方｜Decoy', text, url }); method = 'share'; }
+      else { await navigator.clipboard.writeText(text + ' ' + url); btn.textContent = '已複製連結，貼給朋友就好'; btn.classList.add('done'); }
+    } catch (e) {
+      if (e && e.name === 'AbortError') return;   // 她自己取消分享
+      const ta = document.createElement('textarea'); ta.value = text + ' ' + url; document.body.appendChild(ta); ta.select(); try { document.execCommand('copy'); } catch (e2) {} ta.remove();
+      btn.textContent = '已複製連結，貼給朋友就好'; btn.classList.add('done');
+    }
+    track('share_click', { rhythm: k, with: WITH || 'none', method, src: SRC });
+  };
   document.getElementById('again').onclick = () => { answers = []; rememberResult(null); gameScreen(0); };
   window.scrollTo(0, 0);
   claimBarOn(k, second);
