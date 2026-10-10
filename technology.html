@@ -45,7 +45,6 @@
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="keywords" content="Decoy,迅So槍,三層精準導入技術,Tri-Layer Delivery,非侵入式美學科技,岩寬生醫,無針">
-<link rel="canonical" href="https://decoy-beauty.com/technology.html">
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-F54YFMZSD8"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-F54YFMZSD8");</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -94,6 +93,11 @@ nav{
 .nav-links a{font-family:var(--mono);font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--ink-lt);text-decoration:none;transition:color 0.3s}
 .nav-links a:hover,.nav-links a.active{color:var(--rose)}
 .nav-right{display:flex;align-items:center;gap:20px}
+.lang-switch{display:inline-flex;align-items:center;border:1px solid var(--line);font-family:var(--mono);font-size:9px;letter-spacing:.12em}
+.lang-switch a{color:var(--ink-lt);text-decoration:none;padding:6px 9px;line-height:1;transition:color .3s}
+.lang-switch a+a{border-left:1px solid var(--line)}
+.lang-switch a:hover{color:var(--rose)}
+.lang-switch a.on{color:var(--rose)}
 .lang-toggle{font-family:var(--mono);font-size:9px;letter-spacing:0.15em;color:var(--ink-lt);background:none;border:1px solid var(--line);padding:6px 12px;cursor:pointer;transition:all 0.3s}
 .lang-toggle:hover{color:var(--rose);border-color:var(--rose-pale)}
 .nav-reserve{font-family:var(--mono);font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--rose);border:1px solid var(--rose-pale);padding:9px 22px;text-decoration:none;transition:all 0.3s}
@@ -373,6 +377,9 @@ footer{background:var(--warm);padding:36px 0 22px;border-top:1px solid var(--lin
 }
 @media(prefers-reduced-motion:reduce){.reveal{transition:none}}
 </style>
+
+<link rel="canonical" href="https://decoy-beauty.com/technology.html">
+<!-- i18n:alt --><link rel="alternate" hreflang="zh-Hant" href="https://decoy-beauty.com/technology.html"><link rel="alternate" hreflang="en" href="https://decoy-beauty.com/en/technology.html"><link rel="alternate" hreflang="zh-Hans" href="https://decoy-beauty.com/zh-cn/technology.html"><link rel="alternate" hreflang="x-default" href="https://decoy-beauty.com/technology.html"><!-- /i18n:alt -->
 </head>
 <body>
 
@@ -389,7 +396,7 @@ footer{background:var(--warm);padding:36px 0 22px;border-top:1px solid var(--lin
     <li><a href="founder.html"><span data-zh>創辦人</span><span data-en style="display:none">Founder</span></a></li>
   </ul>
   <div class="nav-right">
-    <button class="lang-toggle" id="langBtn">EN</button>
+    <div class="lang-switch" aria-label="Language"><a href="technology.html" hreflang="zh-Hant" lang="zh-Hant" data-lang="zh-Hant" class="on" aria-current="true">繁</a><a href="en/technology.html" hreflang="en" lang="en" data-lang="en">EN</a><a href="zh-cn/technology.html" hreflang="zh-Hans" lang="zh-Hans" data-lang="zh-Hans">简</a></div>
     <a href="reserve.html" class="nav-reserve">
       <span data-zh>預約體驗</span><span data-en style="display:none">Reserve</span>
     </a>
@@ -398,7 +405,7 @@ footer{background:var(--warm);padding:36px 0 22px;border-top:1px solid var(--lin
 
 <!-- HERO -->
 <section class="page-hero">
-  <img src="technology-hero.png" alt="DECOY 迅So槍" style="position:absolute;right:0;top:50%;transform:translateY(-50%);width:380px;height:auto;opacity:0.55;pointer-events:none;object-fit:cover;filter:saturate(0.6) brightness(1.05);">  <div class="container">
+  <img src="technology-hero.png" alt="DECOY 迅So槍" data-en-alt="The Decoy device" style="position:absolute;right:0;top:50%;transform:translateY(-50%);width:380px;height:auto;opacity:0.55;pointer-events:none;object-fit:cover;filter:saturate(0.6) brightness(1.05);">  <div class="container">
     <div class="reveal">
       <div class="hero-eyebrow">Technology</div>
       <h1 class="hero-title">
@@ -420,7 +427,7 @@ footer{background:var(--warm);padding:36px 0 22px;border-top:1px solid var(--lin
       <div class="sec-sub"><span data-zh>用氣流，不用針。科技不是用來對抗身體，而是協助我們更精準地照顧它。</span><span data-en style="display:none">Airflow, not needles. Technology shouldn’t fight the body — it should help us care for it more precisely.</span></div>
     </div>
     <figure class="tech-film reveal">
-      <div class="tf-frame"><video id="techFilm" playsinline preload="none" poster="media/decoy-tech-poster.jpg" src="media/decoy-tech-720.mp4" aria-label="三層精準導入技術 40 秒動態說明"></video><button class="tf-play" id="techPlay" type="button" aria-label="播放三層精準導入技術影片"><i aria-hidden="true">▶</i><span>PLAY · 40s</span></button></div>
+      <div class="tf-frame"><video id="techFilm" playsinline preload="none" poster="media/decoy-tech-poster.jpg" src="media/decoy-tech-720.mp4" aria-label="三層精準導入技術 40 秒動態說明" data-en-aria-label="Tri-Layer Delivery™ · 40-second animation"></video><button class="tf-play" id="techPlay" type="button" aria-label="播放三層精準導入技術影片" data-en-aria-label="Play the Tri-Layer Delivery™ film"><i aria-hidden="true">▶</i><span>PLAY · 40s</span></button></div>
       <figcaption class="tf-cap"><span data-zh>40 秒看懂三層精準導入技術｜開聲音看更好</span><span data-en style="display:none">Tri-Layer Delivery™ in 40 seconds · sound on</span></figcaption>
     </figure>
     <div class="layers-flow reveal">
@@ -428,7 +435,7 @@ footer{background:var(--warm);padding:36px 0 22px;border-top:1px solid var(--lin
       <div class="layer-row">
         <div class="layer-num"><span class="ln-label">Layer</span><span class="ln-n">01</span></div>
         <div class="layer-content">
-          <div class="lc-tag">AirMist™ · 氣流霧化</div>
+          <div class="lc-tag">AirMist™<span data-zh> · 氣流霧化</span><span data-en style="display:none"> · Airflow Misting</span></div>
           <div class="lc-desc"><span data-zh>加壓的高速氣流帶動活性安瓶裡的精華，在出口處化成細緻的霧，均勻覆蓋在肌膚上。全程不用針頭，也不會在皮膚上留下傷口。</span><span data-en style="display:none">Pressurised high-speed airflow carries the serum and turns it into a fine mist that settles evenly over the skin. No needles at any point, and no wounds.</span></div>
         </div>
         <div class="layer-visual">
@@ -443,7 +450,7 @@ footer{background:var(--warm);padding:36px 0 22px;border-top:1px solid var(--lin
       <div class="layer-row">
         <div class="layer-num"><span class="ln-label">Layer</span><span class="ln-n">02</span></div>
         <div class="layer-content">
-          <div class="lc-tag">PeptiCarrier™ · 活性胜肽載體</div>
+          <div class="lc-tag">PeptiCarrier™<span data-zh> · 活性胜肽載體</span><span data-en style="display:none"> · Active Peptide Carrier</span></div>
           <div class="lc-desc"><span data-zh>MIRROR 活性安瓶配方中的活性胜肽載體（sh-Decapeptide-5 SP），協助配方中的活性成分被肌膚吸收。LIGHT 不含這一層。施作時會聽到氣流聲，感覺像橡皮筋輕輕彈在皮膚上；感受因人而異，隨時可以請我們調整或暫停。</span><span data-en style="display:none">An active peptide carrier in the MIRROR formula (sh-Decapeptide-5 SP) helps the actives absorb into skin. LIGHT does not include this layer. You’ll hear the airflow and feel something like a light elastic flick; sensations vary, and you can ask us to adjust or pause at any time.</span></div>
         </div>
         <div class="layer-visual">
@@ -458,7 +465,7 @@ footer{background:var(--warm);padding:36px 0 22px;border-top:1px solid var(--lin
       <div class="layer-row">
         <div class="layer-num"><span class="ln-label">Layer</span><span class="ln-n">03</span></div>
         <div class="layer-content">
-          <div class="lc-tag">Precision Formula · 精準配方</div>
+          <div class="lc-tag">Precision Formula<span data-zh> · 精準配方</span></div>
           <div class="lc-desc"><span data-zh>LIGHT 臉部精準導入、MIRROR 身體精準導入，依部位使用不同的活性安瓶。活性安瓶配方由台大背景的研發團隊開發，全成分公開說明。</span><span data-en style="display:none">LIGHT for the face and MIRROR for the body, each with its own Active Ampoule. The formulas were developed by an R&amp;D team with a National Taiwan University background, and every ingredient is published and explained.</span></div>
         </div>
         <div class="layer-visual">
@@ -621,10 +628,10 @@ footer{background:var(--warm);padding:36px 0 22px;border-top:1px solid var(--lin
 
 <footer>
   <div class="footer-inner">
-    <div class="footer-brand">DECOY · 岩寬生醫股份有限公司</div>
+    <div class="footer-brand">DECOY · <span data-zh>岩寬生醫股份有限公司</span><span data-en style="display:none">Acheloy Biomed</span></div>
     <div class="footer-note">
-      © 2026 岩寬生醫 ·
-      <a href="index.html">首頁</a> ·
+      © 2026 <span data-zh>岩寬生醫</span><span data-en style="display:none">Acheloy Biomed</span> ·
+      <a href="index.html"><span data-zh>首頁</span><span data-en style="display:none">Home</span></a> ·
       <a href="https://instagram.com/decoy_beauty" target="_blank">Instagram</a>
     </div>
   </div>
@@ -694,14 +701,6 @@ els.forEach(el => io.observe(el));
   make(boxes[0], 'mist'); make(boxes[1], 'carrier'); make(boxes[2], 'formula');
 })();
 
-const btn = document.getElementById("langBtn");
-let isEn = false;
-btn.addEventListener("click", () => {
-  isEn = !isEn;
-  document.body.classList.toggle("en", isEn);
-  btn.textContent = isEn ? "中" : "EN";
-  document.documentElement.lang = isEn ? "en" : "zh-TW";
-});
 </script>
 <script>
 (() => {

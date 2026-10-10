@@ -13,7 +13,6 @@
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="keywords" content="Decoy,非侵入式美學科技,岩寬生醫,迅So槍,美由你作主">
-<link rel="canonical" href="https://decoy-beauty.com/about.html">
 <!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-F54YFMZSD8"></script>
 <script>
@@ -77,6 +76,11 @@ nav{
 }
 .nav-links a:hover,.nav-links a.active{color:var(--rose)}
 .nav-right{display:flex;align-items:center;gap:20px}
+.lang-switch{display:inline-flex;align-items:center;border:1px solid var(--line);font-family:var(--mono);font-size:9px;letter-spacing:.12em}
+.lang-switch a{color:var(--ink-lt);text-decoration:none;padding:6px 9px;line-height:1;transition:color .3s}
+.lang-switch a+a{border-left:1px solid var(--line)}
+.lang-switch a:hover{color:var(--rose)}
+.lang-switch a.on{color:var(--rose)}
 .lang-toggle{
   font-family:var(--mono);font-size:9px;letter-spacing:0.15em;
   color:var(--ink-lt);background:none;border:1px solid var(--line);
@@ -329,6 +333,9 @@ footer{background:var(--warm);padding:36px 0 22px;border-top:1px solid var(--lin
   .reveal{transition:none}
 }
 </style>
+
+<link rel="canonical" href="https://decoy-beauty.com/about.html">
+<!-- i18n:alt --><link rel="alternate" hreflang="zh-Hant" href="https://decoy-beauty.com/about.html"><link rel="alternate" hreflang="en" href="https://decoy-beauty.com/en/about.html"><link rel="alternate" hreflang="zh-Hans" href="https://decoy-beauty.com/zh-cn/about.html"><link rel="alternate" hreflang="x-default" href="https://decoy-beauty.com/about.html"><!-- /i18n:alt -->
 </head>
 <body>
 
@@ -345,7 +352,7 @@ footer{background:var(--warm);padding:36px 0 22px;border-top:1px solid var(--lin
     <li><a href="founder.html"><span data-zh>創辦人</span><span data-en style="display:none">Founder</span></a></li>
   </ul>
   <div class="nav-right">
-    <button class="lang-toggle" id="langBtn">EN</button>
+    <div class="lang-switch" aria-label="Language"><a href="about.html" hreflang="zh-Hant" lang="zh-Hant" data-lang="zh-Hant" class="on" aria-current="true">繁</a><a href="en/about.html" hreflang="en" lang="en" data-lang="en">EN</a><a href="zh-cn/about.html" hreflang="zh-Hans" lang="zh-Hans" data-lang="zh-Hans">简</a></div>
     <a href="reserve.html" class="nav-reserve">
       <span data-zh>預約體驗</span><span data-en style="display:none">Reserve</span>
     </a>
@@ -381,7 +388,7 @@ footer{background:var(--warm);padding:36px 0 22px;border-top:1px solid var(--lin
       </div>
     </div>
     <div class="hero-img-col reveal">
-  <img src="about-hero.png" alt="DECOY 非侵入式美學科技" style="width:100%;height:100%;object-fit:cover;border-radius:2px;max-height:600px;">
+  <img src="about-hero.png" alt="DECOY 非侵入式美學科技" data-en-alt="DECOY non-invasive beauty technology" style="width:100%;height:100%;object-fit:cover;border-radius:2px;max-height:600px;">
 </div>
     <div class="cards-col reveal">
       <div class="audience-card">
@@ -534,7 +541,7 @@ footer{background:var(--warm);padding:36px 0 22px;border-top:1px solid var(--lin
 <section class="s-range">
   <div class="container">
     <div class="reveal" style="margin-bottom:48px;">
-  <img src="about-body.png" alt="DECOY 保養服務" style="width:100%;max-width:560px;display:block;margin:0 auto;border-radius:2px;">
+  <img src="about-body.png" alt="DECOY 保養服務" data-en-alt="DECOY care services" style="width:100%;max-width:560px;display:block;margin:0 auto;border-radius:2px;">
 </div>
     <div class="reveal">
       <div class="sec-label">Service Areas</div>
@@ -696,10 +703,10 @@ footer{background:var(--warm);padding:36px 0 22px;border-top:1px solid var(--lin
 
 <footer>
   <div class="footer-inner">
-    <div class="footer-brand">DECOY · 岩寬生醫股份有限公司</div>
+    <div class="footer-brand">DECOY · <span data-zh>岩寬生醫股份有限公司</span><span data-en style="display:none">Acheloy Biomed</span></div>
     <div class="footer-note">
-      © 2026 岩寬生醫 ·
-      <a href="index.html">首頁</a> ·
+      © 2026 <span data-zh>岩寬生醫</span><span data-en style="display:none">Acheloy Biomed</span> ·
+      <a href="index.html"><span data-zh>首頁</span><span data-en style="display:none">Home</span></a> ·
       <a href="https://instagram.com/decoy_beauty" target="_blank">Instagram</a>
     </div>
   </div>
@@ -715,16 +722,6 @@ const io = new IntersectionObserver(entries => {
 }, {threshold:0.07});
 els.forEach(el => io.observe(el));
 
-// Language toggle
-const btn = document.getElementById("langBtn");
-let isEn = false;
-btn.addEventListener("click", () => {
-  isEn = !isEn;
-  document.body.classList.toggle("en", isEn);
-  btn.textContent = isEn ? "中" : "EN";
-  // Update html lang attribute for SEO
-  document.documentElement.lang = isEn ? "en" : "zh-TW";
-});
 </script>
 </body>
 </html>

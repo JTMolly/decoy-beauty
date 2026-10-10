@@ -23,10 +23,16 @@ body{min-height:100vh;color:var(--ink);font-family:var(--cjk);background:var(--b
   background-image:radial-gradient(ellipse 80% 50% at 15% 0%,#F3E2E5 0%,transparent 60%);background-attachment:fixed}
 a{color:var(--rose-deep)}
 .app{max-width:640px;margin:0 auto;padding:28px 20px calc(48px + env(safe-area-inset-bottom))}
-.top{display:flex;align-items:center;justify-content:space-between;height:28px;margin-bottom:40px}
+.top{display:flex;align-items:center;justify-content:space-between;gap:14px;height:28px;margin-bottom:40px}
 .brand{display:block;width:84px;height:13px;background:var(--rose-deep);-webkit-mask:url(quiz-assets/word.png) left center/contain no-repeat;mask:url(quiz-assets/word.png) left center/contain no-repeat}
 .kicker{font-family:var(--mono);font-size:11px;letter-spacing:.22em;color:var(--muted);text-transform:uppercase}
-.en{font-family:var(--serif);font-style:italic;font-size:19px;color:var(--rose);margin-bottom:10px}
+.en-kicker{font-family:var(--serif);font-style:italic;font-size:19px;color:var(--rose);margin-bottom:10px}
+[data-en]{display:none}
+.lang-switch{display:inline-flex;align-items:center;border:1px solid var(--line);font-family:var(--mono);font-size:9px;letter-spacing:.12em;margin-left:auto}
+.lang-switch a{color:var(--muted);text-decoration:none;padding:6px 8px;line-height:1}
+.lang-switch a+a{border-left:1px solid var(--line)}
+.lang-switch a.on{color:var(--rose)}
+.note-lang{font-size:12px;color:var(--muted);margin-top:6px}
 h1{font-weight:500;font-size:27px;line-height:1.5;letter-spacing:.08em;margin-bottom:18px}
 .lead{font-size:16px;line-height:1.95;color:var(--ink-2);margin-bottom:28px}
 ol{list-style:none;counter-reset:item;border-top:1px solid var(--line)}
@@ -45,37 +51,52 @@ ul li::before{content:"";position:absolute;left:2px;top:.95em;width:5px;height:5
 <!-- GA4 -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-F54YFMZSD8"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-F54YFMZSD8");</script>
+
+<link rel="canonical" href="https://decoy-beauty.com/privacy.html">
+<!-- i18n:alt --><link rel="alternate" hreflang="zh-Hant" href="https://decoy-beauty.com/privacy.html"><link rel="alternate" hreflang="en" href="https://decoy-beauty.com/en/privacy.html"><link rel="alternate" hreflang="zh-Hans" href="https://decoy-beauty.com/zh-cn/privacy.html"><link rel="alternate" hreflang="x-default" href="https://decoy-beauty.com/privacy.html"><!-- /i18n:alt -->
 </head>
 <body>
 <main class="app">
-  <div class="top"><a class="brand" href="index.html" aria-label="Decoy 首頁"></a><span class="kicker">Privacy</span></div>
+  <div class="top"><a class="brand" href="index.html" aria-label="Decoy 首頁" data-en-aria-label="Decoy home"></a><span class="kicker">Privacy</span><div class="lang-switch" aria-label="Language"><a href="privacy.html" hreflang="zh-Hant" lang="zh-Hant" data-lang="zh-Hant" class="on" aria-current="true">繁</a><a href="en/privacy.html" hreflang="en" lang="en" data-lang="en">EN</a><a href="zh-cn/privacy.html" hreflang="zh-Hans" lang="zh-Hans" data-lang="zh-Hans">简</a></div></div>
 
-  <div class="en">Decode Card · Privacy Notice</div>
-  <h1>Decode Card<br>個人資料蒐集告知</h1>
-  <p class="lead">岩寬生醫股份有限公司（以下稱「本公司」）經營 Decoy 品牌。依個人資料保護法第 8 條，在妳領取 Decode Card 時告知以下事項。</p>
+  <div class="en-kicker">Decode Card · Privacy Notice</div>
+  <h1>Decode Card<br><span data-zh>個人資料蒐集告知</span><span data-en>Personal Data Collection Notice</span></h1>
+  <p class="lead" data-zh>岩寬生醫股份有限公司（以下稱「本公司」）經營 Decoy 品牌。依個人資料保護法第 8 條，在妳領取 Decode Card 時告知以下事項。</p>
+  <p class="lead" data-en>Acheloy Biomed (<span lang="zh-Hant">岩寬生醫股份有限公司</span>, “we”) operates the Decoy brand. Under Article 8 of Taiwan’s Personal Data Protection Act, we provide the following notice when you claim a Decode Card.</p>
+  <p class="note-lang" data-en>This English version is provided for reference. If there is any difference, the Traditional Chinese version prevails.</p>
 
   <ol>
-    <li><b>蒐集者</b>岩寬生醫股份有限公司，聯絡信箱 <a href="mailto:service@acheloy.com">service@acheloy.com</a>。</li>
-    <li><b>蒐集目的</b>製作並傳送妳的 Decode Card、提供 Decoy 的服務與活動資訊、不具名的統計分析。</li>
-    <li><b>蒐集的資料</b>LINE 使用者識別碼、照顧節奏測驗結果、妳寫的「我的美的定義」、領卡時間。我們不蒐集健康、病史、體重等資料；照顧節奏測驗網頁本身也不儲存任何資料。</li>
-    <li><b>利用期間、地區、對象及方式</b>
+    <li data-zh><b>蒐集者</b>岩寬生醫股份有限公司，聯絡信箱 <a href="mailto:service@acheloy.com">service@acheloy.com</a>。</li>
+    <li data-en><b>Data controller</b>Acheloy Biomed (<span lang="zh-Hant">岩寬生醫股份有限公司</span>). Contact: <a href="mailto:service@acheloy.com">service@acheloy.com</a>.</li>
+    <li data-zh><b>蒐集目的</b>製作並傳送妳的 Decode Card、提供 Decoy 的服務與活動資訊、不具名的統計分析。</li>
+    <li data-en><b>Purpose</b>To create and send your Decode Card, to share information about Decoy services and events, and for anonymous statistics.</li>
+    <li data-zh><b>蒐集的資料</b>LINE 使用者識別碼、照顧節奏測驗結果、妳寫的「我的美的定義」、領卡時間。我們不蒐集健康、病史、體重等資料；照顧節奏測驗網頁本身也不儲存任何資料。</li>
+    <li data-en><b>Data collected</b>Your LINE user ID, your Care Rhythm Quiz result, your “My definition of beauty” text, and the time you claimed the card. We do not collect health, medical history, weight or similar data, and the quiz page itself stores no data.</li>
+    <li><b><span data-zh>利用期間、地區、對象及方式</span><span data-en>Period, region, recipients and method of use</span></b>
       <ul>
-        <li>期間：自領卡起，至妳要求刪除或本服務結束為止。</li>
-        <li>地區：台灣。資料存放於 LINE 及 Google 的雲端服務，伺服器可能位於台灣以外。</li>
-        <li>對象：本公司及 Decoy 門市人員。</li>
-        <li>方式：製作 Decode Card、在 LINE 傳送與妳相關的訊息、不具名統計。「我的美的定義」不會公開，也不會用於廣告；若想分享，會另外徵求妳的同意。</li>
+        <li data-zh>期間：自領卡起，至妳要求刪除或本服務結束為止。</li>
+        <li data-en>Period: from the day you claim the card until you ask us to delete your data or this service ends.</li>
+        <li data-zh>地區：台灣。資料存放於 LINE 及 Google 的雲端服務，伺服器可能位於台灣以外。</li>
+        <li data-en>Region: Taiwan. Data is stored on LINE and Google cloud services, whose servers may be located outside Taiwan.</li>
+        <li data-zh>對象：本公司及 Decoy 門市人員。</li>
+        <li data-en>Recipients: our company and Decoy store staff.</li>
+        <li data-zh>方式：製作 Decode Card、在 LINE 傳送與妳相關的訊息、不具名統計。「我的美的定義」不會公開，也不會用於廣告；若想分享，會另外徵求妳的同意。</li>
+        <li data-en>Method: creating your Decode Card, sending you relevant messages on LINE, and anonymous statistics. Your “My definition of beauty” text is never made public or used in advertising; if we would like to share it, we will ask for your consent separately.</li>
       </ul>
     </li>
-    <li><b>妳的權利</b>妳可以隨時查詢、閱覽、要求複本、補充或更正、停止蒐集處理利用，或刪除妳的資料。</li>
-    <li><b>不提供的影響</b>「我的美的定義」可以不寫，卡片照樣會給妳；若不提供 LINE 帳號，就無法領取 Decode Card。</li>
+    <li data-zh><b>妳的權利</b>妳可以隨時查詢、閱覽、要求複本、補充或更正、停止蒐集處理利用，或刪除妳的資料。</li>
+    <li data-en><b>Your rights</b>At any time you may ask to view your data, receive a copy, add to or correct it, stop its collection, processing or use, or have it deleted.</li>
+    <li data-zh><b>不提供的影響</b>「我的美的定義」可以不寫，卡片照樣會給妳；若不提供 LINE 帳號，就無法領取 Decode Card。</li>
+    <li data-en><b>If you choose not to provide data</b>You can skip “My definition of beauty” and still receive your card. Without a LINE account, the Decode Card cannot be claimed.</li>
   </ol>
 
-  <div class="how"><b>想刪除資料？</b>在 Decoy 的 LINE 傳送「刪除我的資料」，或寫信到 <a href="mailto:service@acheloy.com">service@acheloy.com</a>。</div>
+  <div class="how" data-zh><b>想刪除資料？</b>在 Decoy 的 LINE 傳送「刪除我的資料」，或寫信到 <a href="mailto:service@acheloy.com">service@acheloy.com</a>。</div>
+  <div class="how" data-en><b>Want your data deleted?</b>Send <span lang="zh-Hant">「刪除我的資料」</span> (“delete my data”) to Decoy on LINE, or email <a href="mailto:service@acheloy.com">service@acheloy.com</a>.</div>
 
   <div class="foot">
     <div class="slogan">BEAUTY, ON YOUR TERMS.</div>
-    <div>更新日期：2026 年 10 月 3 日</div>
-    <div style="margin-top:8px"><a href="quiz.html">照顧節奏測驗</a>　·　<a href="index.html">Decoy 首頁</a></div>
+    <div><span data-zh>更新日期：2026 年 10 月 3 日</span><span data-en>Last updated: 3 October 2026</span></div>
+    <div style="margin-top:8px"><a href="quiz.html"><span data-zh>照顧節奏測驗</span><span data-en>Care Rhythm Quiz</span></a>　·　<a href="index.html"><span data-zh>Decoy 首頁</span><span data-en>Decoy home</span></a></div>
   </div>
 </main>
 </body>

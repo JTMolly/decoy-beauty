@@ -12,7 +12,6 @@
 <meta property="og:url" content="https://decoy-beauty.com/care.html">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="canonical" href="https://decoy-beauty.com/care.html">
 <script type="application/ld+json">
 {
  "@context": "https://schema.org",
@@ -144,6 +143,11 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content
 .nav-links a{font-family:var(--mono);font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--ink-lt);text-decoration:none;transition:color 0.3s}
 .nav-links a:hover,.nav-links a.active{color:var(--rose)}
 .nav-right{display:flex;align-items:center;gap:20px}
+.lang-switch{display:inline-flex;align-items:center;border:1px solid var(--line);font-family:var(--mono);font-size:9px;letter-spacing:.12em}
+.lang-switch a{color:var(--ink-lt);text-decoration:none;padding:6px 9px;line-height:1;transition:color .3s}
+.lang-switch a+a{border-left:1px solid var(--line)}
+.lang-switch a:hover{color:var(--rose)}
+.lang-switch a.on{color:var(--rose)}
 .lang-toggle{font-family:var(--mono);font-size:9px;letter-spacing:0.15em;color:var(--ink-lt);background:none;border:1px solid var(--line);padding:6px 12px;cursor:pointer;transition:all 0.3s}
 .lang-toggle:hover{color:var(--rose);border-color:var(--rose-pale)}
 .nav-reserve{font-family:var(--mono);font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--rose);border:1px solid var(--rose-pale);padding:9px 22px;text-decoration:none;transition:all 0.3s}
@@ -311,6 +315,9 @@ footer{background:var(--warm);padding:36px 0 22px;border-top:1px solid var(--lin
 }
 @media(prefers-reduced-motion:reduce){.reveal{transition:none}}
 </style>
+
+<link rel="canonical" href="https://decoy-beauty.com/care.html">
+<!-- i18n:alt --><link rel="alternate" hreflang="zh-Hant" href="https://decoy-beauty.com/care.html"><link rel="alternate" hreflang="en" href="https://decoy-beauty.com/en/care.html"><link rel="alternate" hreflang="zh-Hans" href="https://decoy-beauty.com/zh-cn/care.html"><link rel="alternate" hreflang="x-default" href="https://decoy-beauty.com/care.html"><!-- /i18n:alt -->
 </head>
 <body>
 
@@ -327,7 +334,7 @@ footer{background:var(--warm);padding:36px 0 22px;border-top:1px solid var(--lin
     <li><a href="founder.html"><span data-zh>創辦人</span><span data-en style="display:none">Founder</span></a></li>
   </ul>
   <div class="nav-right">
-    <button class="lang-toggle" id="langBtn">EN</button>
+    <div class="lang-switch" aria-label="Language"><a href="care.html" hreflang="zh-Hant" lang="zh-Hant" data-lang="zh-Hant" class="on" aria-current="true">繁</a><a href="en/care.html" hreflang="en" lang="en" data-lang="en">EN</a><a href="zh-cn/care.html" hreflang="zh-Hans" lang="zh-Hans" data-lang="zh-Hans">简</a></div>
     <a href="reserve.html" class="nav-reserve">
       <span data-zh>預約體驗</span><span data-en style="display:none">Reserve</span>
     </a>
@@ -347,7 +354,7 @@ footer{background:var(--warm);padding:36px 0 22px;border-top:1px solid var(--lin
         <a href="#faq"><span data-zh>常見問題</span><span data-en style="display:none">FAQ</span></a>
       </div>
     </div>
-    <figure class="hero-art reveal"><img src="img/ampoules.webp" alt="Decoy LIGHT 與 MIRROR 活性安瓶" width="880" height="1100"><figcaption>LIGHT · MIRROR Active Ampoules</figcaption></figure>
+    <figure class="hero-art reveal"><img src="img/ampoules.webp" alt="Decoy LIGHT 與 MIRROR 活性安瓶" data-en-alt="Decoy LIGHT and MIRROR Active Ampoules" width="880" height="1100"><figcaption>LIGHT · MIRROR Active Ampoules</figcaption></figure>
   </div>
 </section>
 
@@ -435,7 +442,7 @@ footer{background:var(--warm);padding:36px 0 22px;border-top:1px solid var(--lin
 
 <section class="s-device" id="tech">
   <div class="container device">
-    <figure class="device-art reveal"><img src="img/device.webp" alt="迅So槍" loading="lazy" width="1000" height="777"></figure>
+    <figure class="device-art reveal"><img src="img/device.webp" alt="迅So槍" data-en-alt="Decoy device" loading="lazy" width="1000" height="777"></figure>
     <div class="reveal">
       <div class="sec-label">Tri-Layer Delivery™</div>
       <h2 class="sec-title"><span data-zh>三層精準導入技術</span><span data-en style="display:none">Tri-Layer Delivery™</span></h2>
@@ -460,46 +467,46 @@ footer{background:var(--warm);padding:36px 0 22px;border-top:1px solid var(--lin
       <p class="sec-sub"><span data-zh>身體精準導入使用，含 PeptiCarrier™ 活性胜肽載體。以咖啡因、卡蜜拉 Camellia™ 阿里山金萱複方與紅藻萃取為主，照顧肌膚的緊實與防護。</span><span data-en style="display:none">Used in Precision Body Delivery, with PeptiCarrier™ active peptide carrier. Built around caffeine, Camellia™ Alishan Jin Xuan complex and red algae extract, for firmness and protection.</span></p>
     </div>
     <div class="ingr-grid reveal">
-        <div class="ingr"><img class="ingr-art" src="img/ing/m1.webp" alt="咖啡因 示意插畫" loading="lazy" width="520" height="520">
+        <div class="ingr"><img class="ingr-art" src="img/ing/m1.webp" alt="咖啡因 示意插畫" data-en-alt="Caffeine illustration" loading="lazy" width="520" height="520">
           <div class="ingr-use"><span data-zh>緊實 · 有精神</span><span data-en style="display:none">Firm · Refreshed</span></div>
-          <div class="ingr-zh">咖啡因</div>
-          <div class="ingr-inci">Caffeine</div>
+          <div class="ingr-zh"><span data-zh>咖啡因</span><span data-en>Caffeine</span></div>
+          <div class="ingr-inci" data-zh>Caffeine</div>
           <p class="ingr-desc"><span data-zh>不是妳早上喝的那杯。保養品裡的咖啡因，常用在眼周和身體保養，讓肌膚看起來緊實、有精神；它也是抗氧化成分，幫肌膚面對日常的環境壓力。</span><span data-en style="display:none">Not the one in your morning cup. In skincare, caffeine is often used around the eyes and on the body to help skin look firmer and more awake. It is also an antioxidant that helps skin cope with everyday environmental stress.</span></p>
         </div>
-        <div class="ingr"><img class="ingr-art" src="img/ing/m2.webp" alt="卡蜜拉 Camellia™ 阿里山金萱複方 示意插畫" loading="lazy" width="520" height="520">
+        <div class="ingr"><img class="ingr-art" src="img/ing/m2.webp" alt="卡蜜拉 Camellia™ 阿里山金萱複方 示意插畫" data-en-alt="Camellia™ Alishan Jin Xuan Tea Complex illustration" loading="lazy" width="520" height="520">
           <div class="ingr-use"><span data-zh>抗氧化 · 防護</span><span data-en style="display:none">Antioxidant · Protection</span></div>
-          <div class="ingr-zh">卡蜜拉 Camellia™ 阿里山金萱複方</div>
+          <div class="ingr-zh"><span data-zh>卡蜜拉 Camellia™ 阿里山金萱複方</span><span data-en>Camellia™ Alishan Jin Xuan Tea Complex</span></div>
           <div class="ingr-inci">Camellia Sinensis Leaf/Stalk Extract · Epigallocatechol Gallate</div>
           <p class="ingr-desc"><span data-zh>阿里山台茶 12 號金萱與茶多酚組成的複方。用低溫萃取，把茶裡的兒茶素留下來；兒茶素是很常被研究的抗氧化成分，幫肌膚抵禦日曬和空汙帶來的壓力，維持穩定、舒適。原料完成皮膚刺激性測試與 50 人人體貼膚測試。</span><span data-en style="display:none">Camellia™ pairs Alishan Jin Xuan (TTES No. 12) tea extract with EGCG. Low-temperature extraction keeps the catechins — well-studied antioxidants that help skin stand up to sun and pollution and stay calm and comfortable. The raw material has completed skin-irritation testing and a 50-person human patch test.</span></p>
         </div>
-        <div class="ingr"><img class="ingr-art" src="img/ing/m3.webp" alt="孔雀石萃取 示意插畫" loading="lazy" width="520" height="520">
+        <div class="ingr"><img class="ingr-art" src="img/ing/m3.webp" alt="孔雀石萃取 示意插畫" data-en-alt="Malachite Extract illustration" loading="lazy" width="520" height="520">
           <div class="ingr-use"><span data-zh>防護 · 保護</span><span data-en style="display:none">Protection</span></div>
-          <div class="ingr-zh">孔雀石萃取</div>
-          <div class="ingr-inci">Malachite Extract</div>
+          <div class="ingr-zh"><span data-zh>孔雀石萃取</span><span data-en>Malachite Extract</span></div>
+          <div class="ingr-inci" data-zh>Malachite Extract</div>
           <p class="ingr-desc"><span data-zh>一種含銅的礦石萃取。銅是肌膚維持自身防護所需要的微量元素；在保養品裡，用來幫肌膚抵禦環境壓力。</span><span data-en style="display:none">A copper-rich mineral extract. Copper is a trace element skin relies on for its own defences; in skincare it helps skin resist environmental stress.</span></p>
         </div>
-        <div class="ingr"><img class="ingr-art" src="img/ing/m4.webp" alt="叉珊藻萃取 示意插畫" loading="lazy" width="520" height="520">
+        <div class="ingr"><img class="ingr-art" src="img/ing/m4.webp" alt="叉珊藻萃取 示意插畫" data-en-alt="Jania Rubens (Red Algae) Extract illustration" loading="lazy" width="520" height="520">
           <div class="ingr-use"><span data-zh>緊實 · 飽滿</span><span data-en style="display:none">Firm · Plump</span></div>
-          <div class="ingr-zh">叉珊藻萃取</div>
+          <div class="ingr-zh"><span data-zh>叉珊藻萃取</span><span data-en>Jania Rubens (Red Algae) Extract</span></div>
           <div class="ingr-inci">Jania Rubens Extract</div>
           <p class="ingr-desc"><span data-zh>一種紅藻，由法國原料商在實驗室裡培養，不必採集野生海藻。在保養上用來讓肌膚更緊實、飽滿；曾獲德國 BSB 創新獎「最具創新天然原料」。</span><span data-en style="display:none">A red alga grown in a lab by a French supplier, so no wild seaweed is harvested. In skincare it helps skin feel firmer and plumper. It received a BSB Innovation Award for most innovative natural active.</span></p>
         </div>
-        <div class="ingr"><img class="ingr-art" src="img/ing/m5.webp" alt="納豆發酵萃取 示意插畫" loading="lazy" width="520" height="520">
+        <div class="ingr"><img class="ingr-art" src="img/ing/m5.webp" alt="納豆發酵萃取 示意插畫" data-en-alt="Natto Ferment Extract illustration" loading="lazy" width="520" height="520">
           <div class="ingr-use"><span data-zh>保濕 · 滋潤</span><span data-en style="display:none">Hydration · Nourishment</span></div>
-          <div class="ingr-zh">納豆發酵萃取</div>
+          <div class="ingr-zh"><span data-zh>納豆發酵萃取</span><span data-en>Natto Ferment Extract</span></div>
           <div class="ingr-inci">Bacillus/Soybean Ferment Extract</div>
           <p class="ingr-desc"><span data-zh>大豆經過納豆菌發酵後的萃取，含有小分子的胜肽和胺基酸，幫肌膚保濕、滋潤。</span><span data-en style="display:none">Soybeans fermented by natto bacteria, rich in small peptides and amino acids that help hydrate and nourish skin.</span></p>
         </div>
-        <div class="ingr"><img class="ingr-art" src="img/ing/m6.webp" alt="PeptiCarrier™ 活性胜肽載體 示意插畫" loading="lazy" width="520" height="520">
+        <div class="ingr"><img class="ingr-art" src="img/ing/m6.webp" alt="PeptiCarrier™ 活性胜肽載體 示意插畫" data-en-alt="PeptiCarrier™ Active Peptide Carrier illustration" loading="lazy" width="520" height="520">
           <div class="ingr-use"><span data-zh>吸收 · 肌膚調理</span><span data-en style="display:none">Absorption · Conditioning</span></div>
-          <div class="ingr-zh">PeptiCarrier™ 活性胜肽載體</div>
-          <div class="ingr-inci">sh-Decapeptide-5 SP（十肽）</div>
+          <div class="ingr-zh"><span data-zh>PeptiCarrier™ 活性胜肽載體</span><span data-en>PeptiCarrier™ Active Peptide Carrier</span></div>
+          <div class="ingr-inci">sh-Decapeptide-5 SP<span data-zh>（十肽）</span><span data-en> (decapeptide)</span></div>
           <p class="ingr-desc"><span data-zh>一種與人體序列相同、以合成方式製成的胜肽。在配方裡像一位帶路的人，協助配方中的活性成分被肌膚好好吸收；它本身也是肌膚調理成分。</span><span data-en style="display:none">A synthetic peptide with a sequence identical to one found in the human body. In the formula it acts like a guide, helping the active ingredients absorb well into skin, and it conditions skin in its own right.</span></p>
         </div>
     </div>
     <details class="full reveal">
       <summary><span data-zh>MIRROR 全成分（17 項，依含量排序）</span><span data-en style="display:none">MIRROR full ingredient list (17, by concentration)</span></summary>
-      <div class="inci-wrap"><table class="inci"><thead><tr><th>#</th><th>INCI</th><th><span data-zh>中文名</span><span data-en style="display:none">Chinese</span></th><th><span data-zh>用途</span><span data-en style="display:none">Role</span></th></tr></thead><tbody><tr><td class="n">01</td><td>Aqua</td><td>水</td><td><span data-zh>溶劑</span><span data-en style="display:none">Solvent</span></td></tr><tr><td class="n">02</td><td>Glycerin</td><td>甘油</td><td><span data-zh>保濕</span><span data-en style="display:none">Humectant</span></td></tr><tr><td class="n">03</td><td>Caffeine</td><td>咖啡因</td><td><span data-zh>肌膚調理</span><span data-en style="display:none">Skin conditioning</span></td></tr><tr><td class="n">04</td><td>PEG/PPG/Polybutylene Glycol-8/5/3 Glycerin</td><td>PEG/PPG/聚丁二醇-8/5/3 甘油</td><td><span data-zh>保濕</span><span data-en style="display:none">Humectant</span></td></tr><tr><td class="n">05</td><td>Butylene Glycol</td><td>丁二醇</td><td><span data-zh>保濕</span><span data-en style="display:none">Humectant</span></td></tr><tr><td class="n">06</td><td>Propanediol</td><td>1,3-丙二醇</td><td><span data-zh>保濕</span><span data-en style="display:none">Humectant</span></td></tr><tr><td class="n">07</td><td>Camellia Sinensis Leaf/Stalk Extract</td><td>茶葉／莖萃取</td><td><span data-zh>抗氧化 · 肌膚調理</span><span data-en style="display:none">Antioxidant · Conditioning</span></td></tr><tr><td class="n">08</td><td>Sodium Chloride</td><td>氯化鈉</td><td><span data-zh>調整質地</span><span data-en style="display:none">Texture</span></td></tr><tr><td class="n">09</td><td>Phenoxyethanol</td><td>苯氧乙醇</td><td><span data-zh>防腐（安全保存）</span><span data-en style="display:none">Preservative</span></td></tr><tr><td class="n">10</td><td>Maltodextrin</td><td>麥芽糊精</td><td><span data-zh>穩定</span><span data-en style="display:none">Stabiliser</span></td></tr><tr><td class="n">11</td><td>Caprylyl Glycol</td><td>辛甘醇</td><td><span data-zh>潤膚 · 保存</span><span data-en style="display:none">Emollient · Preservation</span></td></tr><tr><td class="n">12</td><td>Malachite Extract</td><td>孔雀石萃取</td><td><span data-zh>抗氧化 · 肌膚調理</span><span data-en style="display:none">Antioxidant · Conditioning</span></td></tr><tr><td class="n">13</td><td>Mannitol</td><td>甘露糖醇</td><td><span data-zh>保濕</span><span data-en style="display:none">Humectant</span></td></tr><tr><td class="n">14</td><td>Epigallocatechol Gallate</td><td>茶多酚（EGCG）</td><td><span data-zh>抗氧化 · 肌膚調理</span><span data-en style="display:none">Antioxidant · Conditioning</span></td></tr><tr><td class="n">15</td><td>Jania Rubens Extract</td><td>叉珊藻萃取</td><td><span data-zh>肌膚調理</span><span data-en style="display:none">Skin conditioning</span></td></tr><tr><td class="n">16</td><td>Bacillus/Soybean Ferment Extract</td><td>芽孢桿菌／大豆發酵產物萃取</td><td><span data-zh>保濕 · 肌膚調理</span><span data-en style="display:none">Hydration · Conditioning</span></td></tr><tr><td class="n">17</td><td>sh-Decapeptide-5 SP</td><td>十肽</td><td><span data-zh>肌膚調理</span><span data-en style="display:none">Skin conditioning</span></td></tr></tbody></table></div>
+      <div class="inci-wrap"><table class="inci"><thead><tr><th>#</th><th>INCI</th><th><span data-zh>中文名</span><span data-en style="display:none">Chinese</span></th><th><span data-zh>用途</span><span data-en style="display:none">Role</span></th></tr></thead><tbody><tr><td class="n">01</td><td>Aqua</td><td lang="zh-Hant">水</td><td><span data-zh>溶劑</span><span data-en style="display:none">Solvent</span></td></tr><tr><td class="n">02</td><td>Glycerin</td><td lang="zh-Hant">甘油</td><td><span data-zh>保濕</span><span data-en style="display:none">Humectant</span></td></tr><tr><td class="n">03</td><td>Caffeine</td><td lang="zh-Hant">咖啡因</td><td><span data-zh>肌膚調理</span><span data-en style="display:none">Skin conditioning</span></td></tr><tr><td class="n">04</td><td>PEG/PPG/Polybutylene Glycol-8/5/3 Glycerin</td><td lang="zh-Hant">PEG/PPG/聚丁二醇-8/5/3 甘油</td><td><span data-zh>保濕</span><span data-en style="display:none">Humectant</span></td></tr><tr><td class="n">05</td><td>Butylene Glycol</td><td lang="zh-Hant">丁二醇</td><td><span data-zh>保濕</span><span data-en style="display:none">Humectant</span></td></tr><tr><td class="n">06</td><td>Propanediol</td><td lang="zh-Hant">1,3-丙二醇</td><td><span data-zh>保濕</span><span data-en style="display:none">Humectant</span></td></tr><tr><td class="n">07</td><td>Camellia Sinensis Leaf/Stalk Extract</td><td lang="zh-Hant">茶葉／莖萃取</td><td><span data-zh>抗氧化 · 肌膚調理</span><span data-en style="display:none">Antioxidant · Conditioning</span></td></tr><tr><td class="n">08</td><td>Sodium Chloride</td><td lang="zh-Hant">氯化鈉</td><td><span data-zh>調整質地</span><span data-en style="display:none">Texture</span></td></tr><tr><td class="n">09</td><td>Phenoxyethanol</td><td lang="zh-Hant">苯氧乙醇</td><td><span data-zh>防腐（安全保存）</span><span data-en style="display:none">Preservative</span></td></tr><tr><td class="n">10</td><td>Maltodextrin</td><td lang="zh-Hant">麥芽糊精</td><td><span data-zh>穩定</span><span data-en style="display:none">Stabiliser</span></td></tr><tr><td class="n">11</td><td>Caprylyl Glycol</td><td lang="zh-Hant">辛甘醇</td><td><span data-zh>潤膚 · 保存</span><span data-en style="display:none">Emollient · Preservation</span></td></tr><tr><td class="n">12</td><td>Malachite Extract</td><td lang="zh-Hant">孔雀石萃取</td><td><span data-zh>抗氧化 · 肌膚調理</span><span data-en style="display:none">Antioxidant · Conditioning</span></td></tr><tr><td class="n">13</td><td>Mannitol</td><td lang="zh-Hant">甘露糖醇</td><td><span data-zh>保濕</span><span data-en style="display:none">Humectant</span></td></tr><tr><td class="n">14</td><td>Epigallocatechol Gallate</td><td lang="zh-Hant">茶多酚（EGCG）</td><td><span data-zh>抗氧化 · 肌膚調理</span><span data-en style="display:none">Antioxidant · Conditioning</span></td></tr><tr><td class="n">15</td><td>Jania Rubens Extract</td><td lang="zh-Hant">叉珊藻萃取</td><td><span data-zh>肌膚調理</span><span data-en style="display:none">Skin conditioning</span></td></tr><tr><td class="n">16</td><td>Bacillus/Soybean Ferment Extract</td><td lang="zh-Hant">芽孢桿菌／大豆發酵產物萃取</td><td><span data-zh>保濕 · 肌膚調理</span><span data-en style="display:none">Hydration · Conditioning</span></td></tr><tr><td class="n">17</td><td>sh-Decapeptide-5 SP</td><td lang="zh-Hant">十肽</td><td><span data-zh>肌膚調理</span><span data-en style="display:none">Skin conditioning</span></td></tr></tbody></table></div>
       <p class="inci-note"><span data-zh>剩下的成分，有的負責保濕，有的負責讓配方穩定、安全保存。我們把它們全部列出來，因為妳有權知道擦在身上的是什麼。</span><span data-en style="display:none">The remaining ingredients hydrate, or keep the formula stable and safely preserved. We list them all because you have the right to know.</span></p>
     </details>
   </div>
@@ -513,55 +520,55 @@ footer{background:var(--warm);padding:36px 0 22px;border-top:1px solid var(--lin
       <p class="sec-sub"><span data-zh>臉部精準導入使用。以維生素 B 群、小分子玻尿酸、膠原蛋白與胜肽為主，照顧保濕、光澤與細紋。</span><span data-en style="display:none">Used in Precision Facial Delivery. Built around B vitamins, low-molecular hyaluronic acid, collagen and peptides, for hydration, glow and fine lines.</span></p>
     </div>
     <div class="ingr-grid reveal">
-        <div class="ingr"><img class="ingr-art" src="img/ing/l9.webp" alt="台灣石斑魚膠原（升級配方） 示意插畫" loading="lazy" width="520" height="520">
+        <div class="ingr"><img class="ingr-art" src="img/ing/l9.webp" alt="台灣石斑魚膠原（升級配方） 示意插畫" data-en-alt="Taiwanese Grouper Collagen (Upgraded Formula) illustration" loading="lazy" width="520" height="520">
           <div class="ingr-use"><span data-zh>保濕 · 緊緻</span><span data-en style="display:none">Hydration · Firmness</span></div>
-          <div class="ingr-zh">台灣石斑魚膠原（升級配方）</div>
+          <div class="ingr-zh"><span data-zh>台灣石斑魚膠原（升級配方）</span><span data-en>Taiwanese Grouper Collagen (Upgraded Formula)</span></div>
           <div class="ingr-inci">Hydrolyzed Collagen</div>
           <p class="ingr-desc"><span data-zh>新一批 LIGHT 升級配方加入。來自台灣在地漁業的石斑魚皮，原本是剩下來的副產品，被好好利用；水解成分子量小於 2000 的小分子膠原蛋白，幫肌膚保濕、緊緻、維持彈性。</span><span data-en style="display:none">New in the upgraded LIGHT formula. Sourced from grouper skin from Taiwan’s local fisheries — a by-product put to good use — and hydrolysed into small collagen peptides (under 2,000 Da) that hydrate, firm and help maintain elasticity.</span></p>
         </div>
-        <div class="ingr"><img class="ingr-art" src="img/ing/l1.webp" alt="菸鹼醯胺（維生素 B3） 示意插畫" loading="lazy" width="520" height="520">
+        <div class="ingr"><img class="ingr-art" src="img/ing/l1.webp" alt="菸鹼醯胺（維生素 B3） 示意插畫" data-en-alt="Niacinamide (Vitamin B3) illustration" loading="lazy" width="520" height="520">
           <div class="ingr-use"><span data-zh>均勻透亮 · 防護</span><span data-en style="display:none">Even tone · Protection</span></div>
-          <div class="ingr-zh">菸鹼醯胺（維生素 B3）</div>
+          <div class="ingr-zh"><span data-zh>菸鹼醯胺（維生素 B3）</span><span data-en>Niacinamide (Vitamin B3)</span></div>
           <div class="ingr-inci">Niacinamide</div>
           <p class="ingr-desc"><span data-zh>被研究最多的保養成分之一。它幫肌膚把「保護層」顧好，所以比較不容易乾，膚色看起來更均勻透亮。</span><span data-en style="display:none">One of the most researched skincare ingredients. It helps skin look after its protective layer, so it dries out less easily and looks more even and luminous.</span></p>
         </div>
-        <div class="ingr"><img class="ingr-art" src="img/ing/l2.webp" alt="肌醇 示意插畫" loading="lazy" width="520" height="520">
+        <div class="ingr"><img class="ingr-art" src="img/ing/l2.webp" alt="肌醇 示意插畫" data-en-alt="Inositol illustration" loading="lazy" width="520" height="520">
           <div class="ingr-use"><span data-zh>保濕 · 柔軟</span><span data-en style="display:none">Hydration · Softness</span></div>
-          <div class="ingr-zh">肌醇</div>
-          <div class="ingr-inci">Inositol</div>
+          <div class="ingr-zh"><span data-zh>肌醇</span><span data-en>Inositol</span></div>
+          <div class="ingr-inci" data-zh>Inositol</div>
           <p class="ingr-desc"><span data-zh>B 群家族的一員，像肌膚的保水小幫手，讓肌膚水潤、柔軟。</span><span data-en style="display:none">A member of the B-vitamin family that helps skin hold on to water, leaving it hydrated and soft.</span></p>
         </div>
-        <div class="ingr"><img class="ingr-art" src="img/ing/l3.webp" alt="印度獐牙菜萃取 示意插畫" loading="lazy" width="520" height="520">
+        <div class="ingr"><img class="ingr-art" src="img/ing/l3.webp" alt="印度獐牙菜萃取 示意插畫" data-en-alt="Swertia Chirata Extract illustration" loading="lazy" width="520" height="520">
           <div class="ingr-use"><span data-zh>彈性 · 延緩老化</span><span data-en style="display:none">Elasticity · Healthy ageing</span></div>
-          <div class="ingr-zh">印度獐牙菜萃取</div>
-          <div class="ingr-inci">Swertia Chirata Extract</div>
+          <div class="ingr-zh"><span data-zh>印度獐牙菜萃取</span><span data-en>Swertia Chirata Extract</span></div>
+          <div class="ingr-inci" data-zh>Swertia Chirata Extract</div>
           <p class="ingr-desc"><span data-zh>來自喜馬拉雅山區的植物，傳統上是一種苦味草本。在保養上用來維持肌膚彈性、延緩肌膚老化。</span><span data-en style="display:none">A Himalayan plant traditionally used as a bitter herb. In skincare it helps maintain elasticity and slow visible signs of ageing.</span></p>
         </div>
-        <div class="ingr"><img class="ingr-art" src="img/ing/l4.webp" alt="泛醇（維生素原 B5） 示意插畫" loading="lazy" width="520" height="520">
+        <div class="ingr"><img class="ingr-art" src="img/ing/l4.webp" alt="泛醇（維生素原 B5） 示意插畫" data-en-alt="Panthenol (Provitamin B5) illustration" loading="lazy" width="520" height="520">
           <div class="ingr-use"><span data-zh>保濕 · 修護</span><span data-en style="display:none">Hydration · Care</span></div>
-          <div class="ingr-zh">泛醇（維生素原 B5）</div>
+          <div class="ingr-zh"><span data-zh>泛醇（維生素原 B5）</span><span data-en>Panthenol (Provitamin B5)</span></div>
           <div class="ingr-inci">Panthenol</div>
           <p class="ingr-desc"><span data-zh>擦在肌膚上會轉成維生素 B5。保濕、舒緩乾燥帶來的不適，幫肌膚修護。</span><span data-en style="display:none">Converts to vitamin B5 on the skin. It hydrates, soothes dryness-related discomfort and helps care for the skin.</span></p>
         </div>
-        <div class="ingr"><img class="ingr-art" src="img/ing/l5.webp" alt="尿囊素 示意插畫" loading="lazy" width="520" height="520">
+        <div class="ingr"><img class="ingr-art" src="img/ing/l5.webp" alt="尿囊素 示意插畫" data-en-alt="Allantoin illustration" loading="lazy" width="520" height="520">
           <div class="ingr-use"><span data-zh>安撫 · 柔嫩</span><span data-en style="display:none">Soothing · Smooth</span></div>
-          <div class="ingr-zh">尿囊素</div>
-          <div class="ingr-inci">Allantoin</div>
+          <div class="ingr-zh"><span data-zh>尿囊素</span><span data-en>Allantoin</span></div>
+          <div class="ingr-inci" data-zh>Allantoin</div>
           <p class="ingr-desc"><span data-zh>很溫和的經典成分，安撫肌膚、讓肌膚柔嫩。</span><span data-en style="display:none">A gentle classic that calms skin and leaves it smooth.</span></p>
         </div>
-        <div class="ingr"><img class="ingr-art" src="img/ing/l6.webp" alt="小分子玻尿酸 示意插畫" loading="lazy" width="520" height="520">
+        <div class="ingr"><img class="ingr-art" src="img/ing/l6.webp" alt="小分子玻尿酸 示意插畫" data-en-alt="Low-molecular Hyaluronic Acid illustration" loading="lazy" width="520" height="520">
           <div class="ingr-use"><span data-zh>補水 · 飽滿</span><span data-en style="display:none">Hydration · Plumpness</span></div>
-          <div class="ingr-zh">小分子玻尿酸</div>
+          <div class="ingr-zh"><span data-zh>小分子玻尿酸</span><span data-en>Low-molecular Hyaluronic Acid</span></div>
           <div class="ingr-inci">Hydrolyzed Sodium Hyaluronate · Hydrolyzed Hyaluronic Acid</div>
           <p class="ingr-desc"><span data-zh>切成小分子的玻尿酸，是保濕界的老朋友。幫肌膚補水、鎖水，讓肌膚看起來水潤、飽滿。這是保養品裡的保濕成分，和注射用的玻尿酸不同。</span><span data-en style="display:none">Hyaluronic acid in smaller fragments — an old friend of hydration. It helps skin take in and hold water so it looks dewy and plump. This is a skincare humectant, not the injectable kind.</span></p>
         </div>
-        <div class="ingr"><img class="ingr-art" src="img/ing/l8.webp" alt="六胜肽 示意插畫" loading="lazy" width="520" height="520">
+        <div class="ingr"><img class="ingr-art" src="img/ing/l8.webp" alt="六胜肽 示意插畫" data-en-alt="Hexapeptide illustration" loading="lazy" width="520" height="520">
           <div class="ingr-use"><span data-zh>淡化細紋</span><span data-en style="display:none">Softer-looking lines</span></div>
-          <div class="ingr-zh">六胜肽</div>
+          <div class="ingr-zh"><span data-zh>六胜肽</span><span data-en>Hexapeptide</span></div>
           <div class="ingr-inci">Acetyl Hexapeptide-8</div>
           <p class="ingr-desc"><span data-zh>常被稱為「六胜肽」，用在表情紋的保養，淡化細紋，讓紋路看起來柔和。</span><span data-en style="display:none">Often called “hexapeptide”, used to care for expression lines — helping fine lines look softer.</span></p>
         </div>
-        <div class="ingr"><img class="ingr-art" src="img/ing/l7.webp" alt="維生素 B12 示意插畫" loading="lazy" width="520" height="520">
+        <div class="ingr"><img class="ingr-art" src="img/ing/l7.webp" alt="維生素 B12 示意插畫" data-en-alt="Vitamin B12 illustration" loading="lazy" width="520" height="520">
           <div class="ingr-use"><span data-zh>肌膚調理</span><span data-en style="display:none">Skin conditioning</span></div>
           <div class="ingr-zh"><span data-zh>維生素 B12</span><span data-en style="display:none">Vitamin B12</span></div>
           <div class="ingr-inci">Cyanocobalamin</div>
@@ -576,7 +583,7 @@ footer{background:var(--warm);padding:36px 0 22px;border-top:1px solid var(--lin
     </div>
     <details class="full reveal">
       <summary><span data-zh>LIGHT 全成分（升級配方）</span><span data-en style="display:none">LIGHT full ingredient list (upgraded formula)</span></summary>
-      <div class="inci-wrap"><table class="inci"><thead><tr><th>#</th><th>INCI</th><th><span data-zh>中文名</span><span data-en style="display:none">Chinese</span></th><th><span data-zh>用途</span><span data-en style="display:none">Role</span></th></tr></thead><tbody><tr><td class="n">01</td><td>Aqua</td><td>水</td><td><span data-zh>溶劑</span><span data-en style="display:none">Solvent</span></td></tr><tr><td class="n">02</td><td>Propanediol</td><td>1,3-丙二醇</td><td><span data-zh>保濕</span><span data-en style="display:none">Humectant</span></td></tr><tr><td class="n">03</td><td>Niacinamide</td><td>菸鹼醯胺（維生素 B3）</td><td><span data-zh>肌膚調理</span><span data-en style="display:none">Skin conditioning</span></td></tr><tr><td class="n">04</td><td>Maltodextrin</td><td>麥芽糊精</td><td><span data-zh>穩定</span><span data-en style="display:none">Stabiliser</span></td></tr><tr><td class="n">05</td><td>Inositol</td><td>肌醇</td><td><span data-zh>保濕 · 肌膚調理</span><span data-en style="display:none">Hydration · Conditioning</span></td></tr><tr><td class="n">06</td><td>Sodium Chloride</td><td>氯化鈉</td><td><span data-zh>調整質地</span><span data-en style="display:none">Texture</span></td></tr><tr><td class="n">07</td><td>Swertia Chirata Extract</td><td>印度獐牙菜萃取</td><td><span data-zh>肌膚調理</span><span data-en style="display:none">Skin conditioning</span></td></tr><tr><td class="n">08</td><td>Panthenol</td><td>泛醇（維生素原 B5）</td><td><span data-zh>保濕 · 修護</span><span data-en style="display:none">Hydration · Care</span></td></tr><tr><td class="n">09</td><td>1,2-Hexanediol</td><td>1,2-己二醇</td><td><span data-zh>溶劑 · 保存</span><span data-en style="display:none">Solvent · Preservation</span></td></tr><tr><td class="n">10</td><td>Allantoin</td><td>尿囊素</td><td><span data-zh>舒緩 · 肌膚調理</span><span data-en style="display:none">Soothing · Conditioning</span></td></tr><tr><td class="n">11</td><td>Hydrolyzed Sodium Hyaluronate</td><td>水解玻尿酸鈉</td><td><span data-zh>保濕</span><span data-en style="display:none">Humectant</span></td></tr><tr><td class="n">12</td><td>Hydrolyzed Hyaluronic Acid</td><td>水解玻尿酸</td><td><span data-zh>保濕</span><span data-en style="display:none">Humectant</span></td></tr><tr><td class="n">13</td><td>Caprylhydroxamic Acid</td><td>辛醯羥肟酸</td><td><span data-zh>螯合 · 保存</span><span data-en style="display:none">Chelating · Preservation</span></td></tr><tr><td class="n">14</td><td>Cyanocobalamin</td><td>氰鈷胺（維生素 B12）</td><td><span data-zh>肌膚調理</span><span data-en style="display:none">Skin conditioning</span></td></tr><tr><td class="n">15</td><td>Dipropylene Glycol</td><td>雙丙甘醇</td><td><span data-zh>保濕</span><span data-en style="display:none">Humectant</span></td></tr><tr><td class="n">16</td><td>Diglycerin</td><td>雙甘油</td><td><span data-zh>保濕</span><span data-en style="display:none">Humectant</span></td></tr><tr><td class="n">17</td><td>Caprylyl Glycol</td><td>辛甘醇</td><td><span data-zh>潤膚 · 保存</span><span data-en style="display:none">Emollient · Preservation</span></td></tr><tr><td class="n">18</td><td>Acetyl Hexapeptide-8</td><td>乙醯基六胜肽-8</td><td><span data-zh>肌膚調理</span><span data-en style="display:none">Skin conditioning</span></td></tr><tr><td class="n">19</td><td>Ethylhexylglycerin</td><td>乙基己基甘油</td><td><span data-zh>潤膚 · 保存</span><span data-en style="display:none">Emollient · Preservation</span></td></tr><tr><td class="n">20</td><td>Hydrolyzed Collagen ＊</td><td>水解膠原蛋白（台灣石斑魚膠原）＊</td><td><span data-zh>保濕 · 緊緻</span><span data-en style="display:none">Hydration · Firmness</span></td></tr></tbody></table></div>
+      <div class="inci-wrap"><table class="inci"><thead><tr><th>#</th><th>INCI</th><th><span data-zh>中文名</span><span data-en style="display:none">Chinese</span></th><th><span data-zh>用途</span><span data-en style="display:none">Role</span></th></tr></thead><tbody><tr><td class="n">01</td><td>Aqua</td><td lang="zh-Hant">水</td><td><span data-zh>溶劑</span><span data-en style="display:none">Solvent</span></td></tr><tr><td class="n">02</td><td>Propanediol</td><td lang="zh-Hant">1,3-丙二醇</td><td><span data-zh>保濕</span><span data-en style="display:none">Humectant</span></td></tr><tr><td class="n">03</td><td>Niacinamide</td><td lang="zh-Hant">菸鹼醯胺（維生素 B3）</td><td><span data-zh>肌膚調理</span><span data-en style="display:none">Skin conditioning</span></td></tr><tr><td class="n">04</td><td>Maltodextrin</td><td lang="zh-Hant">麥芽糊精</td><td><span data-zh>穩定</span><span data-en style="display:none">Stabiliser</span></td></tr><tr><td class="n">05</td><td>Inositol</td><td lang="zh-Hant">肌醇</td><td><span data-zh>保濕 · 肌膚調理</span><span data-en style="display:none">Hydration · Conditioning</span></td></tr><tr><td class="n">06</td><td>Sodium Chloride</td><td lang="zh-Hant">氯化鈉</td><td><span data-zh>調整質地</span><span data-en style="display:none">Texture</span></td></tr><tr><td class="n">07</td><td>Swertia Chirata Extract</td><td lang="zh-Hant">印度獐牙菜萃取</td><td><span data-zh>肌膚調理</span><span data-en style="display:none">Skin conditioning</span></td></tr><tr><td class="n">08</td><td>Panthenol</td><td lang="zh-Hant">泛醇（維生素原 B5）</td><td><span data-zh>保濕 · 修護</span><span data-en style="display:none">Hydration · Care</span></td></tr><tr><td class="n">09</td><td>1,2-Hexanediol</td><td lang="zh-Hant">1,2-己二醇</td><td><span data-zh>溶劑 · 保存</span><span data-en style="display:none">Solvent · Preservation</span></td></tr><tr><td class="n">10</td><td>Allantoin</td><td lang="zh-Hant">尿囊素</td><td><span data-zh>舒緩 · 肌膚調理</span><span data-en style="display:none">Soothing · Conditioning</span></td></tr><tr><td class="n">11</td><td>Hydrolyzed Sodium Hyaluronate</td><td lang="zh-Hant">水解玻尿酸鈉</td><td><span data-zh>保濕</span><span data-en style="display:none">Humectant</span></td></tr><tr><td class="n">12</td><td>Hydrolyzed Hyaluronic Acid</td><td lang="zh-Hant">水解玻尿酸</td><td><span data-zh>保濕</span><span data-en style="display:none">Humectant</span></td></tr><tr><td class="n">13</td><td>Caprylhydroxamic Acid</td><td lang="zh-Hant">辛醯羥肟酸</td><td><span data-zh>螯合 · 保存</span><span data-en style="display:none">Chelating · Preservation</span></td></tr><tr><td class="n">14</td><td>Cyanocobalamin</td><td lang="zh-Hant">氰鈷胺（維生素 B12）</td><td><span data-zh>肌膚調理</span><span data-en style="display:none">Skin conditioning</span></td></tr><tr><td class="n">15</td><td>Dipropylene Glycol</td><td lang="zh-Hant">雙丙甘醇</td><td><span data-zh>保濕</span><span data-en style="display:none">Humectant</span></td></tr><tr><td class="n">16</td><td>Diglycerin</td><td lang="zh-Hant">雙甘油</td><td><span data-zh>保濕</span><span data-en style="display:none">Humectant</span></td></tr><tr><td class="n">17</td><td>Caprylyl Glycol</td><td lang="zh-Hant">辛甘醇</td><td><span data-zh>潤膚 · 保存</span><span data-en style="display:none">Emollient · Preservation</span></td></tr><tr><td class="n">18</td><td>Acetyl Hexapeptide-8</td><td lang="zh-Hant">乙醯基六胜肽-8</td><td><span data-zh>肌膚調理</span><span data-en style="display:none">Skin conditioning</span></td></tr><tr><td class="n">19</td><td>Ethylhexylglycerin</td><td lang="zh-Hant">乙基己基甘油</td><td><span data-zh>潤膚 · 保存</span><span data-en style="display:none">Emollient · Preservation</span></td></tr><tr><td class="n">20</td><td>Hydrolyzed Collagen ＊</td><td lang="zh-Hant">水解膠原蛋白（台灣石斑魚膠原）＊</td><td><span data-zh>保濕 · 緊緻</span><span data-en style="display:none">Hydration · Firmness</span></td></tr></tbody></table></div>
       <p class="inci-note"><span data-zh>＊升級配方加入水解膠原蛋白（Hydrolyzed Collagen）。完整排序以瓶身標示為準，取得新標示後更新。</span><span data-en style="display:none">* The upgraded formula adds Hydrolyzed Collagen. The exact order follows the bottle label and will be updated.</span></p>
     </details>
   </div>
@@ -668,10 +675,10 @@ footer{background:var(--warm);padding:36px 0 22px;border-top:1px solid var(--lin
 
 <footer>
   <div class="footer-inner">
-    <div class="footer-brand">DECOY · 岩寬生醫股份有限公司</div>
+    <div class="footer-brand">DECOY · <span data-zh>岩寬生醫股份有限公司</span><span data-en style="display:none">Acheloy Biomed</span></div>
     <div class="footer-note">
-      © 2026 岩寬生醫 ·
-      <a href="index.html">首頁</a> ·
+      © 2026 <span data-zh>岩寬生醫</span><span data-en style="display:none">Acheloy Biomed</span> ·
+      <a href="index.html"><span data-zh>首頁</span><span data-en style="display:none">Home</span></a> ·
       <a href="https://instagram.com/decoy_beauty" target="_blank">Instagram</a>
     </div>
   </div>
@@ -694,14 +701,6 @@ document.querySelectorAll(".faq-item").forEach(item => {
   });
 });
 
-const btn = document.getElementById("langBtn");
-let isEn = false;
-btn.addEventListener("click", () => {
-  isEn = !isEn;
-  document.body.classList.toggle("en", isEn);
-  btn.textContent = isEn ? "中" : "EN";
-  document.documentElement.lang = isEn ? "en" : "zh-TW";
-});
 </script>
 </body>
 </html>

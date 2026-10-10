@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+
+<html lang="zh-Hans">
+<head>
+<base href="../">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>成分小教室 | DECOY 非侵入式美学科技</title>
+<link rel="icon" type="image/png" href="/favicon.png">
+<meta name="description" content="Decoy 成分小教室：咖啡因、阿里山金萱、烟碱醯胺、玻尿酸、胜肽……一次讲一个成分，用白话说清楚它在保养上做什么。擦在身上的东西，妳有权知道。">
+<meta property="og:title" content="成分小教室 | DECOY">
+<meta property="og:description" content="一次讲一个成分，用白话说清楚它在保养上做什么。">
+<meta property="og:image" content="https://decoy-beauty.com/hero-banner.png">
+<meta property="og:url" content="https://decoy-beauty.com/lab.html">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-F54YFMZSD8"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-F54YFMZSD8");</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400;1,600&amp;family=Noto+Serif+SC:wght@300;400;500&amp;family=IBM+Plex+Mono:wght@300;400&amp;display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --rose:#A86878;--rose-mid:#C4959F;--rose-lt:#D4AAAF;--rose-pale:#EDD8DC;--rose-bg:#FAF5F6;--rose-wash:#F5ECEE;
+  --ink:#2A2220;--ink-mid:#574F4A;--ink-lt:#9A8F8A;--white:#FFFFFF;--cream:#FDFAF8;--warm:#F9F5F2;
+  --line:rgba(168,104,120,0.12);
+  --serif:"Cormorant Garamond",serif;--cjk:"Noto Serif SC",serif;--mono:"IBM Plex Mono",monospace;
+}
+html{scroll-behavior:smooth}
+body{background:var(--cream);color:var(--ink);font-family:var(--cjk);font-weight:300;line-height:1.8;-webkit-font-smoothing:antialiased;font-variant-numeric:lining-nums}
+[data-en]{display:none}
+body.en [data-zh]{display:none}
+body.en [data-en]{display:block}
+body.en span[data-en]{display:inline}
+body.en span[data-zh]{display:none}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:22px 64px;background:rgba(253,250,248,0.94);backdrop-filter:blur(20px);border-bottom:1px solid var(--line)}
+.nav-logo img{height:30px;width:auto;display:block;opacity:0.9;transition:opacity 0.3s}
+.nav-logo:hover img{opacity:1}
+.nav-links{display:flex;gap:36px;list-style:none}
+.nav-links a{font-family:var(--mono);font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--ink-lt);text-decoration:none;transition:color 0.3s}
+.nav-links a:hover,.nav-links a.active{color:var(--rose)}
+.nav-right{display:flex;align-items:center;gap:20px}
+.lang-switch{display:inline-flex;align-items:center;border:1px solid var(--line);font-family:var(--mono);font-size:9px;letter-spacing:.12em}
+.lang-switch a{color:var(--ink-lt);text-decoration:none;padding:6px 9px;line-height:1;transition:color .3s}
+.lang-switch a+a{border-left:1px solid var(--line)}
+.lang-switch a:hover{color:var(--rose)}
+.lang-switch a.on{color:var(--rose)}
+.lang-toggle{font-family:var(--mono);font-size:9px;letter-spacing:0.15em;color:var(--ink-lt);background:none;border:1px solid var(--line);padding:6px 12px;cursor:pointer;transition:all 0.3s}
+.lang-toggle:hover{color:var(--rose);border-color:var(--rose-pale)}
+.nav-reserve{font-family:var(--mono);font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--rose);border:1px solid var(--rose-pale);padding:9px 22px;text-decoration:none;transition:all 0.3s}
+.nav-reserve:hover{background:var(--rose);color:#fff;border-color:var(--rose)}
+
+section{padding:96px 0}
+.container{max-width:1120px;margin:0 auto;padding:0 64px}
+.sec-label{font-family:var(--mono);font-size:10px;letter-spacing:0.28em;text-transform:uppercase;color:var(--rose);margin-bottom:12px;display:flex;align-items:center;gap:14px}
+.sec-label::after{content:"";width:28px;height:1px;background:var(--rose-pale)}
+.sec-title{font-family:var(--cjk);font-size:clamp(24px,3vw,36px);font-weight:300;color:var(--ink);line-height:1.45;margin-bottom:14px;letter-spacing:0.04em}
+.sec-sub{font-size:14px;color:var(--ink-mid);margin-bottom:52px;line-height:1.95;max-width:680px}
+
+.page-hero{min-height:62vh;display:flex;align-items:center;padding:150px 0 80px;position:relative;overflow:hidden;background:var(--cream)}
+.page-hero::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 60% 70% at 78% 40%,rgba(237,216,220,0.45) 0%,transparent 62%),radial-gradient(ellipse 40% 50% at 10% 90%,rgba(196,168,130,0.07) 0%,transparent 50%);pointer-events:none}
+.page-hero .container{position:relative;z-index:2}
+.hero-eyebrow{font-family:var(--mono);font-size:10px;letter-spacing:0.3em;text-transform:uppercase;color:var(--rose);margin-bottom:22px;display:flex;align-items:center;gap:14px}
+.hero-eyebrow::before{content:"";width:24px;height:1px;background:var(--rose-mid);opacity:0.6}
+.hero-title{font-family:var(--cjk);font-size:clamp(30px,4.2vw,54px);font-weight:300;color:var(--ink);line-height:1.5;margin-bottom:26px;letter-spacing:0.06em}
+.hero-title em{font-style:normal;color:var(--rose)}
+body.en .hero-title{font-family:var(--serif);font-style:italic;letter-spacing:0}
+.hero-sub{font-size:15px;color:var(--ink-mid);line-height:2;max-width:620px}
+.hero-jump{margin-top:38px;display:flex;gap:12px;flex-wrap:wrap}
+.hero-jump a{font-family:var(--mono);font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--rose);border:1px solid var(--rose-pale);padding:10px 20px;text-decoration:none;transition:all .3s}
+.hero-jump a:hover{background:var(--rose-wash);border-color:var(--rose)}
+
+/* 课程 */
+.s-courses{background:var(--white)}
+.courses{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line)}
+.course{background:var(--white);padding:52px 48px 48px}
+.course-key{font-family:var(--serif);font-size:44px;font-weight:400;letter-spacing:0.18em;color:var(--rose);line-height:1}
+.course-tag{margin-top:10px;font-size:15px;letter-spacing:0.12em;color:var(--ink)}
+.course-mean{margin-top:18px;font-size:14px;color:var(--ink-mid);line-height:1.9;padding-bottom:26px;border-bottom:1px solid var(--line)}
+.course-h{margin-top:26px;font-family:var(--mono);font-size:10px;letter-spacing:0.22em;text-transform:uppercase;color:var(--rose-mid)}
+.course-for{list-style:none;margin-top:12px}
+.course-for li{position:relative;padding-left:18px;font-size:14px;color:var(--ink-mid);line-height:1.95}
+.course-for li::before{content:"";position:absolute;left:0;top:.9em;width:7px;height:1px;background:var(--rose)}
+.course-care{margin-top:26px;padding:14px 18px;background:var(--rose-bg);font-size:13.5px;color:var(--rose);letter-spacing:0.06em;line-height:1.8}
+.course-meta{margin-top:24px;display:grid;grid-template-columns:52px 1fr;row-gap:10px;font-size:13px;line-height:1.8}
+.course-meta dt{font-family:var(--mono);font-size:10px;letter-spacing:0.14em;color:var(--ink-lt);padding-top:3px}
+.course-meta dd{color:var(--ink-mid)}
+
+/* 流程 */
+.s-steps{background:var(--warm)}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+.step{background:var(--cream);padding:38px 30px}
+.step-n{font-family:var(--serif);font-size:30px;font-style:italic;color:var(--rose-lt);line-height:1}
+.step-k{margin-top:16px;font-family:var(--mono);font-size:10px;letter-spacing:0.26em;color:var(--rose)}
+.step-t{margin-top:4px;font-size:18px;color:var(--ink);letter-spacing:0.1em}
+.step-d{margin-top:12px;font-size:13.5px;color:var(--ink-mid);line-height:1.95}
+.after{margin-top:36px;display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.after-box{padding:26px 30px;border-left:2px solid var(--rose-pale);background:var(--cream)}
+.after-h{font-family:var(--mono);font-size:10px;letter-spacing:0.22em;text-transform:uppercase;color:var(--rose);margin-bottom:8px}
+.after-box p{font-size:14px;color:var(--ink-mid);line-height:1.95}
+
+/* 设备 */
+.s-device{background:var(--white)}
+.device{display:grid;grid-template-columns:1.1fr 1fr;gap:64px;align-items:center}
+.device p{font-size:14.5px;color:var(--ink-mid);line-height:2}
+.device p+p{margin-top:14px}
+@media(max-width:600px){.device-pts li{flex-direction:column;gap:4px}}
+.device-pts{list-style:none;border-top:1px solid var(--line)}
+.device-pts li{display:flex;gap:18px;align-items:baseline;padding:16px 0;border-bottom:1px solid var(--line);font-size:14px;color:var(--ink)}
+.device-pts li b{font-family:var(--mono);font-weight:400;font-size:10px;letter-spacing:0.16em;color:var(--rose);min-width:150px;flex-shrink:0}
+.device-pts li span{line-height:1.85}
+.more{display:inline-block;margin-top:26px;font-family:var(--mono);font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--rose);text-decoration:none;border-bottom:1px solid var(--rose-pale);padding-bottom:3px}
+
+/* 成分 */
+.s-ingr{background:var(--warm)}
+.s-ingr.alt{background:var(--rose-bg)}
+.ingr-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+.ingr{background:var(--cream);padding:34px 30px 30px}
+.ingr-use{font-family:var(--mono);font-size:10px;letter-spacing:0.16em;color:var(--rose)}
+.ingr-zh{margin-top:12px;font-size:18px;color:var(--ink);letter-spacing:0.08em;line-height:1.5}
+.ingr-inci{margin-top:4px;font-family:var(--serif);font-style:italic;font-size:15px;color:var(--ink-lt);line-height:1.4}
+.ingr-desc{margin-top:14px;font-size:13.5px;color:var(--ink-mid);line-height:1.95}
+details.full{margin-top:28px;background:var(--cream);border:1px solid var(--line)}
+details.full summary{cursor:pointer;list-style:none;padding:20px 26px;font-size:14px;color:var(--ink);letter-spacing:0.06em;display:flex;justify-content:space-between}
+details.full summary::-webkit-details-marker{display:none}
+details.full summary::after{content:"+";font-family:var(--mono);color:var(--rose-mid);transition:transform .3s}
+details.full[open] summary::after{transform:rotate(45deg)}
+.inci-wrap{padding:0 26px 22px;overflow-x:auto}
+.inci{width:100%;border-collapse:collapse;font-size:13px;min-width:520px}
+.inci th{text-align:left;font-family:var(--mono);font-weight:400;font-size:10px;letter-spacing:0.16em;color:var(--rose);padding:10px 8px;border-bottom:1px solid var(--rose-pale)}
+.inci td{padding:9px 8px;border-bottom:1px solid var(--line);color:var(--ink-mid);vertical-align:top}
+.inci td.n{font-family:var(--mono);font-size:11px;color:var(--ink-lt)}
+.inci-note{padding:0 26px 22px;font-size:12.5px;color:var(--ink-lt);line-height:1.9}
+
+/* 先告诉我们 */
+.s-tell{background:var(--white)}
+.tell{display:grid;grid-template-columns:1fr 1.2fr;gap:64px}
+.tell ul{list-style:none;border-top:1px solid var(--line)}
+.tell li{padding:15px 0 15px 26px;border-bottom:1px solid var(--line);font-size:14px;color:var(--ink-mid);line-height:1.85;position:relative}
+.tell li::before{content:"";position:absolute;left:4px;top:1.45em;width:7px;height:7px;border:1px solid var(--rose);border-radius:50%}
+.tell p{font-size:14px;color:var(--ink-mid);line-height:2}
+
+/* FAQ */
+.s-faq{background:var(--warm)}
+.s-faq .container{max-width:820px}
+.faq-item{border-bottom:1px solid var(--line);cursor:pointer}
+.faq-item:first-child{border-top:1px solid var(--line)}
+.faq-q{display:flex;justify-content:space-between;align-items:center;padding:22px 0;font-size:15px;font-weight:400;color:var(--ink);letter-spacing:0.02em;user-select:none}
+.faq-arrow{font-family:var(--mono);font-size:14px;color:var(--rose-mid);transition:transform 0.3s;flex-shrink:0;margin-left:16px}
+.faq-item.open .faq-arrow{transform:rotate(45deg)}
+.faq-a{font-size:14px;color:var(--ink-mid);line-height:1.95;padding-bottom:22px;display:none}
+.faq-item.open .faq-a{display:block}
+
+.disclaimer{background:var(--warm);padding:0 0 64px}
+.disclaimer p{max-width:820px;margin:0 auto;padding:22px 26px;border:1px solid var(--line);font-size:12px;color:var(--ink-lt);line-height:1.95}
+
+.s-cta{padding:96px 0;background:var(--rose-bg);text-align:center;border-top:1px solid var(--rose-pale)}
+.cta-title{font-family:var(--cjk);font-size:clamp(22px,3vw,32px);font-weight:300;color:var(--ink);margin-bottom:14px;line-height:1.6;letter-spacing:0.06em}
+.cta-sub{font-size:14px;color:var(--ink-mid);margin-bottom:38px;line-height:1.9}
+.cta-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.btn-rose{font-family:var(--mono);font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:#fff;background:var(--rose);padding:14px 38px;text-decoration:none;display:inline-block;transition:all 0.3s;border:1px solid transparent}
+.btn-rose:hover{background:var(--rose-mid);transform:translateY(-2px)}
+.btn-outline{font-family:var(--mono);font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--rose);border:1px solid var(--rose-pale);padding:14px 38px;text-decoration:none;display:inline-block;transition:all 0.3s;background:var(--white)}
+.btn-outline:hover{border-color:var(--rose);background:var(--rose-wash)}
+
+footer{background:var(--warm);padding:36px 0 22px;border-top:1px solid var(--line)}
+.footer-inner{max-width:1120px;margin:0 auto;padding:0 64px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px}
+.footer-brand{font-family:var(--mono);font-size:10px;letter-spacing:0.2em;color:var(--rose)}
+.footer-note{font-size:11px;color:var(--ink-lt)}
+.footer-note a{color:var(--ink-lt);text-decoration:none}
+.footer-note a:hover{color:var(--rose)}
+
+.reveal{opacity:0;transform:translateY(16px);transition:opacity 0.7s ease,transform 0.7s ease}
+.reveal.in{opacity:1;transform:none}
+
+@media(max-width:960px){
+  nav{padding:16px 28px}
+  .nav-links{display:none}
+  .container,.footer-inner{padding:0 32px}
+  .courses,.after,.device,.tell{grid-template-columns:1fr}
+  .device,.tell{gap:36px}
+  .steps{grid-template-columns:1fr 1fr}
+  .ingr-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:600px){
+  nav{padding:13px 18px}
+  .nav-reserve{font-size:9px;padding:7px 12px}
+  .nav-logo img{height:26px}
+  .page-hero{padding:110px 0 56px;min-height:0}
+  .container,.footer-inner{padding:0 16px}
+  section{padding:68px 0}
+  .course{padding:38px 24px 34px}
+  .course-key{font-size:36px}
+  .steps,.ingr-grid{grid-template-columns:1fr}
+  .step,.ingr{padding:28px 22px}
+  .inci-wrap,.inci-note{padding-left:14px;padding-right:14px}
+  details.full summary{padding:18px 16px}
+}
+@media(prefers-reduced-motion:reduce){.reveal{transition:none}}
+
+.lab-hero{min-height:58vh;display:flex;align-items:center;padding:150px 0 70px;position:relative;overflow:hidden;background:var(--cream)}
+.lab-hero::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 60% 70% at 80% 35%,rgba(237,216,220,0.45) 0%,transparent 62%);pointer-events:none}
+.lab-hero .container{position:relative;z-index:2}
+.jump{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:8px;margin-top:40px;max-width:900px}
+.jump a{display:flex;gap:12px;align-items:baseline;padding:11px 16px;border:1px solid var(--rose-pale);text-decoration:none;color:var(--ink-mid);font-size:13.5px;background:var(--white);transition:all .3s}
+.jump a:hover{border-color:var(--rose);background:var(--rose-wash)}
+.jump b{font-family:var(--serif);font-style:italic;font-weight:400;color:var(--rose);font-size:16px}
+.s-tri{background:var(--white);padding:72px 0}
+.tri{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-top:8px}
+.tri div{background:var(--cream);padding:28px 26px}
+.tri b{display:block;font-family:var(--mono);font-weight:400;font-size:10px;letter-spacing:.2em;color:var(--rose)}
+.tri strong{display:block;margin-top:8px;font-weight:400;font-size:17px;color:var(--ink);letter-spacing:.06em}
+.tri p{margin-top:8px;font-size:13.5px;color:var(--ink-mid);line-height:1.9}
+.tri-note{margin-top:22px;font-size:13px;color:var(--ink-lt);line-height:1.9}
+.s-topics{background:var(--warm);padding:80px 0}
+.topic{display:grid;grid-template-columns:90px 1fr;gap:28px;padding:44px 0;border-top:1px solid var(--line);max-width:860px;margin:0 auto}
+.topic:first-child{border-top:none}
+.t-num{font-family:var(--serif);font-style:italic;font-size:48px;line-height:1;color:var(--rose-lt)}
+.t-title{font-family:var(--cjk);font-weight:400;font-size:clamp(21px,2.4vw,27px);color:var(--ink);letter-spacing:.05em;line-height:1.5}
+.t-one{margin-top:8px;font-size:15px;color:var(--rose);letter-spacing:.04em}
+.t-text{margin-top:16px}
+.t-text p{font-size:14.5px;color:var(--ink-mid);line-height:2.05}
+.t-text p+p{margin-top:12px}
+.t-use,.t-where{margin-top:18px;font-size:13.5px;color:var(--ink-mid);line-height:2}
+.t-k{display:inline-block;margin-right:12px;font-family:var(--mono);font-size:10px;letter-spacing:.16em;color:var(--rose)}
+.chip{display:inline-block;margin:3px 6px 3px 0;padding:2px 12px;border:1px solid var(--rose-pale);background:var(--white);font-size:12.5px;color:var(--ink-mid)}
+.t-src{margin-top:16px}
+.t-src summary{cursor:pointer;font-family:var(--mono);font-size:10px;letter-spacing:.16em;color:var(--ink-lt);list-style:none}
+.t-src summary::-webkit-details-marker{display:none}
+.t-src summary::after{content:" +";color:var(--rose-mid)}
+.t-src[open] summary::after{content:" −"}
+.t-src ul{margin-top:10px;padding-left:18px}
+.t-src li{font-size:12.5px;color:var(--ink-lt);line-height:1.85;word-break:break-word}
+.t-src a{color:var(--rose)}
+@media(max-width:960px){.tri{grid-template-columns:1fr}}
+
+/* ── 互动：成分卡片（点一下翻面）与成分表解码器 ── */
+.flt{display:flex;gap:8px;flex-wrap:wrap;margin-top:34px}
+.flt button{font-family:var(--mono);font-size:10px;letter-spacing:.18em;padding:8px 16px;border:1px solid var(--rose-pale);background:var(--white);color:var(--ink-mid);cursor:pointer;transition:all .25s}
+.flt button.on,.flt button:hover{border-color:var(--rose);color:var(--rose)}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(178px,1fr));gap:10px;margin-top:16px;perspective:900px}
+.card{position:relative;height:118px;cursor:pointer;transition:opacity .3s}
+.card.dim{opacity:.18;pointer-events:none}
+.card .in{position:absolute;inset:0;transition:transform .6s cubic-bezier(.2,.8,.2,1);transform-style:preserve-3d}
+.card.flip .in{transform:rotateY(180deg)}
+.card .f,.card .b{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border:1px solid var(--rose-pale);background:var(--white);padding:14px 16px;display:flex;flex-direction:column}
+.card .b{transform:rotateY(180deg);background:var(--rose-bg)}
+.card .n{font-family:var(--serif);font-style:italic;font-size:22px;color:var(--rose-lt);line-height:1}
+.card .t{margin-top:8px;font-size:14px;color:var(--ink);letter-spacing:.04em;line-height:1.5}
+.card .tag{margin-top:auto;font-family:var(--mono);font-size:9px;letter-spacing:.16em;color:var(--rose)}
+.card .o{font-size:12.5px;color:var(--ink-mid);line-height:1.75}
+.card .go{margin-top:auto;font-family:var(--mono);font-size:9px;letter-spacing:.16em;color:var(--rose);text-decoration:none}
+.s-dec{background:var(--white);padding:80px 0}
+.dec{max-width:860px;margin:0 auto}
+.dec textarea{width:100%;min-height:120px;padding:16px;border:1px solid var(--rose-pale);background:var(--cream);font-family:var(--cjk);font-size:14px;line-height:1.8;color:var(--ink);resize:vertical}
+.dec .act{display:flex;gap:10px;margin-top:12px;flex-wrap:wrap}
+.dec .act button{font-family:var(--mono);font-size:10px;letter-spacing:.18em;padding:10px 20px;border:1px solid var(--rose);background:var(--rose);color:#fff;cursor:pointer}
+.dec .act button.s{background:none;color:var(--rose)}
+.dec ol{list-style:none;margin-top:22px;border-top:1px solid var(--line)}
+.dec li{display:grid;grid-template-columns:42px 1fr auto;gap:14px;align-items:baseline;padding:11px 4px;border-bottom:1px solid var(--line);font-size:14px;color:var(--ink-mid)}
+.dec li b{font-family:var(--serif);font-style:italic;font-weight:400;font-size:18px;color:var(--rose-lt)}
+.dec li .nm{color:var(--ink)}.dec li .nm small{display:block;font-size:11.5px;color:var(--ink-lt);letter-spacing:.02em}
+.dec li .r{font-size:12.5px;color:var(--rose);text-align:right}
+.dec li.unk .r{color:var(--ink-lt)}
+.dec li.top{background:var(--rose-bg)}
+.dec .note{margin-top:14px;font-size:12px;color:var(--ink-lt);line-height:1.8}
+@media(max-width:600px){.cards{grid-template-columns:repeat(2,1fr)}.card{height:132px}.dec li{grid-template-columns:30px 1fr;}.dec li .r{grid-column:2;text-align:left}}
+@media(prefers-reduced-motion:reduce){.card .in{transition:none}}
+/* ── 成分插画（10/8）── */
+.t-art{float:right;width:184px;height:184px;margin:-6px 0 18px 32px;border-radius:50%;overflow:hidden;shape-outside:circle(50%);
+  box-shadow:0 18px 40px -18px rgba(150,90,100,.35),0 0 0 8px rgba(255,255,255,.7)}
+.t-art img{display:block;width:100%;height:100%;object-fit:cover;transition:transform 1.2s cubic-bezier(.2,.8,.2,1)}
+.topic:hover .t-art img{transform:scale(1.06)}
+.t-art.trio{width:230px;height:184px;border-radius:0;overflow:visible;box-shadow:none;shape-outside:none;position:relative}
+.t-art.trio img{position:absolute;width:118px;height:118px;border-radius:50%;box-shadow:0 14px 32px -16px rgba(150,90,100,.4),0 0 0 6px rgba(255,255,255,.75)}
+.t-art.trio img:nth-child(1){left:0;top:10px}.t-art.trio img:nth-child(2){left:96px;top:0;width:134px;height:134px}.t-art.trio img:nth-child(3){left:58px;top:92px;width:92px;height:92px}
+.lab-orbs{position:absolute;inset:0;pointer-events:none;z-index:1}
+.lab-orbs img{position:absolute;width:var(--s);height:var(--s);border-radius:50%;object-fit:cover;box-shadow:0 24px 50px -22px rgba(150,90,100,.45),0 0 0 10px rgba(255,255,255,.6);animation:orb 9s ease-in-out infinite}
+@keyframes orb{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+.card .f{overflow:hidden}
+.card .t{position:relative;z-index:1;max-width:calc(100% - 58px)}
+.card .ci{position:absolute;right:-16px;bottom:-16px;width:88px;height:88px;border-radius:50%;object-fit:cover;opacity:.92;transition:transform .5s}
+.card:hover .ci{transform:scale(1.08)}
+@media(max-width:1100px){.lab-orbs{display:none}}
+@media(max-width:600px){.card .ci{width:62px;height:62px;right:-12px;bottom:-12px}.card .t{max-width:calc(100% - 34px)}.card .tag{position:relative;z-index:1;max-width:calc(100% - 44px)}
+  .t-art{width:118px;height:118px;margin:0 0 12px 18px;box-shadow:0 10px 24px -12px rgba(150,90,100,.35),0 0 0 5px rgba(255,255,255,.7)}
+  .t-art.trio{width:150px;height:120px}.t-art.trio img{width:76px;height:76px}.t-art.trio img:nth-child(2){left:62px;width:88px;height:88px}.t-art.trio img:nth-child(3){left:38px;top:60px;width:60px;height:60px}}
+@media(prefers-reduced-motion:reduce){.lab-orbs img{animation:none}}
+@media(max-width:600px){.lab-hero{padding:110px 0 50px;min-height:0}.topic{grid-template-columns:1fr;gap:6px;padding:34px 0}.t-num{font-size:36px}.s-topics{padding:56px 0}}
+</style>
+
+<link rel="canonical" href="https://decoy-beauty.com/zh-cn/lab.html">
+<!-- i18n:alt --><link rel="alternate" hreflang="zh-Hant" href="https://decoy-beauty.com/lab.html"><link rel="alternate" hreflang="zh-Hans" href="https://decoy-beauty.com/zh-cn/lab.html"><link rel="alternate" hreflang="x-default" href="https://decoy-beauty.com/lab.html"><!-- /i18n:alt -->
+</head>
+<body>
+<nav>
+<a href="zh-cn/" class="nav-logo">
+<img src="data:image/png;base64,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" alt="DECOY">
+</a>
+<ul class="nav-links">
+<li><a href="zh-cn/about.html"><span data-zh="">关于品牌</span></a></li>
+<li><a href="zh-cn/care.html"><span data-zh="">课程与成分</span></a></li>
+<li><a href="zh-cn/technology.html"><span data-zh="">技术原理</span></a></li>
+<li><a href="zh-cn/lab.html" class="active"><span data-zh="">成分小教室</span></a></li>
+<li><a href="zh-cn/partner.html"><span data-zh="">加盟合作</span></a></li>
+<li><a href="zh-cn/founder.html"><span data-zh="">创办人</span></a></li>
+</ul>
+<div class="nav-right">
+<div class="lang-switch" aria-label="Language"><a href="lab.html" hreflang="zh-Hant" lang="zh-Hant" data-lang="zh-Hant">繁</a><a href="zh-cn/lab.html" hreflang="zh-Hans" lang="zh-Hans" data-lang="zh-Hans" class="on" aria-current="true">简</a></div>
+<a href="zh-cn/reserve.html" class="nav-reserve">
+<span data-zh="">预约体验</span>
+</a>
+</div>
+</nav>
+<section class="lab-hero">
+<div class="lab-orbs" aria-hidden="true"><img src="img/ing/m2.webp" alt="" style="--s:230px;left:calc(50% + 420px);top:150px"><img src="img/ing/m3.webp" alt="" style="--s:128px;left:calc(50% + 640px);top:96px;animation-delay:-4s"><img src="img/ing/l6.webp" alt="" style="--s:150px;left:calc(50% + 560px);top:440px;animation-delay:-2s"><img src="img/ing/m4.webp" alt="" style="--s:200px;right:calc(50% + 420px);top:270px;animation-delay:-6s"><img src="img/ing/l3.webp" alt="" style="--s:124px;right:calc(50% + 600px);top:130px;animation-delay:-3s"><img src="img/ing/m1.webp" alt="" style="--s:112px;right:calc(50% + 470px);top:560px;animation-delay:-5s"></div>
+<div class="container">
+<div class="reveal">
+<div class="hero-eyebrow">Decoy Lab · 成分小教室</div>
+<h1 class="hero-title">擦在身上的东西，<br><em>妳有权知道。</em></h1>
+<p class="hero-sub">这里一次讲一个成分：它是什么、在保养上做什么、放在 Decoy 的哪一瓶。说法都在化粧品可以说的范围里；每个人的感受，会因肤况、体质和作息而不同。</p>
+<div class="jump"><a href="zh-cn/lab.html#t00"><b>00</b>怎么读一张成分表</a><a href="zh-cn/lab.html#t01"><b>01</b>咖啡因</a><a href="zh-cn/lab.html#t02"><b>02</b>卡蜜拉 Camellia™</a><a href="zh-cn/lab.html#t03"><b>03</b>孔雀石萃取</a><a href="zh-cn/lab.html#t04"><b>04</b>叉珊藻萃取</a><a href="zh-cn/lab.html#t05"><b>05</b>纳豆发酵萃取</a><a href="zh-cn/lab.html#t06"><b>06</b>PeptiCarrier™ 活性胜肽载体</a><a href="zh-cn/lab.html#t07"><b>07</b>烟碱醯胺</a><a href="zh-cn/lab.html#t08"><b>08</b>肌醇和泛醇</a><a href="zh-cn/lab.html#t09"><b>09</b>小分子玻尿酸</a><a href="zh-cn/lab.html#t10"><b>10</b>印度獐牙菜萃取</a><a href="zh-cn/lab.html#t11"><b>11</b>尿囊素</a><a href="zh-cn/lab.html#t12"><b>12</b>六胜肽</a><a href="zh-cn/lab.html#t13"><b>13</b>台湾石斑鱼胶原</a></div>
+</div>
+</div>
+</section>
+<section class="s-tri">
+<div class="container reveal">
+<div class="sec-label">Tri-Layer Delivery™</div>
+<h2 class="sec-title">三层精准导入技术</h2>
+<div class="tri">
+<div><b>01</b><strong>AirMist™ 气流雾化</strong><p>高速气流把精华化成细致的雾，均匀覆盖在肌肤上，全程无针、无伤口。</p></div>
+<div><b>02</b><strong>PeptiCarrier™ 活性胜肽载体</strong><p>MIRROR 配方中的胜肽载体，协助活性成分被肌肤吸收。</p></div>
+<div><b>03</b><strong>Precision Formula 精准配方</strong><p>LIGHT 脸部、MIRROR 身体，依部位设计，全成分公开。</p></div>
+</div>
+<p class="tri-note">活性安瓶配方由台大背景的研发团队开发；迅So枪由金属工业研究发展中心出身的博士团队研发，独家授权岩宽生医。岩宽生医 3 项专利，专利设备另获 3 项发明专利授权，研发、品质与法规由岩宽生医把关。</p>
+</div>
+</section>
+<section class="s-topics">
+<div class="container">
+<article class="topic reveal" id="t00">
+<div class="t-num">00</div>
+<div class="t-body">
+<figure class="t-art"><img src="img/ampoules.webp" alt="LIGHT 与 MIRROR 活性安瓶 示意插画" loading="lazy" width="520" height="520"></figure>
+<h2 class="t-title">怎么读一张成分表</h2>
+<p class="t-one">排在越前面的，用得越多。</p>
+<div class="t-text"><p>台湾的化粧品，依法要把全部成分写在包装上。成分表照含量由多到少排列；含量在 1% 以下的成分，可以排在后面、不照顺序。所以第一个常常是水，接着是保湿成分；真正让人好奇的活性成分，有时排在中间或后面，不代表它不重要。</p><p>里面那些看起来很化学的名字，例如苯氧乙醇、辛甘醇、1,2-己二醇，多半是让产品能安全保存、不容易变质的配方系统，用量依法规限制。</p></div>
+<div class="t-where"><span class="t-k">在 Decoy</span>LIGHT 和 MIRROR 两瓶活性安瓶的全成分，都公开在官网「课程与成分」。</div>
+<details class="t-src"><summary>资料出处</summary><ul><li>化粧品卫生安全管理法 第 7 条（全成分标示）：<a href="https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0030013" target="_blank" rel="noopener">https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0030013</a></li><li>卫生福利部食品药物管理署：化粧品外包装、容器、标签或仿单之标示规定 <a href="https://www.fda.gov.tw/tc/includes/GetFile.ashx?id=f636948036356063048" target="_blank" rel="noopener">https://www.fda.gov.tw/tc/includes/GetFile.ashx?id=f636948036356063048</a></li><li>欧盟化粧品成分资料库 CosIng：<a href="https://ec.europa.eu/growth/tools-databases/cosing/" target="_blank" rel="noopener">https://ec.europa.eu/growth/tools-databases/cosing/</a></li></ul></details>
+</div>
+</article>
+<article class="topic reveal" id="t01">
+<div class="t-num">01</div>
+<div class="t-body">
+<figure class="t-art"><img src="img/ing/m1.webp" alt="咖啡因 示意插画" loading="lazy" width="520" height="520"></figure>
+<h2 class="t-title">咖啡因：不是妳早上喝的那杯</h2>
+<p class="t-one">常用在眼周和身体保养，让肌肤看起来紧实、有精神。</p>
+<div class="t-text"><p>咖啡因除了在咖啡里，也是保养品的常客。擦在肌肤上的咖啡因是纯化过的化粧品原料，不是把咖啡倒在身上。它常被放在眼霜和身体保养品里，让肌肤看起来更紧实、有精神；它也是一种抗氧化成分，帮肌肤面对日常的环境压力。</p></div>
+<div class="t-use"><span class="t-k">在保养上的用途</span><span class="chip">紧实</span><span class="chip">紧致</span><span class="chip">有精神</span><span class="chip">增强肌肤防护力</span></div>
+<div class="t-where"><span class="t-k">在 Decoy</span>MIRROR 身体精准导入（成分表第 3 位）</div>
+<details class="t-src"><summary>资料出处</summary><ul><li>欧盟 CosIng：Caffeine（skin conditioning）</li><li>PubChem：Caffeine <a href="https://pubchem.ncbi.nlm.nih.gov/compound/Caffeine" target="_blank" rel="noopener">https://pubchem.ncbi.nlm.nih.gov/compound/Caffeine</a></li></ul></details>
+</div>
+</article>
+<article class="topic reveal" id="t02">
+<div class="t-num">02</div>
+<div class="t-body">
+<figure class="t-art"><img src="img/ing/m2.webp" alt="卡蜜拉 Camellia™ 阿里山金萱 示意插画" loading="lazy" width="520" height="520"></figure>
+<h2 class="t-title">卡蜜拉 Camellia™：为什么是阿里山金萱茶？</h2>
+<p class="t-one">台茶 12 号金萱低温萃取，留下儿茶素。</p>
+<div class="t-text"><p>卡蜜拉 Camellia™ 是 MIRROR 里的阿里山金萱复方，由台茶 12 号金萱茶萃取和茶多酚（EGCG）组成。茶叶里最被研究的是儿茶素，一种抗氧化成分，能帮肌肤抵御日晒、空污带来的环境压力。这款原料用低温萃取，把儿茶素留下来、把咖啡因拿掉。</p><p>像一杯好茶，喝的是回甘；擦在身上，是安稳。</p><p>原料端完成了 OECD TG439 体外皮肤刺激性测试，以及 50 人人体皮肤贴布测试，原料并取得 COSMOS Natural 认证。</p></div>
+<div class="t-use"><span class="t-k">在保养上的用途</span><span class="chip">抗氧化（成分特性）</span><span class="chip">增强肌肤防护力</span><span class="chip">舒缓肌肤压力</span><span class="chip">维持肌肤健康</span></div>
+<div class="t-where"><span class="t-k">在 Decoy</span>MIRROR 身体精准导入</div>
+<details class="t-src"><summary>资料出处</summary><ul><li>OyetakinWhite P, et al. Protective mechanisms of green tea polyphenols in skin. Oxid Med Cell Longev. 2012;2012:560682.</li><li>原料商技术资料：ImDermalab 金萱茶萃取原料（2025）</li><li>欧盟 CosIng：Camellia Sinensis Leaf Extract、Epigallocatechin Gallate</li></ul></details>
+</div>
+</article>
+<article class="topic reveal" id="t03">
+<div class="t-num">03</div>
+<div class="t-body">
+<figure class="t-art"><img src="img/ing/m3.webp" alt="孔雀石 示意插画" loading="lazy" width="520" height="520"></figure>
+<h2 class="t-title">孔雀石萃取：一颗矿石，怎么变成保养成分？</h2>
+<p class="t-one">含铜的矿石萃取，帮肌肤抵御环境压力。</p>
+<div class="t-text"><p>孔雀石是一种带着深绿色纹路的含铜矿石。保养品用的是它的萃取物，提供铜等微量元素。铜是肌肤维持自身防护需要的元素之一，所以孔雀石萃取常被放进强调「防护」的配方里。</p></div>
+<div class="t-use"><span class="t-k">在保养上的用途</span><span class="chip">增强肌肤防护力</span><span class="chip">保护肌肤</span><span class="chip">抗氧化（成分特性）</span></div>
+<div class="t-where"><span class="t-k">在 Decoy</span>MIRROR 身体精准导入</div>
+<details class="t-src"><summary>资料出处</summary><ul><li>欧盟 CosIng：Malachite Extract</li></ul></details>
+</div>
+</article>
+<article class="topic reveal" id="t04">
+<div class="t-num">04</div>
+<div class="t-body">
+<figure class="t-art"><img src="img/ing/m4.webp" alt="叉珊藻 示意插画" loading="lazy" width="520" height="520"></figure>
+<h2 class="t-title">叉珊藻萃取：在实验室长大的红藻</h2>
+<p class="t-one">不必采集野生海藻，让肌肤更紧实、饱满。</p>
+<div class="t-text"><p>叉珊藻是一种会长出钙质骨架的红藻。这款原料由法国原料商在生物反应器里培养，不需要到海里采集野生藻类，对海洋比较友善。2013 年，它获得德国 BSB 创新奖「最具创新天然原料」。在保养上，它用来让肌肤更紧实、饱满。</p></div>
+<div class="t-use"><span class="t-k">在保养上的用途</span><span class="chip">紧实</span><span class="chip">饱满（弹力）</span><span class="chip">紧俏</span></div>
+<div class="t-where"><span class="t-k">在 Decoy</span>MIRROR 身体精准导入</div>
+<details class="t-src"><summary>资料出处</summary><ul><li>Premium Beauty News：BSB awards Codif's Actiporine 8G as best natural active <a href="https://www.premiumbeautynews.com/en/bsb-awards-codif-s-actiporine-8g,5393" target="_blank" rel="noopener">https://www.premiumbeautynews.com/en/bsb-awards-codif-s-actiporine-8g,5393</a></li><li>欧盟 CosIng：Jania Rubens Extract</li></ul></details>
+</div>
+</article>
+<article class="topic reveal" id="t05">
+<div class="t-num">05</div>
+<div class="t-body">
+<figure class="t-art"><img src="img/ing/m5.webp" alt="纳豆发酵 示意插画" loading="lazy" width="520" height="520"></figure>
+<h2 class="t-title">纳豆发酵萃取：发酵，让大分子变小</h2>
+<p class="t-one">大豆经纳豆菌发酵，含小分子胜肽和胺基酸，保湿、滋润。</p>
+<div class="t-text"><p>发酵就像先把食物「切小」：大豆里的蛋白质和糖类，经过枯草杆菌（也就是做纳豆的菌）分解，变成比较小的胜肽和胺基酸。这类发酵萃取常出现在保湿、滋润型的保养品里。</p></div>
+<div class="t-use"><span class="t-k">在保养上的用途</span><span class="chip">保湿</span><span class="chip">滋润</span><span class="chip">调理肌肤</span></div>
+<div class="t-where"><span class="t-k">在 Decoy</span>MIRROR 身体精准导入</div>
+<details class="t-src"><summary>资料出处</summary><ul><li>欧盟 CosIng／COSMILE Europe：Bacillus/Soybean Ferment Extract <a href="https://cosmileeurope.eu/inci/detail/1427/bacillus-soybean-ferment-extract/" target="_blank" rel="noopener">https://cosmileeurope.eu/inci/detail/1427/bacillus-soybean-ferment-extract/</a></li></ul></details>
+</div>
+</article>
+<article class="topic reveal" id="t06">
+<div class="t-num">06</div>
+<div class="t-body">
+<figure class="t-art"><img src="img/ing/m6.webp" alt="PeptiCarrier™ 活性胜肽载体 示意插画" loading="lazy" width="520" height="520"></figure>
+<h2 class="t-title">PeptiCarrier™ 活性胜肽载体：配方里的带路人</h2>
+<p class="t-one">协助配方中的活性成分被肌肤吸收。</p>
+<div class="t-text"><p>胜肽是由胺基酸串成的小片段。Decoy MIRROR 活性安瓶里的 PeptiCarrier™ 活性胜肽载体，是一种以合成方式制成、序列与人体相同的十胜肽（sh-Decapeptide-5 SP）。它在配方里像一位带路的人，协助其他活性成分被肌肤好好吸收；它本身也是肌肤调理成分。</p><p>它也是三层精准导入技术的第二层：第一层 AirMist™ 把精华化成细雾，第二层 PeptiCarrier™ 协助吸收，第三层是依部位设计的精准配方。</p></div>
+<div class="t-use"><span class="t-k">在保养上的用途</span><span class="chip">肌肤调理</span><span class="chip">保护肌肤</span><span class="chip">协助配方被肌肤吸收</span></div>
+<div class="t-where"><span class="t-k">在 Decoy</span>MIRROR 身体精准导入</div>
+<details class="t-src"><summary>资料出处</summary><ul><li>COSMILE Europe：SH-Decapeptide-5 SP <a href="https://cosmileeurope.eu/inci/detail/28790/sh-decapeptide-5-sp/" target="_blank" rel="noopener">https://cosmileeurope.eu/inci/detail/28790/sh-decapeptide-5-sp/</a></li><li>欧盟 CosIng：sh-Decapeptide-5 SP（skin conditioning, skin protecting）</li></ul></details>
+</div>
+</article>
+<article class="topic reveal" id="t07">
+<div class="t-num">07</div>
+<div class="t-body">
+<figure class="t-art"><img src="img/ing/l1.webp" alt="烟碱醯胺 示意插画" loading="lazy" width="520" height="520"></figure>
+<h2 class="t-title">烟碱醯胺：被研究最多的保养成分之一</h2>
+<p class="t-one">维生素 B3 的一种，帮肌肤把保护层顾好。</p>
+<div class="t-text"><p>烟碱醯胺是维生素 B3 的一种形式，也是皮肤科学研究最多的保养成分之一。它帮肌肤把最外层的「保护层」顾好，所以肌肤比较不容易干，肤色看起来也更均匀、透亮。开架和专柜保养品里都很常见。</p></div>
+<div class="t-use"><span class="t-k">在保养上的用途</span><span class="chip">改善暗沉</span><span class="chip">均匀肤色</span><span class="chip">亮白</span><span class="chip">增强肌肤防护力</span><span class="chip">调理油水平衡</span></div>
+<div class="t-where"><span class="t-k">在 Decoy</span>LIGHT 脸部精准导入（成分表第 3 位）</div>
+<details class="t-src"><summary>资料出处</summary><ul><li>Bissett DL, Oblong JE, Berge CA. Niacinamide: A B vitamin that improves aging facial skin appearance. Dermatol Surg. 2005;31(7 Pt 2):860-865.</li><li>Gehring W. Nicotinic acid/niacinamide and the skin. J Cosmet Dermatol. 2004;3(2):88-93.</li></ul></details>
+</div>
+</article>
+<article class="topic reveal" id="t08">
+<div class="t-num">08</div>
+<div class="t-body">
+<figure class="t-art trio"><img src="img/ing/l2.webp" alt="肌醇 示意插画" loading="lazy" width="520" height="520"><img src="img/ing/l4.webp" alt="泛醇 示意插画" loading="lazy" width="520" height="520"><img src="img/ing/l7.webp" alt="维生素 B12 示意插画" loading="lazy" width="520" height="520"></figure>
+<h2 class="t-title">肌醇和泛醇：B 群家族的保水小帮手</h2>
+<p class="t-one">一个帮忙保水，一个帮忙舒缓干燥。</p>
+<div class="t-text"><p>肌醇是 B 群家族的一员，过去被称为维生素 B8，在保养品里负责保湿、让肌肤柔软。泛醇（维生素原 B5）擦在肌肤上会转成维生素 B5，能保湿，也能舒缓干燥带来的紧绷、不适，帮肌肤修护。</p><p>LIGHT 里的维生素 B 家族一共四位：B3（烟碱醯胺）、肌醇、B5（泛醇）和 B12。</p></div>
+<div class="t-use"><span class="t-k">在保养上的用途</span><span class="chip">保湿</span><span class="chip">滋润</span><span class="chip">舒缓肌肤干燥不适感</span><span class="chip">修护肌肤</span><span class="chip">柔嫩</span></div>
+<div class="t-where"><span class="t-k">在 Decoy</span>LIGHT 脸部精准导入</div>
+<details class="t-src"><summary>资料出处</summary><ul><li>Proksch E, de Bony R, Trapp S, Boudon S. Topical use of dexpanthenol: a 70th anniversary article. J Dermatolog Treat. 2017;28(8):766-773.</li><li>欧盟 CosIng：Inositol、Panthenol、Cyanocobalamin</li></ul></details>
+</div>
+</article>
+<article class="topic reveal" id="t09">
+<div class="t-num">09</div>
+<div class="t-body">
+<figure class="t-art"><img src="img/ing/l6.webp" alt="小分子玻尿酸 示意插画" loading="lazy" width="520" height="520"></figure>
+<h2 class="t-title">小分子玻尿酸：大分子、小分子，有什么不同？</h2>
+<p class="t-one">保湿界的老朋友，切小之后更轻盈。</p>
+<div class="t-text"><p>玻尿酸能抓住大量水分，是最常见的保湿成分之一。分子比较大的玻尿酸，会在肌肤表面形成一层保水的膜；水解后的小分子玻尿酸质地更轻盈，常用来补水、让肌肤看起来水润饱满。研究也比较过不同分子量的玻尿酸在保湿和纹路上的表现。</p><p>要分清楚的是：保养品里的玻尿酸是保湿成分，和诊所注射用的玻尿酸是两回事。</p></div>
+<div class="t-use"><span class="t-k">在保养上的用途</span><span class="chip">补水</span><span class="chip">锁水</span><span class="chip">保湿</span><span class="chip">饱满（弹力）肌肤</span></div>
+<div class="t-where"><span class="t-k">在 Decoy</span>LIGHT 脸部精准导入（水解玻尿酸钠、水解玻尿酸）</div>
+<details class="t-src"><summary>资料出处</summary><ul><li>Pavicic T, et al. Efficacy of cream-based novel formulations of hyaluronic acid of different molecular weights in anti-wrinkle treatment. J Drugs Dermatol. 2011;10(9):990-1000.</li></ul></details>
+</div>
+</article>
+<article class="topic reveal" id="t10">
+<div class="t-num">10</div>
+<div class="t-body">
+<figure class="t-art"><img src="img/ing/l3.webp" alt="印度獐牙菜 示意插画" loading="lazy" width="520" height="520"></figure>
+<h2 class="t-title">印度獐牙菜萃取：喜马拉雅山的苦味草本</h2>
+<p class="t-one">维持肌肤弹性、延缓肌肤老化。</p>
+<div class="t-text"><p>印度獐牙菜生长在喜马拉雅山区，属于龙胆科，传统上是一种以「苦」闻名的草本。保养研究注意到它的萃取，可用来维持肌肤弹性、保湿，并延缓肌肤老化。</p></div>
+<div class="t-use"><span class="t-k">在保养上的用途</span><span class="chip">维持肌肤弹性</span><span class="chip">延缓肌肤老化</span><span class="chip">保湿</span></div>
+<div class="t-where"><span class="t-k">在 Decoy</span>LIGHT 脸部精准导入</div>
+<details class="t-src"><summary>资料出处</summary><ul><li>Kumar V, Van Staden J. A Review of Swertia chirayita (Gentianaceae) as a Traditional Medicinal Plant. Front Pharmacol. 2016;6:308.</li><li>美国专利 US 11,957,781：Swertia chirata extract and cosmetic compositions comprising same</li></ul></details>
+</div>
+</article>
+<article class="topic reveal" id="t11">
+<div class="t-num">11</div>
+<div class="t-body">
+<figure class="t-art"><img src="img/ing/l5.webp" alt="尿囊素 示意插画" loading="lazy" width="520" height="520"></figure>
+<h2 class="t-title">尿囊素：温和的经典</h2>
+<p class="t-one">安抚肌肤、让肌肤柔嫩。</p>
+<div class="t-text"><p>尿囊素是保养品里用了几十年的经典成分，很多温和型、给干燥肌肤用的产品都看得到它。它的工作很单纯：安抚肌肤，让肌肤摸起来柔嫩。</p></div>
+<div class="t-use"><span class="t-k">在保养上的用途</span><span class="chip">安抚</span><span class="chip">舒缓</span><span class="chip">柔嫩</span></div>
+<div class="t-where"><span class="t-k">在 Decoy</span>LIGHT 脸部精准导入</div>
+<details class="t-src"><summary>资料出处</summary><ul><li>Cosmetic Ingredient Review. Final report of the safety assessment of allantoin and its related complexes. Int J Toxicol. 2010;29(2 Suppl):84S-97S.</li></ul></details>
+</div>
+</article>
+<article class="topic reveal" id="t12">
+<div class="t-num">12</div>
+<div class="t-body">
+<figure class="t-art"><img src="img/ing/l8.webp" alt="六胜肽 示意插画" loading="lazy" width="520" height="520"></figure>
+<h2 class="t-title">六胜肽：表情纹的保养</h2>
+<p class="t-one">淡化细纹，让纹路看起来柔和。</p>
+<div class="t-text"><p>六胜肽（乙醯基六胜肽-8）是由六个胺基酸组成的胜肽，常用在眼周、额头这些常做表情的地方。在保养上，它用来淡化细纹、让纹路看起来柔和。</p><p>说清楚也很重要：它是保养品，不是注射，也不能取代医疗。研究显示它对纹路有一定帮助，但每个人的感受不同。</p></div>
+<div class="t-use"><span class="t-k">在保养上的用途</span><span class="chip">淡化（抚平）细纹</span><span class="chip">调理肌肤纹路</span></div>
+<div class="t-where"><span class="t-k">在 Decoy</span>LIGHT 脸部精准导入</div>
+<details class="t-src"><summary>资料出处</summary><ul><li>Acetyl Hexapeptide-8 in Cosmeceuticals—A Review of Skin Permeability and Efficacy（文献回顾，2025）<a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC12193160/" target="_blank" rel="noopener">https://www.ncbi.nlm.nih.gov/pmc/articles/PMC12193160/</a></li></ul></details>
+</div>
+</article>
+<article class="topic reveal" id="t13">
+<div class="t-num">13</div>
+<div class="t-body">
+<figure class="t-art"><img src="img/ing/l9.webp" alt="台湾石斑鱼胶原 示意插画" loading="lazy" width="520" height="520"></figure>
+<h2 class="t-title">台湾石斑鱼胶原：从在地渔业到保养（LIGHT 升级配方）</h2>
+<p class="t-one">在地渔业的鱼皮被好好利用，水解成小分子胶原蛋白。</p>
+<div class="t-text"><p>新一批 LIGHT 升级配方，加入了水解胶原蛋白。原料来自台湾在地渔业的石斑鱼皮：原本是加工后剩下的副产品，现在被好好利用，产地可追溯。鱼皮里的胶原蛋白经过水解，切成分子量小于 2,000 的小分子，在保养上用来保湿、让肌肤紧致、维持弹性。</p></div>
+<div class="t-use"><span class="t-k">在保养上的用途</span><span class="chip">保湿</span><span class="chip">紧致</span><span class="chip">维持肌肤弹性</span><span class="chip">改善暗沉</span></div>
+<div class="t-where"><span class="t-k">在 Decoy</span>LIGHT 脸部精准导入（新一批升级配方；完整成分表以新批次标示为准）</div>
+<details class="t-src"><summary>资料出处</summary><ul><li>原料商技术资料：ImDermalab 水解胶原蛋白原料（2025）</li><li>欧盟 CosIng：Hydrolyzed Collagen</li></ul></details>
+</div>
+</article>
+</div>
+</section>
+<div class="disclaimer">
+<p>本页成分说明引自原料资料与公开文献，属成分在保养上的用途说明，不代表对个别使用者的效果承诺。Decoy 为非侵入式美容保养服务，不是医疗行为。个人感受因肤况、体质与生活作息而不同。</p>
+</div>
+<section class="s-dec" id="decoder">
+<div class="container"><div class="dec reveal">
+<div class="sec-label">Decode Yourself · 成分表解码器</div>
+<h2 class="sec-title">把妳手上那瓶的成分表贴进来</h2>
+<p class="sec-sub">英文或中文都可以，用逗号或换行分开。我们会依排序列出每个成分，并说明它在配方里负责什么；排在越前面的，用得越多。这是成分在配方里的用途类别，不代表功效。</p>
+<textarea id="decIn" placeholder="例如：Aqua, Glycerin, Niacinamide, Sodium Hyaluronate, Phenoxyethanol, Fragrance"></textarea>
+<div class="act"><button id="decGo">解码</button><button class="s" id="decLight">试试 LIGHT 活性安瓶</button></div>
+<ol id="decOut"></ol>
+<p class="note" id="decNote" hidden=""></p>
+</div></div>
+</section>
+<section class="s-cta">
+<div class="container reveal">
+<div class="cta-title">想看两瓶活性安瓶的全成分？</div>
+<div class="cta-sub">LIGHT 脸部精准导入、MIRROR 身体精准导入，全成分都在「课程与成分」。</div>
+<div class="cta-btns">
+<a href="zh-cn/care.html" class="btn-rose">课程与成分 →</a>
+<a href="quiz.html" class="btn-outline">照顾节奏测验</a>
+</div>
+</div>
+</section>
+<footer>
+<div class="footer-inner">
+<div class="footer-brand">DECOY · <span data-zh="">岩宽生医股份有限公司</span></div>
+<div class="footer-note">
+      © 2026 <span data-zh="">岩宽生医</span> ·
+      <a href="zh-cn/"><span data-zh="">首页</span></a> ·
+      <a href="https://instagram.com/decoy_beauty" target="_blank">Instagram</a>
+</div>
+</div>
+</footer>
+<script>
+/* 成分卡片：从下方文章自动产生，点一下翻面；可依 LIGHT／MIRROR 筛选 */
+(() => {
+  const jump = document.querySelector('.jump'); const arts = [...document.querySelectorAll('article.topic')]; if (!jump || !arts.length) return;
+  const which = a => { const w = (a.querySelector('.t-where') || {}).textContent || ''; const L = /LIGHT/.test(w), M = /MIRROR/.test(w); return L && M ? 'both' : L ? 'light' : M ? 'mirror' : 'both'; };
+  const tagTxt = { light: 'LIGHT', mirror: 'MIRROR', both: 'LIGHT · MIRROR' };
+  const flt = document.createElement('div'); flt.className = 'flt';
+  flt.innerHTML = '<button class="on" data-f="all">全部</button><button data-f="light">LIGHT 脸部</button><button data-f="mirror">MIRROR 身体</button>';
+  const grid = document.createElement('div'); grid.className = 'cards';
+  arts.forEach(a => { const n = a.querySelector('.t-num').textContent.trim(), t = a.querySelector('.t-title').textContent.split('：')[0], o = (a.querySelector('.t-one') || {}).textContent || '', b = which(a);
+    const c = document.createElement('div'); c.className = 'card'; c.dataset.b = b; c.tabIndex = 0;
+    const im = a.querySelector('.t-art img');
+    c.innerHTML = `<div class="in"><div class="f">${im ? `<img class="ci" src="${im.getAttribute('src')}" alt="">` : ''}<span class="n">${n}</span><span class="t">${t}</span><span class="tag">${tagTxt[b]}</span></div><div class="b"><span class="o">${o}</span><a class="go" href="#${a.id}">看完整说明 ↓</a></div></div>`;
+    c.addEventListener('click', e => { if (e.target.closest('.go')) return; c.classList.toggle('flip'); });
+    c.addEventListener('keydown', e => { if (e.key === 'Enter') c.classList.toggle('flip'); });
+    grid.appendChild(c); });
+  flt.addEventListener('click', e => { const f = e.target.dataset.f; if (!f) return; flt.querySelectorAll('button').forEach(x => x.classList.toggle('on', x === e.target));
+    grid.querySelectorAll('.card').forEach(c => c.classList.toggle('dim', !(f === 'all' || c.dataset.b === f || c.dataset.b === 'both'))); });
+  jump.replaceWith(flt, grid);
+})();
+/* 成分表解码器 */
+(() => {
+  const D = {"Aqua": {"zh": "水", "role": "溶剂"}, "Glycerin": {"zh": "甘油", "role": "保湿"}, "Caffeine": {"zh": "咖啡因", "role": "肌肤调理"}, "PEG/PPG/Polybutylene Glycol-8/5/3 Glycerin": {"zh": "PEG/PPG/聚丁二醇-8/5/3 甘油", "role": "保湿"}, "Butylene Glycol": {"zh": "丁二醇", "role": "保湿"}, "Propanediol": {"zh": "1,3-丙二醇", "role": "保湿"}, "Camellia Sinensis Leaf/Stalk Extract": {"zh": "茶叶／茎萃取", "role": "抗氧化 · 肌肤调理"}, "Sodium Chloride": {"zh": "氯化钠", "role": "调整质地"}, "Phenoxyethanol": {"zh": "苯氧乙醇", "role": "防腐（安全保存）"}, "Maltodextrin": {"zh": "麦芽糊精", "role": "稳定"}, "Caprylyl Glycol": {"zh": "辛甘醇", "role": "润肤 · 保存"}, "Malachite Extract": {"zh": "孔雀石萃取", "role": "抗氧化 · 肌肤调理"}, "Mannitol": {"zh": "甘露糖醇", "role": "保湿"}, "Epigallocatechol Gallate": {"zh": "茶多酚（EGCG）", "role": "抗氧化 · 肌肤调理"}, "Jania Rubens Extract": {"zh": "叉珊藻萃取", "role": "肌肤调理"}, "Bacillus/Soybean Ferment Extract": {"zh": "芽孢杆菌／大豆发酵产物萃取", "role": "保湿 · 肌肤调理"}, "sh-Decapeptide-5 SP": {"zh": "十肽", "role": "肌肤调理"}, "Niacinamide": {"zh": "烟碱醯胺（维生素 B3）", "role": "肌肤调理"}, "Inositol": {"zh": "肌醇", "role": "保湿 · 肌肤调理"}, "Swertia Chirata Extract": {"zh": "印度獐牙菜萃取", "role": "肌肤调理"}, "Panthenol": {"zh": "泛醇（维生素原 B5）", "role": "保湿 · 修护"}, "1,2-Hexanediol": {"zh": "1,2-己二醇", "role": "溶剂 · 保存"}, "Allantoin": {"zh": "尿囊素", "role": "舒缓 · 肌肤调理"}, "Hydrolyzed Sodium Hyaluronate": {"zh": "水解玻尿酸钠", "role": "保湿"}, "Hydrolyzed Hyaluronic Acid": {"zh": "水解玻尿酸", "role": "保湿"}, "Caprylhydroxamic Acid": {"zh": "辛醯羟肟酸", "role": "螯合 · 保存"}, "Cyanocobalamin": {"zh": "氰钴胺（维生素 B12）", "role": "肌肤调理"}, "Dipropylene Glycol": {"zh": "双丙甘醇", "role": "保湿"}, "Diglycerin": {"zh": "双甘油", "role": "保湿"}, "Acetyl Hexapeptide-8": {"zh": "乙醯基六胜肽-8", "role": "肌肤调理"}, "Ethylhexylglycerin": {"zh": "乙基己基甘油", "role": "润肤 · 保存"}, "Hydrolyzed Collagen": {"zh": "水解胶原蛋白（台湾石斑鱼胶原）", "role": "保湿 · 紧致"}, "Water": {"zh": "水", "role": "溶剂"}, "Alcohol": {"zh": "酒精", "role": "溶剂"}, "Alcohol Denat.": {"zh": "变性酒精", "role": "溶剂"}, "Fragrance": {"zh": "香料", "role": "香气"}, "Parfum": {"zh": "香料", "role": "香气"}, "Dimethicone": {"zh": "聚二甲基矽氧烷", "role": "润肤 · 质地"}, "Cyclopentasiloxane": {"zh": "环五聚二甲基矽氧烷", "role": "质地"}, "Sodium Hyaluronate": {"zh": "玻尿酸钠", "role": "保湿"}, "Hyaluronic Acid": {"zh": "玻尿酸", "role": "保湿"}, "Tocopherol": {"zh": "维生素 E", "role": "抗氧化（成分特性）"}, "Ascorbic Acid": {"zh": "维生素 C", "role": "抗氧化（成分特性）"}, "Retinol": {"zh": "视黄醇", "role": "肌肤调理"}, "Citric Acid": {"zh": "柠檬酸", "role": "调整酸碱"}, "Sodium Hydroxide": {"zh": "氢氧化钠", "role": "调整酸碱"}, "Carbomer": {"zh": "卡波姆", "role": "增稠"}, "Xanthan Gum": {"zh": "玉米糖胶", "role": "增稠"}, "Disodium EDTA": {"zh": "EDTA 二钠", "role": "螯合"}, "Methylparaben": {"zh": "对羟基苯甲酸甲酯", "role": "防腐（安全保存）"}, "Squalane": {"zh": "角鲨烷", "role": "润肤"}, "Ceramide NP": {"zh": "神经醯胺 NP", "role": "肌肤调理"}, "Butyrospermum Parkii Butter": {"zh": "乳油木果脂", "role": "润肤"}, "Titanium Dioxide": {"zh": "二氧化钛", "role": "防晒 · 色料"}, "Zinc Oxide": {"zh": "氧化锌", "role": "防晒"}, "Glyceryl Stearate": {"zh": "硬脂酸甘油酯", "role": "乳化"}, "Cetearyl Alcohol": {"zh": "鲸蜡硬脂醇", "role": "乳化 · 质地"}, "Propylene Glycol": {"zh": "丙二醇", "role": "保湿 · 溶剂"}, "Urea": {"zh": "尿素", "role": "保湿"}, "Salicylic Acid": {"zh": "水杨酸", "role": "角质调理"}, "Lactic Acid": {"zh": "乳酸", "role": "调整酸碱 · 角质调理"}, "Collagen": {"zh": "胶原蛋白", "role": "保湿"}, "Pentylene Glycol": {"zh": "戊二醇", "role": "保湿 · 保存"}, "Sodium Benzoate": {"zh": "苯甲酸钠", "role": "防腐（安全保存）"}, "Potassium Sorbate": {"zh": "山梨酸钾", "role": "防腐（安全保存）"}, "Mica": {"zh": "云母", "role": "色料 · 光泽"}};
+  const LIGHT = ["Aqua", "Propanediol", "Niacinamide", "Maltodextrin", "Inositol", "Sodium Chloride", "Swertia Chirata Extract", "Panthenol", "1,2-Hexanediol", "Allantoin", "Hydrolyzed Sodium Hyaluronate", "Hydrolyzed Hyaluronic Acid", "Caprylhydroxamic Acid", "Cyanocobalamin", "Dipropylene Glycol", "Diglycerin", "Caprylyl Glycol", "Acetyl Hexapeptide-8", "Ethylhexylglycerin", "Hydrolyzed Collagen"];
+  const MINE = new Set(Object.keys(D).slice(0, 32).map(k => k.toLowerCase()));
+  const idx = {}; for (const [k, v] of Object.entries(D)) { idx[k.toLowerCase()] = { k, ...v }; idx[v.zh.replace(/（.*?）/g, '').toLowerCase()] = { k, ...v }; }
+  const inp = document.getElementById('decIn'), out = document.getElementById('decOut'), note = document.getElementById('decNote'); if (!inp) return;
+  const find = raw => { const q = raw.replace(/[＊*]/g, '').trim().toLowerCase(); if (idx[q]) return idx[q];
+    for (const key in idx) if (key.length > 3 && (q.includes(key) || key.includes(q))) return idx[key]; return null; };
+  const run = () => { const items = inp.value.split(/[,，、;；\n]+/).map(x => x.trim()).filter(Boolean).slice(0, 80); out.innerHTML = ''; let known = 0;
+    items.forEach((raw, i) => { const m = find(raw); if (m) known++;
+      const li = document.createElement('li'); li.className = (m ? '' : 'unk') + (i < 5 ? ' top' : '');
+      const esc = s => s.replace(/[&<>]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' }[c]));
+      li.innerHTML = `<b>${String(i + 1).padStart(2, '0')}</b><span class="nm">${esc(raw)}${m ? `<small>${esc(m.k.toLowerCase() === raw.toLowerCase() ? m.zh : (m.zh.startsWith(raw) ? m.k : m.k + '｜' + m.zh))}${MINE.has(m.k.toLowerCase()) ? '｜Decoy 也有用' : ''}</small>` : ''}</span><span class="r">${m ? esc(m.role) : '还没收录'}</span>`;
+      out.appendChild(li); });
+    note.hidden = !items.length; note.textContent = items.length ? `共 ${items.length} 个成分，认得 ${known} 个。前 5 个用量最多（淡粉色）。用途类别参考欧盟 CosIng 与我们的全成分表；每个人的感受，会因肤况、体质和作息而不同。` : '';
+    if (typeof gtag === 'function') gtag('event', 'decoder_run', { count: items.length }); };
+  document.getElementById('decGo').onclick = run;
+  document.getElementById('decLight').onclick = () => { inp.value = LIGHT.join(', '); run(); };
+})();
+
+const els = document.querySelectorAll(".reveal");
+const io = new IntersectionObserver(entries => {
+  entries.forEach((e,i) => {
+    if(e.isIntersecting) setTimeout(() => e.target.classList.add("in"), i * 80);
+  });
+}, {threshold:0.07});
+els.forEach(el => io.observe(el));
+
+document.querySelectorAll(".faq-item").forEach(item => {
+  item.querySelector(".faq-q").addEventListener("click", () => {
+    const isOpen = item.classList.contains("open");
+    document.querySelectorAll(".faq-item").forEach(i => i.classList.remove("open"));
+    if(!isOpen) item.classList.add("open");
+  });
+});
+
+</script>
+</body>
+</html>

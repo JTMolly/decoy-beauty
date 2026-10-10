@@ -1,0 +1,92 @@
+{
+  "pages": {
+    "index.html": {
+      "en": true,
+      "zh-cn": true
+    },
+    "about.html": {
+      "en": true,
+      "zh-cn": true
+    },
+    "care.html": {
+      "en": true,
+      "zh-cn": true
+    },
+    "technology.html": {
+      "en": true,
+      "zh-cn": true
+    },
+    "lab.html": {
+      "en": false,
+      "zh-cn": true
+    },
+    "founder.html": {
+      "en": true,
+      "zh-cn": true
+    },
+    "reserve.html": {
+      "en": true,
+      "zh-cn": true
+    },
+    "partner.html": {
+      "en": true,
+      "zh-cn": true
+    },
+    "privacy.html": {
+      "en": true,
+      "zh-cn": true
+    }
+  },
+  "meta_en": {
+    "index.html": {
+      "title": "DECOY",
+      "description": "DECOY is a non-invasive beauty technology brand. LIGHT Precision Facial Delivery and MIRROR Precision Body Delivery: no needles, no wounds, and full ingredient lists for every Active Ampoule. Beauty, on your terms.",
+      "og:title": "DECOY",
+      "og:description": "Non-invasive beauty technology. No needles, no wounds, full ingredient lists. Beauty, on your terms."
+    },
+    "about.html": {
+      "title": "About Decoy | DECOY Non-invasive Beauty Technology",
+      "description": "About DECOY, the non-invasive beauty technology brand by Acheloy Biomed. Beauty, with respect.",
+      "og:title": "About Decoy | DECOY Non-invasive Beauty Technology",
+      "og:description": "A non-invasive beauty technology brand. Beauty begins with respect.",
+      "keywords": "Decoy,non-invasive beauty technology,Acheloy Biomed,Taipei,beauty on your terms"
+    },
+    "care.html": {
+      "title": "Care & Ingredients | DECOY Non-invasive Beauty Technology",
+      "description": "Decoy’s two precision delivery programmes: LIGHT for the face and MIRROR for the body. Tri-Layer Delivery™, what happens in a session, and what every ingredient in our Active Ampoules does, with full ingredient lists.",
+      "og:title": "Care & Ingredients | DECOY",
+      "og:description": "LIGHT Precision Facial Delivery and MIRROR Precision Body Delivery, with full ingredient lists. We explain first; you decide."
+    },
+    "technology.html": {
+      "title": "Tri-Layer Delivery™ | DECOY Non-invasive Beauty Technology",
+      "description": "Decoy Tri-Layer Delivery™: AirMist™ airflow misting, PeptiCarrier™ active peptide carrier and Precision Formula. No needles, no wounds.",
+      "og:title": "Tri-Layer Delivery™ | DECOY",
+      "og:description": "Airflow instead of needles: the serum becomes a fine mist that settles evenly on the skin.",
+      "keywords": "Decoy,Tri-Layer Delivery,AirMist,PeptiCarrier,non-invasive beauty technology,Acheloy Biomed,needle-free"
+    },
+    "founder.html": {
+      "title": "Founder’s Story | DECOY",
+      "description": "The story of DECOY’s founder, JT Molly Chen: eight years in biomedical technology and brand building, taking DECOY from research to market and into international partnerships.",
+      "og:title": "Founder’s Story | DECOY",
+      "og:description": "Eight years, one belief. JT Molly Chen: MS in Epidemiology (NTU), NIH vaccine research PM, over 10,000 sessions served. This is how Decoy began.",
+      "keywords": "JT Molly Chen,Decoy founder,Acheloy Biomed,NTU,NIH"
+    },
+    "reserve.html": {
+      "title": "Reserve a Visit | DECOY",
+      "description": "Book your first DECOY visit. We get to know you first, then decide together. Decoy Ren’ai (Decoy headquarters), Da’an District, Taipei.",
+      "og:title": "Reserve a Visit | DECOY",
+      "og:description": "Book your first DECOY visit. We get to know you first, then decide together."
+    },
+    "partner.html": {
+      "title": "Partnership | DECOY Non-invasive Beauty Technology",
+      "description": "Partner with DECOY: bring non-invasive beauty technology and Tri-Layer Delivery™ to your venue. Direct and franchise models for beauty venues, hotels, private clubs and fitness spaces.",
+      "og:title": "Partnership | DECOY",
+      "og:description": "Bring DECOY non-invasive beauty technology to your venue. Direct and franchise partnership enquiries welcome.",
+      "keywords": "Decoy partnership,franchise,venue partnership,beauty salon,hotel,fitness,non-invasive beauty technology"
+    },
+    "privacy.html": {
+      "title": "Decode Card Privacy Notice | Decoy",
+      "description": "What personal data Decoy collects when you claim a Decode Card, how it is used, and your rights."
+    }
+  }
+}

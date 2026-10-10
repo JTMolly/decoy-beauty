@@ -201,6 +201,19 @@ nav{
 }
 .nav-reserve:hover{background:rgba(255,255,255,0.1);border-color:rgba(255,255,255,0.75)}
 
+
+/* 語言切換 */
+[data-en]{display:none}
+.lang-switch{display:inline-flex;align-items:center;border:1px solid rgba(255,255,255,0.38);font-family:var(--mono);font-size:9px;letter-spacing:.12em}
+.lang-switch a{color:rgba(255,255,255,0.62);text-decoration:none;padding:7px 10px;line-height:1;transition:color .3s}
+.lang-switch a+a{border-left:1px solid rgba(255,255,255,0.38)}
+.lang-switch a:hover,.lang-switch a.on{color:#fff}
+.nav-tools{display:flex;align-items:center;gap:16px}
+/* 英文版：中文用的寬字距在英文會斷行，收窄 */
+body.en .c-cat{letter-spacing:.16em}
+body.en .c-film{letter-spacing:.08em;white-space:nowrap}
+@media (max-width:600px){.lang-switch a{padding:6px 7px}.nav-tools{gap:10px}}
+
 /* ══ CENTER SLOGAN ══ */
 .center{
   position:fixed;
@@ -393,6 +406,10 @@ nav{
 <!-- GA4 -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-F54YFMZSD8"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-F54YFMZSD8");</script>
+
+
+<link rel="canonical" href="https://decoy-beauty.com/">
+<!-- i18n:alt --><link rel="alternate" hreflang="zh-Hant" href="https://decoy-beauty.com/"><link rel="alternate" hreflang="en" href="https://decoy-beauty.com/en/"><link rel="alternate" hreflang="zh-Hans" href="https://decoy-beauty.com/zh-cn/"><link rel="alternate" hreflang="x-default" href="https://decoy-beauty.com/"><!-- /i18n:alt -->
 </head>
 <body>
 
@@ -438,64 +455,67 @@ nav{
   </a>
   <div class="nav-right">
     <ul class="nav-links">
-      <li><a href="about.html">關於品牌</a></li>
-      <li><a href="care.html">課程與成分</a></li>
-      <li><a href="technology.html">技術原理</a></li>
-      <li><a href="lab.html">成分小教室</a></li>
-      <li><a href="partner.html">加盟合作</a></li>
-      <li><a href="founder.html">創辦人</a></li>
+      <li><a href="about.html"><span data-zh>關於品牌</span><span data-en>About</span></a></li>
+      <li><a href="care.html"><span data-zh>課程與成分</span><span data-en>Care</span></a></li>
+      <li><a href="technology.html"><span data-zh>技術原理</span><span data-en>Technology</span></a></li>
+      <li><a href="lab.html"><span data-zh>成分小教室</span><span data-en>Ingredients</span></a></li>
+      <li><a href="partner.html"><span data-zh>加盟合作</span><span data-en>Partnership</span></a></li>
+      <li><a href="founder.html"><span data-zh>創辦人</span><span data-en>Founder</span></a></li>
     </ul>
-    <a href="reserve.html" class="nav-reserve">預約體驗</a>
+    <div class="nav-tools">
+      <div class="lang-switch" aria-label="Language"><a href="index.html" hreflang="zh-Hant" lang="zh-Hant" data-lang="zh-Hant" class="on" aria-current="true">繁</a><a href="en/index.html" hreflang="en" lang="en" data-lang="en">EN</a><a href="zh-cn/index.html" hreflang="zh-Hans" lang="zh-Hans" data-lang="zh-Hans">简</a></div>
+      <a href="reserve.html" class="nav-reserve"><span data-zh>預約體驗</span><span data-en>Reserve</span></a>
+    </div>
   </div>
 </nav>
 
 <div class="center">
   <div class="c-en">Beauty,<br><span style="white-space:nowrap">On Your Terms.</span></div>
   <div class="c-divider"></div>
-  <div class="c-zh">美，由你作主。</div>
-  <div class="c-cat">非侵入式美學科技</div>
-  <a class="c-cta" href="quiz.html">找到妳的照顧節奏 →</a>
-  <div><button class="c-film" id="filmOpen" type="button"><i aria-hidden="true">▶</i>看品牌影片｜2 分鐘</button></div>
+  <div class="c-zh" lang="zh-Hant">美，由你作主。</div>
+  <div class="c-cat"><span data-zh>非侵入式美學科技</span><span data-en>Non-invasive Beauty Technology</span></div>
+  <a class="c-cta" href="quiz.html" data-zh>找到妳的照顧節奏 →</a>
+  <div><button class="c-film" id="filmOpen" type="button"><i aria-hidden="true">▶</i><span data-zh>看品牌影片｜2 分鐘</span><span data-en>Watch the brand film · 2 min</span></button></div>
 </div>
-<div class="film-modal" id="filmModal" role="dialog" aria-modal="true" aria-label="Decoy 品牌影片" hidden>
+<div class="film-modal" id="filmModal" role="dialog" aria-modal="true" aria-label="Decoy 品牌影片" data-en-aria-label="Decoy brand film" hidden>
   <div class="fm-box">
-    <button class="fm-close" id="filmClose" type="button" aria-label="關閉影片">×</button>
+    <button class="fm-close" id="filmClose" type="button" aria-label="關閉影片" data-en-aria-label="Close video">×</button>
     <video id="filmVideo" controls playsinline preload="none" poster="media/decoy-film-poster.jpg" src="media/decoy-film-720.mp4"></video>
-    <div class="fm-cap">Decoy 品牌影片｜建議開聲音觀看</div>
+    <div class="fm-cap"><span data-zh>Decoy 品牌影片｜建議開聲音觀看</span><span data-en>Decoy brand film · Best with sound on</span></div>
   </div>
 </div>
-<button class="sound" id="sound" aria-pressed="false" aria-label="背景音樂"><i><b></b><b></b><b></b></i><span>SOUND OFF</span></button>
+<button class="sound" id="sound" aria-pressed="false" aria-label="背景音樂" data-en-aria-label="Background music"><i><b></b><b></b><b></b></i><span>SOUND OFF</span></button>
 
 <div class="bottom-nav">
   <a href="about.html" class="bn">
     <span class="bn-num">01</span>
-    <span class="bn-label">關於 Decoy</span>
-    <span class="bn-en">About</span>
+    <span class="bn-label"><span data-zh>關於 Decoy</span><span data-en>About Decoy</span></span>
+    <span class="bn-en" data-zh>About</span>
   </a>
   <a href="technology.html" class="bn">
     <span class="bn-num">02</span>
-    <span class="bn-label">技術原理</span>
-    <span class="bn-en">Technology</span>
+    <span class="bn-label"><span data-zh>技術原理</span><span data-en>Technology</span></span>
+    <span class="bn-en" data-zh>Technology</span>
   </a>
   <a href="reserve.html" class="bn">
     <span class="bn-num">03</span>
-    <span class="bn-label">體驗預約</span>
-    <span class="bn-en">Reserve</span>
+    <span class="bn-label"><span data-zh>體驗預約</span><span data-en>Reserve a Visit</span></span>
+    <span class="bn-en" data-zh>Reserve</span>
   </a>
   <a href="partner.html" class="bn">
     <span class="bn-num">04</span>
-    <span class="bn-label">加盟合作</span>
-    <span class="bn-en">Partnership</span>
+    <span class="bn-label"><span data-zh>加盟合作</span><span data-en>Partnership</span></span>
+    <span class="bn-en" data-zh>Partnership</span>
   </a>
   <a href="founder.html" class="bn">
     <span class="bn-num">05</span>
-    <span class="bn-label">創辦人故事</span>
-    <span class="bn-en">Founder</span>
+    <span class="bn-label"><span data-zh>創辦人故事</span><span data-en>Founder’s Story</span></span>
+    <span class="bn-en" data-zh>Founder</span>
   </a>
   <a href="care.html" class="bn">
     <span class="bn-num">06</span>
-    <span class="bn-label">課程與成分</span>
-    <span class="bn-en">Care</span>
+    <span class="bn-label"><span data-zh>課程與成分</span><span data-en>Care & Ingredients</span></span>
+    <span class="bn-en" data-zh>Care</span>
   </a>
 </div>
 

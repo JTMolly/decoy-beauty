@@ -13,7 +13,6 @@
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="description" content="預約 Decoy 初次體驗。第一次見面，我們不急著做什麼——先好好認識妳，聽妳說說妳的故事。">
-<link rel="canonical" href="https://decoy-beauty.com/reserve.html">
 <meta property="og:title" content="預約體驗 | DECOY">
 <meta property="og:url" content="https://decoy-beauty.com/reserve.html">
 <meta property="og:image" content="https://decoy-beauty.com/hero-banner.png">
@@ -65,6 +64,11 @@ nav{
 .nav-links a{font-family:var(--mono);font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--ink-lt);text-decoration:none;transition:color 0.3s}
 .nav-links a:hover,.nav-links a.active{color:var(--rose)}
 .nav-right{display:flex;align-items:center;gap:20px}
+.lang-switch{display:inline-flex;align-items:center;border:1px solid var(--line);font-family:var(--mono);font-size:9px;letter-spacing:.12em}
+.lang-switch a{color:var(--ink-lt);text-decoration:none;padding:6px 9px;line-height:1;transition:color .3s}
+.lang-switch a+a{border-left:1px solid var(--line)}
+.lang-switch a:hover{color:var(--rose)}
+.lang-switch a.on{color:var(--rose)}
 .lang-toggle{font-family:var(--mono);font-size:9px;letter-spacing:0.15em;color:var(--ink-lt);background:none;border:1px solid var(--line);padding:6px 12px;cursor:pointer;transition:all 0.3s}
 .lang-toggle:hover{color:var(--rose);border-color:var(--rose-pale)}
 .nav-reserve{font-family:var(--mono);font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--rose);border:1px solid var(--rose-pale);padding:9px 22px;text-decoration:none;transition:all 0.3s}
@@ -267,6 +271,9 @@ footer{background:var(--warm);padding:36px 0 22px;border-top:1px solid var(--lin
 }
 @media(prefers-reduced-motion:reduce){.reveal{transition:none}}
 </style>
+
+<link rel="canonical" href="https://decoy-beauty.com/reserve.html">
+<!-- i18n:alt --><link rel="alternate" hreflang="zh-Hant" href="https://decoy-beauty.com/reserve.html"><link rel="alternate" hreflang="en" href="https://decoy-beauty.com/en/reserve.html"><link rel="alternate" hreflang="zh-Hans" href="https://decoy-beauty.com/zh-cn/reserve.html"><link rel="alternate" hreflang="x-default" href="https://decoy-beauty.com/reserve.html"><!-- /i18n:alt -->
 </head>
 <body>
 
@@ -283,7 +290,7 @@ footer{background:var(--warm);padding:36px 0 22px;border-top:1px solid var(--lin
     <li><a href="founder.html"><span data-zh>創辦人</span><span data-en style="display:none">Founder</span></a></li>
   </ul>
   <div class="nav-right">
-    <button class="lang-toggle" id="langBtn">EN</button>
+    <div class="lang-switch" aria-label="Language"><a href="reserve.html" hreflang="zh-Hant" lang="zh-Hant" data-lang="zh-Hant" class="on" aria-current="true">繁</a><a href="en/reserve.html" hreflang="en" lang="en" data-lang="en">EN</a><a href="zh-cn/reserve.html" hreflang="zh-Hans" lang="zh-Hans" data-lang="zh-Hans">简</a></div>
     <a href="reserve.html" class="nav-reserve active">
       <span data-zh>預約體驗</span><span data-en style="display:none">Reserve</span>
     </a>
@@ -292,7 +299,7 @@ footer{background:var(--warm);padding:36px 0 22px;border-top:1px solid var(--lin
 
 <!-- HERO -->
 <section class="page-hero" style="position:relative;">
-<img src="reserve-hero.png" alt="DECOY 預約體驗" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.2;pointer-events:none;z-index:0;">  <div class="container">
+<img src="reserve-hero.png" alt="DECOY 預約體驗" data-en-alt="Reserve a visit at DECOY" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.2;pointer-events:none;z-index:0;">  <div class="container">
     <div class="reveal">
       <div class="hero-eyebrow">Reserve</div>
       <h1 class="hero-title">
@@ -313,7 +320,7 @@ footer{background:var(--warm);padding:36px 0 22px;border-top:1px solid var(--lin
     <div class="reserve-grid reveal">
 
       <div class="line-section">
-        <div class="line-label">LINE 預約</div>
+        <div class="line-label"><span data-zh>LINE 預約</span><span data-en style="display:none">Book on LINE</span></div>
         <div class="line-title">
           <span data-zh>傳訊息給我們，<br>我們來安排妳的第一次。</span>
           <span data-en style="display:none">Send us a message,<br>we'll arrange your first visit.</span>
@@ -562,10 +569,10 @@ footer{background:var(--warm);padding:36px 0 22px;border-top:1px solid var(--lin
 
 <footer>
   <div class="footer-inner">
-    <div class="footer-brand">DECOY · 岩寬生醫股份有限公司</div>
+    <div class="footer-brand">DECOY · <span data-zh>岩寬生醫股份有限公司</span><span data-en style="display:none">Acheloy Biomed</span></div>
     <div class="footer-note">
-      © 2026 岩寬生醫 ·
-      <a href="index.html">首頁</a> ·
+      © 2026 <span data-zh>岩寬生醫</span><span data-en style="display:none">Acheloy Biomed</span> ·
+      <a href="index.html"><span data-zh>首頁</span><span data-en style="display:none">Home</span></a> ·
       <a href="https://instagram.com/decoy_beauty" target="_blank">Instagram</a>
     </div>
   </div>
@@ -589,15 +596,6 @@ document.querySelectorAll(".faq-item").forEach(item => {
   });
 });
 
-// Lang toggle
-const btn = document.getElementById("langBtn");
-let isEn = false;
-btn.addEventListener("click", () => {
-  isEn = !isEn;
-  document.body.classList.toggle("en", isEn);
-  btn.textContent = isEn ? "中" : "EN";
-  document.documentElement.lang = isEn ? "en" : "zh-TW";
-});
 </script>
 </body>
 </html>

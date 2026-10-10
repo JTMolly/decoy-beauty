@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+
+<html lang="zh-Hans">
+<head>
+<base href="../">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Decode Card 个人资料搜集告知｜Decoy</title>
+<meta name="description" content="领取 Decode Card 时，Decoy 搜集哪些个人资料、如何使用，以及妳的权利。">
+<meta name="theme-color" content="#FBF7F4">
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;1,400&amp;family=Noto+Serif+SC:wght@400;500&amp;family=IBM+Plex+Mono:wght@400&amp;display=swap" rel="stylesheet">
+<style>
+/* same tokens as quiz.html */
+:root{
+  --bg:#FBF7F4; --ink:#5B3B40; --ink-2:#7A565C; --muted:#9A8580;
+  --rose:#A86878; --rose-deep:#8B5060; --line:rgba(168,104,120,.2);
+  --serif:"Cormorant Garamond",serif; --cjk:"Noto Serif SC","Songti TC",serif; --mono:"IBM Plex Mono",monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{min-height:100vh;color:var(--ink);font-family:var(--cjk);background:var(--bg);
+  background-image:radial-gradient(ellipse 80% 50% at 15% 0%,#F3E2E5 0%,transparent 60%);background-attachment:fixed}
+a{color:var(--rose-deep)}
+.app{max-width:640px;margin:0 auto;padding:28px 20px calc(48px + env(safe-area-inset-bottom))}
+.top{display:flex;align-items:center;justify-content:space-between;gap:14px;height:28px;margin-bottom:40px}
+.brand{display:block;width:84px;height:13px;background:var(--rose-deep);-webkit-mask:url(quiz-assets/word.png) left center/contain no-repeat;mask:url(quiz-assets/word.png) left center/contain no-repeat}
+.kicker{font-family:var(--mono);font-size:11px;letter-spacing:.22em;color:var(--muted);text-transform:uppercase}
+.en-kicker{font-family:var(--serif);font-style:italic;font-size:19px;color:var(--rose);margin-bottom:10px}
+[data-en]{display:none}
+.lang-switch{display:inline-flex;align-items:center;border:1px solid var(--line);font-family:var(--mono);font-size:9px;letter-spacing:.12em;margin-left:auto}
+.lang-switch a{color:var(--muted);text-decoration:none;padding:6px 8px;line-height:1}
+.lang-switch a+a{border-left:1px solid var(--line)}
+.lang-switch a.on{color:var(--rose)}
+.note-lang{font-size:12px;color:var(--muted);margin-top:6px}
+h1{font-weight:500;font-size:27px;line-height:1.5;letter-spacing:.08em;margin-bottom:18px}
+.lead{font-size:16px;line-height:1.95;color:var(--ink-2);margin-bottom:28px}
+ol{list-style:none;counter-reset:item;border-top:1px solid var(--line)}
+ol>li{counter-increment:item;padding:20px 0 20px 40px;border-bottom:1px solid var(--line);position:relative;font-size:15.5px;line-height:1.95;color:var(--ink-2)}
+ol>li::before{content:counter(item,decimal-leading-zero);position:absolute;left:0;top:22px;font-family:var(--mono);font-size:12px;color:var(--rose-deep);letter-spacing:.08em}
+ol>li b{display:block;font-weight:500;color:var(--ink);font-size:16.5px;letter-spacing:.06em;margin-bottom:4px}
+ul{list-style:none;margin-top:6px}
+ul li{padding-left:16px;position:relative}
+ul li::before{content:"";position:absolute;left:2px;top:.95em;width:5px;height:5px;border-radius:50%;background:var(--rose)}
+.how{margin-top:28px;padding:18px 20px;border:1px dashed var(--line);border-radius:14px;font-size:15px;line-height:1.9;color:var(--ink-2)}
+.how b{color:var(--ink);font-weight:500}
+.foot{margin-top:36px;text-align:center;font-size:12.5px;line-height:1.9;color:var(--muted)}
+.foot .slogan{font-family:var(--serif);font-size:15px;letter-spacing:.2em;color:var(--rose-deep)}
+.foot a{text-decoration:none;border-bottom:1px solid var(--line);color:inherit}
+</style>
+<!-- GA4 -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-F54YFMZSD8"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-F54YFMZSD8");</script>
+
+<link rel="canonical" href="https://decoy-beauty.com/zh-cn/privacy.html">
+<!-- i18n:alt --><link rel="alternate" hreflang="zh-Hant" href="https://decoy-beauty.com/privacy.html"><link rel="alternate" hreflang="en" href="https://decoy-beauty.com/en/privacy.html"><link rel="alternate" hreflang="zh-Hans" href="https://decoy-beauty.com/zh-cn/privacy.html"><link rel="alternate" hreflang="x-default" href="https://decoy-beauty.com/privacy.html"><!-- /i18n:alt -->
+</head>
+<body>
+<main class="app">
+<div class="top"><a class="brand" href="zh-cn/" aria-label="Decoy 首页" data-en-aria-label="Decoy home"></a><span class="kicker">Privacy</span><div class="lang-switch" aria-label="Language"><a href="privacy.html" hreflang="zh-Hant" lang="zh-Hant" data-lang="zh-Hant">繁</a><a href="en/privacy.html" hreflang="en" lang="en" data-lang="en">EN</a><a href="zh-cn/privacy.html" hreflang="zh-Hans" lang="zh-Hans" data-lang="zh-Hans" class="on" aria-current="true">简</a></div></div>
+<div class="en-kicker">Decode Card · Privacy Notice</div>
+<h1>Decode Card<br><span data-zh="">个人资料搜集告知</span></h1>
+<p class="lead" data-zh="">岩宽生医股份有限公司（以下称「本公司」）经营 Decoy 品牌。依个人资料保护法第 8 条，在妳领取 Decode Card 时告知以下事项。</p>
+
+
+<ol>
+<li data-zh=""><b>搜集者</b>岩宽生医股份有限公司，联络信箱 <a href="mailto:service@acheloy.com">service@acheloy.com</a>。</li>
+
+<li data-zh=""><b>搜集目的</b>制作并传送妳的 Decode Card、提供 Decoy 的服务与活动资讯、不具名的统计分析。</li>
+
+<li data-zh=""><b>搜集的资料</b>LINE 使用者识别码、照顾节奏测验结果、妳写的「我的美的定义」、领卡时间。我们不搜集健康、病史、体重等资料；照顾节奏测验网页本身也不储存任何资料。</li>
+
+<li><b><span data-zh="">利用期间、地区、对象及方式</span></b>
+<ul>
+<li data-zh="">期间：自领卡起，至妳要求删除或本服务结束为止。</li>
+
+<li data-zh="">地区：台湾。资料存放于 LINE 及 Google 的云端服务，伺服器可能位于台湾以外。</li>
+
+<li data-zh="">对象：本公司及 Decoy 门市人员。</li>
+
+<li data-zh="">方式：制作 Decode Card、在 LINE 传送与妳相关的讯息、不具名统计。「我的美的定义」不会公开，也不会用于广告；若想分享，会另外征求妳的同意。</li>
+
+</ul>
+</li>
+<li data-zh=""><b>妳的权利</b>妳可以随时查询、阅览、要求复本、补充或更正、停止搜集处理利用，或删除妳的资料。</li>
+
+<li data-zh=""><b>不提供的影响</b>「我的美的定义」可以不写，卡片照样会给妳；若不提供 LINE 帐号，就无法领取 Decode Card。</li>
+
+</ol>
+<div class="how" data-zh=""><b>想删除资料？</b>在 Decoy 的 LINE 传送「删除我的资料」，或写信到 <a href="mailto:service@acheloy.com">service@acheloy.com</a>。</div>
+
+<div class="foot">
+<div class="slogan">BEAUTY, ON YOUR TERMS.</div>
+<div><span data-zh="">更新日期：2026 年 10 月 3 日</span></div>
+<div style="margin-top:8px"><a href="quiz.html"><span data-zh="">照顾节奏测验</span></a>　·　<a href="zh-cn/"><span data-zh="">Decoy 首页</span></a></div>
+</div>
+</main>
+</body>
+</html>
