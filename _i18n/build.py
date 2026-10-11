@@ -43,9 +43,11 @@ def alt_links(page):
     return '<!-- i18n:alt -->' + ''.join(links) + '<!-- /i18n:alt -->'
 
 def set_alt_and_canonical(html, page, pre):
-    html = re.sub(r'<!-- i18n:alt -->.*?<!-- /i18n:alt -->', '', html, flags=re.S)
+    # 重跑要一模一樣：先連同前面的換行一起拿掉，再放回去
+    html = re.sub(r'\n?<!-- i18n:alt -->.*?<!-- /i18n:alt -->', '', html, flags=re.S)
+    html = re.sub(r'\n?<link rel="canonical"[^>]*>', '', html)
+    html = re.sub(r'\n[ \t]*\n(?:[ \t]*\n)+</head>', '\n\n</head>', html)   # 舊版留下的多餘空行
     canon = SITE + pre + ('' if page == 'index.html' else page)
-    html = re.sub(r'<link rel="canonical"[^>]*>\n?', '', html)
     return html.replace('</head>', f'<link rel="canonical" href="{canon}">\n{alt_links(page)}\n</head>', 1)
 
 def set_switcher(html, page, cur):
