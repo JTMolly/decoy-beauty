@@ -11,7 +11,7 @@
   "alternateName": "DECOY Beauty",
   "url": "https://decoy-beauty.com",
   "logo": "https://decoy-beauty.com/logo-square.png",
-  "description": "DECOY 是岩宽生医于美业的非侵入式美学科技品牌。迅So枪以气流雾化活性安瓶里的精华，全程无针、无伤口。BEAUTY, ON YOUR TERMS. 美，由你作主。",
+  "description": "DECOY 是岩宽生医于美业的非侵入式美学科技品牌。迅So枪以气流雾化活性安瓶里的精华，全程无针、无伤口。BEAUTY, ON YOUR TERMS. 美，由妳作主。",
   "foundingDate": "2018",
   "address": {
     "@type": "PostalAddress",
@@ -30,9 +30,9 @@
 <title>DECOY</title>
 <link rel="icon" type="image/png" href="/favicon.png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<meta name="description" content="DECOY — 非侵入式美学科技品牌。LIGHT 脸部精准导入、MIRROR 身体精准导入，全程无针、无伤口，活性安瓶全成分公开。美，由你作主。">
+<meta name="description" content="DECOY — 非侵入式美学科技品牌。LIGHT 脸部精准导入、MIRROR 身体精准导入，全程无针、无伤口，活性安瓶全成分公开。美，由妳作主。">
 <meta property="og:title" content="DECOY">
-<meta property="og:description" content="非侵入式美学科技。全程无针、无伤口，活性安瓶全成分公开。美，由你作主。">
+<meta property="og:description" content="非侵入式美学科技。全程无针、无伤口，活性安瓶全成分公开。美，由妳作主。">
 <meta property="og:image" content="https://decoy-beauty.com/hero-banner.png">
 <meta property="og:url" content="https://decoy-beauty.com/">
 <meta property="og:type" content="website">
@@ -244,6 +244,20 @@ body.en .c-film{letter-spacing:.08em;white-space:nowrap}
   from{opacity:0;transform:translate(-50%,-52%) translateY(14px)}
   to{opacity:1;transform:translate(-50%,-58%) translateY(0)}
 }
+
+
+/* 10/13 首图 A 版（Molly 选）：中文标语大字、英文小字，重点「非侵入式美学科技」两边细线 */
+.center{display:flex;flex-direction:column;align-items:center;width:min(92vw,1100px)}
+.c-zh-big{font-family:var(--cjk);font-feature-settings:"palt";font-weight:300;color:#fff;font-size:clamp(40px,6.2vw,84px);letter-spacing:.16em;padding-left:.16em;line-height:1.25;text-shadow:0 4px 40px rgba(30,8,14,.28)}
+.c-en-small{font-family:var(--serif);font-style:italic;font-weight:400;color:rgba(255,255,255,.72);font-size:clamp(17px,1.7vw,22px);letter-spacing:.04em;margin-top:14px}
+.c-key{display:flex;align-items:center;justify-content:center;gap:18px;margin-top:30px;font-family:var(--cjk);font-weight:400;color:#fff;font-size:clamp(16px,1.7vw,22px);letter-spacing:.42em;padding-left:.42em}
+.c-key::before,.c-key::after{content:"";width:clamp(28px,4vw,56px);height:1px;background:rgba(255,255,255,.55)}
+.c-key-en{font-family:var(--mono);font-size:9.5px;letter-spacing:.32em;color:rgba(255,255,255,.55);margin-top:10px;padding-left:.32em}
+/* 英文版：英文标语当大字、中文标语小字 */
+body.en .c-en-small{order:-1;font-weight:300;color:#fff;font-size:clamp(44px,6.4vw,92px);line-height:1.05;margin:0 0 16px;letter-spacing:.015em;text-shadow:0 4px 48px rgba(30,8,14,.3)}
+body.en .c-zh-big{font-size:15px;letter-spacing:.3em;color:rgba(255,255,255,.62);text-shadow:none}
+body.en .c-key{letter-spacing:.16em;padding-left:.16em}
+@media(max-width:600px){.c-zh-big{font-size:clamp(34px,10.5vw,46px);letter-spacing:.1em;padding-left:.1em}.c-key{font-size:15px;letter-spacing:.3em;gap:12px;margin-top:24px}body.en .c-en-small{font-size:clamp(32px,10.5vw,52px)}body.en .c-key{font-size:13px;letter-spacing:.12em}}
 
 /* ══ BOTTOM NAV ══ */
 .bottom-nav{
@@ -461,10 +475,10 @@ body.en .c-film{letter-spacing:.08em;white-space:nowrap}
 </div>
 </nav>
 <div class="center">
-<div class="c-en">Beauty,<br><span style="white-space:nowrap">On Your Terms.</span></div>
-<div class="c-divider"></div>
-<div class="c-zh" lang="zh-Hant">美，由你作主。</div>
-<div class="c-cat"><span data-zh="">非侵入式美学科技</span></div>
+<div class="c-zh-big" lang="zh-Hant">美，由妳作主</div>
+<div class="c-en-small">Beauty, <span style="white-space:nowrap">On Your Terms.</span></div>
+<div class="c-key"><span data-zh="">非侵入式美学科技</span></div>
+<div class="c-key-en" data-zh="">NON-INVASIVE BEAUTY TECHNOLOGY</div>
 <a class="c-cta" href="quiz.html" data-zh="">找到妳的照顾节奏 →</a>
 <div><button class="c-film" id="filmOpen" type="button"><i aria-hidden="true">▶</i><span data-zh="">看品牌影片｜2 分钟</span></button></div>
 </div>
