@@ -68,7 +68,7 @@ def rewrite_links(soup, page, pre):
         if not target: continue
         lang = 'en' if pre == 'en/' else 'zh-Hans'
         if target in PAGES and not has(target, lang) and a.find_parent('nav') and a.parent.name == 'li':
-            a.parent.decompose(); continue   # 選單裡還沒有這個語言的頁（例如成分小教室英文版），先不放
+            a.parent.decompose(); continue   # 選單裡還沒有這個語言的頁（例如專業小教室英文版），先不放
         if target in PAGES and has(target, lang):
             a['href'] = pre + ('' if target == 'index.html' else target) + (m.group(3) or '')
         else:
