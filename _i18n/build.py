@@ -124,6 +124,7 @@ def build(page, check=False):
             html = set_switcher(html, page, 'en')
             html = set_alt_and_canonical(html, page, 'en/')
             html = html.replace('<head>', '<head>\n<base href="../">', 1)
+            html = html.replace('</head>', EN_FONT + '</head>', 1)
             m = META_EN.get(page, {})
             if 'title' in m: html = re.sub(r'<title>.*?</title>', f'<title>{m["title"]}</title>', html, count=1, flags=re.S)
             for k in ('description', 'keywords'):
@@ -144,6 +145,10 @@ def build(page, check=False):
         html = html.replace('<head>', '<head>\n<base href="../">', 1)
         write(os.path.join(ROOT, 'zh-cn', page), html)
     return report
+
+# 英文頁的內文改用西文字型 Source Serif 4（中文字型會把 ’ 這類標點排成全形，看起來像多一個空格）
+EN_FONT = ('<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,300..600;1,8..60,300..400&display=swap" rel="stylesheet">\n'
+           '<style>body.en{--cjk:"Source Serif 4","Noto Serif TC",serif}</style>\n')
 
 def write(path, html):
     os.makedirs(os.path.dirname(path), exist_ok=True)
