@@ -17,7 +17,7 @@
       "zh-cn": true
     },
     "lab.html": {
-      "en": false,
+      "en": true,
       "zh-cn": true
     },
     "founder.html": {
@@ -63,6 +63,12 @@
       "og:title": "Tri-Layer Delivery™ | DECOY",
       "og:description": "Airflow instead of needles: a steady 85 psi airflow turns the serum into a fine, micron-scale mist, delivered precisely to the area you want to care for. No needles, no wounds.",
       "keywords": "Decoy,Tri-Layer Delivery,AirMist,PeptiCarrier,non-invasive beauty technology,Acheloy Biomed,needle-free"
+    },
+    "lab.html": {
+      "title": "Pro Class · Ingredients | DECOY Non-invasive Beauty Technology",
+      "description": "Decoy Pro Class · Ingredients: caffeine, Alishan Jin Xuan tea, niacinamide, hyaluronic acid, peptides and more. One ingredient at a time, explained in plain words. What goes on your skin, you have the right to know.",
+      "og:title": "Pro Class · Ingredients | DECOY",
+      "og:description": "One ingredient at a time, explained in plain words."
     },
     "founder.html": {
       "title": "Founder’s Story | DECOY",
