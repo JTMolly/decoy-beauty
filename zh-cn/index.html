@@ -124,10 +124,10 @@ body{
   background:linear-gradient(
     to bottom,
     transparent 0%,
-    rgba(30,8,15,0.05) 20%,
-    rgba(30,8,15,0.22) 50%,
-    rgba(30,8,15,0.52) 78%,
-    rgba(30,8,15,0.70) 100%
+    rgba(30,8,15,0.03) 20%,
+    rgba(30,8,15,0.10) 50%,
+    rgba(30,8,15,0.20) 78%,
+    rgba(30,8,15,0.28) 100%
   );
   animation: breathe 10s ease-in-out infinite;
   pointer-events:none;
@@ -248,11 +248,10 @@ body.en .c-film{letter-spacing:.08em;white-space:nowrap}
 
 /* 10/13 首图 A 版（Molly 选）：中文标语大字、英文小字，重点「非侵入式美学科技」两边细线 */
 .center{display:flex;flex-direction:column;align-items:center;width:min(92vw,1100px)}
-.c-zh-big{font-family:var(--cjk);font-feature-settings:"palt";font-weight:300;color:#fff;font-size:clamp(40px,6.2vw,84px);letter-spacing:.16em;padding-left:.16em;line-height:1.25;text-shadow:0 4px 40px rgba(30,8,14,.28)}
-.c-en-small{font-family:var(--serif);font-style:italic;font-weight:400;color:rgba(255,255,255,.72);font-size:clamp(17px,1.7vw,22px);letter-spacing:.04em;margin-top:14px}
-.c-key{display:flex;align-items:center;justify-content:center;gap:18px;margin-top:30px;font-family:var(--cjk);font-weight:400;color:#fff;font-size:clamp(16px,1.7vw,22px);letter-spacing:.42em;padding-left:.42em}
+.c-zh-big{font-family:var(--cjk);font-feature-settings:"palt";font-weight:300;color:#fff;font-size:clamp(34px,3.9vw,56px);letter-spacing:.2em;padding-left:.2em;line-height:1.25;text-shadow:0 4px 40px rgba(30,8,14,.28)}
+.c-en-small{font-family:var(--serif);font-style:italic;font-weight:400;color:rgba(255,255,255,.72);font-size:clamp(15px,1.3vw,18px);letter-spacing:.04em;margin-top:10px}
+.c-key{display:flex;align-items:center;justify-content:center;gap:16px;margin-top:24px;font-family:var(--cjk);font-weight:400;color:#fff;font-size:clamp(14px,1.25vw,17px);letter-spacing:.42em;padding-left:.42em}
 .c-key::before,.c-key::after{content:"";width:clamp(28px,4vw,56px);height:1px;background:rgba(255,255,255,.55)}
-.c-key-en{font-family:var(--mono);font-size:9.5px;letter-spacing:.32em;color:rgba(255,255,255,.55);margin-top:10px;padding-left:.32em}
 /* 英文版：英文标语当大字、中文标语小字 */
 body.en .c-en-small{order:-1;font-weight:300;color:#fff;font-size:clamp(44px,6.4vw,92px);line-height:1.05;margin:0 0 16px;letter-spacing:.015em;text-shadow:0 4px 48px rgba(30,8,14,.3)}
 body.en .c-zh-big{font-size:15px;letter-spacing:.3em;color:rgba(255,255,255,.62);text-shadow:none}
@@ -331,6 +330,14 @@ body.en .c-key{letter-spacing:.16em;padding-left:.16em}
 .fm-cap{margin-top:14px;text-align:center;font-family:var(--cjk);font-size:12px;letter-spacing:0.2em;color:rgba(255,255,255,0.6)}
 @media(max-width:960px){.sound{top:70px;right:28px}}
 @media(max-width:600px){.sound{top:60px;right:18px}.c-cta{margin-top:22px;padding:10px 20px;font-size:12px}}
+
+/* 首页精简：按钮一排；电脑版上方选单已有全部页面，底部六格只在平板、手机显示；底部晕染调淡 */
+.c-acts{display:flex;align-items:center;justify-content:center;gap:22px;margin-top:30px;flex-wrap:wrap}
+.c-acts .c-cta,.c-acts .c-film{margin-top:0}
+@media(min-width:961px){.bottom-nav{display:none}}
+.bn-num{display:none}
+.bn{background:rgba(255,255,255,0.06)}
+@media(max-width:600px){.c-acts{gap:16px;margin-top:22px}}
 
 /* ══ RWD ══ */
 /* ── 平板 960px ── */
@@ -478,9 +485,7 @@ body.en .c-key{letter-spacing:.16em;padding-left:.16em}
 <div class="c-zh-big" lang="zh-Hant">美，由妳作主</div>
 <div class="c-en-small">Beauty, <span style="white-space:nowrap">On Your Terms.</span></div>
 <div class="c-key"><span data-zh="">非侵入式美学科技</span></div>
-<div class="c-key-en" data-zh="">NON-INVASIVE BEAUTY TECHNOLOGY</div>
-<a class="c-cta" href="quiz.html" data-zh="">找到妳的照顾节奏 →</a>
-<div><button class="c-film" id="filmOpen" type="button"><i aria-hidden="true">▶</i><span data-zh="">看品牌影片｜2 分钟</span></button></div>
+<div class="c-acts"><a class="c-cta" href="quiz.html" data-zh="">找到妳的照顾节奏 →</a><button class="c-film" id="filmOpen" type="button"><i aria-hidden="true">▶</i><span data-zh="">品牌影片</span></button></div>
 </div>
 <div class="film-modal" id="filmModal" role="dialog" aria-modal="true" aria-label="Decoy 品牌影片" data-en-aria-label="Decoy brand film" hidden="">
 <div class="fm-box">
