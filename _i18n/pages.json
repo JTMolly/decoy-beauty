@@ -95,8 +95,6 @@
       "description": "What personal data Decoy collects when you claim a Decode Card, how it is used, and your rights."
     }
   },
-  "hold": [
-    "patent"
-  ],
-  "_hold_note": "patent：專利那句的對外寫法 Molly 10/12 會議決定（公司只擁有 3 項中的 1 項）。定案後改繁中原頁、從 hold 拿掉 patent，再重跑。"
+  "hold": [],
+  "_hold_note": "hold：中文說法還沒定案的句子，英文版和簡體版先不放（標在原頁 data-hold）。專利句已定案，目前沒有 hold。"
 }
