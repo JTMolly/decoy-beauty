@@ -1,0 +1,547 @@
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Noto+Sans+TC:wght@300;400;500;700&family=Noto+Serif+TC:wght@400;500;600;700&display=swap');
+#ach-home{font-family:'Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif;font-size:16px;line-height:1.9;color:#323232;background:#FFFFFF;-webkit-font-smoothing:antialiased;text-align:left}
+#ach-home *,#ach-home *::before,#ach-home *::after{box-sizing:border-box}
+#ach-home img{display:block;max-width:100%;height:auto;border:0}
+#ach-home svg{display:block}
+#ach-home a{color:inherit;text-decoration:none}
+#ach-home h1,#ach-home h2,#ach-home h3,#ach-home p,#ach-home ul,#ach-home ol,#ach-home li,#ach-home figure,#ach-home blockquote{margin:0;padding:0}
+#ach-home ul,#ach-home ol{list-style:none}
+#ach-home .wrap{position:relative;max-width:1120px;margin:0 auto;padding:0 28px}
+#ach-home .sec{position:relative;overflow:hidden;padding:112px 0}
+#ach-home .ratio{position:relative;height:0;overflow:hidden;background:#CFE9EC}
+#ach-home .ratio>img{position:absolute;left:0;top:0;width:100%;height:100%;object-fit:cover}
+#ach-home .r11{padding-top:100%}
+#ach-home .r43{padding-top:75%}
+#ach-home .r32{padding-top:66.667%}
+#ach-home .r45{padding-top:125%}
+#ach-home .r169{padding-top:56.25%}
+#ach-home .r219{padding-top:42.857%}
+
+#ach-home .eyebrow{display:flex;align-items:center;gap:14px;font-family:'Manrope','Noto Sans TC',sans-serif;font-size:12px;font-weight:600;letter-spacing:.36em;text-transform:uppercase;color:#1E7882}
+#ach-home .eyebrow::before{content:'';display:block;width:38px;height:1px;background:#009BAA}
+#ach-home .center .eyebrow{justify-content:center}
+#ach-home .title{margin-top:16px;font-family:'Noto Serif TC','Songti TC','PMingLiU',serif;font-size:36px;font-weight:600;line-height:1.5;letter-spacing:.06em;color:#17525a}
+#ach-home .lead{margin-top:22px;max-width:640px;font-size:16px;line-height:2;color:#3f4a4c}
+#ach-home .center{text-align:center}
+#ach-home .center .lead{margin-left:auto;margin-right:auto}
+#ach-home .btns{display:flex;flex-wrap:wrap;gap:14px;margin-top:34px}
+#ach-home .btn{display:inline-block;padding:14px 34px;border:1px solid #1E7882;border-radius:3px;font-size:15px;font-weight:500;letter-spacing:.2em;line-height:1.4;text-align:center;transition:background .25s,color .25s,border-color .25s,box-shadow .25s}
+#ach-home .btn-solid{background:#1E7882;color:#FFFFFF}
+#ach-home .btn-solid:hover{background:#009BAA;border-color:#009BAA;color:#FFFFFF;box-shadow:0 8px 22px rgba(0,155,170,.28)}
+#ach-home .btn-line{background:transparent;color:#1E7882}
+#ach-home .btn-line:hover{background:#1E7882;color:#FFFFFF}
+#ach-home .btn-white{background:#FFFFFF;border-color:#FFFFFF;color:#1E7882}
+#ach-home .btn-white:hover{background:#EAF6F7;border-color:#EAF6F7;color:#1E7882;box-shadow:0 8px 22px rgba(0,0,0,.18)}
+#ach-home .btn-ghost{background:transparent;border-color:rgba(255,255,255,.9);color:#FFFFFF}
+#ach-home .btn-ghost:hover{background:rgba(255,255,255,.16);color:#FFFFFF}
+#ach-home a:focus-visible{outline:2px solid #009BAA;outline-offset:3px}
+#ach-home .deco{position:absolute;pointer-events:none}
+
+/* 1 首屏：生醫藍漸層疊在主圖上，白色宋體大標 */
+#ach-home .hero{position:relative;height:min(82vh,780px);min-height:580px;overflow:hidden;background:linear-gradient(120deg,#1E7882 0%,#009BAA 100%)}
+#ach-home .hero picture,#ach-home .hero picture img{position:absolute;left:0;top:0;width:100%;height:100%;object-fit:cover;object-position:left center}
+#ach-home .hero::after{content:'';position:absolute;left:0;top:0;right:0;bottom:0;background:linear-gradient(100deg,rgba(30,120,130,.20) 0%,rgba(30,120,130,.66) 33%,rgba(0,155,170,.90) 100%)}
+#ach-home .hero .deco-mol{z-index:1;right:-96px;top:50%;width:500px;transform:translateY(-50%);color:#FFFFFF;opacity:.46}
+#ach-home .hero .mist{z-index:1;left:0;bottom:0;width:100%;height:190px;color:#FFFFFF}
+#ach-home .hero-copy{position:absolute;z-index:2;left:36%;right:8%;top:47%;transform:translateY(-50%)}
+#ach-home .hero .eyebrow{color:#FFFFFF}
+#ach-home .hero .eyebrow::before{background:#FFFFFF}
+#ach-home .hero h1{margin-top:20px;font-family:'Noto Serif TC','Songti TC','PMingLiU',serif;font-size:50px;font-weight:600;line-height:1.5;letter-spacing:.06em;color:#FFFFFF;text-shadow:0 2px 24px rgba(10,70,80,.25)}
+#ach-home .hero p{margin-top:22px;max-width:520px;font-size:17px;line-height:2;color:rgba(255,255,255,.94)}
+
+/* 數據區：大數字，只放核可過的事實 */
+#ach-home .stats{position:relative;z-index:3;margin-top:-76px;padding-bottom:12px}
+#ach-home .stat-card{display:grid;grid-template-columns:repeat(4,1fr);background:#FFFFFF;border-radius:6px;border-top:3px solid #009BAA;box-shadow:0 22px 56px rgba(23,82,90,.16)}
+#ach-home .stat{padding:32px 28px 32px;border-left:1px solid #D6ECEE}
+#ach-home .stat .k{margin-bottom:12px;font-family:'Manrope','Noto Sans TC',sans-serif;font-size:11px;font-weight:600;letter-spacing:.3em;color:#1E7882}
+#ach-home .stat:first-child{border-left:0}
+#ach-home .stat .n{font-family:'Manrope','Noto Sans TC',sans-serif;font-size:56px;font-weight:600;line-height:1.1;letter-spacing:.02em;color:#009BAA}
+#ach-home .stat .n.w{font-family:'Noto Serif TC','Songti TC',serif;font-size:40px;font-weight:600;letter-spacing:.06em;line-height:1.4;padding:5px 0}
+#ach-home .stat .u{margin-top:6px;font-family:'Noto Serif TC','Songti TC',serif;font-size:19px;font-weight:600;letter-spacing:.1em;color:#17525a}
+#ach-home .stat p{margin-top:8px;font-size:13.5px;line-height:1.85;color:#5a6b6e}
+
+/* 2 三件事 */
+#ach-home .do{background:#EAF6F7;background-image:linear-gradient(rgba(0,155,170,.08) 1px,transparent 1px),linear-gradient(90deg,rgba(0,155,170,.08) 1px,transparent 1px);background-size:56px 56px}
+#ach-home .do .deco-mol{right:-60px;top:-50px;width:380px;color:#009BAA;opacity:.22}
+#ach-home .do-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:56px}
+#ach-home .card{position:relative;background:#FFFFFF;border-top:3px solid #009BAA;border-radius:4px;overflow:hidden;box-shadow:0 1px 2px rgba(23,82,90,.06),0 14px 36px rgba(23,82,90,.10);transition:transform .3s,box-shadow .3s}
+#ach-home .card:hover{transform:translateY(-4px);box-shadow:0 2px 4px rgba(23,82,90,.08),0 24px 50px rgba(23,82,90,.18)}
+#ach-home .card-body{padding:42px 28px 34px}
+#ach-home .badge{position:absolute;z-index:2;left:24px;top:-24px;width:52px;height:52px;border-radius:50%;background:#FFFFFF;box-shadow:0 8px 20px rgba(23,82,90,.18);display:flex;align-items:center;justify-content:center;color:#009BAA}
+#ach-home .imgwrap{position:relative}
+#ach-home .imgwrap .badge{top:auto;bottom:-26px}
+#ach-home .num{font-family:'Manrope','Noto Sans TC',sans-serif;font-size:18px;font-weight:700;letter-spacing:.2em;color:#009BAA}
+#ach-home .card h3{margin-top:8px;font-family:'Noto Serif TC','Songti TC',serif;font-size:23px;font-weight:600;letter-spacing:.1em;line-height:1.5;color:#17525a}
+#ach-home .card p{margin-top:14px;font-size:15px;line-height:2;color:#3f4a4c}
+#ach-home .grad{background:linear-gradient(135deg,#1E7882 0%,#009BAA 100%)}
+#ach-home .grad .deco-rings{left:50%;top:50%;width:62%;transform:translate(-50%,-50%);color:#FFFFFF;opacity:.85}
+
+/* 3 Decoy：淡膚粉只用在這一區，代表 Decoy */
+#ach-home .brand{background:#FFF6F3}
+#ach-home .brand-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:64px;align-items:center}
+#ach-home .brand .eyebrow{color:#8B5060}
+#ach-home .brand .eyebrow::before{background:#A86878}
+#ach-home .brand .title{color:#323232}
+#ach-home .brand .title em{font-style:normal;color:#8B5060}
+#ach-home .brand .ratio{background:#FFDCD2;box-shadow:0 18px 44px rgba(139,80,96,.16)}
+#ach-home .brand .btn-rose{background:#A86878;border-color:#A86878;color:#FFFFFF}
+#ach-home .brand .btn-rose:hover{background:#8B5060;border-color:#8B5060}
+
+/* 4 名字：藍色漸層疊在圖上，下面是兩張並排的大卡 */
+#ach-home .name{padding-top:0;padding-bottom:0}
+#ach-home .name-banner{position:relative;background:#CFE9EC}
+#ach-home .name-banner::after{content:'';position:absolute;left:0;top:0;right:0;bottom:0;z-index:1;background:linear-gradient(180deg,rgba(30,120,130,.94) 0%,rgba(0,155,170,.62) 55%,rgba(0,155,170,.18) 100%)}
+#ach-home .name-copy{position:absolute;z-index:2;left:0;right:0;top:10%;padding:0 28px;text-align:center}
+#ach-home .name-copy .eyebrow{color:#FFFFFF}
+#ach-home .name-copy .eyebrow::before{background:#FFFFFF}
+#ach-home .name-copy .title{color:#FFFFFF}
+#ach-home .name-wrap{padding:0 0 112px;margin-top:-72px;position:relative;z-index:3}
+#ach-home .name-grid{display:grid;grid-template-columns:1.14fr 1fr;background:#FFFFFF;border-radius:4px;border-top:3px solid #009BAA;overflow:hidden;box-shadow:0 1px 2px rgba(23,82,90,.06),0 26px 60px rgba(23,82,90,.14)}
+#ach-home .name-card{position:relative;padding:56px 56px 58px}
+#ach-home .name-card .deco-rings{right:-34px;bottom:-34px;width:250px;color:#009BAA;opacity:.2}
+#ach-home .name-card+.name-card{background:#F4FAFB;border-left:1px solid #D6ECEE}
+#ach-home .name-label{font-family:'Manrope','Noto Sans TC',sans-serif;font-size:12px;font-weight:600;letter-spacing:.36em;color:#009BAA;text-transform:uppercase}
+#ach-home .name-big{margin-top:10px;font-family:'Manrope','Noto Sans TC',sans-serif;font-size:60px;font-weight:600;line-height:1.15;letter-spacing:.03em;color:#17525a}
+#ach-home .name-big.zh{font-family:'Noto Serif TC','Songti TC',serif;font-size:56px;letter-spacing:.2em}
+#ach-home .formula{display:flex;flex-wrap:wrap;align-items:center;gap:10px 12px;margin-top:22px}
+#ach-home .formula .chip{display:inline-block;padding:6px 18px;border:1px solid #009BAA;border-radius:99px;background:#FFFFFF;font-size:15px;letter-spacing:.08em;color:#1E7882}
+#ach-home .formula .chip b{font-family:'Manrope','Noto Sans TC',sans-serif;font-weight:700;letter-spacing:.04em}
+#ach-home .formula i{font-style:normal;font-size:18px;color:#009BAA}
+#ach-home .subline{margin-top:22px;font-family:'Noto Serif TC','Songti TC',serif;font-size:20px;font-weight:500;letter-spacing:.16em;color:#1E7882}
+#ach-home .name-card p{margin-top:24px;font-size:16px;line-height:2.05;color:#3f4a4c}
+#ach-home .promise{margin-top:28px;padding:18px 24px 20px;border-left:3px solid #009BAA;background:#EAF6F7;font-family:'Noto Serif TC','Songti TC',serif;font-size:17.5px;line-height:1.95;letter-spacing:.05em;color:#17525a}
+#ach-home .promise span{display:block;margin-bottom:4px;font-family:'Manrope','Noto Sans TC',sans-serif;font-size:11.5px;font-weight:600;letter-spacing:.3em;color:#009BAA}
+
+/* 5 商店 */
+#ach-home .shop{background:#F4FAFB}
+#ach-home .shop-bg{position:absolute;left:0;top:0;width:100%;height:100%;z-index:0;background:#CFE9EC}
+#ach-home .shop-bg img{width:100%;height:100%;object-fit:cover}
+#ach-home .shop::before{content:'';position:absolute;left:0;top:0;right:0;bottom:0;z-index:1;background:rgba(244,250,251,.92)}
+#ach-home .shop .wrap{z-index:2}
+#ach-home .pro-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:52px}
+#ach-home .pro{display:block}
+#ach-home .pro .card-body{padding:28px 28px 32px}
+#ach-home .pro h3{font-size:19px;letter-spacing:.06em}
+#ach-home .pro .price{margin-top:8px;font-family:'Manrope','Noto Sans TC',sans-serif;font-size:20px;font-weight:700;letter-spacing:.04em;color:#009BAA}
+#ach-home .pro .more{display:inline-block;margin-top:14px;font-size:14px;letter-spacing:.18em;color:#1E7882}
+#ach-home .pro:hover .more{color:#009BAA}
+
+/* 6 創辦人：照片在左，右邊四組，用細線分隔，英文小標 */
+#ach-home .founder-grid{display:grid;grid-template-columns:4.6fr 7.4fr;gap:88px;align-items:start}
+#ach-home .founder-photo{border-radius:4px;box-shadow:18px 18px 0 #CFE9EC}
+#ach-home .cap{margin-top:38px;font-size:13.5px;line-height:1.9;letter-spacing:.14em;color:#4d6366}
+#ach-home .cap b{display:block;font-family:'Noto Serif TC','Songti TC',serif;font-size:18px;font-weight:600;letter-spacing:.14em;color:#17525a}
+#ach-home .pgroup{padding:36px 0;border-top:1px solid #CFE9EC}
+#ach-home .pgroup.first{padding-top:0;border-top:0}
+#ach-home .role{margin-top:8px;font-size:15.5px;letter-spacing:.16em;color:#1E7882}
+#ach-home .oneliner{margin-top:24px;font-family:'Noto Serif TC','Songti TC',serif;font-size:18px;font-weight:500;line-height:2.05;letter-spacing:.04em;color:#323232}
+#ach-home .quote{margin-top:26px;padding-left:22px;border-left:3px solid #009BAA;font-family:'Noto Serif TC','Songti TC',serif;font-size:21px;font-weight:500;line-height:1.9;letter-spacing:.06em;color:#17525a}
+#ach-home .pgrid{display:grid;grid-template-columns:150px 1fr;gap:22px 28px}
+#ach-home .plabel{font-family:'Manrope','Noto Sans TC',sans-serif;font-size:12px;font-weight:600;letter-spacing:.32em;color:#009BAA}
+#ach-home .plabel em{display:block;margin-top:6px;font-style:normal;font-family:'Noto Serif TC','Songti TC',serif;font-size:17px;font-weight:600;letter-spacing:.14em;color:#17525a}
+#ach-home .plist li{position:relative;padding-left:20px;font-size:15.5px;line-height:2.1;color:#3f4a4c}
+#ach-home .plist li::before{content:'';position:absolute;left:0;top:1.05em;width:9px;height:1px;background:#009BAA}
+#ach-home .timeline li{position:relative;padding:0 0 20px 100px;font-size:15.5px;line-height:2;color:#3f4a4c}
+#ach-home .timeline li:last-child{padding-bottom:0}
+#ach-home .timeline .y{position:absolute;left:0;top:0;font-family:'Manrope','Noto Sans TC',sans-serif;font-size:17px;font-weight:700;letter-spacing:.06em;color:#009BAA}
+#ach-home .timeline li::before{content:'';position:absolute;left:73px;top:14px;bottom:-6px;width:1px;background:#CFE9EC}
+#ach-home .timeline li:last-child::before{display:none}
+#ach-home .timeline li::after{content:'';position:absolute;left:69px;top:11px;width:9px;height:9px;border-radius:50%;background:#FFFFFF;border:2px solid #009BAA}
+
+/* 7 知識專欄 */
+#ach-home .notes{background:#EAF6F7;background-image:linear-gradient(rgba(0,155,170,.08) 1px,transparent 1px),linear-gradient(90deg,rgba(0,155,170,.08) 1px,transparent 1px);background-size:56px 56px}
+#ach-home .notes-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:52px}
+#ach-home .note{display:block}
+#ach-home .note .card-body{padding:26px 28px 30px}
+#ach-home .note h3{font-size:19px;letter-spacing:.06em}
+#ach-home .note p{font-size:14.5px}
+#ach-home .tag{display:inline-block;margin-top:12px;padding:1px 12px;border:1px solid #009BAA;border-radius:99px;font-size:12px;letter-spacing:.1em;color:#1E7882}
+#ach-home .note .more{display:inline-block;margin-top:12px;font-size:14px;letter-spacing:.18em;color:#1E7882}
+#ach-home .small{margin-top:34px;font-size:13px;line-height:1.9;color:#4d6366;text-align:center}
+
+/* 8 公司資訊（頁尾）：深藍綠底、白字 */
+#ach-home .info{background:linear-gradient(180deg,#1E7882 0%,#17616a 100%);color:#FFFFFF}
+#ach-home .info .deco-mol{right:-40px;bottom:-60px;width:420px;color:#FFFFFF;opacity:.12}
+#ach-home .info-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
+#ach-home .info .eyebrow{color:#BFE9EE}
+#ach-home .info .eyebrow::before{background:#009BAA}
+#ach-home .info h2{margin-top:14px;font-family:'Noto Serif TC','Songti TC',serif;font-size:27px;font-weight:600;letter-spacing:.1em;color:#FFFFFF}
+#ach-home .info dl{margin:22px 0 0;padding:0}
+#ach-home .info dt{float:left;clear:left;width:6.2em;font-size:14px;letter-spacing:.14em;color:#BFE9EE;line-height:2.1}
+#ach-home .info dd{margin:0 0 0 6.6em;font-size:15px;line-height:2.1;color:#FFFFFF}
+#ach-home .info dd a{text-decoration:underline;text-decoration-color:rgba(255,255,255,.5);text-underline-offset:3px}
+#ach-home .links{display:flex;flex-wrap:wrap;gap:10px 24px;font-size:14.5px;letter-spacing:.1em}
+#ach-home .links a{color:#FFFFFF;border-bottom:1px solid rgba(255,255,255,.35);padding-bottom:2px}
+#ach-home .links a:hover{border-bottom-color:#FFFFFF}
+#ach-home .legal{margin-top:30px;font-size:12.5px;line-height:1.95;color:rgba(255,255,255,.72)}
+#ach-home .langsw{margin-top:16px;font-size:13px;letter-spacing:.1em;color:rgba(255,255,255,.72)}
+#ach-home .langsw a{color:#FFFFFF;border-bottom:1px solid rgba(255,255,255,.45);padding-bottom:1px}
+#ach-home .langsw a:hover{border-bottom-color:#FFFFFF}
+
+/* 手機與平板 */
+@media (max-width:960px){
+  #ach-home .wrap{padding:0 24px}
+  #ach-home .sec{padding:84px 0}
+  #ach-home .title{font-size:30px}
+  #ach-home .do-grid,#ach-home .pro-grid,#ach-home .notes-grid{grid-template-columns:1fr 1fr}
+  #ach-home .brand-grid,#ach-home .founder-grid,#ach-home .info-grid{grid-template-columns:1fr;gap:40px}
+  #ach-home .founder-photo{max-width:420px}
+  #ach-home .hero-copy{left:32%;right:6%}
+  #ach-home .hero h1{font-size:40px}
+  #ach-home .hero .deco-mol{width:380px;right:-40px}
+  #ach-home .stat-card{grid-template-columns:1fr 1fr}
+  #ach-home .stat:nth-child(3){border-left:0}
+  #ach-home .stat:nth-child(n+3){border-top:1px solid #D6ECEE}
+  #ach-home .name-wrap{padding-bottom:84px;margin-top:-56px}
+  #ach-home .name-grid{grid-template-columns:1fr}
+  #ach-home .name-card+.name-card{border-left:0;border-top:1px solid #D6ECEE}
+  #ach-home .name-card{padding:44px 40px 46px}
+  #ach-home .pgrid{grid-template-columns:1fr;gap:14px}
+}
+@media (max-width:760px){
+  #ach-home .sec{padding:68px 0}
+  #ach-home .title{font-size:26px;line-height:1.55;letter-spacing:.05em}
+  #ach-home .lead{font-size:15.5px}
+  #ach-home .hero{height:auto;min-height:0}
+  #ach-home .hero picture{position:relative;display:block;height:0;padding-top:128%}
+  #ach-home .hero picture img{position:absolute}
+  #ach-home .hero::after{background:linear-gradient(180deg,rgba(30,120,130,.94) 0%,rgba(0,155,170,.72) 50%,rgba(0,155,170,.2) 100%)}
+  #ach-home .hero .deco-mol{display:none}
+  #ach-home .hero .mist{height:110px}
+  #ach-home .hero-copy{left:24px;right:24px;top:46px;transform:none}
+  #ach-home .hero h1{margin-top:14px;font-size:27px;line-height:1.6;letter-spacing:.04em}
+  #ach-home .hero p{margin-top:14px;font-size:15px;line-height:1.95}
+  #ach-home .hero .btns{margin-top:22px;gap:10px}
+  #ach-home .btn{padding:13px 24px;font-size:14px;letter-spacing:.14em}
+  #ach-home .stats{margin-top:-44px}
+  #ach-home .stat{padding:24px 18px 22px}
+  #ach-home .stat .n{font-size:40px}
+  #ach-home .stat .n.w{font-size:30px;padding:4px 0}
+  #ach-home .stat .u{font-size:16px}
+  #ach-home .stat p{font-size:12.5px}
+  #ach-home .do-grid,#ach-home .pro-grid,#ach-home .notes-grid{grid-template-columns:1fr;gap:34px;margin-top:44px}
+  #ach-home .name-copy{position:static;padding:46px 24px 30px;background:linear-gradient(180deg,#1E7882,#009BAA)}
+  #ach-home .name-banner::after{background:linear-gradient(180deg,rgba(0,155,170,.28) 0%,rgba(0,155,170,.1) 100%)}
+  #ach-home .name-wrap{padding-bottom:68px;margin-top:0}
+  #ach-home .name-card{padding:38px 26px 40px}
+  #ach-home .name-big{font-size:46px}
+  #ach-home .name-big.zh{font-size:44px}
+  #ach-home .pgroup{padding:30px 0}
+  #ach-home .timeline li{padding-left:88px}
+  #ach-home .timeline li::before{left:62px}
+  #ach-home .timeline li::after{left:58px}
+  #ach-home .oneliner{font-size:16.5px}
+  #ach-home .quote{font-size:18px}
+  #ach-home .founder-photo{box-shadow:10px 10px 0 #CFE9EC}
+  #ach-home .cap{margin-top:30px}
+  #ach-home .info dt{float:none;width:auto;line-height:1.7;margin-top:10px}
+  #ach-home .info dd{margin:0}
+}
+</style>
+<div id="ach-home" lang="zh-Hant">
+
+<section class="hero">
+  <picture>
+    <source media="(max-width:760px)" srcset="https://decoy-beauty.com/acheloy-assets/home-v3/hero-m.jpg">
+    <img src="https://decoy-beauty.com/acheloy-assets/home-v3/hero.jpg" width="1920" height="1080" alt="清晨的自然光落在白色石材桌面上，擺著透明的玻璃安瓶與滴管">
+  </picture>
+  <svg class="deco deco-mol" viewBox="0 0 520 520" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true" focusable="false">
+  <circle cx="260" cy="260" r="238" stroke-dasharray="2 9" opacity=".7"/>
+  <circle cx="260" cy="260" r="170" opacity=".55"/>
+  <circle cx="260" cy="260" r="104" opacity=".7"/>
+  <polygon points="260,90 407,175 407,345 260,430 113,345 113,175" opacity=".55"/>
+  <g opacity=".9"><line x1="260" y1="260" x2="260" y2="90"/><line x1="260" y1="260" x2="407" y2="175"/><line x1="260" y1="260" x2="407" y2="345"/><line x1="260" y1="260" x2="260" y2="430"/><line x1="260" y1="260" x2="113" y2="345"/><line x1="260" y1="260" x2="113" y2="175"/></g>
+  <g fill="currentColor" stroke="none"><circle cx="260" cy="260" r="13"/><circle cx="260" cy="90" r="7"/><circle cx="407" cy="175" r="7"/><circle cx="407" cy="345" r="7"/><circle cx="260" cy="430" r="7"/><circle cx="113" cy="345" r="7"/><circle cx="113" cy="175" r="7"/><circle cx="378" cy="58" r="4"/><circle cx="490" cy="300" r="4"/><circle cx="150" cy="478" r="4"/><circle cx="34" cy="200" r="4"/><circle cx="440" cy="448" r="3"/></g>
+</svg>
+  <svg class="deco mist" viewBox="0 0 1440 190" preserveAspectRatio="none" fill="none" stroke="currentColor" aria-hidden="true" focusable="false">
+  <path d="M0 120C190 70 380 150 600 112S1010 56 1210 100 1380 128 1440 108" stroke-width="1.2" opacity=".42"/>
+  <path d="M0 148C220 104 420 176 650 140S1040 96 1240 134 1390 158 1440 140" stroke-width="1.2" opacity=".3"/>
+  <path d="M0 170C240 140 460 188 700 164S1070 132 1260 160 1400 178 1440 168" stroke-width="1.2" opacity=".2"/>
+</svg>
+  <div class="hero-copy">
+    <div class="eyebrow">ACHELOY BIOMED</div>
+    <h1>把每一個成分、<br>每一份文件，都說清楚。</h1>
+    <p>岩寬生醫 2018 年在臺北成立，從事保養品的研發與銷售，旗下品牌為 Decoy。</p>
+    <div class="btns">
+      <a class="btn btn-white" href="https://decoy-beauty.com/">認識 Decoy</a>
+      <a class="btn btn-ghost" href="https://www.acheloy.com/product_store?store_type_sn=35">逛線上商店</a>
+    </div>
+  </div>
+</section>
+
+<section class="stats">
+  <div class="wrap">
+    <div class="stat-card">
+      <div class="stat"><div class="k">FOUNDED</div><div class="n">2018</div><div class="u">年成立</div><p>岩寬生醫在臺北成立</p></div>
+      <div class="stat"><div class="k">PATENTS</div><div class="n">3</div><div class="u">項專利</div><p>創辦人與團隊的研發成果</p></div>
+      <div class="stat"><div class="k">PATENT LICENSES</div><div class="n">3</div><div class="u">項發明專利授權</div><p>專利設備另獲授權</p></div>
+      <div class="stat"><div class="k">SESSION RECORDS</div><div class="n w">每一堂</div><div class="u">都有紀錄</div><p>紀錄屬於妳本人</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec do">
+  <svg class="deco deco-mol" viewBox="0 0 520 520" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true" focusable="false">
+  <circle cx="260" cy="260" r="238" stroke-dasharray="2 9" opacity=".7"/>
+  <circle cx="260" cy="260" r="170" opacity=".55"/>
+  <circle cx="260" cy="260" r="104" opacity=".7"/>
+  <polygon points="260,90 407,175 407,345 260,430 113,345 113,175" opacity=".55"/>
+  <g opacity=".9"><line x1="260" y1="260" x2="260" y2="90"/><line x1="260" y1="260" x2="407" y2="175"/><line x1="260" y1="260" x2="407" y2="345"/><line x1="260" y1="260" x2="260" y2="430"/><line x1="260" y1="260" x2="113" y2="345"/><line x1="260" y1="260" x2="113" y2="175"/></g>
+  <g fill="currentColor" stroke="none"><circle cx="260" cy="260" r="13"/><circle cx="260" cy="90" r="7"/><circle cx="407" cy="175" r="7"/><circle cx="407" cy="345" r="7"/><circle cx="260" cy="430" r="7"/><circle cx="113" cy="345" r="7"/><circle cx="113" cy="175" r="7"/><circle cx="378" cy="58" r="4"/><circle cx="490" cy="300" r="4"/><circle cx="150" cy="478" r="4"/><circle cx="34" cy="200" r="4"/><circle cx="440" cy="448" r="3"/></g>
+</svg>
+  <div class="wrap">
+    <div class="eyebrow">WHAT WE DO</div>
+    <h2 class="title">我們做的三件事</h2>
+    <div class="do-grid">
+      <div class="card">
+        <div class="imgwrap"><div class="ratio r43"><img src="https://decoy-beauty.com/acheloy-assets/home-v3/rd.jpg" width="1200" height="1200" loading="lazy" alt="戴著薄手套的手拿著玻璃滴管，滴下一滴清澈的液體"></div><div class="badge"><svg width="26" height="26" viewBox="0 0 26 26" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true" focusable="false"><circle cx="13" cy="6" r="3"/><circle cx="5.5" cy="19" r="3"/><circle cx="20.5" cy="19" r="3"/><path d="M11.5 8.7 7 16.3M14.5 8.7 19 16.3M8.6 19h8.8"/></svg></div></div>
+        <div class="card-body">
+          <div class="num">01</div>
+          <h3>研發</h3>
+          <p>配方從成分開始想。Decoy 的活性安瓶配方由台大背景的研發團隊開發，全成分公開。創辦人與團隊的研發成果取得 3 項專利，專利設備另獲 3 項發明專利授權。</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="imgwrap"><div class="ratio r43"><img src="https://decoy-beauty.com/acheloy-assets/home-v3/quality.jpg" width="1200" height="1200" loading="lazy" alt="白色桌面上整齊排成一列的透明安瓶，旁邊有資料夾與鋼筆"></div><div class="badge"><svg width="26" height="26" viewBox="0 0 26 26" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 3.5h8.5L20 8v14.5H7z"/><path d="M15 3.5V8.5h5M10.5 13h6M10.5 16.5h6M10.5 20h3.5"/></svg></div></div>
+        <div class="card-body">
+          <div class="num">02</div>
+          <h3>品質</h3>
+          
+          <p>每一項產品，都交給合格的化粧品工廠製造，並完成產品登錄與產品資訊檔案。</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="imgwrap"><div class="ratio r43 grad"><svg class="deco deco-rings" viewBox="0 0 200 200" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true" focusable="false">
+  <circle cx="100" cy="100" r="92" opacity=".45"/><circle cx="100" cy="100" r="64" opacity=".75"/><circle cx="100" cy="100" r="36"/>
+  <circle cx="100" cy="100" r="9" fill="currentColor" stroke="none"/>
+  <path d="M100 8v28M100 164v28M8 100h28M164 100h28" opacity=".6"/>
+</svg></div><div class="badge"><svg width="26" height="26" viewBox="0 0 26 26" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true" focusable="false"><circle cx="13" cy="13" r="9.5"/><circle cx="13" cy="13" r="4.5"/><path d="M13 3.5v2.5M13 20v2.5"/></svg></div></div>
+        <div class="card-body">
+          <div class="num">03</div>
+          <h3>說話有分寸</h3>
+          <p>我們只說化粧品可以說的話。不誇大，不保證效果；每個人的感受不一樣，我們會老實說。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec brand">
+  <div class="wrap">
+    <div class="brand-grid">
+      <div class="ratio r169"><img src="https://decoy-beauty.com/acheloy-assets/home-v3/decoy.jpg" width="1600" height="900" loading="lazy" alt="安靜溫暖的美容保養室一角，玫瑰色牆面與亞麻布保養床"></div>
+      <div>
+        <div class="eyebrow">OUR BRAND</div>
+        <h2 class="title">Decoy｜<em>美，由妳作主。</em></h2>
+        <p class="lead">Decoy 是岩寬生醫的美容保養服務品牌。美容師用迅So槍，把活性安瓶裡的精華化成細緻的霧，均勻噴塗在肌膚表面。全程無針、無傷口，每一次都有紀錄，紀錄屬於妳本人。</p>
+        <div class="btns"><a class="btn btn-rose" href="https://decoy-beauty.com/">前往 Decoy 官網</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec name">
+  <div class="name-banner">
+    <div class="name-copy center">
+      <div class="eyebrow">OUR NAME</div>
+      <h2 class="title">名字的意思</h2>
+    </div>
+    <div class="ratio r219"><img src="https://decoy-beauty.com/acheloy-assets/home-v3/name.jpg" width="2100" height="900" loading="lazy" alt="寬廣平緩的淺色岩石地景，遠方是柔和的地平線"></div>
+  </div>
+  <div class="wrap name-wrap">
+    <div class="name-grid">
+      <article class="name-card">
+        <div class="name-label">Name</div>
+        <h3 class="name-big">Acheloy</h3>
+        <div class="formula"><span class="chip"><b>Ache</b>（疼痛）</span><i>＋</i><span class="chip"><b>Loy</b>（帶走）</span></div>
+        <p>名字來自希臘神話裡的月亮女神 Achelois，意思是「帶走疼痛的人」（She who washes away pain）。</p>
+        <div class="promise"><span>OUR PROMISE　我們的承諾</span>找到人正在受苦的地方，把那個苦帶走。</div>
+      </article>
+      <article class="name-card">
+        <div class="name-label">名稱</div>
+        <h3 class="name-big zh">岩寬</h3>
+        <div class="subline">大地般的基石</div>
+        <p>專利、配方、服務，都在這個基礎上長出來；專業，是用來承接人的重量。</p>
+        <svg class="deco deco-rings" viewBox="0 0 200 200" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true" focusable="false">
+  <circle cx="100" cy="100" r="92" opacity=".45"/><circle cx="100" cy="100" r="64" opacity=".75"/><circle cx="100" cy="100" r="36"/>
+  <circle cx="100" cy="100" r="9" fill="currentColor" stroke="none"/>
+  <path d="M100 8v28M100 164v28M8 100h28M164 100h28" opacity=".6"/>
+</svg>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="sec shop">
+  <div class="shop-bg"><img src="https://decoy-beauty.com/acheloy-assets/home-v3/shop.jpg" width="1600" height="900" loading="lazy" alt=""></div>
+  <div class="wrap">
+    <div class="center">
+      <div class="eyebrow">SHOP</div>
+      <h2 class="title">日常保養，在這裡買得到。</h2>
+      <p class="lead">岩寬研發的保養品，每一項都寫清楚成分、用法和注意事項。</p>
+    </div>
+    <div class="pro-grid">
+      <a class="card pro" href="https://www.acheloy.com/product_detail?product_sn=9">
+        <div class="ratio r11"><img src="https://decoy-beauty.com/acheloy-assets/home-v3/product-1.jpg" width="1200" height="1200" loading="lazy" alt="ATOPURA 發電肌光透水潤保濕面膜的黑色外盒與金色單片包裝"></div>
+        <div class="card-body">
+          <h3>ATOPURA 發電肌光透水潤保濕面膜（一盒 3 片）</h3>
+          <p>幫助肌膚保濕、展現光澤。</p>
+          <div class="price">NT$ 580</div>
+          <span class="more">查看商品 →</span>
+        </div>
+      </a>
+      
+      <a class="card pro" href="https://www.acheloy.com/product_store?store_type_sn=49">
+        <div class="ratio r11"><img src="https://decoy-beauty.com/acheloy-assets/home-v3/product-2.jpg" width="1200" height="1200" loading="lazy" alt="Decoy 迅So槍與兩支活性安瓶"></div>
+        <div class="card-body">
+          <h3>Decoy 迅So槍 單堂體驗（門市服務憑證）</h3>
+          <p>由美容師在 Decoy 門市為妳服務。</p>
+          <div class="price">NT$ 8,000</div>
+          <span class="more">查看商品 →</span>
+        </div>
+      </a>
+      
+      <a class="card pro" href="https://decoy-beauty.com/">
+        <div class="ratio r11"><img src="https://decoy-beauty.com/acheloy-assets/home-v3/product-3.jpg" width="1200" height="1200" loading="lazy" alt="Decoy LIGHT 與 MIRROR 活性安瓶，粉色禮盒"></div>
+        <div class="card-body">
+          <h3>Decoy LIGHT／MIRROR 活性安瓶（門市服務使用）</h3>
+          <p>Decoy 門市服務使用的活性安瓶，全成分公開。</p>
+          <span class="more">了解 Decoy →</span>
+        </div>
+      </a>
+    </div>
+    <div class="btns" style="justify-content:center"><a class="btn btn-solid" href="https://www.acheloy.com/product_store?store_type_sn=35">進入商店</a></div>
+  </div>
+</section>
+
+<section class="sec founder">
+  <div class="wrap">
+    <div class="founder-grid">
+      <div>
+        <div class="founder-photo ratio r45"><img src="https://decoy-beauty.com/acheloy-assets/home-v3/founder.jpg" width="1200" height="1500" loading="lazy" alt="岩寬生醫創辦人暨執行長陳槿唐"></div>
+        <p class="cap"><b>陳槿唐 Molly Chen</b>Founder &amp; CEO</p>
+      </div>
+      <div class="profile">
+        <div class="pgroup first">
+          <div class="eyebrow">FOUNDER</div>
+          <h2 class="title">陳槿唐 Molly Chen</h2>
+          <p class="role">岩寬生醫 創辦人暨執行長</p>
+          <p class="oneliner">研究者出身，用數據經營美學事業。看證據、設計研究、照顧人——這三件事是她的訓練，也是岩寬的方法。</p>
+          <blockquote class="quote">科學告訴我機制，<br>身體告訴我真相。</blockquote>
+        </div>
+        <div class="pgroup">
+          <div class="pgrid">
+            <div class="plabel">EDUCATION<em>學歷</em></div>
+            
+            <ul class="plist">
+              <li>國立臺灣大學 流行病學與預防醫學研究所 碩士</li>
+              <li>國立臺灣大學 公共衛生學系 學士</li>
+              <li>國立臺灣大學 免疫學研究所 博士班（肄業）</li>
+            </ul>
+          </div>
+        </div>
+        <div class="pgroup">
+          <div class="pgrid">
+            <div class="plabel">RESEARCH<em>研究經歷</em></div>
+            <ul class="plist">
+              <li>美國國家衛生研究院（NIH）流感疫苗研究 專案經理</li>
+              <li>臺灣大學健康資料研究中心 研究分析師</li>
+              <li>期刊論文 5 篇</li>
+              <li>約翰霍普金斯大學 R Programming、Machine Learning 課程認證</li>
+            </ul>
+          </div>
+        </div>
+        <div class="pgroup">
+          <div class="pgrid">
+            <div class="plabel">MILESTONES<em>創業</em></div>
+            <ol class="timeline">
+              <li><span class="y">2016</span>台大黑客松 企業獎冠軍</li>
+              <li><span class="y">2018</span>創立岩寬生醫</li>
+              <li><span class="y">2019</span>阿里巴巴集團創新創業大賽「全場最具價值投資獎」</li>
+              <li><span class="y">2023</span>金峰獎「傑出創業楷模」；受美國在台協會（AIT）邀請，參加 SelectUSA 投資峰會</li>
+            </ol>
+          </div>
+        </div>
+        <div class="btns"><a class="btn btn-line" href="https://decoy-beauty.com/founder.html">閱讀創辦人故事</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec notes">
+  <div class="wrap">
+    <div class="center">
+      <div class="eyebrow">NOTES</div>
+      <h2 class="title">知識專欄</h2>
+    </div>
+    <div class="notes-grid">
+      <a class="card note" href="https://www.acheloy.com/cc-22">
+        <div class="ratio r32"><img src="https://decoy-beauty.com/acheloy-assets/home-v3/notes-1.jpg" width="1200" height="800" loading="lazy" alt="水滴落在淺色表面的特寫"></div>
+        <div class="card-body">
+          <h3>皮膚構造介紹</h3>
+          <p>從表皮到真皮，認識皮膚的基本構造。</p>
+          <span class="more">閱讀全文 →</span>
+        </div>
+      </a>
+      <a class="card note" href="https://www.acheloy.com/cc-24">
+        <div class="ratio r32"><img src="https://decoy-beauty.com/acheloy-assets/home-v3/notes-2.jpg" width="1200" height="800" loading="lazy" alt="柔軟白色布料的細緻紋理"></div>
+        <div class="card-body">
+          <h3>了解頭皮</h3>
+          <p>認識頭皮的構造，以及日常照顧的基本觀念。</p>
+          <span class="more">閱讀全文 →</span>
+        </div>
+      </a>
+      <a class="card note" href="https://www.acheloy.com/cl-16">
+        <div class="ratio r32"><img src="https://decoy-beauty.com/acheloy-assets/home-v3/notes-3.jpg" width="1200" height="800" loading="lazy" alt="木梳放在白色亞麻布上"></div>
+        <div class="card-body">
+          <h3>敏感肌日常保養的 5 個習慣</h3>
+          <p>每天都做得到的小習慣，一起顧好每一天。</p>
+          <span class="tag">撰寫中</span>
+        </div>
+      </a>
+    </div>
+    <p class="small">這裡寫的是一般保養知識，不能取代專業診斷；皮膚有狀況，請先請教皮膚科醫師。</p>
+  </div>
+</section>
+
+<section class="sec info">
+  <svg class="deco deco-mol" viewBox="0 0 520 520" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true" focusable="false">
+  <circle cx="260" cy="260" r="238" stroke-dasharray="2 9" opacity=".7"/>
+  <circle cx="260" cy="260" r="170" opacity=".55"/>
+  <circle cx="260" cy="260" r="104" opacity=".7"/>
+  <polygon points="260,90 407,175 407,345 260,430 113,345 113,175" opacity=".55"/>
+  <g opacity=".9"><line x1="260" y1="260" x2="260" y2="90"/><line x1="260" y1="260" x2="407" y2="175"/><line x1="260" y1="260" x2="407" y2="345"/><line x1="260" y1="260" x2="260" y2="430"/><line x1="260" y1="260" x2="113" y2="345"/><line x1="260" y1="260" x2="113" y2="175"/></g>
+  <g fill="currentColor" stroke="none"><circle cx="260" cy="260" r="13"/><circle cx="260" cy="90" r="7"/><circle cx="407" cy="175" r="7"/><circle cx="407" cy="345" r="7"/><circle cx="260" cy="430" r="7"/><circle cx="113" cy="345" r="7"/><circle cx="113" cy="175" r="7"/><circle cx="378" cy="58" r="4"/><circle cx="490" cy="300" r="4"/><circle cx="150" cy="478" r="4"/><circle cx="34" cy="200" r="4"/><circle cx="440" cy="448" r="3"/></g>
+</svg>
+  <div class="wrap">
+    <div class="info-grid">
+      <div>
+        <div class="eyebrow">COMPANY</div>
+        <h2>岩寬生醫股份有限公司</h2>
+        <dl>
+          <dt>統一編號</dt><dd>50899367</dd>
+          <dt>成立</dt><dd>2018 年 12 月 7 日</dd>
+          <dt>地址</dt><dd>臺北市中山區復興北路 178 號 4 樓之 6</dd>
+          <dt>客服電話</dt><dd>02-2964-1453</dd>
+          <dt>客服信箱</dt><dd><a href="mailto:service@acheloy.com">service@acheloy.com</a></dd>
+        </dl>
+      </div>
+      <div>
+        <div class="links">
+          <a href="https://www.acheloy.com/wc-41">隱私權政策</a>
+          <a href="https://www.acheloy.com/website_faq.php?category_sn=4">退換貨</a>
+          <a href="https://www.acheloy.com/product_store?store_type_sn=35">線上商店</a>
+          <a href="https://www.facebook.com/acheloy">Facebook</a>
+          <a href="https://www.instagram.com/acheloybiomed">Instagram</a>
+          <a href="https://line.me/R/ti/p/@187elbpm">LINE</a>
+        </div>
+        
+        <p class="legal">© 2026 岩寬生醫股份有限公司 Acheloy Biomed<br>部分圖片由 AI 生成。</p>
+        <p class="langsw">語言　中文　·　<a href="https://www.acheloy.com/cc-38">English</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+</div>

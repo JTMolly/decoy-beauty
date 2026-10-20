@@ -1,0 +1,590 @@
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Noto+Sans+TC:wght@300;400;500;700&family=Noto+Serif+TC:wght@400;500;600;700&display=swap');
+#ach-home-en{font-family:'Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif;font-size:16px;line-height:1.9;color:#323232;background:#FFFFFF;-webkit-font-smoothing:antialiased;text-align:left}
+#ach-home-en *,#ach-home-en *::before,#ach-home-en *::after{box-sizing:border-box}
+#ach-home-en img{display:block;max-width:100%;height:auto;border:0}
+#ach-home-en svg{display:block}
+#ach-home-en a{color:inherit;text-decoration:none}
+#ach-home-en h1,#ach-home-en h2,#ach-home-en h3,#ach-home-en p,#ach-home-en ul,#ach-home-en ol,#ach-home-en li,#ach-home-en figure,#ach-home-en blockquote{margin:0;padding:0}
+#ach-home-en ul,#ach-home-en ol{list-style:none}
+#ach-home-en .wrap{position:relative;max-width:1120px;margin:0 auto;padding:0 28px}
+#ach-home-en .sec{position:relative;overflow:hidden;padding:112px 0}
+#ach-home-en .ratio{position:relative;height:0;overflow:hidden;background:#CFE9EC}
+#ach-home-en .ratio>img{position:absolute;left:0;top:0;width:100%;height:100%;object-fit:cover}
+#ach-home-en .r11{padding-top:100%}
+#ach-home-en .r43{padding-top:75%}
+#ach-home-en .r32{padding-top:66.667%}
+#ach-home-en .r45{padding-top:125%}
+#ach-home-en .r169{padding-top:56.25%}
+#ach-home-en .r219{padding-top:42.857%}
+
+#ach-home-en .eyebrow{display:flex;align-items:center;gap:14px;font-family:'Manrope','Noto Sans TC',sans-serif;font-size:12px;font-weight:600;letter-spacing:.36em;text-transform:uppercase;color:#1E7882}
+#ach-home-en .eyebrow::before{content:'';display:block;width:38px;height:1px;background:#009BAA}
+#ach-home-en .center .eyebrow{justify-content:center}
+#ach-home-en .title{margin-top:16px;font-family:'Noto Serif TC','Songti TC','PMingLiU',serif;font-size:36px;font-weight:600;line-height:1.5;letter-spacing:.06em;color:#17525a}
+#ach-home-en .lead{margin-top:22px;max-width:640px;font-size:16px;line-height:2;color:#3f4a4c}
+#ach-home-en .center{text-align:center}
+#ach-home-en .center .lead{margin-left:auto;margin-right:auto}
+#ach-home-en .btns{display:flex;flex-wrap:wrap;gap:14px;margin-top:34px}
+#ach-home-en .btn{display:inline-block;padding:14px 34px;border:1px solid #1E7882;border-radius:3px;font-size:15px;font-weight:500;letter-spacing:.2em;line-height:1.4;text-align:center;transition:background .25s,color .25s,border-color .25s,box-shadow .25s}
+#ach-home-en .btn-solid{background:#1E7882;color:#FFFFFF}
+#ach-home-en .btn-solid:hover{background:#009BAA;border-color:#009BAA;color:#FFFFFF;box-shadow:0 8px 22px rgba(0,155,170,.28)}
+#ach-home-en .btn-line{background:transparent;color:#1E7882}
+#ach-home-en .btn-line:hover{background:#1E7882;color:#FFFFFF}
+#ach-home-en .btn-white{background:#FFFFFF;border-color:#FFFFFF;color:#1E7882}
+#ach-home-en .btn-white:hover{background:#EAF6F7;border-color:#EAF6F7;color:#1E7882;box-shadow:0 8px 22px rgba(0,0,0,.18)}
+#ach-home-en .btn-ghost{background:transparent;border-color:rgba(255,255,255,.9);color:#FFFFFF}
+#ach-home-en .btn-ghost:hover{background:rgba(255,255,255,.16);color:#FFFFFF}
+#ach-home-en a:focus-visible{outline:2px solid #009BAA;outline-offset:3px}
+#ach-home-en .deco{position:absolute;pointer-events:none}
+
+/* 1 首屏：生醫藍漸層疊在主圖上，白色宋體大標 */
+#ach-home-en .hero{position:relative;height:min(82vh,780px);min-height:580px;overflow:hidden;background:linear-gradient(120deg,#1E7882 0%,#009BAA 100%)}
+#ach-home-en .hero picture,#ach-home-en .hero picture img{position:absolute;left:0;top:0;width:100%;height:100%;object-fit:cover;object-position:left center}
+#ach-home-en .hero::after{content:'';position:absolute;left:0;top:0;right:0;bottom:0;background:linear-gradient(100deg,rgba(30,120,130,.20) 0%,rgba(30,120,130,.66) 33%,rgba(0,155,170,.90) 100%)}
+#ach-home-en .hero .deco-mol{z-index:1;right:-96px;top:50%;width:500px;transform:translateY(-50%);color:#FFFFFF;opacity:.46}
+#ach-home-en .hero .mist{z-index:1;left:0;bottom:0;width:100%;height:190px;color:#FFFFFF}
+#ach-home-en .hero-copy{position:absolute;z-index:2;left:36%;right:8%;top:47%;transform:translateY(-50%)}
+#ach-home-en .hero .eyebrow{color:#FFFFFF}
+#ach-home-en .hero .eyebrow::before{background:#FFFFFF}
+#ach-home-en .hero h1{margin-top:20px;font-family:'Noto Serif TC','Songti TC','PMingLiU',serif;font-size:50px;font-weight:600;line-height:1.5;letter-spacing:.06em;color:#FFFFFF;text-shadow:0 2px 24px rgba(10,70,80,.25)}
+#ach-home-en .hero p{margin-top:22px;max-width:520px;font-size:17px;line-height:2;color:rgba(255,255,255,.94)}
+
+/* 數據區：大數字，只放核可過的事實 */
+#ach-home-en .stats{position:relative;z-index:3;margin-top:-76px;padding-bottom:12px}
+#ach-home-en .stat-card{display:grid;grid-template-columns:repeat(4,1fr);background:#FFFFFF;border-radius:6px;border-top:3px solid #009BAA;box-shadow:0 22px 56px rgba(23,82,90,.16)}
+#ach-home-en .stat{padding:32px 28px 32px;border-left:1px solid #D6ECEE}
+#ach-home-en .stat .k{margin-bottom:12px;font-family:'Manrope','Noto Sans TC',sans-serif;font-size:11px;font-weight:600;letter-spacing:.3em;color:#1E7882}
+#ach-home-en .stat:first-child{border-left:0}
+#ach-home-en .stat .n{font-family:'Manrope','Noto Sans TC',sans-serif;font-size:56px;font-weight:600;line-height:1.1;letter-spacing:.02em;color:#009BAA}
+#ach-home-en .stat .n.w{font-family:'Noto Serif TC','Songti TC',serif;font-size:40px;font-weight:600;letter-spacing:.06em;line-height:1.4;padding:5px 0}
+#ach-home-en .stat .u{margin-top:6px;font-family:'Noto Serif TC','Songti TC',serif;font-size:19px;font-weight:600;letter-spacing:.1em;color:#17525a}
+#ach-home-en .stat p{margin-top:8px;font-size:13.5px;line-height:1.85;color:#5a6b6e}
+
+/* 2 三件事 */
+#ach-home-en .do{background:#EAF6F7;background-image:linear-gradient(rgba(0,155,170,.08) 1px,transparent 1px),linear-gradient(90deg,rgba(0,155,170,.08) 1px,transparent 1px);background-size:56px 56px}
+#ach-home-en .do .deco-mol{right:-60px;top:-50px;width:380px;color:#009BAA;opacity:.22}
+#ach-home-en .do-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:56px}
+#ach-home-en .card{position:relative;background:#FFFFFF;border-top:3px solid #009BAA;border-radius:4px;overflow:hidden;box-shadow:0 1px 2px rgba(23,82,90,.06),0 14px 36px rgba(23,82,90,.10);transition:transform .3s,box-shadow .3s}
+#ach-home-en .card:hover{transform:translateY(-4px);box-shadow:0 2px 4px rgba(23,82,90,.08),0 24px 50px rgba(23,82,90,.18)}
+#ach-home-en .card-body{padding:42px 28px 34px}
+#ach-home-en .badge{position:absolute;z-index:2;left:24px;top:-24px;width:52px;height:52px;border-radius:50%;background:#FFFFFF;box-shadow:0 8px 20px rgba(23,82,90,.18);display:flex;align-items:center;justify-content:center;color:#009BAA}
+#ach-home-en .imgwrap{position:relative}
+#ach-home-en .imgwrap .badge{top:auto;bottom:-26px}
+#ach-home-en .num{font-family:'Manrope','Noto Sans TC',sans-serif;font-size:18px;font-weight:700;letter-spacing:.2em;color:#009BAA}
+#ach-home-en .card h3{margin-top:8px;font-family:'Noto Serif TC','Songti TC',serif;font-size:23px;font-weight:600;letter-spacing:.1em;line-height:1.5;color:#17525a}
+#ach-home-en .card p{margin-top:14px;font-size:15px;line-height:2;color:#3f4a4c}
+#ach-home-en .grad{background:linear-gradient(135deg,#1E7882 0%,#009BAA 100%)}
+#ach-home-en .grad .deco-rings{left:50%;top:50%;width:62%;transform:translate(-50%,-50%);color:#FFFFFF;opacity:.85}
+
+/* 3 Decoy：淡膚粉只用在這一區，代表 Decoy */
+#ach-home-en .brand{background:#FFF6F3}
+#ach-home-en .brand-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:64px;align-items:center}
+#ach-home-en .brand .eyebrow{color:#8B5060}
+#ach-home-en .brand .eyebrow::before{background:#A86878}
+#ach-home-en .brand .title{color:#323232}
+#ach-home-en .brand .title em{font-style:normal;color:#8B5060}
+#ach-home-en .brand .ratio{background:#FFDCD2;box-shadow:0 18px 44px rgba(139,80,96,.16)}
+#ach-home-en .brand .btn-rose{background:#A86878;border-color:#A86878;color:#FFFFFF}
+#ach-home-en .brand .btn-rose:hover{background:#8B5060;border-color:#8B5060}
+
+/* 4 名字：藍色漸層疊在圖上，下面是兩張並排的大卡 */
+#ach-home-en .name{padding-top:0;padding-bottom:0}
+#ach-home-en .name-banner{position:relative;background:#CFE9EC}
+#ach-home-en .name-banner::after{content:'';position:absolute;left:0;top:0;right:0;bottom:0;z-index:1;background:linear-gradient(180deg,rgba(30,120,130,.94) 0%,rgba(0,155,170,.62) 55%,rgba(0,155,170,.18) 100%)}
+#ach-home-en .name-copy{position:absolute;z-index:2;left:0;right:0;top:10%;padding:0 28px;text-align:center}
+#ach-home-en .name-copy .eyebrow{color:#FFFFFF}
+#ach-home-en .name-copy .eyebrow::before{background:#FFFFFF}
+#ach-home-en .name-copy .title{color:#FFFFFF}
+#ach-home-en .name-wrap{padding:0 0 112px;margin-top:-72px;position:relative;z-index:3}
+#ach-home-en .name-grid{display:grid;grid-template-columns:1.14fr 1fr;background:#FFFFFF;border-radius:4px;border-top:3px solid #009BAA;overflow:hidden;box-shadow:0 1px 2px rgba(23,82,90,.06),0 26px 60px rgba(23,82,90,.14)}
+#ach-home-en .name-card{position:relative;padding:56px 56px 58px}
+#ach-home-en .name-card .deco-rings{right:-34px;bottom:-34px;width:250px;color:#009BAA;opacity:.2}
+#ach-home-en .name-card+.name-card{background:#F4FAFB;border-left:1px solid #D6ECEE}
+#ach-home-en .name-label{font-family:'Manrope','Noto Sans TC',sans-serif;font-size:12px;font-weight:600;letter-spacing:.36em;color:#009BAA;text-transform:uppercase}
+#ach-home-en .name-big{margin-top:10px;font-family:'Manrope','Noto Sans TC',sans-serif;font-size:60px;font-weight:600;line-height:1.15;letter-spacing:.03em;color:#17525a}
+#ach-home-en .name-big.zh{font-family:'Noto Serif TC','Songti TC',serif;font-size:56px;letter-spacing:.2em}
+#ach-home-en .formula{display:flex;flex-wrap:wrap;align-items:center;gap:10px 12px;margin-top:22px}
+#ach-home-en .formula .chip{display:inline-block;padding:6px 18px;border:1px solid #009BAA;border-radius:99px;background:#FFFFFF;font-size:15px;letter-spacing:.08em;color:#1E7882}
+#ach-home-en .formula .chip b{font-family:'Manrope','Noto Sans TC',sans-serif;font-weight:700;letter-spacing:.04em}
+#ach-home-en .formula i{font-style:normal;font-size:18px;color:#009BAA}
+#ach-home-en .subline{margin-top:22px;font-family:'Noto Serif TC','Songti TC',serif;font-size:20px;font-weight:500;letter-spacing:.16em;color:#1E7882}
+#ach-home-en .name-card p{margin-top:24px;font-size:16px;line-height:2.05;color:#3f4a4c}
+#ach-home-en .promise{margin-top:28px;padding:18px 24px 20px;border-left:3px solid #009BAA;background:#EAF6F7;font-family:'Noto Serif TC','Songti TC',serif;font-size:17.5px;line-height:1.95;letter-spacing:.05em;color:#17525a}
+#ach-home-en .promise span{display:block;margin-bottom:4px;font-family:'Manrope','Noto Sans TC',sans-serif;font-size:11.5px;font-weight:600;letter-spacing:.3em;color:#009BAA}
+
+/* 5 商店 */
+#ach-home-en .shop{background:#F4FAFB}
+#ach-home-en .shop-bg{position:absolute;left:0;top:0;width:100%;height:100%;z-index:0;background:#CFE9EC}
+#ach-home-en .shop-bg img{width:100%;height:100%;object-fit:cover}
+#ach-home-en .shop::before{content:'';position:absolute;left:0;top:0;right:0;bottom:0;z-index:1;background:rgba(244,250,251,.92)}
+#ach-home-en .shop .wrap{z-index:2}
+#ach-home-en .pro-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:52px}
+#ach-home-en .pro{display:block}
+#ach-home-en .pro .card-body{padding:28px 28px 32px}
+#ach-home-en .pro h3{font-size:19px;letter-spacing:.06em}
+#ach-home-en .pro .price{margin-top:8px;font-family:'Manrope','Noto Sans TC',sans-serif;font-size:20px;font-weight:700;letter-spacing:.04em;color:#009BAA}
+#ach-home-en .pro .more{display:inline-block;margin-top:14px;font-size:14px;letter-spacing:.18em;color:#1E7882}
+#ach-home-en .pro:hover .more{color:#009BAA}
+
+/* 6 創辦人：照片在左，右邊四組，用細線分隔，英文小標 */
+#ach-home-en .founder-grid{display:grid;grid-template-columns:4.6fr 7.4fr;gap:88px;align-items:start}
+#ach-home-en .founder-photo{border-radius:4px;box-shadow:18px 18px 0 #CFE9EC}
+#ach-home-en .cap{margin-top:38px;font-size:13.5px;line-height:1.9;letter-spacing:.14em;color:#4d6366}
+#ach-home-en .cap b{display:block;font-family:'Noto Serif TC','Songti TC',serif;font-size:18px;font-weight:600;letter-spacing:.14em;color:#17525a}
+#ach-home-en .pgroup{padding:36px 0;border-top:1px solid #CFE9EC}
+#ach-home-en .pgroup.first{padding-top:0;border-top:0}
+#ach-home-en .role{margin-top:8px;font-size:15.5px;letter-spacing:.16em;color:#1E7882}
+#ach-home-en .oneliner{margin-top:24px;font-family:'Noto Serif TC','Songti TC',serif;font-size:18px;font-weight:500;line-height:2.05;letter-spacing:.04em;color:#323232}
+#ach-home-en .quote{margin-top:26px;padding-left:22px;border-left:3px solid #009BAA;font-family:'Noto Serif TC','Songti TC',serif;font-size:21px;font-weight:500;line-height:1.9;letter-spacing:.06em;color:#17525a}
+#ach-home-en .pgrid{display:grid;grid-template-columns:150px 1fr;gap:22px 28px}
+#ach-home-en .plabel{font-family:'Manrope','Noto Sans TC',sans-serif;font-size:12px;font-weight:600;letter-spacing:.32em;color:#009BAA}
+#ach-home-en .plabel em{display:block;margin-top:6px;font-style:normal;font-family:'Noto Serif TC','Songti TC',serif;font-size:17px;font-weight:600;letter-spacing:.14em;color:#17525a}
+#ach-home-en .plist li{position:relative;padding-left:20px;font-size:15.5px;line-height:2.1;color:#3f4a4c}
+#ach-home-en .plist li::before{content:'';position:absolute;left:0;top:1.05em;width:9px;height:1px;background:#009BAA}
+#ach-home-en .timeline li{position:relative;padding:0 0 20px 100px;font-size:15.5px;line-height:2;color:#3f4a4c}
+#ach-home-en .timeline li:last-child{padding-bottom:0}
+#ach-home-en .timeline .y{position:absolute;left:0;top:0;font-family:'Manrope','Noto Sans TC',sans-serif;font-size:17px;font-weight:700;letter-spacing:.06em;color:#009BAA}
+#ach-home-en .timeline li::before{content:'';position:absolute;left:73px;top:14px;bottom:-6px;width:1px;background:#CFE9EC}
+#ach-home-en .timeline li:last-child::before{display:none}
+#ach-home-en .timeline li::after{content:'';position:absolute;left:69px;top:11px;width:9px;height:9px;border-radius:50%;background:#FFFFFF;border:2px solid #009BAA}
+
+/* 7 知識專欄 */
+#ach-home-en .notes{background:#EAF6F7;background-image:linear-gradient(rgba(0,155,170,.08) 1px,transparent 1px),linear-gradient(90deg,rgba(0,155,170,.08) 1px,transparent 1px);background-size:56px 56px}
+#ach-home-en .notes-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:52px}
+#ach-home-en .note{display:block}
+#ach-home-en .note .card-body{padding:26px 28px 30px}
+#ach-home-en .note h3{font-size:19px;letter-spacing:.06em}
+#ach-home-en .note p{font-size:14.5px}
+#ach-home-en .tag{display:inline-block;margin-top:12px;padding:1px 12px;border:1px solid #009BAA;border-radius:99px;font-size:12px;letter-spacing:.1em;color:#1E7882}
+#ach-home-en .note .more{display:inline-block;margin-top:12px;font-size:14px;letter-spacing:.18em;color:#1E7882}
+#ach-home-en .small{margin-top:34px;font-size:13px;line-height:1.9;color:#4d6366;text-align:center}
+
+/* 8 公司資訊（頁尾）：深藍綠底、白字 */
+#ach-home-en .info{background:linear-gradient(180deg,#1E7882 0%,#17616a 100%);color:#FFFFFF}
+#ach-home-en .info .deco-mol{right:-40px;bottom:-60px;width:420px;color:#FFFFFF;opacity:.12}
+#ach-home-en .info-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
+#ach-home-en .info .eyebrow{color:#BFE9EE}
+#ach-home-en .info .eyebrow::before{background:#009BAA}
+#ach-home-en .info h2{margin-top:14px;font-family:'Noto Serif TC','Songti TC',serif;font-size:27px;font-weight:600;letter-spacing:.1em;color:#FFFFFF}
+#ach-home-en .info dl{margin:22px 0 0;padding:0}
+#ach-home-en .info dt{float:left;clear:left;width:6.2em;font-size:14px;letter-spacing:.14em;color:#BFE9EE;line-height:2.1}
+#ach-home-en .info dd{margin:0 0 0 6.6em;font-size:15px;line-height:2.1;color:#FFFFFF}
+#ach-home-en .info dd a{text-decoration:underline;text-decoration-color:rgba(255,255,255,.5);text-underline-offset:3px}
+#ach-home-en .links{display:flex;flex-wrap:wrap;gap:10px 24px;font-size:14.5px;letter-spacing:.1em}
+#ach-home-en .links a{color:#FFFFFF;border-bottom:1px solid rgba(255,255,255,.35);padding-bottom:2px}
+#ach-home-en .links a:hover{border-bottom-color:#FFFFFF}
+#ach-home-en .legal{margin-top:30px;font-size:12.5px;line-height:1.95;color:rgba(255,255,255,.72)}
+#ach-home-en .langsw{margin-top:16px;font-size:13px;letter-spacing:.1em;color:rgba(255,255,255,.72)}
+#ach-home-en .langsw a{color:#FFFFFF;border-bottom:1px solid rgba(255,255,255,.45);padding-bottom:1px}
+#ach-home-en .langsw a:hover{border-bottom-color:#FFFFFF}
+
+/* 手機與平板 */
+@media (max-width:960px){
+  #ach-home-en .wrap{padding:0 24px}
+  #ach-home-en .sec{padding:84px 0}
+  #ach-home-en .title{font-size:30px}
+  #ach-home-en .do-grid,#ach-home-en .pro-grid,#ach-home-en .notes-grid{grid-template-columns:1fr 1fr}
+  #ach-home-en .brand-grid,#ach-home-en .founder-grid,#ach-home-en .info-grid{grid-template-columns:1fr;gap:40px}
+  #ach-home-en .founder-photo{max-width:420px}
+  #ach-home-en .hero-copy{left:32%;right:6%}
+  #ach-home-en .hero h1{font-size:40px}
+  #ach-home-en .hero .deco-mol{width:380px;right:-40px}
+  #ach-home-en .stat-card{grid-template-columns:1fr 1fr}
+  #ach-home-en .stat:nth-child(3){border-left:0}
+  #ach-home-en .stat:nth-child(n+3){border-top:1px solid #D6ECEE}
+  #ach-home-en .name-wrap{padding-bottom:84px;margin-top:-56px}
+  #ach-home-en .name-grid{grid-template-columns:1fr}
+  #ach-home-en .name-card+.name-card{border-left:0;border-top:1px solid #D6ECEE}
+  #ach-home-en .name-card{padding:44px 40px 46px}
+  #ach-home-en .pgrid{grid-template-columns:1fr;gap:14px}
+}
+@media (max-width:760px){
+  #ach-home-en .sec{padding:68px 0}
+  #ach-home-en .title{font-size:26px;line-height:1.55;letter-spacing:.05em}
+  #ach-home-en .lead{font-size:15.5px}
+  #ach-home-en .hero{height:auto;min-height:0}
+  #ach-home-en .hero picture{position:relative;display:block;height:0;padding-top:128%}
+  #ach-home-en .hero picture img{position:absolute}
+  #ach-home-en .hero::after{background:linear-gradient(180deg,rgba(30,120,130,.94) 0%,rgba(0,155,170,.72) 50%,rgba(0,155,170,.2) 100%)}
+  #ach-home-en .hero .deco-mol{display:none}
+  #ach-home-en .hero .mist{height:110px}
+  #ach-home-en .hero-copy{left:24px;right:24px;top:46px;transform:none}
+  #ach-home-en .hero h1{margin-top:14px;font-size:27px;line-height:1.6;letter-spacing:.04em}
+  #ach-home-en .hero p{margin-top:14px;font-size:15px;line-height:1.95}
+  #ach-home-en .hero .btns{margin-top:22px;gap:10px}
+  #ach-home-en .btn{padding:13px 24px;font-size:14px;letter-spacing:.14em}
+  #ach-home-en .stats{margin-top:-44px}
+  #ach-home-en .stat{padding:24px 18px 22px}
+  #ach-home-en .stat .n{font-size:40px}
+  #ach-home-en .stat .n.w{font-size:30px;padding:4px 0}
+  #ach-home-en .stat .u{font-size:16px}
+  #ach-home-en .stat p{font-size:12.5px}
+  #ach-home-en .do-grid,#ach-home-en .pro-grid,#ach-home-en .notes-grid{grid-template-columns:1fr;gap:34px;margin-top:44px}
+  #ach-home-en .name-copy{position:static;padding:46px 24px 30px;background:linear-gradient(180deg,#1E7882,#009BAA)}
+  #ach-home-en .name-banner::after{background:linear-gradient(180deg,rgba(0,155,170,.28) 0%,rgba(0,155,170,.1) 100%)}
+  #ach-home-en .name-wrap{padding-bottom:68px;margin-top:0}
+  #ach-home-en .name-card{padding:38px 26px 40px}
+  #ach-home-en .name-big{font-size:46px}
+  #ach-home-en .name-big.zh{font-size:44px}
+  #ach-home-en .pgroup{padding:30px 0}
+  #ach-home-en .timeline li{padding-left:88px}
+  #ach-home-en .timeline li::before{left:62px}
+  #ach-home-en .timeline li::after{left:58px}
+  #ach-home-en .oneliner{font-size:16.5px}
+  #ach-home-en .quote{font-size:18px}
+  #ach-home-en .founder-photo{box-shadow:10px 10px 0 #CFE9EC}
+  #ach-home-en .cap{margin-top:30px}
+  #ach-home-en .info dt{float:none;width:auto;line-height:1.7;margin-top:10px}
+  #ach-home-en .info dd{margin:0}
+}
+#ach-home-en{font-family:'Manrope','Noto Sans TC','Helvetica Neue',Arial,sans-serif;line-height:1.8}
+#ach-home-en .title,#ach-home-en .hero h1,#ach-home-en .card h3,#ach-home-en .stat .u,#ach-home-en .stat .n.w,#ach-home-en .name-big,#ach-home-en .subline,#ach-home-en .promise,#ach-home-en .oneliner,#ach-home-en .quote,#ach-home-en .plabel em,#ach-home-en .info h2,#ach-home-en .cap b{font-family:'Noto Serif','Noto Serif TC','Source Serif Pro','Times New Roman',serif;letter-spacing:.01em}
+#ach-home-en .name-big.zh{font-family:'Noto Serif TC','Songti TC',serif;letter-spacing:.2em}
+#ach-home-en .title{font-size:38px;line-height:1.28}
+#ach-home-en .hero h1{font-size:48px;line-height:1.24;letter-spacing:.005em}
+#ach-home-en .hero p{font-size:17.5px;line-height:1.85}
+#ach-home-en .lead{font-size:16.5px;line-height:1.85}
+#ach-home-en .btn{letter-spacing:.06em;font-weight:600}
+#ach-home-en .stat .u{font-size:18px;line-height:1.4;letter-spacing:.01em}
+#ach-home-en .stat .n.w{font-size:30px;line-height:1.3;padding:11px 0 8px;letter-spacing:.01em}
+#ach-home-en .stat p{font-size:13.5px;line-height:1.7}
+#ach-home-en .card h3{font-size:22px;line-height:1.35;letter-spacing:.01em}
+#ach-home-en .card p{font-size:15px;line-height:1.85}
+#ach-home-en .pro h3,#ach-home-en .note h3{font-size:18.5px}
+#ach-home-en .name-card p{font-size:16px;line-height:1.9}
+#ach-home-en .name-big{font-size:62px;letter-spacing:.01em}
+#ach-home-en .subline{font-size:21px;letter-spacing:.02em}
+#ach-home-en .promise{font-size:17.5px;line-height:1.7;letter-spacing:.005em}
+#ach-home-en .promise span{letter-spacing:.28em}
+#ach-home-en .oneliner{font-size:17.5px;line-height:1.85;letter-spacing:.005em}
+#ach-home-en .quote{font-size:22px;line-height:1.55;letter-spacing:.005em}
+#ach-home-en .role{letter-spacing:.06em}
+#ach-home-en .plabel em{font-size:16px;letter-spacing:.01em}
+#ach-home-en .plist li,#ach-home-en .timeline li{font-size:15px;line-height:1.85}
+#ach-home-en .zhname{font-family:'Noto Serif TC','Songti TC',serif;font-size:.62em;letter-spacing:.14em;color:#1E7882;white-space:nowrap}
+#ach-home-en .cap{letter-spacing:.06em}
+#ach-home-en .cap b{letter-spacing:.04em}
+#ach-home-en .info dt{width:7em;letter-spacing:.06em}
+#ach-home-en .info dd{margin-left:7.4em}
+#ach-home-en .small{letter-spacing:.01em}
+@media (max-width:960px){
+  #ach-home-en .title{font-size:32px}
+  #ach-home-en .hero h1{font-size:38px}
+}
+@media (max-width:760px){
+  #ach-home-en .title{font-size:27px;line-height:1.32}
+  #ach-home-en .hero h1{font-size:28px;line-height:1.3}
+  #ach-home-en .hero p{font-size:15px}
+  #ach-home-en .stat .n.w{font-size:24px;padding:8px 0 5px}
+  #ach-home-en .name-big{font-size:46px}
+  #ach-home-en .quote{font-size:19px}
+  #ach-home-en .info dt{width:auto}
+  #ach-home-en .info dd{margin-left:0}
+}
+</style>
+<div id="ach-home-en" lang="en">
+
+<section class="hero">
+  <picture>
+    <source media="(max-width:760px)" srcset="https://decoy-beauty.com/acheloy-assets/home-v3/hero-m.jpg">
+    <img src="https://decoy-beauty.com/acheloy-assets/home-v3/hero.jpg" width="1920" height="1080" alt="Morning light on a white stone counter, with clear glass ampoules and a dropper">
+  </picture>
+  <svg class="deco deco-mol" viewBox="0 0 520 520" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true" focusable="false">
+  <circle cx="260" cy="260" r="238" stroke-dasharray="2 9" opacity=".7"/>
+  <circle cx="260" cy="260" r="170" opacity=".55"/>
+  <circle cx="260" cy="260" r="104" opacity=".7"/>
+  <polygon points="260,90 407,175 407,345 260,430 113,345 113,175" opacity=".55"/>
+  <g opacity=".9"><line x1="260" y1="260" x2="260" y2="90"/><line x1="260" y1="260" x2="407" y2="175"/><line x1="260" y1="260" x2="407" y2="345"/><line x1="260" y1="260" x2="260" y2="430"/><line x1="260" y1="260" x2="113" y2="345"/><line x1="260" y1="260" x2="113" y2="175"/></g>
+  <g fill="currentColor" stroke="none"><circle cx="260" cy="260" r="13"/><circle cx="260" cy="90" r="7"/><circle cx="407" cy="175" r="7"/><circle cx="407" cy="345" r="7"/><circle cx="260" cy="430" r="7"/><circle cx="113" cy="345" r="7"/><circle cx="113" cy="175" r="7"/><circle cx="378" cy="58" r="4"/><circle cx="490" cy="300" r="4"/><circle cx="150" cy="478" r="4"/><circle cx="34" cy="200" r="4"/><circle cx="440" cy="448" r="3"/></g>
+</svg>
+  <svg class="deco mist" viewBox="0 0 1440 190" preserveAspectRatio="none" fill="none" stroke="currentColor" aria-hidden="true" focusable="false">
+  <path d="M0 120C190 70 380 150 600 112S1010 56 1210 100 1380 128 1440 108" stroke-width="1.2" opacity=".42"/>
+  <path d="M0 148C220 104 420 176 650 140S1040 96 1240 134 1390 158 1440 140" stroke-width="1.2" opacity=".3"/>
+  <path d="M0 170C240 140 460 188 700 164S1070 132 1260 160 1400 178 1440 168" stroke-width="1.2" opacity=".2"/>
+</svg>
+  <div class="hero-copy">
+    <div class="eyebrow">ACHELOY BIOMED</div>
+    <h1>Every ingredient,<br>every document,<br>made clear.</h1>
+    <p>Founded in Taipei in 2018, Acheloy Biomed develops and sells skincare. Decoy is our beauty service brand.</p>
+    <div class="btns">
+      <a class="btn btn-white" href="https://decoy-beauty.com/en/">Meet Decoy</a>
+      <a class="btn btn-ghost" href="https://www.acheloy.com/product_store?store_type_sn=35">Visit the online shop</a>
+    </div>
+  </div>
+</section>
+
+<section class="stats">
+  <div class="wrap">
+    <div class="stat-card">
+      <div class="stat"><div class="k">FOUNDED</div><div class="n">2018</div><div class="u">Founded</div><p>Acheloy Biomed, in Taipei, Taiwan</p></div>
+      <div class="stat"><div class="k">PATENTS</div><div class="n">3</div><div class="u">Patents in Taiwan</div><p>From the founder and team’s R&amp;D</p></div>
+      <div class="stat"><div class="k">PATENT LICENSES</div><div class="n">3</div><div class="u">Invention patents licensed</div><p>For the patented device (Taiwan)</p></div>
+      <div class="stat"><div class="k">SESSION RECORDS</div><div class="n w">Every session</div><div class="u">is recorded</div><p>The record belongs to you</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec do">
+  <svg class="deco deco-mol" viewBox="0 0 520 520" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true" focusable="false">
+  <circle cx="260" cy="260" r="238" stroke-dasharray="2 9" opacity=".7"/>
+  <circle cx="260" cy="260" r="170" opacity=".55"/>
+  <circle cx="260" cy="260" r="104" opacity=".7"/>
+  <polygon points="260,90 407,175 407,345 260,430 113,345 113,175" opacity=".55"/>
+  <g opacity=".9"><line x1="260" y1="260" x2="260" y2="90"/><line x1="260" y1="260" x2="407" y2="175"/><line x1="260" y1="260" x2="407" y2="345"/><line x1="260" y1="260" x2="260" y2="430"/><line x1="260" y1="260" x2="113" y2="345"/><line x1="260" y1="260" x2="113" y2="175"/></g>
+  <g fill="currentColor" stroke="none"><circle cx="260" cy="260" r="13"/><circle cx="260" cy="90" r="7"/><circle cx="407" cy="175" r="7"/><circle cx="407" cy="345" r="7"/><circle cx="260" cy="430" r="7"/><circle cx="113" cy="345" r="7"/><circle cx="113" cy="175" r="7"/><circle cx="378" cy="58" r="4"/><circle cx="490" cy="300" r="4"/><circle cx="150" cy="478" r="4"/><circle cx="34" cy="200" r="4"/><circle cx="440" cy="448" r="3"/></g>
+</svg>
+  <div class="wrap">
+    <div class="eyebrow">WHAT WE DO</div>
+    <h2 class="title">Three things we do</h2>
+    <div class="do-grid">
+      <div class="card">
+        <div class="imgwrap"><div class="ratio r43"><img src="https://decoy-beauty.com/acheloy-assets/home-v3/rd.jpg" width="1200" height="1200" loading="lazy" alt="A gloved hand holding a glass dropper over a clear drop of liquid"></div><div class="badge"><svg width="26" height="26" viewBox="0 0 26 26" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true" focusable="false"><circle cx="13" cy="6" r="3"/><circle cx="5.5" cy="19" r="3"/><circle cx="20.5" cy="19" r="3"/><path d="M11.5 8.7 7 16.3M14.5 8.7 19 16.3M8.6 19h8.8"/></svg></div></div>
+        <div class="card-body">
+          <div class="num">01</div>
+          <h3>Research</h3>
+          <p>Formulas start from the ingredients. Decoy’s active ampoule formulas are developed by an R&amp;D team with a National Taiwan University background, and every ingredient is disclosed. Our founder and team’s R&amp;D has earned 3 patents, and the patented device is additionally licensed under 3 invention patents (all Taiwan patents).</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="imgwrap"><div class="ratio r43"><img src="https://decoy-beauty.com/acheloy-assets/home-v3/quality.jpg" width="1200" height="1200" loading="lazy" alt="A neat row of clear ampoules on a white desk, with a folder and a pen beside them"></div><div class="badge"><svg width="26" height="26" viewBox="0 0 26 26" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 3.5h8.5L20 8v14.5H7z"/><path d="M15 3.5V8.5h5M10.5 13h6M10.5 16.5h6M10.5 20h3.5"/></svg></div></div>
+        <div class="card-body">
+          <div class="num">02</div>
+          <h3>Quality</h3>
+          
+          <p>Every product is made by a qualified cosmetics manufacturer, with product registration and a Product Information File completed.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="imgwrap"><div class="ratio r43 grad"><svg class="deco deco-rings" viewBox="0 0 200 200" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true" focusable="false">
+  <circle cx="100" cy="100" r="92" opacity=".45"/><circle cx="100" cy="100" r="64" opacity=".75"/><circle cx="100" cy="100" r="36"/>
+  <circle cx="100" cy="100" r="9" fill="currentColor" stroke="none"/>
+  <path d="M100 8v28M100 164v28M8 100h28M164 100h28" opacity=".6"/>
+</svg></div><div class="badge"><svg width="26" height="26" viewBox="0 0 26 26" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true" focusable="false"><circle cx="13" cy="13" r="9.5"/><circle cx="13" cy="13" r="4.5"/><path d="M13 3.5v2.5M13 20v2.5"/></svg></div></div>
+        <div class="card-body">
+          <div class="num">03</div>
+          <h3>Measured claims</h3>
+          <p>We say only what a cosmetics company can say. No exaggeration and no guaranteed results. Everyone’s experience is different, and we will tell you so honestly.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec brand">
+  <div class="wrap">
+    <div class="brand-grid">
+      <div class="ratio r169"><img src="https://decoy-beauty.com/acheloy-assets/home-v3/decoy.jpg" width="1600" height="900" loading="lazy" alt="A quiet, warm room corner with rose-toned walls and a linen-covered bed"></div>
+      <div>
+        <div class="eyebrow">OUR BRAND</div>
+        <h2 class="title">Decoy — <em>our beauty service brand.</em></h2>
+        <p class="lead">Our beauticians use the Decoy device to turn the serum in each active ampoule into a fine mist and apply it evenly onto the skin surface — needle-free, no downtime. Every session is recorded, and the record belongs to you.</p>
+        <div class="btns"><a class="btn btn-rose" href="https://decoy-beauty.com/en/">Visit Decoy</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec name">
+  <div class="name-banner">
+    <div class="name-copy center">
+      <div class="eyebrow">OUR NAME</div>
+      <h2 class="title">What our name means</h2>
+    </div>
+    <div class="ratio r219"><img src="https://decoy-beauty.com/acheloy-assets/home-v3/name.jpg" width="2100" height="900" loading="lazy" alt="A wide, gently sloping pale rock landscape under a soft horizon"></div>
+  </div>
+  <div class="wrap name-wrap">
+    <div class="name-grid">
+      <article class="name-card">
+        <div class="name-label">Name</div>
+        <h3 class="name-big">Acheloy</h3>
+        <div class="formula"><span class="chip"><b>Ache</b> (pain)</span><i>+</i><span class="chip"><b>Loy</b> (to take away)</span></div>
+        <p>The name comes from Achelois, the moon goddess of Greek mythology. It means “She who washes away pain.”</p>
+        <div class="promise"><span>OUR PROMISE</span>We find where people are suffering, and we take that pain away.</div>
+      </article>
+      <article class="name-card">
+        <div class="name-label">In Chinese · Yán kuān</div>
+        <h3 class="name-big zh">岩寬</h3>
+        <div class="subline">A bedrock, like the earth</div>
+        <p>Our patents, formulas and services all grow from this foundation. Expertise exists to carry the weight of people.</p>
+        <svg class="deco deco-rings" viewBox="0 0 200 200" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true" focusable="false">
+  <circle cx="100" cy="100" r="92" opacity=".45"/><circle cx="100" cy="100" r="64" opacity=".75"/><circle cx="100" cy="100" r="36"/>
+  <circle cx="100" cy="100" r="9" fill="currentColor" stroke="none"/>
+  <path d="M100 8v28M100 164v28M8 100h28M164 100h28" opacity=".6"/>
+</svg>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="sec shop">
+  <div class="shop-bg"><img src="https://decoy-beauty.com/acheloy-assets/home-v3/shop.jpg" width="1600" height="900" loading="lazy" alt=""></div>
+  <div class="wrap">
+    <div class="center">
+      <div class="eyebrow">SHOP</div>
+      <h2 class="title">Our online shop</h2>
+      <p class="lead">Skincare developed by Acheloy, with ingredients, directions and precautions spelled out on every product page. The shop is currently in Traditional Chinese.</p>
+    </div>
+    <div class="pro-grid">
+      <a class="card pro" href="https://www.acheloy.com/product_detail?product_sn=9">
+        <div class="ratio r11"><img src="https://decoy-beauty.com/acheloy-assets/home-v3/product-1.jpg" width="1200" height="1200" loading="lazy" alt="ATOPURA Shining Skin facial mask: black box and gold single-sheet pouch"></div>
+        <div class="card-body">
+          <h3>ATOPURA Shining Skin Hydrating &amp; Moisturizing Facial Mask (box of 3)</h3>
+          <p>Helps skin hold moisture and look radiant.</p>
+          <div class="price">NT$ 580</div>
+          <span class="more">View product →</span>
+        </div>
+      </a>
+      <a class="card pro" href="https://www.acheloy.com/product_store?store_type_sn=49">
+        <div class="ratio r11"><img src="https://decoy-beauty.com/acheloy-assets/home-v3/product-2.jpg" width="1200" height="1200" loading="lazy" alt="The Decoy device with two active ampoules"></div>
+        <div class="card-body">
+          <h3>Decoy Device Single Session (in-store service voucher)</h3>
+          <p>Delivered by a Decoy beautician in store.</p>
+          <div class="price">NT$ 8,000</div>
+          <span class="more">View product →</span>
+        </div>
+      </a>
+      <a class="card pro" href="https://decoy-beauty.com/en/">
+        <div class="ratio r11"><img src="https://decoy-beauty.com/acheloy-assets/home-v3/product-3.jpg" width="1200" height="1200" loading="lazy" alt="Decoy LIGHT and MIRROR active ampoules in a pink gift box"></div>
+        <div class="card-body">
+          <h3>Decoy LIGHT / MIRROR Active Ampoules (used in store services)</h3>
+          <p>The active ampoules used in Decoy’s in-store services, with every ingredient disclosed.</p>
+          <span class="more">Discover Decoy →</span>
+        </div>
+      </a>
+    </div>
+    <div class="btns" style="justify-content:center"><a class="btn btn-solid" href="https://www.acheloy.com/product_store?store_type_sn=35">Enter the shop</a></div>
+  </div>
+</section>
+
+<section class="sec founder">
+  <div class="wrap">
+    <div class="founder-grid">
+      <div>
+        <div class="founder-photo ratio r45"><img src="https://decoy-beauty.com/acheloy-assets/home-v3/founder.jpg" width="1200" height="1500" loading="lazy" alt="Molly Chen, founder and CEO of Acheloy Biomed"></div>
+        <p class="cap"><b>Molly Chen</b>Founder &amp; CEO</p>
+      </div>
+      <div class="profile">
+        <div class="pgroup first">
+          <div class="eyebrow">FOUNDER</div>
+          <h2 class="title">Molly Chen <span class="zhname">(陳槿唐)</span></h2>
+          <p class="role">Founder &amp; CEO, Acheloy Biomed</p>
+          <p class="oneliner">A researcher by training, she runs a beauty business on data. Weighing evidence, designing studies and caring for people are her training, and they are also Acheloy’s method.</p>
+          <blockquote class="quote">Science tells me the mechanism.<br>The body tells me the truth.</blockquote>
+        </div>
+        <div class="pgroup">
+          <div class="pgrid">
+            <div class="plabel">EDUCATION<em>Academic background</em></div>
+            
+            <ul class="plist">
+              <li>National Taiwan University — M.S., Institute of Epidemiology and Preventive Medicine</li>
+              <li>National Taiwan University — B.S., Public Health</li>
+              <li>National Taiwan University — Ph.D. program, Immunology (not completed)</li>
+            </ul>
+          </div>
+        </div>
+        <div class="pgroup">
+          <div class="pgrid">
+            <div class="plabel">RESEARCH<em>Research experience</em></div>
+            <ul class="plist">
+              <li>Project Manager, influenza vaccine research project, U.S. National Institutes of Health (NIH)</li>
+              <li>Research Analyst, Health Data Research Center, National Taiwan University</li>
+              <li>5 journal articles</li>
+              <li>Course certificates in R Programming and Machine Learning, Johns Hopkins University</li>
+            </ul>
+          </div>
+        </div>
+        <div class="pgroup">
+          <div class="pgrid">
+            <div class="plabel">MILESTONES<em>Entrepreneurship</em></div>
+            <ol class="timeline">
+              <li><span class="y">2016</span>Champion, Corporate Award, NTU Hackathon</li>
+              <li><span class="y">2018</span>Founded Acheloy Biomed</li>
+              <li><span class="y">2019</span>“Most Valuable Investment Award” (overall), Alibaba Group Innovation and Entrepreneurship Competition</li>
+              <li><span class="y">2023</span>Golden Peak Award, “Outstanding Entrepreneur Role Model”; invited by the American Institute in Taiwan (AIT) to the SelectUSA Investment Summit</li>
+            </ol>
+          </div>
+        </div>
+        <div class="btns"><a class="btn btn-line" href="https://decoy-beauty.com/en/founder.html">Read the founder’s story</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec notes">
+  <div class="wrap">
+    <div class="center">
+      <div class="eyebrow">NOTES</div>
+      <h2 class="title">Skincare notes</h2>
+    </div>
+    <div class="notes-grid">
+      <a class="card note" href="https://www.acheloy.com/cc-22">
+        <div class="ratio r32"><img src="https://decoy-beauty.com/acheloy-assets/home-v3/notes-1.jpg" width="1200" height="800" loading="lazy" alt="Close-up of a water drop on a pale surface"></div>
+        <div class="card-body">
+          <h3>An introduction to skin structure</h3>
+          <p>From epidermis to dermis: the basic structure of skin.</p>
+          <span class="more">Read (in Chinese) →</span>
+        </div>
+      </a>
+      <a class="card note" href="https://www.acheloy.com/cc-24">
+        <div class="ratio r32"><img src="https://decoy-beauty.com/acheloy-assets/home-v3/notes-2.jpg" width="1200" height="800" loading="lazy" alt="Fine texture of soft white fabric"></div>
+        <div class="card-body">
+          <h3>Understanding the scalp</h3>
+          <p>How the scalp is built, and the basics of everyday care.</p>
+          <span class="more">Read (in Chinese) →</span>
+        </div>
+      </a>
+      <a class="card note" href="https://www.acheloy.com/cl-16">
+        <div class="ratio r32"><img src="https://decoy-beauty.com/acheloy-assets/home-v3/notes-3.jpg" width="1200" height="800" loading="lazy" alt="A wooden comb resting on white linen"></div>
+        <div class="card-body">
+          <h3>5 everyday habits for sensitive skin</h3>
+          <p>Small habits you can keep every day.</p>
+          <span class="tag">Coming soon</span>
+        </div>
+      </a>
+    </div>
+    <p class="small">General skincare knowledge only. It does not replace professional advice; if your skin has a concern, please consult a dermatologist.</p>
+  </div>
+</section>
+
+<section class="sec info">
+  <svg class="deco deco-mol" viewBox="0 0 520 520" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true" focusable="false">
+  <circle cx="260" cy="260" r="238" stroke-dasharray="2 9" opacity=".7"/>
+  <circle cx="260" cy="260" r="170" opacity=".55"/>
+  <circle cx="260" cy="260" r="104" opacity=".7"/>
+  <polygon points="260,90 407,175 407,345 260,430 113,345 113,175" opacity=".55"/>
+  <g opacity=".9"><line x1="260" y1="260" x2="260" y2="90"/><line x1="260" y1="260" x2="407" y2="175"/><line x1="260" y1="260" x2="407" y2="345"/><line x1="260" y1="260" x2="260" y2="430"/><line x1="260" y1="260" x2="113" y2="345"/><line x1="260" y1="260" x2="113" y2="175"/></g>
+  <g fill="currentColor" stroke="none"><circle cx="260" cy="260" r="13"/><circle cx="260" cy="90" r="7"/><circle cx="407" cy="175" r="7"/><circle cx="407" cy="345" r="7"/><circle cx="260" cy="430" r="7"/><circle cx="113" cy="345" r="7"/><circle cx="113" cy="175" r="7"/><circle cx="378" cy="58" r="4"/><circle cx="490" cy="300" r="4"/><circle cx="150" cy="478" r="4"/><circle cx="34" cy="200" r="4"/><circle cx="440" cy="448" r="3"/></g>
+</svg>
+  <div class="wrap">
+    <div class="info-grid">
+      <div>
+        <div class="eyebrow">COMPANY</div>
+        <h2>Acheloy Biomed</h2>
+        <dl>
+          <dt>Legal name</dt><dd>岩寬生醫股份有限公司</dd>
+          <dt>Business ID</dt><dd>50899367</dd>
+          <dt>Founded</dt><dd>December 7, 2018</dd>
+          <dt>Address</dt><dd>4F-6, No. 178, Fuxing North Road, Zhongshan District, Taipei City, Taiwan</dd>
+          <dt>Phone</dt><dd>+886-2-2964-1453</dd>
+          <dt>Email</dt><dd><a href="mailto:service@acheloy.com">service@acheloy.com</a></dd>
+        </dl>
+      </div>
+      <div>
+        <div class="links">
+          <a href="https://www.acheloy.com/wc-41">Privacy policy</a>
+          <a href="https://www.acheloy.com/website_faq.php?category_sn=4">Returns</a>
+          <a href="https://www.acheloy.com/product_store?store_type_sn=35">Online shop</a>
+          <a href="https://www.facebook.com/acheloy">Facebook</a>
+          <a href="https://www.instagram.com/acheloybiomed">Instagram</a>
+          <a href="https://line.me/R/ti/p/@187elbpm">LINE</a>
+        </div>
+        <p class="legal">© 2026 Acheloy Biomed<br>Some images are AI-generated.</p>
+        <p class="langsw">Language　English　·　<a href="https://www.acheloy.com/">中文</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+</div>
