@@ -38,7 +38,6 @@
 #ach-home a:focus-visible{outline:2px solid #009BAA;outline-offset:3px}
 #ach-home .deco{position:absolute;pointer-events:none}
 
-/* 1 首屏：生醫藍漸層疊在主圖上，白色宋體大標 */
 #ach-home .hero{position:relative;height:min(82vh,780px);min-height:580px;overflow:hidden;background:linear-gradient(120deg,#1E7882 0%,#009BAA 100%)}
 #ach-home .hero picture,#ach-home .hero picture img{position:absolute;left:0;top:0;width:100%;height:100%;object-fit:cover;object-position:left center}
 #ach-home .hero::after{content:'';position:absolute;left:0;top:0;right:0;bottom:0;background:linear-gradient(100deg,rgba(30,120,130,.20) 0%,rgba(30,120,130,.66) 33%,rgba(0,155,170,.90) 100%)}
@@ -50,7 +49,6 @@
 #ach-home .hero h1{margin-top:20px;font-family:'Noto Serif TC','Songti TC','PMingLiU',serif;font-size:50px;font-weight:600;line-height:1.5;letter-spacing:.06em;color:#FFFFFF;text-shadow:0 2px 24px rgba(10,70,80,.25)}
 #ach-home .hero p{margin-top:22px;max-width:520px;font-size:17px;line-height:2;color:rgba(255,255,255,.94)}
 
-/* 數據區：大數字，只放核可過的事實 */
 #ach-home .stats{position:relative;z-index:3;margin-top:-76px;padding-bottom:12px}
 #ach-home .stat-card{display:grid;grid-template-columns:repeat(4,1fr);background:#FFFFFF;border-radius:6px;border-top:3px solid #009BAA;box-shadow:0 22px 56px rgba(23,82,90,.16)}
 #ach-home .stat{padding:32px 28px 32px;border-left:1px solid #D6ECEE}
@@ -61,7 +59,6 @@
 #ach-home .stat .u{margin-top:6px;font-family:'Noto Serif TC','Songti TC',serif;font-size:19px;font-weight:600;letter-spacing:.1em;color:#17525a}
 #ach-home .stat p{margin-top:8px;font-size:13.5px;line-height:1.85;color:#5a6b6e}
 
-/* 2 三件事 */
 #ach-home .do{background:#EAF6F7;background-image:linear-gradient(rgba(0,155,170,.08) 1px,transparent 1px),linear-gradient(90deg,rgba(0,155,170,.08) 1px,transparent 1px);background-size:56px 56px}
 #ach-home .do .deco-mol{right:-60px;top:-50px;width:380px;color:#009BAA;opacity:.22}
 #ach-home .do-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:56px}
@@ -77,7 +74,6 @@
 #ach-home .grad{background:linear-gradient(135deg,#1E7882 0%,#009BAA 100%)}
 #ach-home .grad .deco-rings{left:50%;top:50%;width:62%;transform:translate(-50%,-50%);color:#FFFFFF;opacity:.85}
 
-/* 3 Decoy：淡膚粉只用在這一區，代表 Decoy */
 #ach-home .brand{background:#FFF6F3}
 #ach-home .brand-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:64px;align-items:center}
 #ach-home .brand .eyebrow{color:#8B5060}
@@ -88,7 +84,6 @@
 #ach-home .brand .btn-rose{background:#A86878;border-color:#A86878;color:#FFFFFF}
 #ach-home .brand .btn-rose:hover{background:#8B5060;border-color:#8B5060}
 
-/* 4 名字：藍色漸層疊在圖上，下面是兩張並排的大卡 */
 #ach-home .name{padding-top:0;padding-bottom:0}
 #ach-home .name-banner{position:relative;background:#CFE9EC}
 #ach-home .name-banner::after{content:'';position:absolute;left:0;top:0;right:0;bottom:0;z-index:1;background:linear-gradient(180deg,rgba(30,120,130,.94) 0%,rgba(0,155,170,.62) 55%,rgba(0,155,170,.18) 100%)}
@@ -113,7 +108,6 @@
 #ach-home .promise{margin-top:28px;padding:18px 24px 20px;border-left:3px solid #009BAA;background:#EAF6F7;font-family:'Noto Serif TC','Songti TC',serif;font-size:17.5px;line-height:1.95;letter-spacing:.05em;color:#17525a}
 #ach-home .promise span{display:block;margin-bottom:4px;font-family:'Manrope','Noto Sans TC',sans-serif;font-size:11.5px;font-weight:600;letter-spacing:.3em;color:#009BAA}
 
-/* 5 商店 */
 #ach-home .shop{background:#F4FAFB}
 #ach-home .shop-bg{position:absolute;left:0;top:0;width:100%;height:100%;z-index:0;background:#CFE9EC}
 #ach-home .shop-bg img{width:100%;height:100%;object-fit:cover}
@@ -127,7 +121,6 @@
 #ach-home .pro .more{display:inline-block;margin-top:14px;font-size:14px;letter-spacing:.18em;color:#1E7882}
 #ach-home .pro:hover .more{color:#009BAA}
 
-/* 6 創辦人：照片在左，右邊四組，用細線分隔，英文小標 */
 #ach-home .founder-grid{display:grid;grid-template-columns:4.6fr 7.4fr;gap:88px;align-items:start}
 #ach-home .founder-photo{border-radius:4px;box-shadow:18px 18px 0 #CFE9EC}
 #ach-home .cap{margin-top:38px;font-size:13.5px;line-height:1.9;letter-spacing:.14em;color:#4d6366}
@@ -149,7 +142,14 @@
 #ach-home .timeline li:last-child::before{display:none}
 #ach-home .timeline li::after{content:'';position:absolute;left:69px;top:11px;width:9px;height:9px;border-radius:50%;background:#FFFFFF;border:2px solid #009BAA}
 
-/* 7 知識專欄 */
+#ach-home .events{background:#FFFFFF}
+#ach-home .ev-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin-top:52px}
+#ach-home .ev{display:block}
+#ach-home .ev .ratio>img{object-position:center 22%}
+#ach-home .ev .card-body{padding:22px 24px 26px}
+#ach-home .ev .yr{font-family:'Manrope','Noto Sans TC',sans-serif;font-size:13px;font-weight:700;letter-spacing:.16em;color:#009BAA}
+#ach-home .ev h3{margin-top:6px;font-size:18px;letter-spacing:.06em;line-height:1.55}
+#ach-home .ev p{margin-top:8px;font-size:14px;line-height:1.9}
 #ach-home .notes{background:#EAF6F7;background-image:linear-gradient(rgba(0,155,170,.08) 1px,transparent 1px),linear-gradient(90deg,rgba(0,155,170,.08) 1px,transparent 1px);background-size:56px 56px}
 #ach-home .notes-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:52px}
 #ach-home .note{display:block}
@@ -160,7 +160,6 @@
 #ach-home .note .more{display:inline-block;margin-top:12px;font-size:14px;letter-spacing:.18em;color:#1E7882}
 #ach-home .small{margin-top:34px;font-size:13px;line-height:1.9;color:#4d6366;text-align:center}
 
-/* 8 公司資訊（頁尾）：深藍綠底、白字 */
 #ach-home .info{background:linear-gradient(180deg,#1E7882 0%,#17616a 100%);color:#FFFFFF}
 #ach-home .info .deco-mol{right:-40px;bottom:-60px;width:420px;color:#FFFFFF;opacity:.12}
 #ach-home .info-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
@@ -179,12 +178,11 @@
 #ach-home .langsw a{color:#FFFFFF;border-bottom:1px solid rgba(255,255,255,.45);padding-bottom:1px}
 #ach-home .langsw a:hover{border-bottom-color:#FFFFFF}
 
-/* 手機與平板 */
 @media (max-width:960px){
   #ach-home .wrap{padding:0 24px}
   #ach-home .sec{padding:84px 0}
   #ach-home .title{font-size:30px}
-  #ach-home .do-grid,#ach-home .pro-grid,#ach-home .notes-grid{grid-template-columns:1fr 1fr}
+  #ach-home .do-grid,#ach-home .pro-grid,#ach-home .notes-grid,#ach-home .ev-grid{grid-template-columns:1fr 1fr}
   #ach-home .brand-grid,#ach-home .founder-grid,#ach-home .info-grid{grid-template-columns:1fr;gap:40px}
   #ach-home .founder-photo{max-width:420px}
   #ach-home .hero-copy{left:32%;right:6%}
@@ -220,7 +218,7 @@
   #ach-home .stat .n.w{font-size:30px;padding:4px 0}
   #ach-home .stat .u{font-size:16px}
   #ach-home .stat p{font-size:12.5px}
-  #ach-home .do-grid,#ach-home .pro-grid,#ach-home .notes-grid{grid-template-columns:1fr;gap:34px;margin-top:44px}
+  #ach-home .do-grid,#ach-home .pro-grid,#ach-home .notes-grid,#ach-home .ev-grid{grid-template-columns:1fr;gap:34px;margin-top:44px}
   #ach-home .name-copy{position:static;padding:46px 24px 30px;background:linear-gradient(180deg,#1E7882,#009BAA)}
   #ach-home .name-banner::after{background:linear-gradient(180deg,rgba(0,155,170,.28) 0%,rgba(0,155,170,.1) 100%)}
   #ach-home .name-wrap{padding-bottom:68px;margin-top:0}
@@ -261,8 +259,8 @@
 </svg>
   <div class="hero-copy">
     <div class="eyebrow">ACHELOY BIOMED</div>
-    <h1>把每一個成分、<br>每一份文件，都說清楚。</h1>
-    <p>岩寬生醫 2018 年在臺北成立，從事保養品的研發與銷售，旗下品牌為 Decoy。</p>
+    <h1>從研究出發，<br>好好照顧每一天的肌膚。</h1>
+    <p>岩寬生醫成立於 2018 年，專注於保養品的研發與銷售。我們以研究的態度挑選每一個成分，也透過美容服務品牌 Decoy，陪伴客人好好照顧自己的肌膚。</p>
     <div class="btns">
       <a class="btn btn-white" href="https://decoy-beauty.com/">認識 Decoy</a>
       <a class="btn btn-ghost" href="https://www.acheloy.com/product_store?store_type_sn=35">逛線上商店</a>
@@ -276,7 +274,7 @@
       <div class="stat"><div class="k">FOUNDED</div><div class="n">2018</div><div class="u">年成立</div><p>岩寬生醫在臺北成立</p></div>
       <div class="stat"><div class="k">PATENTS</div><div class="n">3</div><div class="u">項專利</div><p>創辦人與團隊的研發成果</p></div>
       <div class="stat"><div class="k">PATENT LICENSES</div><div class="n">3</div><div class="u">項發明專利授權</div><p>專利設備另獲授權</p></div>
-      <div class="stat"><div class="k">SESSION RECORDS</div><div class="n w">每一堂</div><div class="u">都有紀錄</div><p>紀錄屬於妳本人</p></div>
+      <div class="stat"><div class="k">SESSION RECORDS</div><div class="n w">每一堂</div><div class="u">都有紀錄</div><p>方便妳隨時回顧保養歷程</p></div>
     </div>
   </div>
 </section>
@@ -292,14 +290,14 @@
 </svg>
   <div class="wrap">
     <div class="eyebrow">WHAT WE DO</div>
-    <h2 class="title">我們做的三件事</h2>
+    <h2 class="title">我們重視的三件事</h2>
     <div class="do-grid">
       <div class="card">
         <div class="imgwrap"><div class="ratio r43"><img src="https://decoy-beauty.com/acheloy-assets/home-v3/rd.jpg" width="1200" height="1200" loading="lazy" alt="戴著薄手套的手拿著玻璃滴管，滴下一滴清澈的液體"></div><div class="badge"><svg width="26" height="26" viewBox="0 0 26 26" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true" focusable="false"><circle cx="13" cy="6" r="3"/><circle cx="5.5" cy="19" r="3"/><circle cx="20.5" cy="19" r="3"/><path d="M11.5 8.7 7 16.3M14.5 8.7 19 16.3M8.6 19h8.8"/></svg></div></div>
         <div class="card-body">
           <div class="num">01</div>
           <h3>研發</h3>
-          <p>配方從成分開始想。Decoy 的活性安瓶配方由台大背景的研發團隊開發，全成分公開。創辦人與團隊的研發成果取得 3 項專利，專利設備另獲 3 項發明專利授權。</p>
+          <p>每一款配方，都從成分的研究開始。Decoy 活性安瓶由具台大研究背景的團隊開發，成分完整公開。創辦人與團隊的研發成果取得 3 項專利，專利設備另獲 3 項發明專利授權。</p>
         </div>
       </div>
       <div class="card">
@@ -308,7 +306,7 @@
           <div class="num">02</div>
           <h3>品質</h3>
           
-          <p>每一項產品，都交給合格的化粧品工廠製造，並完成產品登錄與產品資訊檔案。</p>
+          <p>產品皆委託合格的化粧品工廠製造，並依法規辦理產品登錄與產品資訊檔案，讓每一項產品都有清楚的來源與紀錄。</p>
         </div>
       </div>
       <div class="card">
@@ -319,8 +317,8 @@
 </svg></div><div class="badge"><svg width="26" height="26" viewBox="0 0 26 26" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true" focusable="false"><circle cx="13" cy="13" r="9.5"/><circle cx="13" cy="13" r="4.5"/><path d="M13 3.5v2.5M13 20v2.5"/></svg></div></div>
         <div class="card-body">
           <div class="num">03</div>
-          <h3>說話有分寸</h3>
-          <p>我們只說化粧品可以說的話。不誇大，不保證效果；每個人的感受不一樣，我們會老實說。</p>
+          <h3>誠實的建議</h3>
+          <p>我們會依照妳的肌膚狀況，說明產品適合怎麼使用。每個人的感受都不一樣，所以我們不誇大，也不輕易給保證。</p>
         </div>
       </div>
     </div>
@@ -334,7 +332,7 @@
       <div>
         <div class="eyebrow">OUR BRAND</div>
         <h2 class="title">Decoy｜<em>美，由妳作主。</em></h2>
-        <p class="lead">Decoy 是岩寬生醫的美容保養服務品牌。美容師用迅So槍，把活性安瓶裡的精華化成細緻的霧，均勻噴塗在肌膚表面。全程無針、無傷口，每一次都有紀錄，紀錄屬於妳本人。</p>
+        <p class="lead">Decoy 是岩寬生醫的美容保養服務品牌。美容師以迅So槍將活性安瓶精華化為細緻水霧，均勻噴塗於肌膚表面，過程無針、無傷口。每一次服務都會留下紀錄，讓妳清楚掌握自己的保養歷程。</p>
         <div class="btns"><a class="btn btn-rose" href="https://decoy-beauty.com/">前往 Decoy 官網</a></div>
       </div>
     </div>
@@ -362,7 +360,7 @@
         <div class="name-label">名稱</div>
         <h3 class="name-big zh">岩寬</h3>
         <div class="subline">大地般的基石</div>
-        <p>專利、配方、服務，都在這個基礎上長出來；專業，是用來承接人的重量。</p>
+        <p>岩寬，取岩石的穩定與大地的寬厚。我們的專利、配方與服務，都建立在這份穩定之上。</p>
         <svg class="deco deco-rings" viewBox="0 0 200 200" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true" focusable="false">
   <circle cx="100" cy="100" r="92" opacity=".45"/><circle cx="100" cy="100" r="64" opacity=".75"/><circle cx="100" cy="100" r="36"/>
   <circle cx="100" cy="100" r="9" fill="currentColor" stroke="none"/>
@@ -378,8 +376,8 @@
   <div class="wrap">
     <div class="center">
       <div class="eyebrow">SHOP</div>
-      <h2 class="title">日常保養，在這裡買得到。</h2>
-      <p class="lead">岩寬研發的保養品，每一項都寫清楚成分、用法和注意事項。</p>
+      <h2 class="title">岩寬的保養品</h2>
+      <p class="lead">每一項產品都清楚標示成分、用法與注意事項，讓妳安心選擇。</p>
     </div>
     <div class="pro-grid">
       <a class="card pro" href="https://www.acheloy.com/product_detail?product_sn=9">
@@ -396,7 +394,7 @@
         <div class="ratio r11"><img src="https://decoy-beauty.com/acheloy-assets/home-v3/product-2.jpg" width="1200" height="1200" loading="lazy" alt="Decoy 迅So槍與兩支活性安瓶"></div>
         <div class="card-body">
           <h3>Decoy 迅So槍 單堂體驗（門市服務憑證）</h3>
-          <p>由美容師在 Decoy 門市為妳服務。</p>
+          <p>由 Decoy 門市的美容師為妳服務。</p>
           <div class="price">NT$ 8,000</div>
           <span class="more">查看商品 →</span>
         </div>
@@ -406,7 +404,7 @@
         <div class="ratio r11"><img src="https://decoy-beauty.com/acheloy-assets/home-v3/product-3.jpg" width="1200" height="1200" loading="lazy" alt="Decoy LIGHT 與 MIRROR 活性安瓶，粉色禮盒"></div>
         <div class="card-body">
           <h3>Decoy LIGHT／MIRROR 活性安瓶（門市服務使用）</h3>
-          <p>Decoy 門市服務使用的活性安瓶，全成分公開。</p>
+          <p>Decoy 門市服務使用的活性安瓶，成分完整公開。</p>
           <span class="more">了解 Decoy →</span>
         </div>
       </a>
@@ -427,7 +425,7 @@
           <div class="eyebrow">FOUNDER</div>
           <h2 class="title">陳槿唐 Molly Chen</h2>
           <p class="role">岩寬生醫 創辦人暨執行長</p>
-          <p class="oneliner">研究者出身，用數據經營美學事業。看證據、設計研究、照顧人——這三件事是她的訓練，也是岩寬的方法。</p>
+          <p class="oneliner">陳槿唐出身公共衛生與流行病學研究，曾任美國國家衛生研究院（NIH）流感疫苗研究專案經理。她把研究工作的嚴謹帶進美容保養，相信好的照顧，來自清楚的依據與真誠的關心。</p>
           <blockquote class="quote">科學告訴我機制，<br>身體告訴我真相。</blockquote>
         </div>
         <div class="pgroup">
@@ -459,12 +457,30 @@
               <li><span class="y">2016</span>台大黑客松 企業獎冠軍</li>
               <li><span class="y">2018</span>創立岩寬生醫</li>
               <li><span class="y">2019</span>阿里巴巴集團創新創業大賽「全場最具價值投資獎」</li>
-              <li><span class="y">2023</span>金峰獎「傑出創業楷模」；受美國在台協會（AIT）邀請，參加 SelectUSA 投資峰會</li>
+              <li><span class="y">2023</span>第 22 屆金峰獎「年度傑出創業楷模」「年度傑出創新研發」；受美國在台協會（AIT）邀請，參加 Sel​ectUSA 投資峰會</li>
             </ol>
           </div>
         </div>
         <div class="btns"><a class="btn btn-line" href="https://decoy-beauty.com/founder.html">閱讀創辦人故事</a></div>
       </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec events">
+  <div class="wrap">
+    <div class="center">
+      <div class="eyebrow">AWARDS &amp; EVENTS</div>
+      <h2 class="title">得獎與活動</h2>
+      <p class="lead">一路上，謝謝每一份肯定，也謝謝每一次願意聽我們分享的人。</p>
+    </div>
+    <div class="ev-grid">
+      <div class="card ev"><div class="ratio r43"><img src="https://decoy-beauty.com/acheloy-assets/home-v3/events-1.jpg" width="800" height="1200" loading="lazy" alt="陳槿唐在第 22 屆金峰獎背板前手持水晶獎盃"></div><div class="card-body"><div class="yr">2023</div><h3>第 22 屆金峰獎</h3><p>獲頒「年度傑出創業楷模」與「年度傑出創新研發」兩項肯定。</p></div></div>
+      <div class="card ev"><div class="ratio r43"><img src="https://decoy-beauty.com/acheloy-assets/home-v3/events-2.jpg" width="1200" height="800" loading="lazy" alt="金峰獎頒獎典禮台上，陳槿唐與頒獎嘉賓合影"></div><div class="card-body"><div class="yr">2023</div><h3>金峰獎頒獎典禮</h3><p>與頒獎嘉賓在台上合影。</p></div></div>
+      <div class="card ev"><div class="ratio r43"><img src="https://decoy-beauty.com/acheloy-assets/home-v3/events-3.jpg" width="900" height="1200" loading="lazy" alt="陳槿唐手持一等獎獎盃與獎狀"></div><div class="card-body"><div class="yr">2019</div><h3>上海海峽兩岸青年創業大賽</h3><p>獲得一等獎。</p></div></div>
+      <div class="card ev"><div class="ratio r43"><img src="https://decoy-beauty.com/acheloy-assets/home-v3/events-4.jpg" width="1200" height="1163" loading="lazy" alt="陳槿唐在 Sel​ectUSA 投資峰會與與會者合影"></div><div class="card-body"><div class="yr">2023</div><h3>Sel​ectUSA 投資峰會</h3><p>受美國在台協會（AIT）邀請，赴美參加投資峰會。</p></div></div>
+      <div class="card ev"><div class="ratio r43"><img src="https://decoy-beauty.com/acheloy-assets/home-v3/events-5.jpg" width="900" height="1200" loading="lazy" alt="陳槿唐在扶輪社演講，身後投影片寫著創辦人介紹"></div><div class="card-body"><div class="yr">2024</div><h3>扶輪社專題分享</h3><p>受邀分享創業與研究的經驗。</p></div></div>
+      <div class="card ev"><div class="ratio r43"><img src="https://decoy-beauty.com/acheloy-assets/home-v3/events-6.jpg" width="1200" height="1115" loading="lazy" alt="台灣國際醫療暨健康照護展的岩寬生醫展位與團隊合影"></div><div class="card-body"><div class="yr">2022</div><h3>台灣國際醫療暨健康照護展</h3><p>岩寬生醫參展，與團隊在展位合影。</p></div></div>
     </div>
   </div>
 </section>
@@ -496,12 +512,12 @@
         <div class="ratio r32"><img src="https://decoy-beauty.com/acheloy-assets/home-v3/notes-3.jpg" width="1200" height="800" loading="lazy" alt="木梳放在白色亞麻布上"></div>
         <div class="card-body">
           <h3>敏感肌日常保養的 5 個習慣</h3>
-          <p>每天都做得到的小習慣，一起顧好每一天。</p>
+          <p>從清潔到保濕，整理幾個每天都做得到的小習慣。</p>
           <span class="tag">撰寫中</span>
         </div>
       </a>
     </div>
-    <p class="small">這裡寫的是一般保養知識，不能取代專業診斷；皮膚有狀況，請先請教皮膚科醫師。</p>
+    <p class="small">專欄內容為一般保養知識分享，無法取代專業診斷；若肌膚有不適，建議先諮詢皮膚科醫師。</p>
   </div>
 </section>
 

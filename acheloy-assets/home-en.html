@@ -39,7 +39,6 @@
 #ach-home-en a:focus-visible{outline:2px solid #009BAA;outline-offset:3px}
 #ach-home-en .deco{position:absolute;pointer-events:none}
 
-/* 1 首屏：生醫藍漸層疊在主圖上，白色宋體大標 */
 #ach-home-en .hero{position:relative;height:min(82vh,780px);min-height:580px;overflow:hidden;background:linear-gradient(120deg,#1E7882 0%,#009BAA 100%)}
 #ach-home-en .hero picture,#ach-home-en .hero picture img{position:absolute;left:0;top:0;width:100%;height:100%;object-fit:cover;object-position:left center}
 #ach-home-en .hero::after{content:'';position:absolute;left:0;top:0;right:0;bottom:0;background:linear-gradient(100deg,rgba(30,120,130,.20) 0%,rgba(30,120,130,.66) 33%,rgba(0,155,170,.90) 100%)}
@@ -51,7 +50,6 @@
 #ach-home-en .hero h1{margin-top:20px;font-family:'Noto Serif TC','Songti TC','PMingLiU',serif;font-size:50px;font-weight:600;line-height:1.5;letter-spacing:.06em;color:#FFFFFF;text-shadow:0 2px 24px rgba(10,70,80,.25)}
 #ach-home-en .hero p{margin-top:22px;max-width:520px;font-size:17px;line-height:2;color:rgba(255,255,255,.94)}
 
-/* 數據區：大數字，只放核可過的事實 */
 #ach-home-en .stats{position:relative;z-index:3;margin-top:-76px;padding-bottom:12px}
 #ach-home-en .stat-card{display:grid;grid-template-columns:repeat(4,1fr);background:#FFFFFF;border-radius:6px;border-top:3px solid #009BAA;box-shadow:0 22px 56px rgba(23,82,90,.16)}
 #ach-home-en .stat{padding:32px 28px 32px;border-left:1px solid #D6ECEE}
@@ -62,7 +60,6 @@
 #ach-home-en .stat .u{margin-top:6px;font-family:'Noto Serif TC','Songti TC',serif;font-size:19px;font-weight:600;letter-spacing:.1em;color:#17525a}
 #ach-home-en .stat p{margin-top:8px;font-size:13.5px;line-height:1.85;color:#5a6b6e}
 
-/* 2 三件事 */
 #ach-home-en .do{background:#EAF6F7;background-image:linear-gradient(rgba(0,155,170,.08) 1px,transparent 1px),linear-gradient(90deg,rgba(0,155,170,.08) 1px,transparent 1px);background-size:56px 56px}
 #ach-home-en .do .deco-mol{right:-60px;top:-50px;width:380px;color:#009BAA;opacity:.22}
 #ach-home-en .do-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:56px}
@@ -78,7 +75,6 @@
 #ach-home-en .grad{background:linear-gradient(135deg,#1E7882 0%,#009BAA 100%)}
 #ach-home-en .grad .deco-rings{left:50%;top:50%;width:62%;transform:translate(-50%,-50%);color:#FFFFFF;opacity:.85}
 
-/* 3 Decoy：淡膚粉只用在這一區，代表 Decoy */
 #ach-home-en .brand{background:#FFF6F3}
 #ach-home-en .brand-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:64px;align-items:center}
 #ach-home-en .brand .eyebrow{color:#8B5060}
@@ -89,7 +85,6 @@
 #ach-home-en .brand .btn-rose{background:#A86878;border-color:#A86878;color:#FFFFFF}
 #ach-home-en .brand .btn-rose:hover{background:#8B5060;border-color:#8B5060}
 
-/* 4 名字：藍色漸層疊在圖上，下面是兩張並排的大卡 */
 #ach-home-en .name{padding-top:0;padding-bottom:0}
 #ach-home-en .name-banner{position:relative;background:#CFE9EC}
 #ach-home-en .name-banner::after{content:'';position:absolute;left:0;top:0;right:0;bottom:0;z-index:1;background:linear-gradient(180deg,rgba(30,120,130,.94) 0%,rgba(0,155,170,.62) 55%,rgba(0,155,170,.18) 100%)}
@@ -114,7 +109,6 @@
 #ach-home-en .promise{margin-top:28px;padding:18px 24px 20px;border-left:3px solid #009BAA;background:#EAF6F7;font-family:'Noto Serif TC','Songti TC',serif;font-size:17.5px;line-height:1.95;letter-spacing:.05em;color:#17525a}
 #ach-home-en .promise span{display:block;margin-bottom:4px;font-family:'Manrope','Noto Sans TC',sans-serif;font-size:11.5px;font-weight:600;letter-spacing:.3em;color:#009BAA}
 
-/* 5 商店 */
 #ach-home-en .shop{background:#F4FAFB}
 #ach-home-en .shop-bg{position:absolute;left:0;top:0;width:100%;height:100%;z-index:0;background:#CFE9EC}
 #ach-home-en .shop-bg img{width:100%;height:100%;object-fit:cover}
@@ -128,7 +122,6 @@
 #ach-home-en .pro .more{display:inline-block;margin-top:14px;font-size:14px;letter-spacing:.18em;color:#1E7882}
 #ach-home-en .pro:hover .more{color:#009BAA}
 
-/* 6 創辦人：照片在左，右邊四組，用細線分隔，英文小標 */
 #ach-home-en .founder-grid{display:grid;grid-template-columns:4.6fr 7.4fr;gap:88px;align-items:start}
 #ach-home-en .founder-photo{border-radius:4px;box-shadow:18px 18px 0 #CFE9EC}
 #ach-home-en .cap{margin-top:38px;font-size:13.5px;line-height:1.9;letter-spacing:.14em;color:#4d6366}
@@ -150,7 +143,14 @@
 #ach-home-en .timeline li:last-child::before{display:none}
 #ach-home-en .timeline li::after{content:'';position:absolute;left:69px;top:11px;width:9px;height:9px;border-radius:50%;background:#FFFFFF;border:2px solid #009BAA}
 
-/* 7 知識專欄 */
+#ach-home-en .events{background:#FFFFFF}
+#ach-home-en .ev-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin-top:52px}
+#ach-home-en .ev{display:block}
+#ach-home-en .ev .ratio>img{object-position:center 22%}
+#ach-home-en .ev .card-body{padding:22px 24px 26px}
+#ach-home-en .ev .yr{font-family:'Manrope','Noto Sans TC',sans-serif;font-size:13px;font-weight:700;letter-spacing:.16em;color:#009BAA}
+#ach-home-en .ev h3{margin-top:6px;font-size:18px;letter-spacing:.06em;line-height:1.55}
+#ach-home-en .ev p{margin-top:8px;font-size:14px;line-height:1.9}
 #ach-home-en .notes{background:#EAF6F7;background-image:linear-gradient(rgba(0,155,170,.08) 1px,transparent 1px),linear-gradient(90deg,rgba(0,155,170,.08) 1px,transparent 1px);background-size:56px 56px}
 #ach-home-en .notes-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:52px}
 #ach-home-en .note{display:block}
@@ -161,7 +161,6 @@
 #ach-home-en .note .more{display:inline-block;margin-top:12px;font-size:14px;letter-spacing:.18em;color:#1E7882}
 #ach-home-en .small{margin-top:34px;font-size:13px;line-height:1.9;color:#4d6366;text-align:center}
 
-/* 8 公司資訊（頁尾）：深藍綠底、白字 */
 #ach-home-en .info{background:linear-gradient(180deg,#1E7882 0%,#17616a 100%);color:#FFFFFF}
 #ach-home-en .info .deco-mol{right:-40px;bottom:-60px;width:420px;color:#FFFFFF;opacity:.12}
 #ach-home-en .info-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
@@ -180,12 +179,11 @@
 #ach-home-en .langsw a{color:#FFFFFF;border-bottom:1px solid rgba(255,255,255,.45);padding-bottom:1px}
 #ach-home-en .langsw a:hover{border-bottom-color:#FFFFFF}
 
-/* 手機與平板 */
 @media (max-width:960px){
   #ach-home-en .wrap{padding:0 24px}
   #ach-home-en .sec{padding:84px 0}
   #ach-home-en .title{font-size:30px}
-  #ach-home-en .do-grid,#ach-home-en .pro-grid,#ach-home-en .notes-grid{grid-template-columns:1fr 1fr}
+  #ach-home-en .do-grid,#ach-home-en .pro-grid,#ach-home-en .notes-grid,#ach-home-en .ev-grid{grid-template-columns:1fr 1fr}
   #ach-home-en .brand-grid,#ach-home-en .founder-grid,#ach-home-en .info-grid{grid-template-columns:1fr;gap:40px}
   #ach-home-en .founder-photo{max-width:420px}
   #ach-home-en .hero-copy{left:32%;right:6%}
@@ -221,7 +219,7 @@
   #ach-home-en .stat .n.w{font-size:30px;padding:4px 0}
   #ach-home-en .stat .u{font-size:16px}
   #ach-home-en .stat p{font-size:12.5px}
-  #ach-home-en .do-grid,#ach-home-en .pro-grid,#ach-home-en .notes-grid{grid-template-columns:1fr;gap:34px;margin-top:44px}
+  #ach-home-en .do-grid,#ach-home-en .pro-grid,#ach-home-en .notes-grid,#ach-home-en .ev-grid{grid-template-columns:1fr;gap:34px;margin-top:44px}
   #ach-home-en .name-copy{position:static;padding:46px 24px 30px;background:linear-gradient(180deg,#1E7882,#009BAA)}
   #ach-home-en .name-banner::after{background:linear-gradient(180deg,rgba(0,155,170,.28) 0%,rgba(0,155,170,.1) 100%)}
   #ach-home-en .name-wrap{padding-bottom:68px;margin-top:0}
@@ -306,8 +304,8 @@
 </svg>
   <div class="hero-copy">
     <div class="eyebrow">ACHELOY BIOMED</div>
-    <h1>Every ingredient,<br>every document,<br>made clear.</h1>
-    <p>Founded in Taipei in 2018, Acheloy Biomed develops and sells skincare. Decoy is our beauty service brand.</p>
+    <h1>Research-led care<br>for your skin,<br>every day.</h1>
+    <p>Founded in Taipei in 2018, Acheloy Biomed develops and sells skincare. We choose every ingredient with a researcher’s care, and through our beauty service brand Decoy, we help each client look after her skin.</p>
     <div class="btns">
       <a class="btn btn-white" href="https://decoy-beauty.com/en/">Meet Decoy</a>
       <a class="btn btn-ghost" href="https://www.acheloy.com/product_store?store_type_sn=35">Visit the online shop</a>
@@ -321,7 +319,7 @@
       <div class="stat"><div class="k">FOUNDED</div><div class="n">2018</div><div class="u">Founded</div><p>Acheloy Biomed, in Taipei, Taiwan</p></div>
       <div class="stat"><div class="k">PATENTS</div><div class="n">3</div><div class="u">Patents in Taiwan</div><p>From the founder and team’s R&amp;D</p></div>
       <div class="stat"><div class="k">PATENT LICENSES</div><div class="n">3</div><div class="u">Invention patents licensed</div><p>For the patented device (Taiwan)</p></div>
-      <div class="stat"><div class="k">SESSION RECORDS</div><div class="n w">Every session</div><div class="u">is recorded</div><p>The record belongs to you</p></div>
+      <div class="stat"><div class="k">SESSION RECORDS</div><div class="n w">Every session</div><div class="u">is recorded</div><p>So you can look back on your care anytime</p></div>
     </div>
   </div>
 </section>
@@ -337,14 +335,14 @@
 </svg>
   <div class="wrap">
     <div class="eyebrow">WHAT WE DO</div>
-    <h2 class="title">Three things we do</h2>
+    <h2 class="title">Three things we care about</h2>
     <div class="do-grid">
       <div class="card">
         <div class="imgwrap"><div class="ratio r43"><img src="https://decoy-beauty.com/acheloy-assets/home-v3/rd.jpg" width="1200" height="1200" loading="lazy" alt="A gloved hand holding a glass dropper over a clear drop of liquid"></div><div class="badge"><svg width="26" height="26" viewBox="0 0 26 26" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true" focusable="false"><circle cx="13" cy="6" r="3"/><circle cx="5.5" cy="19" r="3"/><circle cx="20.5" cy="19" r="3"/><path d="M11.5 8.7 7 16.3M14.5 8.7 19 16.3M8.6 19h8.8"/></svg></div></div>
         <div class="card-body">
           <div class="num">01</div>
           <h3>Research</h3>
-          <p>Formulas start from the ingredients. Decoy’s active ampoule formulas are developed by an R&amp;D team with a National Taiwan University background, and every ingredient is disclosed. Our founder and team’s R&amp;D has earned 3 patents, and the patented device is additionally licensed under 3 invention patents (all Taiwan patents).</p>
+          <p>Every formula begins with research into its ingredients. Decoy’s active ampoules are developed by a team with a National Taiwan University research background, and every ingredient is disclosed. Our founder and team’s R&amp;D has earned 3 patents, and the patented device is additionally licensed under 3 invention patents (all Taiwan patents).</p>
         </div>
       </div>
       <div class="card">
@@ -353,7 +351,7 @@
           <div class="num">02</div>
           <h3>Quality</h3>
           
-          <p>Every product is made by a qualified cosmetics manufacturer, with product registration and a Product Information File completed.</p>
+          <p>Our products are made by qualified cosmetics manufacturers, with product registration and Product Information Files handled as the regulations require, so every product has a clear origin and record.</p>
         </div>
       </div>
       <div class="card">
@@ -364,8 +362,8 @@
 </svg></div><div class="badge"><svg width="26" height="26" viewBox="0 0 26 26" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true" focusable="false"><circle cx="13" cy="13" r="9.5"/><circle cx="13" cy="13" r="4.5"/><path d="M13 3.5v2.5M13 20v2.5"/></svg></div></div>
         <div class="card-body">
           <div class="num">03</div>
-          <h3>Measured claims</h3>
-          <p>We say only what a cosmetics company can say. No exaggeration and no guaranteed results. Everyone’s experience is different, and we will tell you so honestly.</p>
+          <h3>Honest advice</h3>
+          <p>We explain how a product suits your skin and how to use it. Everyone’s experience is different, so we never exaggerate or make promises we cannot keep.</p>
         </div>
       </div>
     </div>
@@ -379,7 +377,7 @@
       <div>
         <div class="eyebrow">OUR BRAND</div>
         <h2 class="title">Decoy — <em>our beauty service brand.</em></h2>
-        <p class="lead">Our beauticians use the Decoy device to turn the serum in each active ampoule into a fine mist and apply it evenly onto the skin surface — needle-free, no downtime. Every session is recorded, and the record belongs to you.</p>
+        <p class="lead">Our beauticians use the Decoy device to turn the serum in each active ampoule into a fine mist and apply it evenly onto the skin surface. It is needle-free and leaves no wounds. Every session is recorded, so you can follow your own care over time.</p>
         <div class="btns"><a class="btn btn-rose" href="https://decoy-beauty.com/en/">Visit Decoy</a></div>
       </div>
     </div>
@@ -407,7 +405,7 @@
         <div class="name-label">In Chinese · Yán kuān</div>
         <h3 class="name-big zh">岩寬</h3>
         <div class="subline">A bedrock, like the earth</div>
-        <p>Our patents, formulas and services all grow from this foundation. Expertise exists to carry the weight of people.</p>
+        <p>Yán kuān joins the steadiness of rock with the breadth of the earth. Our patents, formulas and services are all built on that steady ground.</p>
         <svg class="deco deco-rings" viewBox="0 0 200 200" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true" focusable="false">
   <circle cx="100" cy="100" r="92" opacity=".45"/><circle cx="100" cy="100" r="64" opacity=".75"/><circle cx="100" cy="100" r="36"/>
   <circle cx="100" cy="100" r="9" fill="currentColor" stroke="none"/>
@@ -423,8 +421,8 @@
   <div class="wrap">
     <div class="center">
       <div class="eyebrow">SHOP</div>
-      <h2 class="title">Our online shop</h2>
-      <p class="lead">Skincare developed by Acheloy, with ingredients, directions and precautions spelled out on every product page. The shop is currently in Traditional Chinese.</p>
+      <h2 class="title">Acheloy skincare</h2>
+      <p class="lead">Every product clearly lists its ingredients, directions and precautions, so you can choose with confidence. The shop is currently in Traditional Chinese.</p>
     </div>
     <div class="pro-grid">
       <a class="card pro" href="https://www.acheloy.com/product_detail?product_sn=9">
@@ -470,7 +468,7 @@
           <div class="eyebrow">FOUNDER</div>
           <h2 class="title">Molly Chen <span class="zhname">(陳槿唐)</span></h2>
           <p class="role">Founder &amp; CEO, Acheloy Biomed</p>
-          <p class="oneliner">A researcher by training, she runs a beauty business on data. Weighing evidence, designing studies and caring for people are her training, and they are also Acheloy’s method.</p>
+          <p class="oneliner">Molly Chen trained in public health and epidemiology and served as project manager of an influenza vaccine research project at the U.S. National Institutes of Health (NIH). She brings that research discipline to skincare, believing that good care comes from clear evidence and genuine concern.</p>
           <blockquote class="quote">Science tells me the mechanism.<br>The body tells me the truth.</blockquote>
         </div>
         <div class="pgroup">
@@ -502,12 +500,30 @@
               <li><span class="y">2016</span>Champion, Corporate Award, NTU Hackathon</li>
               <li><span class="y">2018</span>Founded Acheloy Biomed</li>
               <li><span class="y">2019</span>“Most Valuable Investment Award” (overall), Alibaba Group Innovation and Entrepreneurship Competition</li>
-              <li><span class="y">2023</span>Golden Peak Award, “Outstanding Entrepreneur Role Model”; invited by the American Institute in Taiwan (AIT) to the SelectUSA Investment Summit</li>
+              <li><span class="y">2023</span>22nd Golden Peak Award: Outstanding Entrepreneur of the Year, and Outstanding Innovation in R&amp;D; invited by the American Institute in Taiwan (AIT) to the Sel​ectUSA Investment Summit</li>
             </ol>
           </div>
         </div>
         <div class="btns"><a class="btn btn-line" href="https://decoy-beauty.com/en/founder.html">Read the founder’s story</a></div>
       </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec events">
+  <div class="wrap">
+    <div class="center">
+      <div class="eyebrow">AWARDS &amp; EVENTS</div>
+      <h2 class="title">Awards and events</h2>
+      <p class="lead">Thank you for every recognition along the way, and to everyone who has listened to us share our work.</p>
+    </div>
+    <div class="ev-grid">
+      <div class="card ev"><div class="ratio r43"><img src="https://decoy-beauty.com/acheloy-assets/home-v3/events-1.jpg" width="800" height="1200" loading="lazy" alt="Molly Chen holding a crystal trophy at the 22nd Golden Peak Award"></div><div class="card-body"><div class="yr">2023</div><h3>22nd Golden Peak Award</h3><p>Recognized as Outstanding Entrepreneur of the Year and for Outstanding Innovation in R&amp;D.</p></div></div>
+      <div class="card ev"><div class="ratio r43"><img src="https://decoy-beauty.com/acheloy-assets/home-v3/events-2.jpg" width="1200" height="800" loading="lazy" alt="Molly Chen on stage with the award presenter at the Golden Peak Award ceremony"></div><div class="card-body"><div class="yr">2023</div><h3>Golden Peak Award ceremony</h3><p>On stage with the award presenter.</p></div></div>
+      <div class="card ev"><div class="ratio r43"><img src="https://decoy-beauty.com/acheloy-assets/home-v3/events-3.jpg" width="900" height="1200" loading="lazy" alt="Molly Chen holding a first-prize trophy and certificate"></div><div class="card-body"><div class="yr">2019</div><h3>Shanghai Cross-Strait Youth Entrepreneurship Competition</h3><p>First prize.</p></div></div>
+      <div class="card ev"><div class="ratio r43"><img src="https://decoy-beauty.com/acheloy-assets/home-v3/events-4.jpg" width="1200" height="1163" loading="lazy" alt="Molly Chen with a participant at the Sel​ectUSA Investment Summit"></div><div class="card-body"><div class="yr">2023</div><h3>Sel​ectUSA Investment Summit</h3><p>Invited by the American Institute in Taiwan (AIT) to attend the summit in the United States.</p></div></div>
+      <div class="card ev"><div class="ratio r43"><img src="https://decoy-beauty.com/acheloy-assets/home-v3/events-5.jpg" width="900" height="1200" loading="lazy" alt="Molly Chen giving a talk at a Rotary Club meeting"></div><div class="card-body"><div class="yr">2024</div><h3>Rotary Club talk</h3><p>Invited to share her experience in research and entrepreneurship.</p></div></div>
+      <div class="card ev"><div class="ratio r43"><img src="https://decoy-beauty.com/acheloy-assets/home-v3/events-6.jpg" width="1200" height="1115" loading="lazy" alt="The Acheloy Biomed booth and team at Medical Taiwan"></div><div class="card-body"><div class="yr">2022</div><h3>Medical Taiwan expo</h3><p>Acheloy Biomed exhibited, with our team at the booth.</p></div></div>
     </div>
   </div>
 </section>
@@ -539,12 +555,12 @@
         <div class="ratio r32"><img src="https://decoy-beauty.com/acheloy-assets/home-v3/notes-3.jpg" width="1200" height="800" loading="lazy" alt="A wooden comb resting on white linen"></div>
         <div class="card-body">
           <h3>5 everyday habits for sensitive skin</h3>
-          <p>Small habits you can keep every day.</p>
+          <p>From cleansing to moisturizing: a few habits you can keep every day.</p>
           <span class="tag">Coming soon</span>
         </div>
       </a>
     </div>
-    <p class="small">General skincare knowledge only. It does not replace professional advice; if your skin has a concern, please consult a dermatologist.</p>
+    <p class="small">These notes share general skincare knowledge and cannot replace professional advice. If your skin feels uncomfortable, please consult a dermatologist first.</p>
   </div>
 </section>
 
